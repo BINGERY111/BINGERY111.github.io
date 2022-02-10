@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>个人笔记</title>
+<title>算法-字符流中第一个不重复的字符 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,6 +23,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://bingery111.github.io/">个人笔记</a></h3>
@@ -76,125 +77,120 @@
   </div>
 </nav>
 
-
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
+          <article class="article">
+            <h1>算法-字符流中第一个不重复的字符</h1>
+            <p class="article-meta">
+              2022-02-10
+              
+            </p>
+            
+            <div class="post-content">
+              <h4 id="目录介绍">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>请实现一个函数用来找出字符流中第一个只出现一次的字符。</li>
+</ul>
+</li>
+<li>示例 :
+<ul>
+<li>例如，当从字符流中只读出前两个字符“Go”时，第一个只出现一次的字符是‘g’。当从该字符流中读出前六个字符“google”时，第一个只出现1次的字符是”l”。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析">02.问题分析</h3>
+<ul>
+<li>字符只能一个接着一个从字符流中读出来。可以定义一个数据容器来保存字符在字符流中的位置。当一个字符第一次从字符流中读出来时，把它在字符流中的位置保存到数据容器里。当这个字符再次从字符流中被读出来时，那么它就不是只出现一次的字符，也就可以被忽略了。这时把它在数据容器里保存的值更新成一个特殊的值（比如负值）。</li>
+<li>为了尽可能高校地解决这个问题，需要在O(1)时间内往容器里插入一个字符，以及更新一个字符对应的值。这个容器可以用哈希表来实现。用字符的ASCII码作为哈希表的键值，而把字符对应的位置作为哈希表的值。</li>
+</ul>
+<h3 id="03实例代码">03.实例代码</h3>
+<ul>
+<li>如下所示</li>
+</ul>
+<pre><code class="language-java">public class Test {
+    /**
+     * 题目：请实现一个函数用来找出字符流中第一个只出现一次的字符。
+     */
+    private static class CharStatistics {
+        // 出现一次的标识
+        private int index = 0;
+        private int[] occurrence = new int[256];
+
+        public CharStatistics() {
+            for (int i = 0; i &lt; occurrence.length; i++) {
+                occurrence[i] = -1;
+            }
+        }
+
+        private void insert(char ch) {
+            if (ch &gt; 255) {
+                throw new IllegalArgumentException( ch + &quot;must be a ASCII char&quot;);
+            }
+
+            // 只出现一次
+            if (occurrence[ch] == -1) {
+                occurrence[ch] = index;
+            } else {
+                // 出现了两次
+                occurrence[ch] = -2;
+            }
+
+            index++;
+        }
+
+        public char firstAppearingOnce(String data) {
+            if (data == null) {
+                throw new IllegalArgumentException(data);
+            }
+
+            for (int i = 0; i &lt; data.length(); i++) {
+                insert(data.charAt(i));
+            }
+            char ch = '\0';
+            // 用于记录最小的索引，对应的就是第一个不重复的数字
+            int minIndex = Integer.MAX_VALUE;
+            for (int i = 0; i &lt; occurrence.length; i++) {
+                if (occurrence[i] &gt;= 0 &amp;&amp; occurrence[i] &lt; minIndex) {
+                    ch = (char) i;
+                    minIndex = occurrence[i];
+                }
+            }
+
+            return ch;
+        }
+    }
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
           
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://bingery111.github.io/post/java-ji-chu-bu-fen/">java-基础部分</a>
-    </h2>
-    <p class="article-meta">
-      2022-02-10
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://bingery111.github.io/post/java-ji-chu-bu-fen/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://bingery111.github.io/post/ji-qi-ren-de-yun-dong-fan-wei/">算法-机器人的运动范围</a>
-    </h2>
-    <p class="article-meta">
-      2022-02-10
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://bingery111.github.io/post/ji-qi-ren-de-yun-dong-fan-wei/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://bingery111.github.io/post/zi-fu-liu-zhong-di-yi-ge-bu-chong-fu-de-zi-fu/">算法-字符流中第一个不重复的字符</a>
-    </h2>
-    <p class="article-meta">
-      2022-02-10
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://bingery111.github.io/post/zi-fu-liu-zhong-di-yi-ge-bu-chong-fu-de-zi-fu/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://bingery111.github.io/post/bu-yong-jia-jian-cheng-chu-zuo-jia-fa/">算法-不用加减乘除做加法</a>
-    </h2>
-    <p class="article-meta">
-      2022-02-10
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://bingery111.github.io/post/bu-yong-jia-jian-cheng-chu-zuo-jia-fa/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://bingery111.github.io/post/bu-ke-pai-de-shun-zi/">算法-扑克牌的顺子</a>
-    </h2>
-    <p class="article-meta">
-      2022-02-10
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://bingery111.github.io/post/bu-ke-pai-de-shun-zi/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://bingery111.github.io/post/bu-yong-jia-jian-cheng-chu-zuo-jia-fa/">
+                <h3 class="post-title">
+                  算法-不用加减乘除做加法
+                </h3>
+              </a>
+            </div>
+          
         </div>
         
-        <div class="row flex-edges">
-  
-  
-    <a href="https://bingery111.github.io/page/2" class="paper-btn">
-      下一页
-    </a>
-  
-</div>
-
       </div>
-      
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://bingery111.github.io//images/avatar.png?v=1644493012497" class="no-responsive avatar">
@@ -320,7 +316,9 @@
   </div>
 </div>
 
+
     </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">

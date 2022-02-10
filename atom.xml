@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io/</id>
     <title>个人笔记</title>
-    <updated>2022-02-10T09:38:28.210Z</updated>
+    <updated>2022-02-10T11:36:54.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io/"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -11,31 +11,73 @@
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
     <entry>
-        <title type="html"><![CDATA[数组]]></title>
-        <id>https://bingery111.github.io/post/shu-zu/</id>
-        <link href="https://bingery111.github.io/post/shu-zu/">
+        <title type="html"><![CDATA[java-基础部分]]></title>
+        <id>https://bingery111.github.io/post/java-ji-chu-bu-fen/</id>
+        <link href="https://bingery111.github.io/post/java-ji-chu-bu-fen/">
         </link>
-        <updated>2022-02-10T09:19:51.000Z</updated>
+        <updated>2022-02-10T11:34:04.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[算法基础]]></title>
-        <id>https://bingery111.github.io/post/leetcode/</id>
-        <link href="https://bingery111.github.io/post/leetcode/">
+        <title type="html"><![CDATA[算法-机器人的运动范围]]></title>
+        <id>https://bingery111.github.io/post/ji-qi-ren-de-yun-dong-fan-wei/</id>
+        <link href="https://bingery111.github.io/post/ji-qi-ren-de-yun-dong-fan-wei/">
         </link>
-        <updated>2022-02-09T20:55:19.000Z</updated>
+        <updated>2022-02-10T11:30:59.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[markdown学习笔记]]></title>
-        <id>https://bingery111.github.io/post/markdown-xue-xi-bi-ji/</id>
-        <link href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">
+        <title type="html"><![CDATA[算法-字符流中第一个不重复的字符]]></title>
+        <id>https://bingery111.github.io/post/zi-fu-liu-zhong-di-yi-ge-bu-chong-fu-de-zi-fu/</id>
+        <link href="https://bingery111.github.io/post/zi-fu-liu-zhong-di-yi-ge-bu-chong-fu-de-zi-fu/">
         </link>
-        <updated>2022-02-09T19:31:01.000Z</updated>
+        <updated>2022-02-10T11:30:42.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[git学习笔记]]></title>
-        <id>https://bingery111.github.io/post/git-xue-xi-bi-ji/</id>
-        <link href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
+        <title type="html"><![CDATA[算法-不用加减乘除做加法]]></title>
+        <id>https://bingery111.github.io/post/bu-yong-jia-jian-cheng-chu-zuo-jia-fa/</id>
+        <link href="https://bingery111.github.io/post/bu-yong-jia-jian-cheng-chu-zuo-jia-fa/">
         </link>
-        <updated>2022-02-09T19:00:28.000Z</updated>
+        <updated>2022-02-10T11:30:31.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法-扑克牌的顺子]]></title>
+        <id>https://bingery111.github.io/post/bu-ke-pai-de-shun-zi/</id>
+        <link href="https://bingery111.github.io/post/bu-ke-pai-de-shun-zi/">
+        </link>
+        <updated>2022-02-10T11:30:19.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法-n个骰子的点数]]></title>
+        <id>https://bingery111.github.io/post/n-ge-tou-zi-de-dian-shu/</id>
+        <link href="https://bingery111.github.io/post/n-ge-tou-zi-de-dian-shu/">
+        </link>
+        <updated>2022-02-10T11:30:08.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法-打印1到最大的n位数]]></title>
+        <id>https://bingery111.github.io/post/da-yin-1-dao-zui-da-de-n-wei-shu/</id>
+        <link href="https://bingery111.github.io/post/da-yin-1-dao-zui-da-de-n-wei-shu/">
+        </link>
+        <updated>2022-02-10T11:30:02.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法-求从1到n的整数中1出现的次数]]></title>
+        <id>https://bingery111.github.io/post/qiu-cong-1-dao-n-de-zheng-shu-zhong-1-chu-xian-de-ci-shu/</id>
+        <link href="https://bingery111.github.io/post/qiu-cong-1-dao-n-de-zheng-shu-zhong-1-chu-xian-de-ci-shu/">
+        </link>
+        <updated>2022-02-10T11:29:42.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法-跳台阶问题]]></title>
+        <id>https://bingery111.github.io/post/tiao-tai-jie-wen-ti/</id>
+        <link href="https://bingery111.github.io/post/tiao-tai-jie-wen-ti/">
+        </link>
+        <updated>2022-02-10T11:29:34.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[斐波那契数列]]></title>
+        <id>https://bingery111.github.io/post/fei-bo-na-qi-shu-lie/</id>
+        <link href="https://bingery111.github.io/post/fei-bo-na-qi-shu-lie/">
+        </link>
+        <updated>2022-02-10T11:29:25.000Z</updated>
     </entry>
 </feed>
