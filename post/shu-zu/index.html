@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>数组 | 个人笔记</title>
+<meta name="description" content="个人笔记">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://bingery111.github.io//favicon.ico?v=1644485682339">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://bingery111.github.io//styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://bingery111.github.io/">个人笔记</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>数组</h1>
+            <p class="article-meta">
+              2022-02-10
+              
+            </p>
+            
+            <div class="post-content">
+              <h1 id="数组">数组</h1>
+<h2 id="数组的基础介绍">数组的基础介绍</h2>
+<h4 id="目录介绍">目录介绍</h4>
+<ul>
+<li>01.什么是数组</li>
+<li>02.数组的优缺点</li>
+<li>03.数组使用场景</li>
+<li>04.线性表和非线性表</li>
+<li>05.数组的访问</li>
+<li>06.数组和链表区别</li>
+<li>07.数组低效插入</li>
+<li>08.数组低效删除</li>
+<li>09.容器和数组</li>
+<li>10.为何数组从0开始</li>
+</ul>
+<hr>
+<h3 id="01什么是数组">01.什么是数组</h3>
+<ul>
+<li>数组是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</li>
+</ul>
+<h3 id="02数组的优缺点">02.数组的优缺点</h3>
+<ul>
+<li>数组作为数据存储结构有一定的缺陷。
+<ul>
+<li>在无序数组中，搜索性能差，在有序数组中，插入效率又很低，而且这两种数组的删除效率都很低，并且数组在创建后，其大小是固定了，设置的过大会造成内存的浪费，过小又不能满足数据量的存储。</li>
+</ul>
+</li>
+<li>连续的内存空间和相同类型的数据。
+<ul>
+<li>正是因为这两个限制，它才有了一个堪称“杀手锏”的特性：“随机访问”。但有利就有弊，这两个限制也让数组的很多操作变得非常低效，比如要想在数组中删除、插入一个数据，为了保证连续性，就需要做大量的数据搬移工作。</li>
+</ul>
+</li>
+</ul>
+<h3 id="03数组使用场景">03.数组使用场景</h3>
+<ul>
+<li>数组是一种通用的数据结构，能用来实现栈、队列等很多数据结构。</li>
+<li></li>
+</ul>
+<h3 id="04线性表和非线性表">04.线性表和非线性表</h3>
+<hr>
+<h4 id="41-线性表">4.1 线性表</h4>
+<ul>
+<li>数据排成像一条线一样的结构。每个线性表上的数据最多只有前后两个方向。除了数组，链表、队列、栈也是线性表结构。
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-70c64c20863fc206.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h4 id="42-非线性表">4.2 非线性表</h4>
+<ul>
+<li>非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表中，数据之间并不是简单的前后关系。
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-43c90ffeadc0fe36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h3 id="05数组的访问">05.数组的访问</h3>
+<ul>
+<li>数组是如何实现根据下标随机访问数组元素的吗？</li>
+<li>我们拿一个长度为 10 的 int 类型的数组 int[ ] a = new int[10 ] 来举例。在我画的这个图中，计算机给数组 a[10]，分配了一块连续内存空间 1000～1039，其中，内存块的首地址为 base_address = 1000。
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-758405a18c809877.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" loading="lazy"></li>
+</ul>
+</li>
+<li>计算机会给每个内存单元分配一个地址，计算机通过地址来访问内存中的数据。当计算机需要随机访问数组中的某个元素时，它会首先通过下面的寻址公式，计算出该元素存储的内存地址：<pre><code>a[i]_address = base_address + i * data_type_size
+</code></pre>
+<ul>
+<li>其中 data_type_size 表示数组中每个元素的大小。我们举的这个例子里，数组中存储的是+int+类型数据，所以 data_type_size 就为 4 个字节。这个公式非常简单，我就不多做解释了。</li>
+</ul>
+</li>
+</ul>
+<h3 id="06数组和链表区别">06.数组和链表区别</h3>
+<ul>
+<li>数组和链表的区别，很多人都回答说，“链表适合插入、删除，时间复杂度O(1)；数组适合查找，查找时间复杂度为 O(1)”。</li>
+<li>实际上，这种表述是不准确的。数组是适合查找操作，但是查找的时间复杂度并不为O(1)。即便是排好序的数组，你用二分查找，时间复杂度也是O(logn)。所以，正确的表述应该是，数组支持随机访问，根据下标随机访问的时间复杂度为 O(1)。</li>
+</ul>
+<h3 id="07数组低效插入">07.数组低效插入</h3>
+<ul>
+<li>假设数组的长度为 n，现在，如果我们需要将一个数据插入到数组中的第 k 个位置。为了把第 k 个位置腾出来，给新来的数据，我们需要将第 k～n 这部分的元素都顺序地往后挪一位。那插入操作的时间复杂度是多少呢？你可以自己先试着分析一下。</li>
+<li>如果在数组的末尾插入元素，那就不需要移动数据了，这时的时间复杂度为 O(1)。但如果在数组的开头插入元素，那所有的数据都需要依次往后移动一位，所以最坏时间复杂度是 O(n)。因为我们在每个位置插入元素的概率是一样的，所以平均情况时间复杂度为 (1+2+…n)/n=O(n)。</li>
+<li>如果数组中的数据是有序的，我们在某个位置插入一个新的元素时，就必须按照刚才的方法搬移+k+之后的数据。但是，如果数组中存储的数据并没有任何规律，数组只是被当作一个存储数据的集合。在这种情况下，如果要将某个数组插入到第 k 个位置，为了避免大规模的数据搬移，我们还有一个简单的办法就是，直接将第 k 位的数据搬移到数组元素的最后，把新的元素直接放入第 k 个位置。</li>
+<li>为了更好地理解，我们举一个例子。假设数组 a[10]中存储了如下 5 个元素：a，b，c，d，e。</li>
+<li>我们现在需要将元素 x 插入到第 3 个位置。我们只需要将 c 放入到 a[5]，将 a[2]赋值为 x 即可。最后，数组中的元素如下： a，b，x，d，e，c。
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-627c683e9bfc79aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" loading="lazy"></li>
+</ul>
+</li>
+<li>利用这种处理技巧，在特定场景下，在第 k 个位置插入一个元素的时间复杂度就会降为 O(1)。这个处理思想在快排中也会用到，我会在排序那一节具体来讲，这里就说到这儿。</li>
+</ul>
+<h3 id="08数组低效删除">08.数组低效删除</h3>
+<ul>
+<li>跟插入数据类似，如果我们要删除第k个位置的数据，为了内存的连续性，也需要搬移数据，不然中间就会出现空洞，内存就不连续了。</li>
+<li>和插入类似，如果删除数组末尾的数据，则最好情况时间复杂度为 O(1)；如果删除开头的数据，则最坏情况时间复杂度为 O(n)；平均情况时间复杂度也为 O(n)。</li>
+<li>实际上，在某些特殊场景下，我们并不一定非得追求数组中数据的连续性。如果我们将多次删除操作集中在一起执行，删除的效率是不是会提高很多呢？</li>
+<li>我们继续来看例子。数组 a[10]中存储了 8 个元素：a，b，c，d，e，f，g，h。现在，我们要依次删除 a，b，c 三个元素。</li>
+<li>为了避免 d，e，f，g，h+这几个数据会被搬移三次，我们可以先记录下已经删除的数据。每次的删除操作并不是真正地搬移数据，只是记录数据已经被删除。当数组没有更多空间存储数据时，我们再触发执行一次真正的删除操作，这样就大大减少了删除操作导致的数据搬移。
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/4432347-20fe76ab408faf9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" loading="lazy"></li>
+</ul>
+</li>
+<li>如果你了解 JVM，你会发现，这不就是JVM标记清除垃圾回收算法的核心思想吗？没错，数据结构和算法的魅力就在于此，很多时候我们并不是要去死记硬背某个数据结构或者算法，而是要学习它背后的思想和处理技巧，这些东西才是最有价值的。如果你细心留意，不管是在软件开发还是架构设计中，总能找到某些算法和数据结构的影子。</li>
+</ul>
+<h3 id="09容器和数组">09.容器和数组</h3>
+<ul>
+<li>针对数组类型，很多语言都提供了容器类，比如 Java 中的 ArrayList、C++ 中的 vector。在项目开发中，什么时候适合用数组，什么时候适合用容器呢？</li>
+<li>这里我拿 Java 语言来举例。如果你是 Java 工程师，几乎天天都在用 ArrayList，对它应该非常熟悉。那它与数组相比，到底有哪些优势呢？</li>
+<li>个人觉得，ArrayList 最大的优势就是可以将很多数组操作的细节封装起来。比如前面提到的数组插入、删除数据时需要搬移其他数据等。另外，它还有一个优势，就是支持动态扩容。</li>
+<li>数组本身在定义的时候需要预先指定大小，因为需要分配连续的内存空间。如果我们申请了大小为 10 的数组，当第 11 个数据需要存储到数组中时，我们就需要重新分配一块更大的空间，将原来的数据复制过去，然后再将新的数据插入。</li>
+<li>如果使用 ArrayList，我们就完全不需要关心底层的扩容逻辑，ArrayList 已经帮我们实现好了。每次存储空间不够的时候，它都会将空间自动扩容为 1.5+倍大小。</li>
+<li>不过，这里需要注意一点，因为扩容操作涉及内存申请和数据搬移，是比较耗时的。所以，如果事先能确定需要存储的数据大小，最好在创建 ArrayList 的时候事先指定数据大小。+比如我们要从数据库中取出 10000 条数据放入 ArrayList。</li>
+<li>作为高级语言编程者，是不是数组就无用武之地了呢？当然不是，有些时候，用数组会更合适些，我总结了几点自己的经验。
+<ul>
+<li>1.Java+ArrayList 无法存储基本类型，比如 int、long，需要封装为 Integer、Long 类，而 Autoboxing、Unboxing 则有一定的性能消耗，所以如果特别关注性能，或者希望使用基本类型，就可以选用数组。</li>
+<li>2.如果数据大小事先已知，并且对数据的操作非常简单，用不到 ArrayList 提供的大部分方法，也可以直接使用数组。</li>
+<li>3.还有一个是我个人的喜好，当要表示多维数组时，用数组往往会更加直观。比如 Object[][] array；而用容器的话则需要这样定义：ArrayList<ArrayList >+array。</li>
+<li>对于业务开发，直接使用容器就足够了，省时省力。毕竟损耗一丢丢性能，完全不会影响到系统整体的性能。但如果你是做一些非常底层的开发，比如开发网络框架，性能的优化需要做到极致，这个时候数组就会优于容器，成为首选。</li>
+</ul>
+</li>
+</ul>
+<h3 id="10为何数组从0开始">10.为何数组从0开始</h3>
+<ul>
+<li>为什么大多数编程语言中，数组要从 0 开始编号，而不是从 1 开始呢？+从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移（offset）”。前面也讲到，如果用 a 来表示数组的首地址，a[0] 就是偏移为 0 的位置，也就是首地址，a[k] 就表示偏移 k 个 type_size 的位置，所以计算 a[k] 的内存地址只需要用这个公式：
+<ul>
+<li>a[k]_address = base_address + k * type_size</li>
+</ul>
+</li>
+<li>但是，如果数组从+1+开始计数，那我们计算数组元素+a%5Bk%5D+的内存地址就会变为：
+<ul>
+<li>a[k]_address = base_address + (k-1)*type_size</li>
+</ul>
+</li>
+<li>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</li>
+<li>数组作为非常基础的数据结构，通过下标随机访问数组元素又是其非常基础的编程操作，效率的优化就要尽可能做到极致。所以为了减少一次减法操作，数组选择了从 0 开始编号，而不是从 1 开始。</li>
+<li>上面解释得再多其实都算不上压倒性的证明，说数组起始编号非 0 开始不可。
+<ul>
+<li>所以我觉得最主要的原因可能是历史原因。 C 语言设计者用 0 开始计数数组下标，之后的 Java、JavaScript 等高级语言都效仿了 C 语言，或者说，为了在一定程度上减少 C 语言程序员学习 Java 的学习成本，因此继续沿用了从 0 开始计数的习惯。甚至还有一些语言支持负数下标，比如 Python。</li>
+</ul>
+</li>
+</ul>
+<h2 id="用类实现数组">用类实现数组</h2>
+<h4 id="目录介绍-2">目录介绍</h4>
+<ul>
+<li>01.数组的介绍</li>
+<li>02.用类封装数组</li>
+</ul>
+<h3 id="01数组的介绍">01.数组的介绍</h3>
+<h4 id="11-数组的声明">1.1 数组的声明</h4>
+<ul>
+<li>第一种方式：
+<ul>
+<li>数据类型 []  数组名称 = new 数据类型[数组长度];<br>
+　　- 这里 [] 可以放在数组名称的前面，也可以放在数组名称的后面，我们推荐放在数组名称的前面，这样看上去 数据类型 [] 表示的很明显是一个数组类型，而放在数组名称后面，则不是那么直观。</li>
+</ul>
+</li>
+<li>第二种方式：
+<ul>
+<li>数据类型 [] 数组名称 = {数组元素1，数组元素2，......}</li>
+<li>这种方式声明数组的同时直接给定了数组的元素，数组的大小由给定的数组元素个数决定。</li>
+</ul>
+<pre><code>//声明数组1,声明一个长度为3，只能存放int类型的数据
+int [] myArray = new int[3];
+//声明数组2,声明一个数组元素为 1,2,3的int类型数组
+int [] myArray2 = {1,2,3};
+</code></pre>
+</li>
+</ul>
+<h4 id="12-访问数组元素以及给数组元素赋值">1.2 访问数组元素以及给数组元素赋值</h4>
+<ul>
+<li>数组是存在下标索引的，通过下标可以获取指定位置的元素，数组小标是从0开始的，也就是说下标0对应的就是数组中第1个元素，可以很方便的对数组中的元素进行存取操作。</li>
+<li>前面数组的声明第二种方式，我们在声明数组的同时，也进行了初始化赋值。<pre><code>//声明数组,声明一个长度为3，只能存放int类型的数据
+int [] myArray = new int[3];
+//给myArray第一个元素赋值1
+myArray[0] = 1;
+//访问myArray的第一个元素
+System.out.println(myArray[0]);
+</code></pre>
+</li>
+<li>上面的myArray 数组，我们只能赋值三个元素，也就是下标从0到2，如果你访问 myArray[3] ，那么会报数组下标越界异常。</li>
+</ul>
+<h3 id="02用类封装数组">02.用类封装数组</h3>
+<ul>
+<li>思考一下，需要实现那些功能
+<ul>
+<li>①、如何插入一条新的数据项</li>
+<li>②、如何寻找某一特定的数据项</li>
+<li>③、如何删除某一特定的数据项</li>
+<li>④、如何迭代的访问各个数据项，以便进行显示或其他操作</li>
+</ul>
+</li>
+<li>代码实现如下所示<pre><code>public class MyArray {
+    //定义一个数组
+    private int [] intArray;
+    //定义数组的实际有效长度
+    private int elems;
+    //定义数组的最大长度
+    private int length;
+     
+    //默认构造一个长度为50的数组
+    public MyArray(){
+        elems = 0;
+        length = 50;
+        intArray = new int[length];
+    }
+    //构造函数，初始化一个长度为length 的数组
+    public MyArray(int length){
+        elems = 0;
+        this.length = length;
+        intArray = new int[length];
+    }
+     
+    //获取数组的有效长度
+    public int getSize(){
+        return elems;
+    }
+     
+    /**
+     * 遍历显示元素
+     */
+    public void display(){
+        for(int i = 0 ; i &lt; elems ; i++){
+            System.out.print(intArray[i]+&quot; &quot;);
+        }
+        System.out.println();
+    }
+     
+    /**
+     * 添加元素
+     * @param value,假设操作人是不会添加重复元素的，如果有重复元素对于后面的操作都会有影响。
+     * @return添加成功返回true,添加的元素超过范围了返回false
+     */
+    public boolean add(int value){
+        if(elems == length){
+            return false;
+        }else{
+            intArray[elems] = value;
+            elems++;
+        }
+        return true;
+    }
+     
+    /**
+     * 根据下标获取元素
+     * @param i
+     * @return查找下标值在数组下标有效范围内，返回下标所表示的元素
+     * 查找下标超出数组下标有效值，提示访问下标越界
+     */
+    public int get(int i){
+        if(i&lt;0 || i&gt;elems){
+            System.out.println(&quot;访问下标越界&quot;);
+        }
+        return intArray[i];
+    }
+    /**
+     * 查找元素
+     * @param searchValue
+     * @return查找的元素如果存在则返回下标值，如果不存在，返回 -1
+     */
+    public int find(int searchValue){
+        int i ;
+        for(i = 0 ; i &lt; elems ;i++){
+            if(intArray[i] == searchValue){
+                break;
+            }
+        }
+        if(i == elems){
+            return -1;
+        }
+        return i;
+    }
+    /**
+     * 删除元素
+     * @param value
+     * @return如果要删除的值不存在，直接返回 false;否则返回true，删除成功
+     */
+    public boolean delete(int value){
+        int k = find(value);
+        if(k == -1){
+            return false;
+        }else{
+            if(k == elems-1){
+                elems--;
+            }else{
+                for(int i = k; i&lt; elems-1 ; i++){
+                    intArray[i] = intArray[i+1];
+                   
+                }
+                 elems--;
+            }
+            return true;
+        }
+    }
+    /**
+     * 修改数据
+     * @param oldValue原值
+     * @param newValue新值
+     * @return修改成功返回true，修改失败返回false
+     */
+    public boolean modify(int oldValue,int newValue){
+        int i = find(oldValue);
+        if(i == -1){
+            System.out.println(&quot;需要修改的数据不存在&quot;);
+            return false;
+        }else{
+            intArray[i] = newValue;
+            return true;
+        }
+    }
+}
+</code></pre>
+</li>
+<li>测试一下<pre><code>public static void main(String[] args) {
+    //创建自定义封装数组结构，数组大小为4
+    MyArray array = new MyArray(4);
+    //添加4个元素分别是1,2,3,4
+    array.add(1);
+    array.add(2);
+    array.add(3);
+    array.add(4);
+    //显示数组元素
+    array.display();
+    //根据下标为0的元素
+    int i = array.get(0);
+    System.out.println(i);
+    //删除4的元素
+    array.delete(4);
+    //将元素3修改为33
+    array.modify(3, 33);
+    array.display();
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="从数组中删除重复项">从数组中删除重复项</h2>
+<h4 id="目录介绍-3">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<hr>
+<h3 id="01题目要求">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</li>
+<li>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析">02.问题分析</h3>
+<ul>
+<li>示例 1:<pre><code>给定数组 nums = [1,1,2], 
+函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre>
+</li>
+<li>示例 2:<pre><code>给定 nums = [0,0,1,1,1,2,2,3,3,4],
+函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre>
+</li>
+</ul>
+<h3 id="03实例代码">03.实例代码</h3>
+<ul>
+<li>如下所示<pre><code>int removeDuplicates(int[] num) {
+    if (num==null || num.length==0){
+        return 0;
+    }
+    int currentV = num[0];
+    int count = 0;
+    for(int i = 1 ; i &lt; num.length; i++){
+        if(num[i] != currentV){
+            count++;
+            currentV = num[i];
+            num[count] = currentV;
+        }
+    }
+    return count+1;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="删除数组中的重复项">删除数组中的重复项</h2>
+<h4 id="目录介绍-4">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-2">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</li>
+<li>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析-2">02.问题分析</h3>
+<ul>
+<li>示例 1:<pre><code>给定数组 nums = [1,1,2], 
+函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre>
+</li>
+<li>示例 2:<pre><code>给定 nums = [0,0,1,1,1,2,2,3,3,4],
+函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
+你不需要考虑数组中超出新长度后面的元素。
+</code></pre>
+</li>
+</ul>
+<h3 id="03实例代码-2">03.实例代码</h3>
+<ul>
+<li>如下所示<pre><code>int removeDuplicates(int[] num) {
+    if (num==null || num.length==0){
+        return 0;
+    }
+    int currentV = num[0];
+    int count = 0;
+    for(int i = 1 ; i &lt; num.length; i++){
+        if(num[i] != currentV){
+            count++;
+            currentV = num[i];
+            num[count] = currentV;
+        }
+    }
+    return count+1;
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="二维数组中查找">二维数组中查找</h2>
+<h4 id="目录介绍-5">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-3">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析-3">02.问题分析</h3>
+<ul>
+<li>思路如下
+<ul>
+<li>首先选取数组中右上角的数字。如果该数字等于要查找的数字，查找过程结束。</li>
+<li>如果该数字大于要查找的数字，剔除这个数字所在的列：如果该数字小于要查找的数字，剔除这个数字所在的行。</li>
+<li>也就是说如果要查找的数字不在数组的右上角，则每－次都在数组的查找范围中剔除行或者一列，这样每一步都可以缩小查找的范围，直到找到要查找的数字，或者查找范围为空。</li>
+</ul>
+</li>
+</ul>
+<h3 id="03实例代码-3">03.实例代码</h3>
+<ul>
+<li>如下所示<pre><code>public class Test {  
+    public static boolean find(int[][] matrix, int number) {  
+
+        // 输入条件判断  
+        if (matrix == null || matrix.length &lt; 1 || matrix[0].length &lt; 1) {  
+            return false;  
+        }  
+
+        int rows = matrix.length; // 数组的行数  
+        int cols = matrix[1].length; // 数组行的列数  
+
+        int row = 0; // 起始开始的行号  
+        int col = cols - 1; // 起始开始的列号  
+
+        // 要查找的位置确保在数组之内  
+        while (row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; col &gt;= 0 &amp;&amp; col &lt; cols) {  
+            if (matrix[row][col] == number) { // 如果找到了就直接退出  
+                return true;  
+            } else if (matrix[row][col] &gt; number) { // 如果找到的数比要找的数大，说明要找的数在当前数的左边  
+                col--; // 列数减一，代表向左移动  
+            } else { // 如果找到的数比要找的数小，说明要找的数在当前数的下边  
+                row++; // 行数加一，代表向下移动  
+            }  
+        }  
+
+        return false;  
+    }   
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="啤酒和饮料">啤酒和饮料</h2>
+<h4 id="目录介绍-6">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-4">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>啤酒每罐2.3元，饮料每罐1.9元。小明买了若干啤酒和饮料，一共花了82.3元。我们还知道他买的啤酒比饮料的数量少，请你计算他买了几罐啤酒。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析-4">02.问题分析</h3>
+<ul>
+<li>思路：
+<ul>
+<li>使用暴力搜索即可解出：</li>
+<li>如果82.3全买啤酒最多能买82.3/2.3=35瓶</li>
+<li>如果82.3全买饮料最多能买82.3/1.9=43瓶</li>
+<li>以此作为控制条件</li>
+</ul>
+</li>
+</ul>
+<h3 id="03实例代码-4">03.实例代码</h3>
+<ul>
+<li>如下所示<pre><code>/**
+ * 啤酒与饮料题目
+ */
+public static void beerAndDrink() {
+    // 啤酒
+    for (int i = 0; i &lt; 36; i++) {
+        // 饮料
+        for (int j = 0; j &lt; 44; j++) {
+            // 钱刚好花光了，并且啤酒比饮料少
+            if (2.3 * i + j * 1.9 == 82.3 &amp;&amp; i &lt; j) {
+                Log.e(&quot;打印值&quot;,&quot;----啤酒买了&quot;+i);
+                Log.e(&quot;打印值&quot;,&quot;----饮料买了&quot;+j);
+            }
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="数组中只出现一次的数字">数组中只出现一次的数字</h2>
+<h4 id="目录介绍-7">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-5">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</li>
+<li>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析-5">02.问题分析</h3>
+<ul>
+<li>示例 1:<pre><code>输入: [2,2,1]
+输出: 1
+</code></pre>
+</li>
+<li>示例 2:<pre><code>输入: [4,1,2,1,2]
+输出: 4
+</code></pre>
+</li>
+</ul>
+<h3 id="03实例代码-5">03.实例代码</h3>
+<ul>
+<li>如下所示<pre><code>/**
+ * 我能想到的第一个方法就是把所有的值当成 Map 的key，出现的次数当成value
+ * 最后次数为 1 的就是那个单个的
+ */
+@RequiresApi(api = Build.VERSION_CODES.N)
+public int singleNumber(int[] nums) {
+    Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+    for (int num : nums) {
+        if (!map.containsKey(num)) {
+            map.put(num, 1);
+        } else {
+            map.put(num, map.get(num) + 1);
+        }
+    }
+    return map.entrySet().stream().filter(r -&gt; r.getValue() == 1).findFirst().get().getKey();
+}
+
+/**
+ * 看到重复元素，本能的想到 Set,可以考虑把出现两次的数字先添加到 Set 里面，然后再移除掉，
+ * 最后剩下一个就是单个的值。
+ */
+public int singleNumber1(int[] nums) {
+    Set&lt;Integer&gt; set = new HashSet&lt;&gt;();
+    for (int num : nums) {
+        if (!set.remove(num)) {
+            set.add(num);
+        }
+    }
+    return set.iterator().next();
+}
+
+/**
+ * 异或(^) 运算法则为：0⊕0=0，1⊕0=1，0⊕1=1，1⊕1=0（同为0，异为1）
+ * 除了其中一个数字是一次外，其他的都是两次，相同的值异或结果为0，用0异或所有的值，
+ * 最终结果就是那个单个的值。
+ */
+public int singleNumber2(int[] nums) {
+    int r = 0;
+    for (int num : nums) {
+        r ^= num;
+    }
+    return r;
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="买卖股票最佳时机">买卖股票最佳时机</h2>
+<h4 id="目录介绍-8">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-6">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</li>
+<li>设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。</li>
+<li>注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析-6">02.问题分析</h3>
+<ul>
+<li>示例 1:<pre><code>输入: [7,1,5,3,6,4]
+输出: 7
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得
+利润 = 5-1 = 4 。
+随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得
+利润 = 6-3 = 3 。
+</code></pre>
+</li>
+<li>示例 2:<pre><code>输入: [1,2,3,4,5]
+输出: 4
+解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得
+利润 = 5-1 = 4 。
+注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。
+因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+</code></pre>
+</li>
+<li>示例 3:<pre><code>输入: [7,6,4,3,1]
+输出: 0
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+</code></pre>
+</li>
+</ul>
+<h3 id="03实例代码-6">03.实例代码</h3>
+<ul>
+<li>如下所示<pre><code>int maxProfit(int[] prices) {
+    if (prices==null || prices.length==0){
+        return 0;
+    }
+    int count = 0;
+    int temp;
+    for(int i = 1; i &lt; prices.length; i++){
+        temp = prices[i] - prices[i-1];
+        if(temp &gt; 0){
+            count+=temp;
+        }
+    }
+    return count;
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="调整数组顺序">调整数组顺序</h2>
+<h4 id="目录介绍-9">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-7">01.题目要求</h3>
+<ul>
+<li>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</li>
+</ul>
+<h3 id="02问题分析-7">02.问题分析</h3>
+<ul>
+<li>我们首先统计奇数的个数假设为n,然后新建一个等长数组，然后通过循环判断原数组中的元素为偶数还是奇数。如果是则从数组下标0的元素开始，把该奇数添加到新数组；如果是偶数则从数组下标为n的元素开始把该偶数添加到新数组中。</li>
+</ul>
+<h3 id="03实例代码-7">03.实例代码</h3>
+<ul>
+<li>代码如下所示<pre><code>public class Solution {
+    public void reOrderArray(int [] array) {
+        //如果数组长度等于0或者等于1，什么都不做直接返回
+        if(array.length==0||array.length==1) 
+            return;
+        //oddCount：保存奇数个数
+        //oddBegin：奇数从数组头部开始添加
+        int oddCount=0,oddBegin=0;
+        //新建一个数组
+        int[] newArray = new int[array.length];
+        //计算出（数组中的奇数个数）开始添加元素
+        for(int i=0;i&lt;array.length;i++){
+            if((array[i]&amp;1)==1) oddCount++;
+        }
+        for(int i=0;i&lt;array.length;i++){
+            //如果数为基数新数组从头开始添加元素
+            //如果为偶数就从oddCount（数组中的奇数个数）开始添加元素
+            if((array[i]&amp;1)==1) 
+                newArray[oddBegin++]=array[i];
+            else newArray[oddCount++]=array[i];
+        }
+        for(int i=0;i&lt;array.length;i++){
+            array[i]=newArray[i];
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+<pre><code>
+******************************************************************************
+
+## 找出常用的数字
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+- 04.如何优化
+- 05.优化代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 给你一个长度为n的数组，其中有一个数字出现的次数至少为n/2，找出这个数字
+    - 注意，需要的是排序的数组
+
+### 02.问题分析
+- 使用栈的思想来做
+    - 如果栈是空的，那么先把数据存进去
+    - 然后继续遍历其他的数据，只要发现栈中的数据和遍历中的数据不一样，那么就出栈
+    - 如果是相同的，那么就入栈
+    - 其实就是捉住数字出现的次数多于数组一半的长度这里入手。如果这个数出现的次数是大于这个数组长度的2/1，那么最后留下的肯定是这个数
+- 示例 1:
+    ```
+    输入: [1,1,1,2,5,7,8,8,8,8,10]
+    输出: 8
+    ```
+
+### 03.实例代码
+- 如下所示
+    ```
+    int removeDuplicates(int[] num) {
+        if (num==null || num.length==0){
+            return 0;
+        }
+        int currentV = num[0];
+        int count = 0;
+        for(int i = 1 ; i &lt; num.length; i++){
+            if(num[i] != currentV){
+                count++;
+                currentV = num[i];
+                num[count] = currentV;
+            }
+        }
+        return count+1;
+    }
+    ```
+
+### 04.如何优化
+- 其实没必要用整个栈来装载数组，因为使用栈顶元素(出现次数最多的那个),而栈的大小也可以通过一个变量就可以来确定了
+- 只要元素相同-&gt;入栈(长度+1)。元素不相同--&gt;出栈(长度-1)
+- 最终留下来的肯定是出现最频繁的那个数字!
+
+### 05.优化代码
+- 如下所示
+    ```
+    public int findMajorityElement2(int[] arrays) {
+        if (arrays==null || arrays.length==0){
+            return 0;
+        }
+        // 装载栈的元素
+        int candidate = -1;
+        // 栈的大小(长度)
+        int count = 0;
+        // 遍历给出的数组
+        for (int i = 0; i &lt; arrays.length; i++) {
+            // 判断该栈为空，那么直接将元素入栈
+            if (count == 0) {
+                candidate = arrays[i];
+                count++;
+            } else if (candidate == arrays[i]) {
+                // 该元素是否与栈的元素一致--&gt;入栈(栈多一个元素)
+                count++;
+            } else {
+                // 只要不一致--&gt;出栈(栈少一个元素)
+                count--;
+            }
+        }
+        // 只要该数字出现次数大于数组长度的2/1，那么留下来的数字肯定在栈顶中
+        return candidate;
+    }
+    ```
+
+## 旋转数组的最小数字
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 把一个数组最开始的若干个元素搬到数组的末尾， 我们称之数组的旋转。输入一个递增排序的数组的一个旋转， 输出旋转数组的最小元素。例如数组{3,4,5,1,2 ｝为｛ 1,2,3,4,5}的一个旋转，该数组的最小值为1。
+
+### 02.问题分析
+- **Step1.**和二分查找法一样，我们用两个指针分别指向数组的第一个元素和最后一个元素。
+- **Step2.**接着我们可以找到数组中间的元素：
+    - 如果该中间元素位于前面的递增子数组，那么它应该大于或者等于第一个指针指向的元素。此时数组中最小的元素应该位于该中间元素的后面。我们可以把第一个指针指向该中间元素，这样可以缩小寻找的范围。如果中间元素位于后面的递增子数组，那么它应该小于或者等于第二个指针指向的元素。此时该数组中最小的元素应该位于该中间元素的前面。
+- **Step3.**接下来我们再用更新之后的两个指针，重复做新一轮的查找。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {  
+      
+        /** 
+         * @param numbers 旋转数组 
+         * @return 数组的最小值 
+         */  
+        public static int min(int[] numbers) {  
+            // 判断输入是否合法  
+            if (numbers == null || numbers.length == 0) {  
+                throw new RuntimeException(&quot;Invalid input.&quot;);  
+            }  
+      
+            // 开始处理的第一个位置  
+            int lo = 0;  
+            // 开始处理的最后一个位置  
+            int hi = numbers.length - 1;  
+            // 设置初始值  
+            int mi = lo;  
+      
+            // 确保lo在前一个排好序的部分，hi在排好序的后一个部分  
+            while (numbers[lo] &gt;= numbers[hi]) {  
+                // 当处理范围只有两个数据时，返回后一个结果  
+                // 因为numbers[lo] &gt;= numbers[hi]总是成立，后一个结果对应的是最小的值  
+                if (hi - lo == 1) {  
+                    return numbers[hi];  
+                }  
+      
+                // 取中间的位置  
+                mi = lo + (hi - lo) / 2;  
+      
+                // 如果三个数都相等，则需要进行顺序处理，从头到尾找最小的值  
+                if (numbers[mi] == numbers[lo] &amp;&amp; numbers[hi] == numbers[mi]) {  
+                    return minInorder(numbers, lo, hi);  
+                }  
+      
+                // 如果中间位置对应的值在前一个排好序的部分，将lo设置为新的处理位置  
+                if (numbers[mi] &gt;= numbers[lo]) {  
+                    lo = mi;  
+                }  
+                // 如果中间位置对应的值在后一个排好序的部分，将hi设置为新的处理位置  
+                else if (numbers[mi] &lt;= numbers[hi]) {  
+                    hi = mi;  
+                }  
+            }  
+      
+            // 返回最终的处理结果  
+            return numbers[mi];  
+        }  
+      
+        /** 
+         * 找数组中的最小值 
+         * 
+         * @param numbers 数组 
+         * @param start   数组的起始位置 
+         * @param end     数组的结束位置 
+         * @return 找到的最小的数 
+         */  
+        public static int minInorder(int[] numbers, int start, int end) {  
+            int result = numbers[start];  
+            for (int i = start + 1; i &lt;= end; i++) {  
+                if (result &gt; numbers[i]) {  
+                    result = numbers[i];  
+                }  
+            }  
+            return result;  
+        }    
+    }  
+    ```
+
+******************************************************************************
+
+## 调整数组顺序使奇数位于偶数前面
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位予数组的后半部分。
+- 示例 :
+    ```
+
+    ```
+
+### 02.问题分析
+- 这个题目要求把奇数放在数组的前半部分，偶数放在数组的后半部分，因此所有的奇数应该位于偶数的前面。也就是说我们在扫描这个数组的时候， 如果发现有偶数出现在奇数的前面，我们可以交换它们的顺序，交换之后就符合要求了。
+- 因此我们可以维护两个指针，第一个指针初始化时指向数组的第一个数字，它只向后移动：第二个指针初始化时指向数组的最后一个数字， 它只向前移动。在两个指针相遇之前，第一个指针总是位于第二个指针的前面。如果第一个指针指向的数字是偶数，并且第二个指针指向的数字是奇数，我们就交换这两个数字。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+    
+        /**
+         * 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，
+         * 使得所有奇数位于数组的前半部分，所有偶数位予数组的后半部分。
+         *
+         * @param arr 输入的数组
+         */
+        public static void reorderOddEven(int[] arr) {
+            // 对于输入的数组为空，或者长度小于2的只接返回
+            if (arr == null || arr.length &lt; 2) {
+                return;
+            }
+    
+            // 从左向右记录偶数的位置
+            int start = 0;
+            // 从右向左记录奇数的位置
+            int end = arr.length - 1;
+            // 开始调整奇数和偶数的位置
+            while (start &lt; end) {
+                // 找偶数
+                while (start &lt; end &amp;&amp; arr[start] % 2 != 0) {
+                    start++;
+                }
+                // 找奇数
+                while (start &lt; end &amp;&amp; arr[end] % 2 == 0) {
+                    end--;
+                }
+    
+                // 找到后就将奇数和偶数交换位置
+                // 对于start=end的情况，交换不会产生什么影响
+                // 所以将if判断省去了
+                int tmp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = tmp;
+            }
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 顺时针打印矩阵
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 输入一个矩阵，按照从外向里以顺时针的顺序依次扫印出每一个数字。
+- 示例 :
+    ```
+
+    ```
+
+### 02.问题分析
+- 把打印一圈分为四步：第一步从左到右打印一行，第二步从上到下打印一列，第三步从右到左打印一行，第四步从下到上打印一列。每一步我们根据起始坐标和终止坐标用一个循环就能打印出一行或者一列。
+- 不过值得注意的是，最后一圈有可能退化成只有一行、只有一列，甚至只有一个数字，因此打印这样的一圈就不再需要四步。
+- 因此我们要仔细分析打印时每一步的前提条件。第一步总是需要的， 因为打印一圈至少有一步。如果只有一行，那么就不用第二步了。也就是需要第二步的前提条件是终止行号大于起始行号。需要第三步打印的前提条件是圈内至少有两行两列，也就是说除了要求终止行号大于起始行号之外，还要求终止列号大于起始列号。同理，需要打印第四步的前提条件是至少有三行两列，因此要求终止行号比起始行号至少大2 ， 同时终止列号大于起始列号。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+        /**
+         * 输入一个矩阵，按照从外向里以顺时针的顺序依次打印每一个数字
+         *
+         * @param numbers 输入的二维数组，二维数组必须是N*M的，否则分出错
+         */
+        public static void printMatrixClockWisely(int[][] numbers) {
+            // 输入的参数不能为空
+            if (numbers == null) {
+                return;
+            }
+    
+            // 记录一圈（环）的开始位置的行
+            int x = 0;
+            // 记录一圈（环）的开始位置的列
+            int y = 0;
+            // 对每一圈（环）进行处理，
+            // 行号最大是(numbers.length-1)/2
+            // 列号最大是(numbers[0].length-1)/2
+            while (x * 2 &lt; numbers.length &amp;&amp; y * 2 &lt; numbers[0].length) {
+                printMatrixInCircle(numbers, x, y);
+                // 指向下一个要处理的的环的第一个位置
+                x++;
+                y++;
+            }
+        }
+    
+        public static void printMatrixInCircle(int[][] numbers, int x, int y) {
+            // 数组的行数
+            int rows = numbers.length;
+            // 数组的列数
+            int cols = numbers[0].length;
+    
+            // 输出环的上面一行，包括最中的那个数字
+            for (int i = y; i &lt;= cols - y - 1; i++) {
+                System.out.print(numbers[x][i] + &quot; &quot;);
+            }
+    
+            // 环的高度至少为2才会输出右边的一列
+            // rows-x-1：表示的是环最下的那一行的行号
+            if (rows - x - 1 &gt; x) {
+                // 因为右边那一列的最上面那一个已经被输出了，所以行呈从x+1开始，
+                // 输出包括右边那列的最下面那个
+                for (int i = x + 1; i &lt;= rows - x - 1; i++) {
+                    System.out.print(numbers[i][cols - y - 1] + &quot; &quot;);
+                }
+            }
+    
+            // 环的高度至少是2并且环的宽度至少是2才会输出下面那一行
+            // cols-1-y：表示的是环最右那一列的列号
+            if (rows - x - 1 &gt; x &amp;&amp; cols - 1 - y &gt; y) {
+                // 因为环的左下角的位置已经输出了，所以列号从cols-y-2开始
+                for (int i = cols - y - 2; i &gt;= y; i--) {
+                    System.out.print(numbers[rows - 1 - x][i] + &quot; &quot;);
+                }
+            }
+    
+            // 环的宽度至少是2并且环的高度至少是3才会输出最左边那一列
+            // rows-x-1：表示的是环最下的那一行的行号
+            if (cols - 1 - y &gt; y &amp;&amp; rows - 1 - x &gt; x + 1) {
+                // 因为最左边那一列的第一个和最后一个已经被输出了
+                for (int i = rows - 1 - x - 1; i &gt;= x + 1; i--) {
+                    System.out.print(numbers[i][y] + &quot; &quot;);
+                }
+            }
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 数组中出现次数超过一半的数字
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。
+- 示例 :
+    ```
+
+    ```
+
+### 02.问题分析
+- **解法一：基于Partition 函数的O(n)算法**
+    - 数组中有一个数字出现的次数超过了数组长度的一半。如果把这个数组排序，那么排序之后位于数组中间的数字一定就是那个出现次数超过数组长度一半的数字。也就是说，这个数字就是统计学上的中位数，即长度为n 的数组中第n/2 大的数字。
+    - 这种算法是受快速排序算法的启发。在随机快速排序算法中，我们先在数组中随机选择一个数字，然后调整数组中数字的顺序， 使得比选中的数字小数字都排在它的左边，比选中的数字大的数字都排在它的右边。如果这个选中的数字的下标刚好是n/2，那么这个数字就是数组的中位数。如果它的下标大于n/2 ，那么中位数应该位于它的左边，我们可以接着在它的左边部分的数组中查找。如果它的下标小于n/2，那么中位数应该位于它的右边，我们可以接着在它的右边部分的数组中查找。这是一个典型的递归过程。
+- **解法二：根据数组组特点找出O(n)的算法**
+    - 数组中有一个数字出现的次数超过数组长度的一半，也就是说它出现的次数比其他所有数字出现次数的和还要多。因此我们可以考虑在遍历数组的时候保存两个值： 一个是数组中的一个数字， 一个是次数。当我们遍历到下一个数字的时候，如果下一个数字和我们之前保存的数字相同，则次数加1，如果下一个数字和我们之前保存的数字不同，则次数减1 。如果次数为零，我们需要保存下一个数字，并把次数设为1 。由于我们要找的数字出现的次数比其他所有数字出现的次数之和还要多，那么要找的数字肯定是最后一次把次数设为1 时对应的数字。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+    
+        /**
+         * 题目：数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字
+         *
+         * @param numbers 输入数组
+         * @return 找到的数字
+         */
+        public static int moreThanHalfNum(int[] numbers) {
+    
+            // 输入校验
+            if (numbers == null || numbers.length &lt; 1) {
+                throw new IllegalArgumentException(&quot;array length must large than 0&quot;);
+            }
+    
+            // 用于记录出现次数大于数组一半的数
+            int result = numbers[0];
+            // 于当前记录的数不同的数的个数
+            int count = 1;
+            // 从第二个数开始向后找
+            for (int i = 1; i &lt; numbers.length; i++) {
+                // 如果记数为0
+                if (count == 0) {
+                    // 重新记录一个数，假设它是出现次数大于数组一半的
+                    result = numbers[i];
+                    // 记录统计值
+                    count = 1;
+                }
+                // 如果记录的值与统计值相等，记数值增加
+                else if (result == numbers[i]) {
+                    count++;
+                }
+                // 如果不相同就减少，相互抵消
+                else {
+                    count--;
+                }
+            }
+    
+            // 最后的result可能是出现次数大于数组一半长度的值
+            // 统计result的出现次数
+            count = 0;
+            for (int number : numbers) {
+                if (result == number) {
+                    count++;
+                }
+            }
+    
+            // 如果出现次数大于数组的一半就返回对应的值
+            if (count &gt; numbers.length / 2) {
+                return result;
+            }
+            // 否则输入异常
+            else {
+                throw new IllegalArgumentException(&quot;invalid input&quot;);
+            }
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 最小的k个数
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 输入n个整数，找出其中最小的k个数。
+- 示例 :
+    ```
+    例如输入4 、5 、1、6、2、7、3 、8 这8 个数字，则最小的4个数字是1 、2、3 、4
+    ```
+
+### 02.问题分析
+- **解法一：O(n)时间算法，只有可以修改输入数组时可用。**
+    - 可以基于Partition函数来解决这个问题。如果基于数组的第k个数字来调整，使得比第k个数字小的所有数字都位于数组的左边，比第k个数字大的所有数字都位于数组的右边。这样调整之后，位于数组中左边的k个数字就是最小的k 个数字（这k 个数字不一定是排序的〉。
+- **解法二： O（nlogk）的算法，精剧适合处理海量数据。**
+    - 先创建一个大小为k的数据容器来存储最小的k个数字，接下来我们每次从输入的n个整数中读入一个数．如果容器中已有的数字少于k个，则直接把这次读入的整数放入容器之中：如果容器中己有k 数字了，也就是容器己满，此时我们不能再插入新的数字而只能替换已有的数字。找出这己有的k 个数中的最大值，然后1在这次待插入的整数和最大值进行比较。如果待插入的值比当前己有的最大值小，则用这个数替换当前已有的最大值：如果待插入的值比当前已有的最大值还要大，那么这个数不可能是最小的k个整数之一，于是我们可以抛弃这个整数。
+    - 因此当容器满了之后，我们要做3 件事情： 一是在k 个整数中找到最大数： 二是有可能在这个容器中删除最大数： 三是有可能要插入一个新的数字。我们可以**使用一个大顶堆在O(logk）时间内实现这三步操作**。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+        /**
+         * 大顶堆
+         *
+         * @param &lt;T&gt; 参数化类型
+         */
+        private final static class MaxHeap&lt;T extends Comparable&lt;T&gt;&gt; {
+            // 堆中元素存放的集合
+            private List&lt;T&gt; items;
+            // 用于计数
+            private int cursor;
+    
+            /**
+             * 构造一个椎，始大小是32
+             */
+            public MaxHeap() {
+                this(32);
+            }
+    
+            /**
+             * 造诣一个指定初始大小的堆
+             *
+             * @param size 初始大小
+             */
+            public MaxHeap(int size) {
+                items = new ArrayList&lt;&gt;(size);
+                cursor = -1;
+            }
+    
+            /**
+             * 向上调整堆
+             *
+             * @param index 被上移元素的起始位置
+             */
+            public void siftUp(int index) {
+                T intent = items.get(index); // 获取开始调整的元素对象
+    
+                while (index &gt; 0) { // 如果不是根元素
+                    int parentIndex = (index - 1) / 2; // 找父元素对象的位置
+                    T parent = items.get(parentIndex);  // 获取父元素对象
+                    if (intent.compareTo(parent) &gt; 0) { //上移的条件，子节点比父节点大
+                        items.set(index, parent); // 将父节点向下放
+                        index = parentIndex; // 记录父节点下放的位置
+                    } else { // 子节点不比父节点大，说明父子路径已经按从大到小排好顺序了，不需要调整了
+                        break;
+                    }
+                }
+    
+                // index此时记录是的最后一个被下放的父节点的位置（也可能是自身），所以将最开始的调整的元素值放入index位置即可
+                items.set(index, intent);
+            }
+    
+            /**
+             * 向下调整堆
+             *
+             * @param index 被下移的元素的起始位置
+             */
+            public void siftDown(int index) {
+                T intent = items.get(index);  // 获取开始调整的元素对象
+                int leftIndex = 2 * index + 1; // // 获取开始调整的元素对象的左子结点的元素位置
+    
+                while (leftIndex &lt; items.size()) { // 如果有左子结点
+                    T maxChild = items.get(leftIndex); // 取左子结点的元素对象，并且假定其为两个子结点中最大的
+                    int maxIndex = leftIndex; // 两个子节点中最大节点元素的位置，假定开始时为左子结点的位置
+    
+                    int rightIndex = leftIndex + 1;  // 获取右子结点的位置
+                    if (rightIndex &lt; items.size()) {  // 如果有右子结点
+                        T rightChild = items.get(rightIndex);  // 获取右子结点的元素对象
+                        if (rightChild.compareTo(maxChild) &gt; 0) {  // 找出两个子节点中的最大子结点
+                            maxChild = rightChild;
+                            maxIndex = rightIndex;
+                        }
+                    }
+    
+                    // 如果最大子节点比父节点大，则需要向下调整
+                    if (maxChild.compareTo(intent) &gt; 0) {
+                        items.set(index, maxChild); // 将子节点向上移
+                        index = maxIndex; // 记录上移节点的位置
+                        leftIndex = index * 2 + 1; // 找到上移节点的左子节点的位置
+                    } else { // 最大子节点不比父节点大，说明父子路径已经按从大到小排好顺序了，不需要调整了
+                        break;
+                    }
+                }
+    
+                // index此时记录是的最后一个被上移的子节点的位置（也可能是自身），所以将最开始的调整的元素值放入index位置即可
+                items.set(index, intent);
+            }
+    
+            /**
+             * 向堆中添加一个元素
+             *
+             * @param item 等待添加的元素
+             */
+            public void add(T item) {
+                items.add(item); // 将元素添加到最后
+                siftUp(items.size() - 1); // 循环上移，以完成重构
+            }
+    
+            /**
+             * 删除堆顶元素
+             *
+             * @return 堆顶部的元素
+             */
+            public T deleteTop() {
+                if (items.isEmpty()) { // 如果堆已经为空，就报出异常
+                    throw new RuntimeException(&quot;The heap is empty.&quot;);
+                }
+    
+                T maxItem = items.get(0); // 获取堆顶元素
+                T lastItem = items.remove(items.size() - 1); // 删除最后一个元素
+                if (items.isEmpty()) { // 删除元素后，如果堆为空的情况，说明删除的元素也是堆顶元素
+                    return lastItem;
+                }
+    
+                items.set(0, lastItem); // 将删除的元素放入堆顶
+                siftDown(0); // 自上向下调整堆
+                return maxItem; // 返回堆顶元素
+            }
+    
+            /**
+             * 获取下一个元素
+             *
+             * @return 下一个元素对象
+             */
+            public T next() {
+    
+                if (cursor &gt;= items.size()) {
+                    throw new RuntimeException(&quot;No more element&quot;);
+                }
+                return items.get(cursor);
+    
+            }
+    
+            /**
+             * 判断堆中是否还有下一个元素
+             *
+             * @return true堆中还有下一个元素，false堆中无下五元素
+             */
+            public boolean hasNext() {
+                cursor++;
+                return cursor &lt; items.size();
+            }
+    
+            /**
+             * 获取堆中的第一个元素
+             *
+             * @return 堆中的第一个元素
+             */
+            public T first() {
+                if (items.size() == 0) {
+                    throw new RuntimeException(&quot;The heap is empty.&quot;);
+                }
+                return items.get(0);
+            }
+    
+            /**
+             * 判断堆是否为空
+             *
+             * @return true是，false否
+             */
+            public boolean isEmpty() {
+                return items.isEmpty();
+            }
+    
+            /**
+             * 获取堆的大小
+             *
+             * @return 堆的大小
+             */
+            public int size() {
+                return items.size();
+            }
+    
+            /**
+             * 清空堆
+             */
+            public void clear() {
+                items.clear();
+            }
+    
+            @Override
+            public String toString() {
+                return items.toString();
+            }
+        }
+    
+        /**
+         * 题目： 输入n个整数，找出其中最小的k个数。
+         * 【第二种解法】
+         * @param input  输入数组
+         * @param output 输出数组
+         */
+        public static void getLeastNumbers2(int[] input, int[] output) {
+            if (input == null || output == null || output.length &lt;= 0 || input.length &lt; output.length) {
+                throw new IllegalArgumentException(&quot;Invalid args&quot;);
+            }
+    
+            MaxHeap&lt;Integer&gt; maxHeap = new MaxHeap&lt;&gt;(output.length);
+            for (int i : input) {
+                if (maxHeap.size() &lt; output.length) {
+                    maxHeap.add(i);
+                } else {
+                    int max = maxHeap.first();
+                    if (max &gt; i) {
+                        maxHeap.deleteTop();
+                        maxHeap.add(i);
+                    }
+                }
+            }
+    
+            for (int i = 0; maxHeap.hasNext(); i++) {
+                output[i] = maxHeap.next();
+            }
+        }
+    
+    
+        /**
+         * 题目： 输入n个整数，找出其中最小的k个数。
+         * 【第一种解法】
+         * @param input  输入数组
+         * @param output 输出数组
+         */
+        public static void getLeastNumbers(int[] input, int[] output) {
+    
+            if (input == null || output == null || output.length &lt;= 0 || input.length &lt; output.length) {
+                throw new IllegalArgumentException(&quot;Invalid args&quot;);
+            }
+    
+            int start = 0;
+            int end = input.length - 1;
+            int index = partition(input, start, end);
+            int target = output.length - 1;
+    
+            while (index != target) {
+                if (index &lt; target) {
+                    start = index + 1;
+                } else {
+                    end = index - 1;
+                }
+                index = partition(input, start, end);
+            }
+    
+            System.arraycopy(input, 0, output, 0, output.length);
+        }
+    
+        /**
+         * 分区算法
+         *
+         * @param input 输入数组
+         * @param start 开始下标
+         * @param end   结束下标
+         * @return 分区位置
+         */
+        private static int partition(int[] input, int start, int end) {
+            int tmp = input[start];
+    
+            while (start &lt; end) {
+                while (start &lt; end &amp;&amp; input[end] &gt;= tmp) {
+                    end--;
+                }
+                input[start] = input[end];
+    
+                while (start &lt; end &amp;&amp; input[start] &lt;= tmp) {
+                    start++;
+                }
+                input[end] = input[start];
+            }
+    
+            input[start] = tmp;
+            return start;
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 连续子数组的最大和
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 输入一个整型数组，数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为O(n)。
+- 示例 :
+    ```
+    - 例如输入的数组为{1, -2, 3, 10, -4, 7, 2, -5}，那么最大的子数组为｛3, 10, -4, 7, 2}。因此输出为该子数组的和18 。
+    ```
+
+### 02.问题分析
+- 解法一：举例分析数组的规律。
+    - 我们试着从头到尾逐个累加示例数组中的每个数字。初始化和为0。第一步加上第一个数字1， 此时和为1。接下来第二步加上数字-2，和就变成了-1。第三步刷上数字3。我们注意到由于此前累计的和是－1 ，小于0，那如果用-1 加上3 ，得到的和是2 ， 比3 本身还小。也就是说从第一个数字开始的子数组的和会小于从第三个数字开始的子数组的和。因此我们不用考虑从第一个数字开始的子数组，之前累计的和也被抛弃。
+    - 我们从第三个数字重新开始累加，此时得到的和是3 。接下来第四步加10，得到和为13 。第五步加上-4， 和为9。我们发现由于-4 是一个负数，因此累加-4 之后得到的和比原来的和还要小。因此我们要把之前得到的和13 保存下来，它有可能是最大的子数组的和。第六步加上数字7，9 加7 的结果是16，此时和比之前最大的和13 还要大， 把最大的子数组的和由13更新为16。第七步加上2，累加得到的和为18，同时我们也要更新最大子数组的和。第八步加上最后一个数字-5，由于得到的和为13 ，小于此前最大的和18，因此最终最大的子数组的和为18 ，对应的子数组是｛3, 10, -4, 7, 2｝。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+        /**
+         * 输入一个整型数组，数组里有正数也有负数。数组中一个或连
+         * 续的多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为O(n)。
+         *
+         * @param arr 输入数组
+         * @return 最大的连续子数组和
+         */
+        public static int findGreatestSumOfSubArray(int[] arr) {
+            // 参数校验
+            if (arr == null || arr.length &lt; 1) {
+                throw new IllegalArgumentException(&quot;Array must contain an element&quot;);
+            }
+    
+            // 记录最大的子数组和，开始时是最小的整数
+            int max = Integer.MIN_VALUE;
+            // 当前的和
+            int curMax = 0;
+            // 数组遍历
+            for (int i : arr) {
+                // 如果当前和小于等于0，就重新设置当前和
+                if (curMax &lt;= 0) {
+                    curMax = i;
+                }
+                // 如果当前和大于0，累加当前和
+                else {
+                    curMax += i;
+                }
+    
+                // 更新记录到的最在的子数组和
+                if (max &lt; curMax) {
+                    max = curMax;
+                }
+            }
+            return max;
+        }
+    }
+    ```
+
+### 04.测试代码
+- 如下所示
+    ```
+    public static void test() {
+    	int[] a = {1, -2, 3, 10, -4, 7, 2, -5};
+    	int moreThanHalfNum = findGreatestSumOfSubArray(a);
+    	System.out.print(moreThanHalfNum);
+    }
+    
+    //输出结果：18
+    ```
+
+******************************************************************************
+
+## 把数组排成最小的数
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+- 示例 :
+    ```
+    例如输入数组{3， 32, 321}，则扫描输出这3 个数字能排成的最小数字321323。
+    ```
+
+### 02.问题分析
+- **第一种：直观解法**
+    - 先求出这个数组中所有数字的全排列，然后把每个排列拼起来，最后求出拼起来的数字的最小值。
+- **第二种：排序解法**
+    - 找到一个排序规则，数组根据这个规则排序之后能排成一个最小的数字。要确定排序规则，就要比较两个数字，也就是给出两个数字m 和n，我们需要确定一个规则判断m 和n 哪个应该排在前面，而不是仅仅比较这两个数字的值哪个更大。
+    - 根据题目的要求，两个数字m 和n能拼接成数字m和m。如果mn &lt; nm，那么我们应该打印出m，也就是m 应该排在n 的前面，我们定义此时m 小于n：反之，如果nm &lt; mn，我们定义n小于m。如果mn=nm,m 等于n。在下文中，符号“&lt;”、“&gt;”及“＝”表示常规意义的数值的大小关系，而文字“大于”、“小于”、“等于”表示我们新定义的大小关系。
+    - 接下来考虑怎么去拼接数字，即给出数字m和n，怎么得到数字m和m 并比较它们的大小。直接用数值去计算不难办到，但需要考虑到一个潜在的问题就是m 和n 都在int 能表达的范围内，但把它们拼起来的数字mn 和nm 用int 表示就有可能溢出了，所以这还是一个隐形的大数问题。
+    - 一个非常直观的解决大数问题的方法就是把数字转换成字符串。另外，由于把数字m 和n 拼接起来得到mn 和nm，它们的位数肯定是相同的，因此比较它们的大小只需要按照字符串大小的比较规则就可以了。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+    
+        /**
+         * 题目：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，
+         * 打印能拼接出的所有数字中最小的一个。
+         * @param array 输入的数组
+         * @return 输出结果
+         */
+        public static String printMinNumber(String[] array) {
+            if (array == null || array.length &lt; 1) {
+                throw new IllegalArgumentException(&quot;Array must contain value&quot;);
+            }
+            MComparator comparator = new MComparator();
+            quickSort(array, 0, array.length - 1, comparator);
+            StringBuilder builder = new StringBuilder(256);
+            for (String s : array) {
+                builder.append(s);
+            }
+            return builder.toString();
+        }
+        
+        /**
+         * 自定义的排序比较器，实现算法说明的排序原理
+         */
+        private static class MComparator implements Comparator&lt;String&gt; {
+            @Override
+            public int compare(String o1, String o2) {
+                if (o1 == null || o2 == null) {
+                    throw new IllegalArgumentException(&quot;Arg should not be null&quot;);
+                }
+                String s1 = o1 + o2;
+                String s2 = o2 + o1;
+                return s1.compareTo(s2);
+            }
+        }
+    
+        /**
+         * 快速排序算法
+         * @param array      待排序数组
+         * @param start      要排序的起始位置
+         * @param end        要排序的结束位置
+         * @param comparator 自定义的比较器
+         */
+        private static void quickSort(String[] array, int start, int end, Comparator&lt;String&gt; comparator) {
+            if (start &lt; end) {
+                String pivot = array[start];
+                int left = start;
+                int right = end;
+                while (start &lt; end) {
+                    while (start &lt; end &amp;&amp; comparator.compare(array[end], pivot) &gt;= 0) {
+                        end--;
+                    }
+                    array[start] = array[end];
+                    while (start &lt; end &amp;&amp; comparator.compare(array[start], pivot) &lt;= 0) {
+                        start++;
+                    }
+                    array[end] = array[start];
+                }
+                array[start] = pivot;
+                quickSort(array, left, start - 1, comparator);
+                quickSort(array, start + 1, end, comparator);
+            }
+        }
+    }
+    ```
+
+### 04.测试代码
+- 代码如下所示
+    ```
+    public static void test() {
+    	String[] str = {&quot;3&quot;,&quot;31&quot;,&quot;345&quot;};
+    	String num = printMinNumber(str);
+    	System.out.print(num);
+    }
+    ```
+- 打印结果
+    - 313345
+
+******************************************************************************
+
+## 数组中的逆序对
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 在数组中的两个数字如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
+- 示例 :
+    - 例如在数组｛7, 5, 6, 4 中， 一共存在5 个逆序对，分别是（7, 6）、（7，5），(7, 4）、（6, 4）和（5, 4）。
+
+### 02.问题分析
+**第一种：直接求解**
+
+顺序扫描整个数组。每扫描到一个数字的时候，逐个比较该数字和它后面的数字的大小。如果后面的数字比它小，则这两个数字就组成了一个逆序对。假设数组中含有n 个数字。由于每个数字都要和O(n）个数字作比较， 因此这个[算法](http://lib.csdn.net/base/datastructure)的时间复杂度是O(n^2)。
+
+**第二种：分析法**
+
+我们以数组｛7, 5, 6, 4｝为例来分析统计逆序对的过程。每次扫描到一个数字的时候，我们不能拿它和后面的每一个数字作比较，否则时间复杂度就是O(n^2)，因此我们可以考虑先比较两个相邻的数字。
+
+![这里写图片描述](http://img.blog.csdn.net/20150705063627510)
+
+　　如图5 . 1 ( a )和图5.1 ( b）所示，我们先把数组分解成两个长度为2的子数组， 再把这两个子数组分别拆分成两个长度为1 的子数组。接下来一边合并相邻的子数组， 一边统计逆序对的数目。在第一对长度为1 的子数组｛7｝、｛5｝中7 大于5 ， 因此（7, 5）组成一个逆序对。同样在第二对长度为1 的子数组｛6｝、｛4｝中也有逆序对（6, 4）。由于我们已经统计了这两对子数组的逆序对，因此需要把这两对子数组排序（ 图5.1 ( c）所示），以免在以后的统计过程中再重复统计。
+
+![这里写图片描述](http://img.blog.csdn.net/20150705064123330)
+
+&gt; **注**　图中省略了最后一步， 即复制第二个子数组最后剩余的4 到辅助数组中. 
+&gt; (a) P1指向的数字大于P2指向的数字，表明数组中存在逆序对．P2 指向的数字是第二个子数组的第二个数字， 因此第二个子数组中有两个数字比7 小． 把逆序对数目加2，并把7 复制到辅助数组，向前移动P1和P3. 
+&gt; (b) P1指向的数字小子P2 指向的数字，没有逆序对．把P2 指向的数字复制到辅助数组，并向前移动P2 和P3 . 
+&gt; (c) P1指向的数字大于P2 指向的数字，因此存在逆序对． 由于P2 指向的数字是第二个子数组的第一个数字，子数组中只有一个数字比5 小． 把逆序对数目加1 ，并把5复制到辅助数组，向前移动P1和P3 .
+
+接下来我们统计两个长度为2 的子数组之间的逆序对。我们在图5.2 中细分图5.1 ( d）的合并子数组及统计逆序对的过程。 
+
+我们先用两个指针分别指向两个子数组的末尾，并每次比较两个指针指向的数字。如果第一个子数组中的数字大于第二个子数组中的数字，则构成逆序对，并且逆序对的数目等于第二个子数组中剩余数字的个数（如图5.2 (a)和图5.2 (c)所示）。如果第一个数组中的数字小于或等于第二个数组中的数字，则不构成逆序对（如图5.2 (b)所示〉。每一次比较的时候，我们都把较大的数字从后往前复制到一个辅助数组中去，确保辅助数组中的数字是递增排序的。在把较大的数字复制到辅助数组之后，把对应的指针向前移动一位，接下来进行下一轮比较。 
+
+经过前面详细的诗论， 我们可以总结出统计逆序对的过程：先把数组分隔成子数组，然后再统计出两个相邻子数组之间的逆序对的数目。在统计逆序对的过程中，还需要对数组进行排序。如果对排序算法很熟悉，我们不难发现这个排序的过程实际上就是归并排序。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+        
+        public static int inversePairs(int[] data) {
+            if (data == null || data.length &lt; 1) {
+                throw new IllegalArgumentException(&quot;Array arg should contain at least a value&quot;);
+            }
+        
+            int[] copy = new int[data.length];
+            System.arraycopy(data, 0, copy, 0, data.length);
+        
+            return inversePairsCore(data, copy, 0, data.length - 1);
+        }
+        
+        private static int inversePairsCore(int[] data, int[] copy, int start, int end) {
+        
+            if (start == end) {
+                copy[start] = data[start];
+                return 0;
+            }
+        
+            int length = (end - start) / 2;
+            int left = inversePairsCore(copy, data, start, start + length);
+            int right = inversePairsCore(copy, data, start + length + 1, end);
+        
+            // 前半段的最后一个数字的下标
+            int i = start + length;
+            // 后半段最后一个数字的下标
+            int j = end;
+            // 开始拷贝的位置
+            int indexCopy = end;
+            // 逆序数
+            int count = 0;
+        
+            while (i &gt;= start &amp;&amp; j &gt;= start + length + 1) {
+                if (data[i] &gt; data[j]) {
+                    copy[indexCopy] = data[i];
+                    indexCopy--;
+                    i--;
+                    count += j - (start + length); // 对应的逆序数
+                } else {
+                    copy[indexCopy] = data[j];
+                    indexCopy--;
+                    j--;
+                }
+            }
+        
+            for (; i &gt;= start;) {
+                copy[indexCopy] = data[i];
+                indexCopy--;
+                i--;
+            }
+        
+            for (; j &gt;= start + length + 1;) {
+                copy[indexCopy] = data[j];
+                indexCopy--;
+                j--;
+            }
+            return count + left + right;
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 在排序数组中出现的次数
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 统计一个数字：在排序数组中出现的次数。
+- 示例 :
+    - 例如输入排序数组｛ 1, 2, 3, 3, 3, 3, 4, 5｝和数字3 ，由于3 在这个数组中出现了4 次，因此输出4 。
+
+### 02.问题分析
+- 利用改进的二分算法。 
+- 如何用二分查找算法在数组中找到第一个k，二分查找算法总是先拿数组中间的数字和k作比较。如果中间的数字比k大，那么k只有可能出现在数组的前半段，下一轮我们只在数组的前半段查找就可以了。如果中间的数字比k小，那么k只有可能出现在数组的后半段，下一轮我们只在数组的后半乓查找就可以了。如果中间的数字和k 相等呢？我们先判断这个数字是不是第一个k。如果位于中间数字的前面一个数字不是k,此时中间的数字刚好就是第一个k。如果中间数字的前面一个数字也是k，也就是说第一个k肯定在数组的前半段， 下一轮我们仍然需要在数组的前半段查找。 
+- 同样的思路在排序数组中找到最后一个k。如果中间数字比k大，那么k只能出现在数组的前半段。如果中间数字比k小，k就只能出现在数组的后半段。如果中间数字等于k呢？我们需要判断这个k是不是最后一个k，也就是中间数字的下一个数字是不是也等于k。如果下一个数字不是k，则中间数字就是最后一个k了：否则下一轮我们还是要在数组的后半段中去查找。
+
+### 03.实例代码
+- 如下所示
+    ```
+    public class Test {
+        /**
+         * 找排序数组中k第一次出现的位置
+         *
+         * @param data
+         * @param k
+         * @param start
+         * @param end
+         * @return
+         */
+        private static int getFirstK(int[] data, int k, int start, int end) {
+            if (data == null || data.length &lt; 1 || start &gt; end) {
+                return -1;
+            }
+    
+            int midIdx = start + (end - start) / 2;
+            int midData = data[midIdx];
+    
+            if (midData == k) {
+                if (midIdx &gt; 0 &amp;&amp; data[midIdx - 1] != k || midIdx == 0) {
+                    return midIdx;
+                } else {
+                    end = midIdx - 1;
+                }
+            } else if (midData &gt; k) {
+                end = midIdx - 1;
+            } else {
+                start = midIdx + 1;
+            }
+    
+            return getFirstK(data, k, start, end);
+        }
+    
+        /**
+         * 找排序数组中k最后一次出现的位置
+         *
+         * @param data
+         * @param k
+         * @param start
+         * @param end
+         * @return
+         */
+        private static int getLastK(int[] data, int k, int start, int end) {
+            if (data == null || data.length &lt; 1 || start &gt; end) {
+                return -1;
+            }
+    
+            int midIdx = start + (end - start) / 2;
+            int midData = data[midIdx];
+    
+            if (midData == k) {
+                if (midIdx + 1 &lt; data.length &amp;&amp; data[midIdx + 1] != k || midIdx == data.length - 1) {
+                    return midIdx;
+                } else {
+                    start = midIdx + 1;
+                }
+            } else if (midData &lt; k) {
+                start = midIdx + 1;
+            } else {
+                end = midIdx - 1;
+            }
+    
+            return getLastK(data, k, start, end);
+        }
+    
+        /**
+         * 题目：统计一个数字：在排序数组中出现的次数
+         * @param data
+         * @param k
+         * @return
+         */
+        public static int getNumberOfK(int[] data, int k) {
+            int number = 0;
+            if (data != null &amp;&amp; data.length &gt; 0) {
+                int first = getFirstK(data, k, 0, data.length - 1);
+                int last = getLastK(data, k, 0, data.length - 1);
+    
+                if (first &gt; -1 &amp;&amp; last &gt; -1) {
+                    number = last - first + 1;
+                }
+            }
+    
+            return number;
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 数组中只出现一次的数字
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 一个整型数组里除了两个数字之外，其他的数字都出现了两次，请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
+- 示例 :
+    - 例如输入数组｛2, 4, 3, 6, 3, 2, 5 }，因为只有4 、6 这两个数字只出现一次，其他数字都出现了两次，所以输出4和6 。
+
+### 02.问题分析
+- 这两个题目都在强调一个（或两个）数字只出现一次，其他的出现两次。这有什么意义呢？我们想到异或运算的一个性质：任何一个数字异或它自己都等于0。也就是说， 如果我们从头到尾依次异或数组中的每一个数字，那么最终的结果刚好是那个只出现一次的数字，因为那些成对出现两次的数字全部在异或中抵消了。 
+- 想明白怎么解决这个简单问题之后，我们再回到原始的问题，看看能不能运用相同的思路。我们试着把原数组分成两个子数组，使得每个子数组包含一个只出现一次的数字，而其他数字都成对出现两次。如果能够这样拆分成两个数组， 我们就可以按照前面的办法分别找出两个只出现一次的数字了。 
+- 我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部抵消了。由于这两个数字肯定不一样，那么异或的结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1 。我们在结果数字中找到第一个为1 的位的位置，记为第n 位。现在我们以第n位是不是１为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第n 位都是1 ， 而第二个子数组中每个数字的第n 位都是0。由于我们分组的标准是数字中的某一位是1 还是0 ， 那么出现了两次的数字肯定被分配到同一个子数组。因为两个相同的数字的任意一位都是相同的，我们不可能把两个相同的数字分配到两个子数组中去，于是我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。我们已经知道如何在数组中找出唯一一个只出现一次数字， 因此到此为止所有的问题都已经解决了。
+
+### 03.实例代码
+- 如下所示
+    ```java
+    public class Test {
+        public static int[] findNumbersAppearanceOnce(int[] data) {
+            int[] result = {0, 0};
+    
+            if (data == null || data.length &lt; 2) {
+                return result;
+            }
+    
+            int xor = 0;
+            for (int i : data) {
+                xor ^= i;
+            }
+    
+            int indexOf1 = findFirstBit1(xor);
+    
+            for (int i : data) {
+                if (isBit1(i, indexOf1)) {
+                    result[0] ^= i;
+                } else {
+                    result[1] ^= i;
+                }
+            }
+    
+            return result;
+        }
+    
+        private static int findFirstBit1(int num) {
+            int index = 0;
+            while ((num &amp; 1) == 0 &amp;&amp; index &lt; 32) {
+                num &gt;&gt;&gt;= 1;
+                index++;
+            }
+    
+            return index;
+        }
+    
+        private static boolean isBit1(int num, int indexBit) {
+            num &gt;&gt;&gt;= indexBit;
+            return (num &amp; 1) == 1;
+        }
+    }
+    ```
+
+******************************************************************************
+
+## 和为s的两个数字
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 输入一个递增排序的数组和一个数字s，在数组中查找两个数，得它们的和正好是s。如果有多对数字的和等于s，输出任意一对即可。
+- 示例 :
+    - 例如输入数组｛1 、2 、4、7 、11 、15 ｝和数字15. 由于4+ 11 = 15 ，因此输出4 和11 。
+
+### 02.问题分析
+- 我们先在数组中选择两个数字，如果它们的和等于输入的s，我们就找到了要找的两个数字。如果和小于s 呢？我们希望两个数字的和再大一点。由于数组已经排好序了，我们可以考虑选择较小的数字后面的数字。因为排在后面的数字要大一些，那么两个数字的和也要大一些， 就有可能等于输入的数字s 了。同样， 当两个数字的和大于输入的数字的时候，我们可以选择较大数字前面的数字，因为排在数组前面的数字要小一些。
+
+### 03.实例代码
+- 如下所示
+    ```java
+    /**
+     * 输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得得它们的和正好是s。
+     * 如果有多对数字的和等于s，输出任意一对即可。
+     *
+     * @param data
+     * @param sum
+     * @return
+     */
+    public static List&lt;Integer&gt; findNumbersWithSum(int[] data, int sum) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;(2);
+    
+        if (data == null || data.length &lt; 2) {
+            return result;
+        }
+    
+        int ahead = data.length - 1;
+        int behind = 0;
+        long curSum; // 统计和，取long是防止结果溢出
+    
+        while (behind &lt; ahead) {
+            curSum = data[behind] + data[ahead];
+    
+            if (curSum == sum) {
+                result.add(data[behind]);
+                result.add(data[ahead]);
+                break;
+            } else if (curSum &lt; sum) {
+                behind++;
+            } else {
+                ahead--;
+            }
+        }
+    
+        return result;
+    }
+    ```
+
+******************************************************************************
+
+## 数组中重复的数字
+
+#### 目录介绍
+- 01.题目要求
+- 02.问题分析
+- 03.实例代码
+
+### 01.题目要求
+- 问题如下所示：
+    - 在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
+- 示例 :
+    - 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。
+
+### 02.问题分析
+- 解决这个问题的一个简单的方法是先把输入的数组排序。从排序的数组中找出重复的数字时间很容易的事情，只需要从头到尾扫描排序后的数组就可以了。排序一个长度为n的数组需要O(nlogn)的时间。 
+- 还可以利用哈希表来解决这个问题。从头到尾按顺序扫描数组的每个数，每扫描一个数字的时候，都可以用O(1)的时间来判断哈希表里是否已经包含了该数字。如果哈希表里还没有这个数字，就把它加入到哈希表里。如果哈希表里已经存在该数字了，那么就找到一个重复的数字。这个算法的时间复杂度是O(n)，但它提高时间效率是以一个大小为O(n)的哈希表为代价的。我们再看看有没有空间复杂度为O(1)的算法。 
+- 我们注意到数组中的数字都在0到n-1中。如果这个数组中没有重复的数字，那么当数组排序之后数字i将出现在下标为i的位置。由于数组中有重复的数字，有些位置可能存在多个数字，同时有些位置可能没有数字。 
+- 现在让我们重排这个数组，依然从头到尾一次扫描这个数组中的每个数字。当扫描到下标为i的数字时，首先比较这个数字（用m表示）是不是等于i。如果是，接着扫描下一个数字。如果不是，再拿它和第m个数字进行比较。 
+- 如果它和第m个数字相等，就找到了一个重复的数字（该数字在下标为i和m的位置都出现了）。如果它和第m个数字不相等，就把第i个数字和第m个数字交换，把m放到属于它的位置。接下来再重读这个比较、交换的过程，直到我们发现一个重复的数字。 
+- 以数组{2,3,1,0,2,5,3}为例来分析找到重复数字的步骤。数组的第0个数字（从0开始计数，和数组的下标保持一致）是2，与它的下标不相等，于是把它和下标为2的数字1交换。交换之后的数组是{1,3,2,0,2,5,3}。此时第0个数字是1，仍然与它的下标不相等，继续把它和下标为1的数字3交换，得到数组{3,1,2,0,2,5,3}.接下来继续交换第0个数字3和第3个数字0，得到数组{0,1,2,3,2,5,3}。此时第0个数字的数值为0，接着扫描下一个数字。在接下来的几个数字中，下标为1,2,3的三个数字分别为1,2,3，它们的下标和数值都分别相等，因此不需要做任何操作。接下来扫描到下标为4的数字2.由于它的数值与它的下标不相等，再比较它和下标为2的数字。注意到此时数组中下标为2的数字也是2，也就是数字在下标为2和下标为4的两个位置都出现了，因此找到一个重复的数字。
+
+### 03.实例代码
+- 如下所示
+```java
+public class Test{
+    /**
+     * 题目：在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，
+     * 但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
+     * 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者。
+     *
+     * @param number
+     * @return
+     */
+    public static int duplicate(int[] number) {
+        if (number == null || number.length &lt; 1) {
+            return -1;
+        }
+
+        // 判断输入的是否在[0, number.length-1]之间
+        for (int i : number) {
+            if (i &lt; 0 || i &gt;= number.length) {
+                return -1;
+            }
+        }
+
+        for (int i = 0; i &lt; number.length; i++) {
+            // 当number[i]与i不相同的时候一直交换
+            while (number[i] != i) {
+                // 如果i位置与number[i]位置的数字相同，说明有重复数字
+                if (number[i] == number[number[i]]) {
+                    return number[i];
+                }
+                // 如果不同就交换
+                else {
+                    swap(number, i, number[i]);
+                }
+            }
+        }
+        return -1;
+    }
+
+    private static void swap(int[] data, int x, int y) {
+        int tmp = data[x];
+        data[x] = data[y];
+        data[y] = tmp;
+    }
+}
+</code></pre>
+<hr>
+<h2 id="滑动窗口的最大值">滑动窗口的最大值</h2>
+<h4 id="目录介绍-10">目录介绍</h4>
+<ul>
+<li>01.题目要求</li>
+<li>02.问题分析</li>
+<li>03.实例代码</li>
+</ul>
+<h3 id="01题目要求-8">01.题目要求</h3>
+<ul>
+<li>问题如下所示：
+<ul>
+<li>给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。</li>
+</ul>
+</li>
+<li>示例 :
+<ul>
+<li>例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小为3，那么一共存在6个滑动窗口，它们的最大值分别为{4,4,6,6,6,5}。</li>
+</ul>
+</li>
+</ul>
+<h3 id="02问题分析-8">02.问题分析</h3>
+<ul>
+<li>如果采用蛮力法，这个问题似乎不难解决：可以扫描每一个滑动窗口的所有数字并找出其中的最大值。如果滑动窗口的大小为k，需要O(k)时间才能找出滑动窗口里的最大值。对于长度为n的输入数组，这个算法总的时间复杂度是O(nk)。</li>
+<li>实际上一个滑动窗口可以看成是一个队列。当窗口滑动时，处于窗口的第一个数字被删除，同时在窗口的末尾添加一个新的数字。这符合队列的先进先出特性。如果能从队列中找出它的最大数，这个问题也就解决了。</li>
+<li>但我们并不把滑动窗口的每个数值都存入队列中，而只把有可能成为滑动窗口最大值的数值存入到一个两端开口的队列。接着以输入数字{2,3,4,2,6,2,5,1}为例一步分析。</li>
+<li>数组的第一个数字是2，把它存入队列中。第二个数字是3.由于它比前一个数字2大，因此2不可能成为滑动窗口中的最大值。2先从队列里删除，再把3存入到队列中。此时队列中只有一个数字3.针对第三个数字4的步骤类似，最终在队列中只剩下一个数字4.此时滑动窗口中已经有3个数字，而它的最大值4位于队列的头部。</li>
+<li>接下来处理第四个数字2。2比队列中的数字4小。当4滑出窗口之后2还是有可能成为滑动窗口的最大值，因此把2存入队列的尾部。现在队列中有两个数字4和2，其中最大值4仍然位于队列的头部。</li>
+<li>下一个数字是6.由于它比队列中已有的数字4和2都大，因此这时4和2已经不可能成为滑动窗口中的最大值。先把4和2从队列中删除，再把数字6存入队列。这个时候最大值6仍然位于队列的头部。</li>
+<li>第六个数字是2.由于它比队列中已有的数字6小，所以2也存入队列的尾部。此时队列中有两个数字，其中最大值6位于队列的头部。</li>
+<li>接下来的数字是5.在队列中已有的两个数字6和2里，2小于5，因此2不可能是一个滑动窗口的最大值，可以把它从队列的尾部删除。删除数字2之后，再把数字5存入队列。此时队列里剩下两个数字6和5，其中位于队列头部的是最大值6.</li>
+<li>数组最后一个数字是1，把1存入队列的尾部。注意到位于队列头部的数字6是数组的第5个数字，此时的滑动窗口已经不包括这个数字了，因此应该把数字6从队列删除。</li>
+<li>那么怎么知道滑动窗口是否包括一个数字？应该在队列里存入数字在数组里的下标，而不是数值。<strong>当一个数字的下标与当前处理的数字的下标之差大于或者等于滑动窗口的大小时，这个数字已经从滑动窗口中滑出，可以从队列中删除了。</strong></li>
+</ul>
+<h3 id="03实例代码-8">03.实例代码</h3>
+<ul>
+<li>如下所示</li>
+</ul>
+<pre><code class="language-java">public class Test {
+    private static List&lt;Integer&gt; maxInWindows(List&lt;Integer&gt; data, int size) {
+        List&lt;Integer&gt; windowMax = new LinkedList&lt;&gt;();
+
+        // 条件检查
+        if (data == null || size &lt; 1 || data.size() &lt; 1) {
+            return windowMax;
+        }
+
+        Deque&lt;Integer&gt; idx = new LinkedList&lt;&gt;();
+
+        // 窗口还没有被填满时，找最大值的索引
+        for (int i = 0; i &lt; size &amp;&amp; i &lt; data.size(); i++) {
+            // 如果索引对应的值比之前存储的索引值对应的值大或者相等，就删除之前存储的值
+            while (!idx.isEmpty() &amp;&amp; data.get(i) &gt;= data.get(idx.getLast())) {
+                idx.removeLast();
+            }
+
+            //  添加索引
+            idx.addLast(i);
+        }
+
+        // 窗口已经被填满了
+        for (int i = size; i &lt; data.size(); i++) {
+            // 第一个窗口的最大值保存
+            windowMax.add(data.get(idx.getFirst()));
+
+            // 如果索引对应的值比之前存储的索引值对应的值大或者相等，就删除之前存储的值
+            while (!idx.isEmpty() &amp;&amp; data.get(i) &gt;= data.get(idx.getLast())) {
+                idx.removeLast();
+            }
+
+            // 删除已经滑出窗口的数据对应的下标
+            if (!idx.isEmpty() &amp;&amp; idx.getFirst() &lt;= (i - size)) {
+                idx.removeFirst();
+            }
+
+            // 可能的最大的下标索引入队
+            idx.addLast(i);
+        }
+
+        // 最后一个窗口最大值入队
+        windowMax.add(data.get(idx.getFirst()));
+
+        return windowMax;
+
+    }
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://bingery111.github.io/post/leetcode/">
+                <h3 class="post-title">
+                  算法基础
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://bingery111.github.io//images/avatar.png?v=1644485682339" class="no-responsive avatar">
+    <div class="text-muted">个人笔记</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/shu-zu/">数组</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/leetcode/">算法基础</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">markdown学习笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">git学习笔记</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://bingery111.github.io//atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
