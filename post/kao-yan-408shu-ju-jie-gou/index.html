@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" >
 
-<title>（考研408）数据结构 | 个人笔记</title>
+<title> （考研408）数据结构 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644537572691">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644539790242">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -81,7 +81,7 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>（考研408）数据结构</h1>
+            <h1> （考研408）数据结构</h1>
             <p class="article-meta">
               2022-02-11
               
@@ -89,6 +89,56 @@
             
             <div class="post-content">
               <h3 id="第1章-绪论">第1章、绪论</h3>
+<p>快速写出让阅卷老师满意的代码<br>
+数据结构部分综合题三段式考题形式（算法分析、代码实现、复杂度分析）</p>
+<p><strong>例题1</strong>、设将n(n&gt;1)个整数存放到一维数组R中，设计一个算法，将R中的序列循环左移P(0&lt;P&lt;n)个位置，即将R中的数据由{X0,X1,,Xn-1}变换成{Xp,Xp+1,,Xn-1,X0,X1,,Xp-1}</p>
+<pre><code>#include &lt;iostream&gt;
+#define N 50
+using namespace std;
+void Reverse(int R[], int l, int r)      /*构造翻转函数*/
+{
+    int i, j;
+    int temp;       /*中间变量用于翻转*/                     
+    for(i = 1; j = r; ++i, --j)
+    {
+        temp = R[i];
+        R[i] = R[j];
+        R[j] = temp;
+    }
+}
+
+void RCR(int R[], int n, int p)
+{
+    if(p &lt;= 0 || p &gt;= n)
+        cout &lt;&lt; &quot;ERROR&quot; &lt;&lt; endl;
+    else
+        {
+            Reverse(R, 0, p-1);
+            Reverse(R,p,n-1);
+            Reverse(R,0,n-1);
+        }
+}
+
+int main
+{
+    int L, i;
+    int R[N], n;
+    cin &gt;&gt; L;
+    cin &gt;&gt; n;
+    for(i = 0; i &lt;= n-1; i++)
+        cout &lt;&lt; R[i]&lt;&lt;&quot; &quot;;
+    cout &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="第2章-线性表">第2章、线性表</h3>
+<h3 id="第3章-栈和队列">第3章、栈和队列</h3>
+<h3 id="第4章-串">第4章、串</h3>
+<h3 id="第5章-数组-矩阵与广义表">第5章、数组、矩阵与广义表</h3>
+<h3 id="第6章-树和二叉树">第6章、树和二叉树</h3>
+<h3 id="第7章-图">第7章、图</h3>
+<h3 id="第8章-排序">第8章、排序</h3>
+<h3 id="第9章-查找">第9章、查找</h3>
 
             </div>
           </article>
@@ -112,7 +162,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://bingery111.github.io/images/avatar.png?v=1644537572691" class="no-responsive avatar">
+    <img src="https://bingery111.github.io/images/avatar.png?v=1644539790242" class="no-responsive avatar">
     <div class="text-muted">个人笔记</div>
     <div class="social-container">
       
@@ -137,7 +187,25 @@
         
           
             <li>
-              <a href="https://bingery111.github.io/post/kao-yan-408shu-ju-jie-gou/">（考研408）数据结构</a>
+              <a href="https://bingery111.github.io/post/kao-yan-408ji-suan-ji-zu-cheng-yuan-li/">（考研408）计算机组成原理</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/kao-yan-408ji-suan-ji-wang-luo/">（考研408）计算机网络</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/kao-yan-408cao-zuo-xi-tong/">（考研408）操作系统</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/kao-yan-408shu-ju-jie-gou/"> （考研408）数据结构</a>
             </li>
           
         
@@ -178,21 +246,9 @@
           
         
           
-            <li>
-              <a href="https://bingery111.github.io/post/da-yin-1-dao-zui-da-de-n-wei-shu/">算法-打印1到最大的n位数</a>
-            </li>
-          
         
           
-            <li>
-              <a href="https://bingery111.github.io/post/qiu-cong-1-dao-n-de-zheng-shu-zhong-1-chu-xian-de-ci-shu/">算法-求从1到n的整数中1出现的次数</a>
-            </li>
-          
         
-          
-            <li>
-              <a href="https://bingery111.github.io/post/tiao-tai-jie-wen-ti/">算法-跳台阶问题</a>
-            </li>
           
         
           
