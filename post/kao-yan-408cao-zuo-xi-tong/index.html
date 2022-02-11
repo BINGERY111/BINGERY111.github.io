@@ -7,7 +7,7 @@
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644545497884">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644572646101">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -88,7 +88,1392 @@
             </p>
             
             <div class="post-content">
-              <p>待更新</p>
+              <h2 id="绪论">绪论</h2>
+<hr>
+<h2 id="title-操作系统的基本概念">title: 操作系统的基本概念</h2>
+<h2 id="1-冯诺依曼模型">1、冯诺依曼模型</h2>
+<figure data-type="image" tabindex="1"><img src="https://picbed.kimyang.cn/202108071625220.jpg" alt="" loading="lazy"></figure>
+<p>以存储器为核心，由运算器、存储器、控制器组成主机部分，输入/输出设备为外设部分。</p>
+<h2 id="2-计算机系统">2、计算机系统</h2>
+<figure data-type="image" tabindex="2"><img src="https://picbed.kimyang.cn/202108071631100.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://picbed.kimyang.cn/202108071631443.png" alt="" loading="lazy"></figure>
+<p>操作系统是计算机硬件之上的第一层软件，是对硬件功能的首次扩充，引入操作系统的目的是：</p>
+<ol>
+<li>提供一个用户与计算机硬件之间的接口，提升易用性。</li>
+<li>控制和管理计算机系统之中的各种硬件和软件资源，提升资源利用率。</li>
+<li>合理调整计算机系统的工作流程，提升系统性能。</li>
+</ol>
+<h2 id="3-操作系统">3、操作系统</h2>
+<ul>
+<li>作业：用户在一次解题或一个事务处理过程中，要求计算机系统所做工作的集合，包括用户程序所需数据及命令等。</li>
+</ul>
+<h3 id="31-操作系统的特征">3.1、操作系统的特征</h3>
+<ol>
+<li>
+<p>并发性</p>
+<p>并发性指两个或多个事件在同一时间间隔内发生。（宏观同时发生，微观交替执行）</p>
+<p>注意与并行性区分，并行性是指两个或多个事件在同一时刻发生（宏观微观都是同时发生）；</p>
+</li>
+<li>
+<p>共享性</p>
+<p>共享性指系统中的软硬件资源不再为某个程序所独占，而是供多个程序共同使用。</p>
+<p><strong>并发和共享是操作系统的两个最基本的特征</strong>，两者互为存在条件：</p>
+<ul>
+<li>资源的共享是以系统的并发执行能力为条件的，没有并发就没有资源共享问题。</li>
+<li>若系统不能对资源共享进行有效管理，也会影响到系统的并发执行能力。</li>
+</ul>
+<p>资源共享方式分为两种：</p>
+<ul>
+<li>
+<p>互斥共享：同一时刻只能供一个作业使用，如：打印机</p>
+</li>
+<li>
+<p>同时访问：同一时刻可以供多个作业同时访问，如：磁盘。</p>
+<p>这里的同时指宏观上的同时，在微观上可能还是交替访问。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>虚拟性</p>
+<p>虚拟是指把一个物理上的实体变为若干个逻辑上的对应物。如：多道程序设计技术、虚拟存储器、虚拟设备等</p>
+</li>
+<li>
+<p>异步性</p>
+<p>只会发生在多道程序环境中，由于资源等因素的限制，程序是以“走走停停”的方式运行的，每个程序执行时间和多个程序之间的执行顺序都是不可预测的。</p>
+</li>
+</ol>
+<h3 id="32-操作系统的主要功能和提供的服务">3.2、操作系统的主要功能和提供的服务</h3>
+<p>操作系统的五大基本功能：</p>
+<ol>
+<li>
+<p>处理器管理</p>
+<p>主要任务是对处理器的分配和运行实施有效的管理。在多道程序环境下，对处理器的分配和运行是以<strong>进程</strong>为基本单位的，所以处理器管理即<strong>进程管理</strong>，其主要功能如下：</p>
+<ul>
+<li>进程控制：负责进程的创建、撤销、一级状态转换</li>
+<li>进程同步：对并发执行的进程进行协调</li>
+<li>进程通信：负责进程间的信息交换</li>
+<li>进程调度：按特定算进行处理器分配</li>
+</ul>
+</li>
+<li>
+<p>存储器管理</p>
+<p>主要任务是对<strong>内存</strong>进行分配、保护和扩充，其主要功能如下：</p>
+<ul>
+<li>内存分配：按特定策略为各个程序分配内存。</li>
+<li>内存保护：保证各程序在自己的内存区域内运行而不互相干扰。</li>
+<li>内存扩充：借助虚拟存储技术扩充内存以允许大型程序可以运行。</li>
+</ul>
+</li>
+<li>
+<p>文件管理</p>
+<p>主要任务是支持文件存储、检索和修改等操作，解决文件共享、加密和保护问题，其主要功能如下：</p>
+<ul>
+<li>文件存储空间管理：负责对文件存储空间进行管理，包括存储空间的分配与回收等。</li>
+<li>目录管理：提供按名存取的功能。</li>
+<li>文件操作管理：负责文件数据的读写。</li>
+<li>文件保护</li>
+</ul>
+</li>
+<li>
+<p>设备管理</p>
+<p>主要任务是对计算机系统内的说所有设备实施有效管理。其主要功能如下：</p>
+<ul>
+<li>设备分配</li>
+<li>设备传输控制</li>
+<li>设备独立性：即用户程序中的设备与实际物理设备无关</li>
+</ul>
+</li>
+<li>
+<p>用户接口</p>
+<ul>
+<li>命令接口
+<ul>
+<li>联机命令接口（交互式命令接口）：适用于<strong>分时或实时操作系统</strong>，人在终端一条条命令输入执行。</li>
+<li>脱机命令接口（批处理命令接口）：适用于<strong>批处理操作系统</strong>，直接丢一个 bash 文件执行。</li>
+</ul>
+</li>
+<li>程序接口（系统调用）：供用户程序和其他系统程序调用的一组命令。</li>
+<li>图形接口（图形界面）：就是大家目前常用的窗口，它是<strong>联机命令窗口</strong>的图形化</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="title-操作系统的发展与分类">title: 操作系统的发展与分类</h2>
+<h2 id="1-操作系统的形成和发展">1、操作系统的形成和发展</h2>
+<p>操作系统经历如下三个发展阶段：无操作系统阶段（手工操作与脱机输入/输出）、单道批处理系统和多道批处理系统：</p>
+<ol>
+<li>
+<p>无操作系统阶段<br>
+在第一代计算机时期，构成计算机的主要元器件是电子管，人们采用<strong>手工操作方式</strong>操作计算机：先将程序纸带或卡片装入输入机。然后启动输入机把程序和数据送入计算机，接着通过控制台开关启动程序运行，当程序运行完毕后，由用户取走纸带和结果。</p>
+<p>后来引入了脱机输入/输出技术，解决了CPU与I/O设备之间速度不匹配的矛盾，减少了cpu的空闲等待时间，提高了I/O速度。</p>
+<p>若输入/输出操作在主机控制下进行，则称为联机输入/输出。</p>
+</li>
+<li>
+<p>单道批处理系统</p>
+<p>通常是把一批作业以脱机输入/输出方式输入到磁带上并在系统中配置监督程序，其可以管理作业的运行，负责装入和运行各种系统程序来完成作业的自动过渡。</p>
+<figure data-type="image" tabindex="4"><img src="https://picbed.kimyang.cn/202108071742053.jpeg" alt="" loading="lazy"></figure>
+<p>单道批处理系统主要特点：</p>
+<ul>
+<li>自动性：监督程序可以完成作业的自动过渡。</li>
+<li>顺序性：各作业的完成顺序与它们进入内存的顺序完全相同。</li>
+<li>单道性：内存仅有一道作业在运行。</li>
+</ul>
+</li>
+<li>
+<p>多道批处理系统</p>
+<p>在单道批处理系统的基础上，引入多道程序设计技术。由此形成了多道批处理系统。</p>
+<p>多道程序设计技术是将一个以上作业存放在主存当中，并同时处于运行状态，这些作业共享处理器，外设以及其他资源。</p>
+<img src="https://picbed.kimyang.cn/202108071742553.jpeg" style="zoom:150%;" />
+<p>在<strong>单处理器</strong>的计算机系统中，多道批处理系统主要特点：</p>
+<ul>
+<li>多道：内存中同时存放多道相互独立的程序</li>
+<li>宏观上并行：在内存中的多道程序都处于运行状态。</li>
+<li>微观上串行：实际上内存中的多道程序轮流占用CPU，交替执行。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-操作系统的分类">2、操作系统的分类</h2>
+<p>操作系统有三种基本类型，即批处理操作系统、分时操作系统和实时操作系统。随着计算机体系结构的发展，其他多种操作类型应运而生，比如嵌入式操作系统、个人计算机操作系统、网络操作系统和分布式操作系统。</p>
+<ol>
+<li>
+<p>批处理操作系统</p>
+<p>批处理系统分为单道批处理系统和多道批处理系统，大致内容和前面一致。前面只说了单处理器下的多道批处理系统的特点，现在总结多道批处理系统本身的特点：</p>
+<ul>
+<li>用户脱机使用计算机</li>
+<li>成批处理</li>
+<li>多道程序运行</li>
+</ul>
+</li>
+<li>
+<p>分时操作系统</p>
+<p>在分时操作系统中，人们以<strong>联机方式</strong>使用计算机，所谓分时技术就是把处理器的运行时间分成很短的时间片，按时间片轮流把处理器分配给各联机作业使用。</p>
+<p>分时操作系统的多种实现方式：</p>
+<ul>
+<li>简单分时操作系统：内存只驻留一道作业，其他作业都在外存上。</li>
+<li>具有“前台”“后台”的分时操作系统：把作业划分为“前台”和“后台”两类。“前台”存放按时间片调入/调出的作业流，后台存放批处理作业。</li>
+<li>多道分时操作系统：内存同时装入多道作业，系统把所有具备运行条件的作业排成一个队列，使它们一次轮流获得一个时间片运行。</li>
+</ul>
+<p>分时操作系统具有以下特征：</p>
+<ul>
+<li>多路性：支持多用户同时使用计算机</li>
+<li>交互性：用户采用联机方式同程序进行交互</li>
+<li>独占性：采用<strong>时间片轮转法</strong>执行用户程序，使用户感觉自己在独占计算机。</li>
+<li>及时性：系统能在较短时间内响应用户请求。</li>
+</ul>
+</li>
+<li>
+<p>实时操作系统</p>
+<p>实时的含义是指计算机对于外来信息能以足够快的速度进行处理，并在<strong>被控制对象允许的时间范围</strong>内作出快速反应。实时操作系统对响应时间的要求比分时操作系统更高，一般要求毫秒级甚至微妙级的响应时间。</p>
+<p>实时操作系统主要分为两类：</p>
+<ul>
+<li>实时控制系统：指以计算机为中心的生产过程控制系统，又被称为计算机控制系统。如工场生产流水线的控制系统。</li>
+<li>实时信息处理系统：根据系统提出的问题对信息进行检索和处理，并在很短时间内对用户作出正确的响应。如机票订购系统、情报检索系统等。</li>
+</ul>
+<p>实时操作系统的主要特点是提供及时响应和高可靠性。</p>
+</li>
+<li>
+<p>其他操作系统：</p>
+<ol>
+<li>
+<p>嵌入式操作系统</p>
+<p>运行在嵌入式设备中，对设备各部件进行同一协调、调度和控制。常见于各种电器。</p>
+</li>
+<li>
+<p>集群系统</p>
+<p>将两个或多个独立系统耦合起来，共同完成一项任务。常用户提供高可用性，非关键节点失效，不影响整个系统运行。</p>
+</li>
+<li>
+<p>网络操作系统</p>
+<p>通过通信设施将物理上分散的具有自治功能的多个计算机系统互相连接起来，实现信息交换、资源共享、可互操作和协作处理的系统。</p>
+</li>
+<li>
+<p>分布式操作系统</p>
+<p>指多个分散的处理单元经互联网连接而成的系统，其中每个处理单元既具有高度自治性，又相互协同，能在系统范围内实现资源管理，动态分配任务。还能并行地运行分布式程序。</p>
+<p>其主要特征是：</p>
+<ul>
+<li>统一性：吉他是一个统一的操作系统。</li>
+<li>共享性：分布式操作系统中的所有资源都是共享的。</li>
+<li>透明性：用户并不知道分布式操作系统是运行在多台计算机上的。</li>
+<li>自治性：及分布式操作系统中的多个主机都处于平等的地位。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="title-操作系统的运行环境">title: 操作系统的运行环境</h2>
+<h2 id="1-核心态与用户态">1、核心态与用户态</h2>
+<p>为了避免操作系统及其关键数据如pcb的受到用户程序有意或无意的破坏。通常将处理器分为两种：</p>
+<ul>
+<li><strong>核心态</strong>：又称<strong>管态</strong>、<strong>系统态</strong>，是操作系统管理程序执行时机器所处的状态，它具有较高的特权，能执行包括特权指令的一切指令，能访问所有寄存器和存储区。</li>
+<li>用户态。有乘务台。是用户程序执行时机器所处的状态，是具有较低特权的执行状态，它只能执行规定的指令，只能访问指定的寄存器和存储区。</li>
+</ul>
+<p><strong>特权指令</strong>：只能由操作系统内核使用，不允许用户直接使用的命令。如： I/O 指令、设置中断屏蔽指令、清内存指令、存储保护指令和设置时钟指令。</p>
+<p><strong>系统内核</strong>：由一些与硬件关系较为紧密的模块（如时钟管理，中断处理，设备驱动等）以及运行频率较高的程序（如进程管理，存储器管理，设备管理等）构成了系统的基本内核。</p>
+<p>内核的指令主要运行在<strong>核心态</strong>，主要有四类：</p>
+<ol>
+<li>
+<p>时钟管理</p>
+<p>时钟是计算机的各个部件中最关键的设备。不仅可以向用户提供标准的系统时间，另外通过时钟中断的管理，可以实现进程的切换，如时间片轮转调度。</p>
+</li>
+<li>
+<p>中断机制</p>
+<p>中断机制中只有一小部分属于内核，负责保护和恢复中断现场信息，转移控制权到相关的处理程序。</p>
+</li>
+<li>
+<p>原语</p>
+<p>主要是一些关闭中断的公用小程序，主要有以下特点：</p>
+<ul>
+<li>处于操作系统最底层，是最接近硬件的部分。</li>
+<li>程序运行具有<strong>原子性</strong>，操作只能一气呵成。</li>
+<li>程序运行时间较短，调用频繁。</li>
+</ul>
+</li>
+<li>
+<p>系统控制的数据结构及处理</p>
+<p>操作系统中需要一些用来登记状态信息的数据结构。如作业控制块，进程控制块，设备控制块，各类链表，消息队列，缓冲器，空闲登记区，内存分配表等。</p>
+</li>
+</ol>
+<h2 id="2-中断与异常">2、中断与异常</h2>
+<p><strong>中断</strong>，也称<strong>外中断</strong>，是系统正常功能的一部分。例如，因进程调度使系统停止当前运行的进程，或者因缺少所需资源而中断当前进程。</p>
+<p><strong>异常</strong>，也称为类中断。是由错误引起的，如文件损坏，进程越界的。</p>
+<p><strong>异常通常会引起中断，而中断未必是由异常引起的</strong>。</p>
+<h2 id="3-系统调用">3、系统调用</h2>
+<p>系统调用会把应用程序的请求传给内核，通过<strong>陷入(trap)指令</strong>将<strong>用户态转变为内核态</strong>， 然后相应的内核函数会完成所需的处理，并将处理结果返回给应用程序。</p>
+<figure data-type="image" tabindex="5"><img src="https://picbed.kimyang.cn/202108080659314.png" alt="" loading="lazy"></figure>
+<hr>
+<h2 id="title-操作系统的体系结构">title: 操作系统的体系结构</h2>
+<h2 id="1-模块组合结构">1、模块组合结构</h2>
+<p>把操作系统看作一个整体，由若干个功能模块按一定的结构方式组成，协同完成整个系统的功能。</p>
+<ul>
+<li>优点：结构紧密，接口简单直接，系统效率相对较高。</li>
+<li>缺点：不容易把握好各模块的独立性，会导致系统结构不清晰。可扩展性较差，可适应性较差。</li>
+</ul>
+<h2 id="2-层次结构">2、层次结构</h2>
+<p>将操作系统的所有功能模块，按调用次序排列成若干层，使得功能模块之间只存在单向调用和单向依赖。</p>
+<ul>
+<li>优点：模块间的组织和依赖关系清晰明了，上层功能是建立在下层功能基础之上。系统的可读性，可适应性以及可靠性都得到了增强，便于修改和扩充。</li>
+<li>缺点。考虑系统各个功能模块的层次问题较为费时费力。</li>
+</ul>
+<h2 id="3-微内核结构">3、 微内核结构</h2>
+<p>在操作系统内核中只留下一些最基本的功能，而将其他服务尽可能的从内核中分离出去，用若干个运行在用户态的进程来实现，形成所谓的“客户/服务器”模式，即  C/S 模式。</p>
+<ul>
+<li>优点：各服务进程相互独立，可靠性好。更加灵活，方便增删服务功能。便于维护，适合分布式处理的计算环境。</li>
+<li>缺点：所有服务进程都要通过微内核互相通信，效率不高。</li>
+</ul>
+<hr>
+<h2 id="title-绪论">title: 绪论</h2>
+<p>本章知识点多以选择题形式考察，记忆性内容较为多，计算性内容较少。且本章内容主要为全书知识点的一个概述。许多知识在后面会更深入学习，所以看不明白的内容可以先跳过，或者直接点击后面相关的知识点。进一步学习。</p>
+<h2 id="进程管理">进程管理</h2>
+<hr>
+<p>title: 进程与线程</p>
+<hr>
+<h2 id="1-进程的引入背景">1、进程的引入背景</h2>
+<p>在计算机操作系统中，<strong>进程是资源分配的基本单位</strong>，也是独立运行的基本单位。</p>
+<h3 id="11-前趋图">1.1、前趋图</h3>
+<p>进程之间执行的前后关系可以使用前趋图来描述，其实一个有向无循环图，如：</p>
+<figure data-type="image" tabindex="6"><img src="https://picbed.kimyang.cn/202108101612226.png" alt="" loading="lazy"></figure>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo>→</mo><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_1 \to s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>​ 代表 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ​进程须在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 之前执行</p>
+<h3 id="12-程序的顺序执行">1.2、程序的顺序执行</h3>
+<p>一个程序通常是由若干程序段组成的，他们必须按照某种先后次序执行，仅当前一个操作执行完成以后，才能继续后续操作。</p>
+<p>程序顺序执行时有如下特征：</p>
+<ul>
+<li>顺序性</li>
+<li>封闭性：程序一旦开始，独占系统各种资源，不收外在因素影响，直到执行结束。</li>
+<li>可再现性：初始条件和执行环境具备，程序重复执行的结果相同。</li>
+</ul>
+<p>在同一作业中，作业的输入操作，计算，操作和打印操作必须顺序执行。</p>
+<h3 id="13-程序的并发执行">1.3、程序的并发执行</h3>
+<p>程序的并发执行是指若干个程序或程序段同时在系统中运行，这些程序或程序段的执行在时间上是重叠的，即一个程序或程序段尚未结束，另一个程序或程序段的执行已经开始。</p>
+<p>程序的并发执行，提高了系统的处理能力和资源利用率，有如下特征：</p>
+<ul>
+<li>间断性</li>
+<li>失去封闭性</li>
+<li>不可再现性</li>
+</ul>
+<h3 id="14-程序并发执行的条件">1.4、程序并发执行的条件</h3>
+<p>保持封闭性和可再现性是程序并发执行的主要条件。</p>
+<p>能实现上述要求的是 Bernstein 条件：</p>
+<p>记程序<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>​在执行期间所需要引用的所有变量的集合为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>(</mo><msub><mi>p</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mo>{</mo><msub><mi>a</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>a</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>a</mi><mi>m</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex">R(p_i)=\{a_1,a_2,\cdots,a_m\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>​​，称为读集。</p>
+<p>记程序<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>​在执行期间要改变的所有变量的集合为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mo>(</mo><msub><mi>p</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mo>{</mo><msub><mi>b</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>b</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>b</mi><mi>m</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex">W(p_i)=\{b_1,b_2,\cdots,b_m\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>​​，称为写集。</p>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>(</mo><msub><mi>p</mi><mn>1</mn></msub><mo>)</mo><mo>∩</mo><mi>R</mi><mo>(</mo><msub><mi>p</mi><mn>2</mn></msub><mo>)</mo><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">R(p_1)\cap R(p_2)=\emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">∅</span></span></span></span>​​​(空集)​​</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>(</mo><msub><mi>p</mi><mn>2</mn></msub><mo>)</mo><mo>∩</mo><mi>R</mi><mo>(</mo><msub><mi>p</mi><mn>1</mn></msub><mo>)</mo><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">R(p_2)\cap R(p_1)=\emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">∅</span></span></span></span>​</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mo>(</mo><msub><mi>p</mi><mn>1</mn></msub><mo>)</mo><mo>∩</mo><mi>W</mi><mo>(</mo><msub><mi>p</mi><mn>2</mn></msub><mo>)</mo><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">W(p_1)\cap W(p_2)=\emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">∅</span></span></span></span>​</li>
+</ol>
+<p>其中前面两个条件保证一个程序在两次读操作之间，存储器中的数据不会发生改变，最后一个条件保证程序写操作的结果不会丢失。</p>
+<p>不过 Bernstein 条件很难达到，只是理想化的状态。</p>
+<h2 id="2-进程的定义及描述">2、进程的定义及描述</h2>
+<p>由于程序的并发执行，破坏了程序的封闭性和可再现性。故程序这种静态的概念已经不能够如实反应程序活动的这些特征。由此引入了<strong>进程</strong>这个概念。</p>
+<h3 id="21-进程的定义">2.1、进程的定义</h3>
+<p>自从进程概念提出之后，许多人都对进程给出了各种定义，下面是一些常见的：</p>
+<ul>
+<li><strong>进程是程序在处理器上的一次执行过程</strong>。</li>
+<li><strong>进程是可以和别的进程并行执行的计算</strong>。</li>
+<li><strong>进程是程序在一个数据集合上的运行过程，是系统进行资源分配和调度的一个独立单位。</strong></li>
+<li><strong>进城可定义为一个数据结构及能在其上进行操作的一个程序</strong>。</li>
+<li><strong>进程是一个程序，关于某个数据集合，在处理器上顺序执行所发生的活动。</strong></li>
+</ul>
+<h3 id="22-进程的特征">2.2、进程的特征</h3>
+<ul>
+<li><strong>动态性</strong>：进程是程序在处理器上的一次执行过程，因而是动态的。动态性还表现在它因创建而产生，由调度而执行，因得不到资源而暂停，最后因撤销而消亡。</li>
+<li><strong>并发性</strong>：多个进程同时存在于内存中，能在一段时间内同时运行。以提高资源利用率。</li>
+<li>并发性：指多个进程同时存在于内存中，能在一段时间内同时运行。以提高资源利用率。</li>
+<li><strong>独立性</strong>：进程是系统进行资源分配和调度的独立单位，也是一个能独立运行的基本单位。</li>
+<li><strong>异步性</strong>：进程以各自独立，不可预测的速度向前推进。</li>
+<li><strong>结构特征</strong>：每个进程都由程序段，数据段和一个进程控制块组成，进程控制块是为了记录和描述进程的运动变化的过程。</li>
+</ul>
+<h3 id="23-进程和程序的关系">2.3、进程和程序的关系</h3>
+<ul>
+<li>
+<p><strong>进程是动态的，程序是静止的</strong></p>
+<p><strong>进程是程序的执行</strong>，程序无执行含义。</p>
+</li>
+<li>
+<p><strong>进程是暂时的，程序是永久的</strong></p>
+<p>进程是一个状态变化的过程，程序可以长久保存。</p>
+</li>
+<li>
+<p><strong>进程与程序的组成不同</strong>sipccpu的现场信息程包含了程序段和数据段，以及进程控制块（ PCB ），而程序是有序代码的集合</p>
+<p>每个进程包含了程序段和数据段，以及进程控制块（ PCB ），而程序是有序代码的集合</p>
+</li>
+<li>
+<p>通过多次执行一个程序，可以产生多个不同的进程。通过调用关系，一个进程可以执行多个程序。进程可以创建其它进程，而程序不能形成新的程序。</p>
+</li>
+<li>
+<p>进程具有并行性，独立性，异步性，程序则没有。</p>
+</li>
+</ul>
+<h4 id="231-什么是进程映像进程映像与进程的关系是什么">2.3.1、什么是进程映像？进程映像与进程的关系是什么？</h4>
+<p>由程序段，相关数据段和 PCB 三部分构成了进程映像，也叫进程实体。进程映像是静态的，进程是动态的，进程是进程实体的运行过程。</p>
+<h3 id="24-进程和作业的区别">2.4、 进程和作业的区别</h3>
+<p><strong>作业是用户需要计算机完成某项任务而要求计算机所做工作的集合</strong>。一个作业的完成。要经过<strong>作业提交、作业收容、作业执行和作业完成</strong>四个阶段。而<strong>进程是已提交完毕的作业的执行过程</strong>，是资源分配的基本单位。</p>
+<p>两者主要区别如下：</p>
+<ul>
+<li>作业是用户向计算机提交任务的任务实体。</li>
+<li>一个作业可由多个进程组成，且必须至少有一个进程组成。但一个进程不能构成多个作业。</li>
+<li>作业的概念主要用在<strong>批处理系统</strong>中，而分时系统则没有。而进程的概念则用于几乎所有的<strong>多道程序系统</strong>中</li>
+</ul>
+<h3 id="25-进程的组成">2.5、进程的组成</h3>
+<ul>
+<li>进程控制块( PCB )：每个进程均有一个 PCB 。它是用于标识进程的存在，记录瞬间特征的数据结构。</li>
+<li>程序段：程序段是进程中能够被进程调度程序调度到 CPU 上执行的<strong>程序代码段</strong>。能实现<strong>特定功能</strong>。</li>
+<li>数据段：一个进程的数据段可以是进程对应的程序加工处理的原始数据，也可以是程序执行时产生的中间或结果数据。</li>
+</ul>
+<h4 id="251-pcb-的组成">2.5.1  PCB  的组成</h4>
+<p>系统根据  PCB  感知进程的存在， PCB  是进程存在的唯一标志。 PCB  所包含的内容如下：</p>
+<ul>
+<li>
+<p><strong>进程标识符(PID)</strong>：唯一的进程标识符，用于区别于系统内部的其他进程。</p>
+</li>
+<li>
+<p><strong>进程当前状态</strong>：作为进程调度程序分配处理器的依据。</p>
+</li>
+<li>
+<p>进程队列指针： PCB  队列中下一个  PCB  的地址。系统中的  PCB  可能组成多个队列，如就绪队列，阻塞队列等。</p>
+</li>
+<li>
+<p><strong>程序和数据地址</strong>：指出进程的程序和数据所在地。</p>
+</li>
+<li>
+<p><strong>进程优先级</strong>：反应进程要求 CPU 的紧迫程度。优先级高的进程可以优先获得处理器。</p>
+</li>
+<li>
+<p>CPU 现场保护区：进程被迫阻塞后，CPU 的现场信息（如指令计数器、状态寄存器、通用寄存器等）被保存在 PCB 该区域中，以便进程重新获得处理器后能够继续执行。</p>
+</li>
+<li>
+<p>通用信息：记录进程在执行过程中与别的进程所发生的信息交换情况。</p>
+</li>
+<li>
+<p>家族联系：有的系统允许进程创建子进程，从而形成一个进程家族树。可以使用<strong>进程前驱图</strong>来描述这种关系。</p>
+</li>
+<li>
+<p><strong>占用资源清单</strong>：进程所需资源及当前已被分配资源清单。</p>
+</li>
+</ul>
+<h4 id="252-为什么-pcb-是进程存在的唯一标志">2.5.2、为什么  PCB  是进程存在的唯一标志？</h4>
+<p>PCB  是系统为每个进程定义的一个数据结构，其作用是使程序能够独立运行。**PCB  使一个在多道程序环境下不能独立运行的含有数据的程序成为一个能够独立运行的基本单位，一个能与其他进程并发执行的进程。因此  PCB  是为了保证并程序的发执行。**创建进程，实质上就是创建进程的  PCB ，而撤销进程，实质上就是撤销进程的  PCB 。</p>
+<p>在系统调度到某进程后，要根据 PCB 中所保存的处理机状态信息，设置该进程恢复运行的现场，并根据其 PCB 中的程序和数据的内存地址，找到其程序和数据。进程在执行过程当中。需要和与之合作的进程实现同步，通信或访问文件时，也都需要访问 PCB 。当进程由于某种原因而阻塞使了，又需要将其断点的处理结环境保存在 PCB 当中，可见在整个进程的生命周期中，系统总是通过 PCB 对进程进行控制。即系统是根据进程的  PCB  感知该进程的存在的，所以 PCB 是进程存在的唯一标志。</p>
+<h2 id="3-进程的状态与转换">3、进程的状态与转换</h2>
+<h3 id="31-进程的五种基本状态">3.1、进程的五种基本状态</h3>
+<ul>
+<li>就绪：进程已获得除处理器外的所有资源。</li>
+<li>执行：进程已获得必要资源，并正在cpu中运行。</li>
+<li>阻塞：进程由于发生某事件而暂时无法执行下去。即进程缺少除了处理器外的其他资源</li>
+<li>创建：申请空白的 PCB，并向 PCB 中填写一些控制和管理进程的信息，然后为其分配所需资源并转入就绪态</li>
+<li>结束：可能是正常结束也可能是因为其他原因中断退出。</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://picbed.kimyang.cn/202108110423288.png" alt="" loading="lazy"></figure>
+<h3 id="32-进程状态的相互转换">3.2、进程状态的相互转换</h3>
+<p>进程并非固定处于某一状态。其状态会随着自身的推进和外界条件的变化而发生变化。</p>
+<h4 id="321-进程状态变化的典型原因">3.2.1、进程状态变化的典型原因：</h4>
+<ul>
+<li>就绪<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>执行：一个进程被进程调度程序选中。</li>
+<li>执行<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>阻塞：请求并等待某一个事件发生。</li>
+<li>执行<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>就绪：时间片用完或在抢占式调度中有更高优先级的进程变为就绪状态。</li>
+<li>阻塞<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>就绪：进程因为等待的某个条件发生而被唤醒。</li>
+</ul>
+<h4 id="322-进程状态的重要结论">3.2.2、进程状态的重要结论</h4>
+<ul>
+<li>
+<p>进程状态的转换并非都是可逆的</p>
+<p>建成既不能从阻塞状态变为执行状态，也不能从就绪状态变为注册状态。</p>
+</li>
+<li>
+<p>进程的状态转换并非都是主动</p>
+<p>只有从执行状态到阻塞状态是主动的。是因事件而主动调用阻塞原语。其他都是被动的。</p>
+</li>
+<li>
+<p>状态的唯一性</p>
+<p>一个具体的进程，在任何一个指定的时刻，必须且只能处于一种状态。</p>
+</li>
+</ul>
+<h2 id="4-进程的控制">4、进程的控制</h2>
+<p>进程控制：主要包括进程创建，进程撤销，进程阻塞与唤醒等。</p>
+<h3 id="41-进程的创建">4.1、进程的创建</h3>
+<h4 id="411-导致进程创建的事件">4.1.1、导致进程创建的事件</h4>
+<p>导致进程创建的事件有<strong>用户登录，作业调度和请求服务</strong>。</p>
+<ul>
+<li>
+<p>用户登录：</p>
+<p>在分时系统中，用户在终端输入登录信息，系统检测并通过后就会为该终端用户建立新进程并插入到就绪队列。即 SSH</p>
+</li>
+<li>
+<p>作业调度：</p>
+<p>在批处理系统中，当作业调度按一定的算法调度到某个作业时，便将该作业中入内存，为其分配资源并创建进程，并插入到就绪队列。</p>
+</li>
+<li>
+<p>请求服务：</p>
+<p>基于进程的需要，由其自身创建一个新进程并完成特定任务。</p>
+</li>
+</ul>
+<h4 id="412-进程的创建过程">4.1.2、进程的创建过程</h4>
+<p>进程创建是通过<strong>创建原语</strong>实现的。且主要创建过程如下：</p>
+<ul>
+<li>先向系统申请一个空闲 PCB，并指定唯一的 PCB 标识符(PID)</li>
+<li>为新进程分配必要资源。</li>
+<li>将新进程的 PCB 初始化，为新进程填入进程名，家族信息，程序数据地址、优先级等信息。</li>
+<li>将新建成的 PCB 插入到就绪队列。</li>
+</ul>
+<h2 id="42-进程的撤销">4.2、进程的撤销</h2>
+<p>进程的撤销是由<strong>撤销原语</strong>实现的。撤销原语可以采用两种策略，一种是只撤销一个具有指定标识符的进程，另一种是撤销指定进程及其所有子孙进程。导致进程撤销的事件有<strong>进程正常，结束，进程异常结束以及外界干预</strong>等。</p>
+<h4 id="421-撤销原语的主要操作过程">4.2.1、撤销原语的主要操作过程</h4>
+<ul>
+<li>先从 PCB 集合中找到被撤销进程的 PCB 。</li>
+<li>若撤销进程正处于执行状态，则应立即停止对该进程的执行，设置重新调度标志。以便进程撤销后将处理器分配给其他进程。</li>
+<li>对于后一种撤销策略，若被撤销进程有子孙进程，还应将该进程的子孙进程予以撤销。</li>
+<li>回收撤销进程所占资源，归还给其父进程或者归还给系统。</li>
+<li>最后回收他的 PCB 。</li>
+</ul>
+<h3 id="43-进程的阻塞与唤醒">4.3、进程的阻塞与唤醒</h3>
+<p>**阻塞原语（P 原语）<strong>的功能是将进程由执行状态转为阻塞状态，而</strong>唤醒原语（V 原语）**的功能则是将进程由阻塞状态转为就绪状态。</p>
+<p>:::danger</p>
+<p>不能简单地认为阻塞原语和唤醒原语的功能正好相反。注意它们各自将进程转的状态并不是互逆的。</p>
+<p>:::</p>
+<h4 id="431-阻塞原语的主要操作过程">4.3.1、阻塞原语的主要操作过程</h4>
+<p>当一个进程期待的某一事件尚未出现时，<strong>该进程调用阻塞原语将自己阻塞起来</strong>。</p>
+<p>::: warning</p>
+<p>此处是由该进程自身调用原语阻塞自己的，是一种<strong>主动行为</strong>。</p>
+<p>:::</p>
+<ul>
+<li>首先停止当前进程的运行。应该进程正处于执行状态，故应中段处理器。</li>
+<li>保存该进程的cpu现场，以便之后可以重新调用该进程，并从中断点开始执行。</li>
+<li>停止运行该进程，将进程状态由执行状态改为阻塞状态，然后将该进程插入到阻塞队列中。</li>
+<li>转到进程调度程序，从就绪中队列中选择一个新的进程执行。</li>
+</ul>
+<h4 id="432-唤醒原语的主要操作过程">4.3.2、唤醒原语的主要操作过程</h4>
+<p>对于处于阻塞状态的进程，当该进程期待的事件出现时，由<strong>发现者进程调用唤醒原语将阻塞的进程唤醒</strong>，使其进入就绪状态。</p>
+<p>:::tip</p>
+<p>此处是由发现者进程调用唤醒原语，而不是被阻塞进程本身调用，因此唤醒对于阻塞进程是一种<strong>被动行为</strong>。</p>
+<p>:::</p>
+<ul>
+<li>将被唤醒进程从阻塞队列中移出。</li>
+<li>将状态改为就绪，并插入就绪队列。</li>
+</ul>
+<h3 id="44-进程切换过程">4.4、进程切换过程</h3>
+<ul>
+<li>保存处理及上下文。包括程序计数器和其他寄存器。</li>
+<li>更新pcb信息。</li>
+<li>把进程的pcb引入相应队列，如就绪，阻塞队列等。</li>
+<li>选择另一个进程执行，更新其pcb。</li>
+<li>更新内存管理的数据结构。</li>
+<li>恢复出处理器的上下文。</li>
+</ul>
+<h2 id="5-进程通信">5、进程通信</h2>
+<p>进程通信子进程之间的信息交换。</p>
+<h3 id="51-低级进程通信方式">5.1、低级进程通信方式</h3>
+<p>进程的互斥与同步是一种进程间的通信方式。由于其信息量较少，且效率较低。故被称为低级进程通信方式。同理，可将P、V原语称为两条低级进程通信原语。</p>
+<h3 id="52-高级进程通信方式">5.2、高级进程通信方式</h3>
+<ul>
+<li>
+<p><strong>共享存储器系统</strong></p>
+<p>为传输大量数据，在存储器中划出一块**共享存储区域，**多个进程可以通过对共享存储区进行读写来实现通信。</p>
+<figure data-type="image" tabindex="8"><img src="https://picbed.kimyang.cn/202108110545047.png" alt="" loading="lazy"></figure>
+</li>
+<li>
+<p><strong>消息传递系统</strong></p>
+<p>在消息传递系统中，进程间以<strong>消息</strong>为单位交换数据，用户直接利用系统提供的一组通信命令（原语）来实现通信。</p>
+<figure data-type="image" tabindex="9"><img src="https://picbed.kimyang.cn/202108110546422.png" alt="" loading="lazy"></figure>
+<p>根据实现方式不同，消息传递系统可以分为以下两类：</p>
+<ul>
+<li>
+<p>直接通信方式：发送进程直接把消息发送给接收进程，并将它挂在接收进程的消息缓冲队列上。接收进程从消息缓冲队列中取得消息。</p>
+<figure data-type="image" tabindex="10"><img src="https://picbed.kimyang.cn/202108110547672.png" alt="" loading="lazy"></figure>
+</li>
+<li>
+<p>间接通信方式：发送进程把消息发送到某个中间实体，通常称为信箱，接收进程从中取得消息。又被称为信箱通信方式。</p>
+<figure data-type="image" tabindex="11"><img src="https://picbed.kimyang.cn/202108110547495.png" alt="" loading="lazy"></figure>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>管道通信系统</strong></p>
+<p>管道是用于链接读进程和写进程以实现它们之间通信的<strong>共享文件</strong>。发送进程（写进程）以<strong>字符流形式</strong>将大量数据送入管道，接受进程（读进程）可以从管道中接收数据</p>
+<img src="https://picbed.kimyang.cn/202108110549902.png" style="zoom:150%;" />
+</li>
+</ul>
+<h2 id="6-线程">6、线程</h2>
+<p>线程主要作用是减少并发执行所付出的时空开销，提高了程序并发执行的程度，从而进一步提高了系统的吞吐量。</p>
+<h3 id="61-线程的基本概念">6.1、线程的基本概念</h3>
+<p>线程是进程的一个相对独立的，可调度的执行单元，线程自己基本上不拥有资源，只拥有一点在运行时必不可少的资源，如程序计数器。一组寄存器和栈，但它可以与同属一个进程的其他线程共享进程拥有的全部资源。</p>
+<p>多线程指的是一个进程中有多个线程。</p>
+<h4 id="611-线程的实现">6.1.1、线程的实现</h4>
+<ul>
+<li>内核级线程是指依赖于内核，由操作系统内核完成创建和撤销工作的线程。</li>
+<li>用户级线程是指不依赖于操作系统核心，由应用进程利用线程库提供创建，同步、调度和管理线程的函数来控制的线程。这种线程阻塞时，会导致整个进程都必须等待。</li>
+</ul>
+<h3 id="62-线程和进程的比较">6.2、线程和进程的比较</h3>
+<ul>
+<li>
+<p>调度</p>
+<ul>
+<li>在传统的操作系统中，拥有资源和独立调度的基本单位都是进程。</li>
+<li>而在引入线程的操作系统中，线程是独立调度的基本单位，进程是拥有资源的基本单位。</li>
+<li>在同一进程都线程的切换不会引起进程的切换。在不同进程中进行线程切换，会引起进程的切换。</li>
+</ul>
+</li>
+<li>
+<p>拥有资源</p>
+<p>能够拥有资源的只有进程。线程只可以访问隶属其进程的系统资源。</p>
+</li>
+<li>
+<p>并发性</p>
+<p>在引入线程的操作系统中，不仅进程之间可以并发执行，而且同一进程内的多个线程也可以并发执行。</p>
+</li>
+<li>
+<p>系统开销</p>
+<p>创建进程或撤销进程的开销远大于创建或撤销线程的开销。因为创建或撤消进程时，系统都要为这分配或回收资源。而线程切换时，只需要保存和设置少量寄存器的内容，因此开销很小。</p>
+</li>
+</ul>
+<h3 id="63-多线程模型">6.3、多线程模型</h3>
+<figure data-type="image" tabindex="12"><img src="https://picbed.kimyang.cn/202108110542363.jpeg" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>多对一模型</p>
+<p>将多个用户级线程映射到一个内核级线程上。只要一个用户级线程阻塞，就会导致整个进程阻塞。</p>
+</li>
+<li>
+<p>一对一模型</p>
+<p>将内核级线程与用户级线程一一对应。一个线程阻塞时，不影响其他线程的运行。缺点是创建一个用户级线程时，需要创建一个相映的内核级线程。</p>
+</li>
+<li>
+<p>多对多模型</p>
+<p>将多个用户级线程映射到多个用内核级线程。一般来说，内核级线程数量不多于用户级线程数量。可以使多个用户级线程真正意义上并行执行，而且不会限制用户级线程的数量。</p>
+</li>
+</ul>
+<hr>
+<p>title: 处理器调度</p>
+<hr>
+<h2 id="1-处理器的三级调度">1、处理器的三级调度</h2>
+<h3 id="11-处理器的三级调度">1.1、处理器的三级调度</h3>
+<p>在多道程序环境下，一个作业从提交到执行，通常都要经历多级调度，如高级调度，中级调度和低级调度。</p>
+<figure data-type="image" tabindex="13"><img src="https://picbed.kimyang.cn/202108112225194.jpg" alt="" loading="lazy"></figure>
+<ol>
+<li>
+<p>高级调度（作业调度、宏观调度、长程调度）</p>
+<p>按照一定的原则，从外存上处于后备状态的作业中，选择一个或者多个，给他们分配内存输入输出设备的必要资源，并建立相应的进程。以使该作业具有获得竞争处理器的权利。调用频率较低。<br>
+作业调度每次要接纳多少个作业进入内存取决于多道程序的并发程度。应该选择哪些作业从外存调入内存取决于所才取得调度算法（先来先服务调度算法等。）。</p>
+</li>
+<li>
+<p>中级调度（中程调度、交换调度）</p>
+<p>按照给定的原则和策略，将处于外存对换区中具备运行条件的进程调入内存，并将其状态修改为就绪状态，挂在就绪队列上等待，或者将处于内存中的暂时不能运行的进程交换到外层对换区，此时进程状态称为挂起状态。</p>
+<p>中级调度主要涉及内存管理和扩充</p>
+</li>
+<li>
+<p>低级调度（进程调度、微观调度、短程调度）</p>
+<p>按照某种策略和方法，从就绪队列中选取一个进程，将处理器分配给它。</p>
+<p>进程调度的运行频率很高，一般几十毫秒就要运行一次。</p>
+</li>
+</ol>
+<p>作业调度与进程调度的区别：</p>
+<ul>
+<li>作业调度的结果是为作业创建进程，而进程调度的结果是进程被执行。</li>
+<li>作业调度频率小，进程调度频率高。</li>
+<li>在某些系统中，可以没有作业调度，但进程调度必须有。</li>
+</ul>
+<h2 id="2-调度的基本原则">2、调度的基本原则</h2>
+<ol>
+<li>
+<p>CPU 利用率（越高越好）</p>
+</li>
+<li>
+<p>系统吞吐量</p>
+<p>系统吞吐量表示单位时间内cpu完成作业的数量。长作业占用 CPU 时间长会导致系统吞吐量下降。</p>
+</li>
+<li>
+<p>响应时间</p>
+<p>从用户角度看，调度策略要保证尽量短的响应时间，使响应时间在用户的接受范围内。</p>
+</li>
+<li>
+<p>周转时间</p>
+<ol>
+<li>
+<p>周转时间</p>
+<p>周转时间是指作业从提交到完成的时间间隔</p>
+<p>作业周转时间=作业完成时间-作业提交时间</p>
+</li>
+<li>
+<p>平均周转时间</p>
+<p>是指n个作业周转时间的平均值。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo>=</mo><mo>(</mo><msub><mi>T</mi><mn>1</mn></msub><mo>+</mo><msub><mi>T</mi><mn>2</mn></msub><mo>+</mo><mo>⋯</mo><mo>+</mo><msub><mi>T</mi><mi>n</mi></msub><mo>)</mo><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">T=(T_1+T_2+\cdots+T_n)/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault">n</span></span></span></span></p>
+</li>
+<li>
+<p>带权周转时间</p>
+<p>作业周转时间与运行时间的比。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>W</mi><mi>i</mi></msub><mo>=</mo><msub><mi>T</mi><mi>i</mi></msub><mi mathvariant="normal">/</mi></mrow><annotation encoding="application/x-tex">W_i=T_i/</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/</span></span></span></span>作业 i 的运行时间</p>
+</li>
+<li>
+<p>平均带权周转时间</p>
+<p>n 个作业的带权周转时间的平均值</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-进程调度">3、进程调度</h2>
+<h3 id="31-进程调度的功能">3.1、进程调度的功能</h3>
+<ul>
+<li>记录系统中所有进程的有关情况及状态特征。</li>
+<li>选择获得处理器的进程。</li>
+<li>处理器分配。</li>
+</ul>
+<h3 id="32-引起进程调度的原因">3.2、引起进程调度的原因</h3>
+<ul>
+<li>当前运行进程运行结束。因任务完成而正常结束，或者因为出现错误而异常结束。</li>
+<li>当前运行进程因某种原因，比如 io 请求、P 操作，阻塞原语等，从运行状态进入阻塞状态。</li>
+<li>执行完系统调用的系统程序后，返回用户进程，这时可看做系统进程执行完毕，从而可以调度一个新的用户进程。</li>
+<li>在采用抢占调度方式的系统中，一个具有更高优先级的进程要求使用处理器，则使当前运行进程进入就绪队列。(与调度方式有关)</li>
+<li>在分时系统中分配给该进程的时间片已用完。（与操作系统类型有关）</li>
+</ul>
+<h2 id="33-不能进行进程调度的情况">3.3、不能进行进程调度的情况</h2>
+<ul>
+<li>处理中断的过程。</li>
+<li>在操作系统内核程序临界区中。</li>
+<li>其他需要完全屏蔽中断的原子操作过程。</li>
+</ul>
+<h3 id="34-进程调度的方式">3.4、进程调度的方式</h3>
+<ul>
+<li><strong>抢占方式</strong>（可剥夺方式）：当一个进程正在处理器上执行时，若有某个优先级更高的进程进入就绪队列，则立即暂停正在执行的进程，将处理器分配给新进程</li>
+<li><strong>非抢占方式</strong>（不可剥夺方式）：当某一个进程正在处理器上执行时，即使有某个优先级更高的进程进入就绪队列，仍然让正在执行的进程继续执行，直到该进程完成或因发生某种事件而进入完成或阻塞状态时，才将处理器分配给新进程。</li>
+</ul>
+<h2 id="4-常见调度算法">4、常见调度算法</h2>
+<h3 id="41-先来先服务调度算法作业调度-进程调度">4.1、先来先服务调度算法（作业调度、进程调度）</h3>
+<p>按照进程进入就绪队列的先后次序来分配处理器。有利于长进程，不利于短进程。非抢占式。</p>
+<h3 id="42-短作业优先调度算法作业调度-进程调度">4.2、短作业优先调度算法（作业调度、进程调度）</h3>
+<p>把处理器分配给最快完成的作业（进程）。对长进程不利，会产生<strong>饥饿现象</strong>。</p>
+<p>饥饿现象是指在一段时间内，进程得不到调度执行，或得不到所需资源。</p>
+<h3 id="43-优先级调度算法作业调度-进程调度">4.3、优先级调度算法（作业调度、进程调度）</h3>
+<p>把处理器分配给优先级最高的进程。</p>
+<p>进程的优先级用于表示进程的重要性及运行的优先性。进程优先级通常分为两种：</p>
+<ul>
+<li>
+<p><strong>静态优先级</strong>：</p>
+<p>在创建进程时确定的，确定之后，在整个进程运行期间不再改变。确定静态优先级的依据有：</p>
+<ul>
+<li><strong>按进程类确定</strong>：通常系统中有两类进程，系统进程和用户进程。系统中各进程的运行速度以及自系统资源的利用率，在很大程度上依赖于系统进程。所以系统进程的优先级应高于用户进程。</li>
+<li><strong>按作业资源要求确定</strong>：进程所申请的资源越多，估计的运行时间越长，进程的优先级越低。</li>
+<li><strong>按用户类型和要求确定</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>动态优先级</strong>：</p>
+<p>在创建进程时，根据进程的特点以及相关情况确定一个优先级，在进程运行过程中，再根据情况的变化调整优先级。确定动态优先级的依据有以下几种：</p>
+<ul>
+<li><strong>根据进程占用cpu时间的长短来决定</strong>。一个进程占用cpu时间越长，则优先级越低，再次获得调度的可能性越小。一个进程占用cpu时间越短，则优先级越高，再次获得调度的可能性越大。</li>
+<li>根据就绪进程等待cpu时间的长短来决定。一个就绪进程在就绪队列中等待的时间越长，则优先级越高，获得调度的可能性越大。反之一个就绪进程在就绪队列中等待的时间越短，则优先级越低，获得调度的可能性越小。</li>
+</ul>
+</li>
+</ul>
+<p>基于优先级的调度算法还可以按调度方式的不同分为<strong>非抢占优先级调度算法和抢占优先级调度算法</strong>，参考前面<a href="#_3-4%E3%80%81%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%96%B9%E5%BC%8F">进程调度的方式</a>。</p>
+<p>在优先级相同的情况下，通常按照先来先服务或短作业优先的顺序执行。</p>
+<h3 id="44-时间片轮转调度算法-进程调度">4.4、时间片轮转调度算法 （进程调度）</h3>
+<p>在分时系统中，进程调度通常采用时间片轮转调度方法。系统将所有就绪进程按到达时间的先后次序排成一个队列。进程调度程序总是选择队列中第一个进程执行，并规定执行一段时间，称为时间片。当该进程用完这一时间片时，即使进程并未执行结束，系统都将其送至就绪队列队尾。再把处理器分配给下一个就绪进程执行。这样，处于就绪队列中的进程可以依次轮流获得一个时间片的处理时间，然后重新回到队列尾部等待执行，如此不断循环，直至完成。</p>
+<p>影响时间片大小的因素：</p>
+<ul>
+<li>系统的响应时间: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo>=</mo><mi>N</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">T=Nq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>,其中 T 为系统响应时间,q为时间片大小，N 为就绪队列中的进程数。</li>
+<li>就绪队列中的进程数。</li>
+<li>系统处理能力。</li>
+</ul>
+<h3 id="45-高响应比优先调度算法作业调度">4.5、高响应比优先调度算法（作业调度）</h3>
+<p>每次进行作业调度时，先计算就绪队列中每个作业的响应比，选择响应比最高的作业执行。响应比计算公式为：</p>
+<p>响应比=作业响应时间/估计运行时间=(作业等待时间+估计运行时间)/估计运行时间</p>
+<p>高响应比优先调度算法考虑了作业的等待时间和作业运行时间两个因素，综合了先来先服务和短作业优先两种调度算法的特点。但由于要计算每个后备作业的响应比，因此增加了系统开销。</p>
+<h3 id="46-多级队列调度算法进程调度">4.6、多级队列调度算法（进程调度）</h3>
+<p>根据进程的性质或类型，将就绪队列划分为若干个独立的队列，每个进程固定地分属一个队列，每个队列采用一种调度算，不同的队列可以采用不同的调度算法。</p>
+<h3 id="47-多级反馈队列调度算法进程调度">4.7、多级反馈队列调度算法（进程调度）</h3>
+<img src="https://picbed.kimyang.cn/202108120223602.png" alt="下载" style="zoom:200%;" />
+<p>首先，应设置多个就绪队列，并为每个队列赋予不同的优先级，第一个队列的优先级最高地。其余队列的优先级逐次降低。</p>
+<p>其次，每个队列中的进程，执行时间，片的大小也各不相同。进程所在队列的优先级越高，其相应的时间片越短。</p>
+<p>再次，当一个新进程进入系统时，应先将其放入第一个队列末尾按<strong>先来先服务原则</strong>，等待调度。当轮到该进程执行时，如能在此时间片完成，便可撤销进程。如果在一个时间片结束，尚未完成调度程序，便将该进程转入第二个队列的末尾。再同样按照先来先服务原则，等待调度执行。如此下去，最后一个队列中使用<strong>时间片轮转调度算法</strong>。</p>
+<p>多级反馈队列调度算法是时间片轮转调度算法和优先级调度算法的综合与发展。通过动态调节进程优先级和时间片的大小，多级反馈队列调度算法可兼顾多方面的系统目标。如：</p>
+<ul>
+<li>为提高系统吞吐量和缩短平均周转时间而照顾短进程。</li>
+<li>为获得较好的IO设备利用率和缩短响应时间而照顾IO型进程。</li>
+<li>不必事先估计进程的执行时间。</li>
+</ul>
+<hr>
+<h2 id="title-同步与互斥">title: 同步与互斥</h2>
+<h2 id="1-进程同步的基本概念">1、进程同步的基本概念</h2>
+<hr>
+<p>title: 死锁</p>
+<hr>
+<h2 id="1-死锁的概念">1、死锁的概念</h2>
+<p>当多个进程因竞争系统资源或互相通信而处于永久阻塞状态时，若无外力作用，这些进程都将无法向前推进。其中每一个进程都无限期地等待其他进程释放资源，这种状态被称为<strong>死锁</strong>。</p>
+<h2 id="2-死锁产生的原因和必要条件">2、死锁产生的原因和必要条件</h2>
+<h3 id="21-资源分类">2.1、资源分类</h3>
+<p>系统资源可以分为：</p>
+<ul>
+<li>可剥夺资源：虽然资源占有者进程需要使用该资源，但一个进程可以强行该资源从占有的进程剥夺。</li>
+<li>不可剥夺资源：除占有者进程不再需要使用该资源而主动释放资源，其他进程不得在占有者使用资源的过程中强行剥夺。</li>
+</ul>
+<p>一个资源是否属于可剥夺资源，完全取决于<strong>资源本身的性质</strong>。</p>
+<h3 id="22-死锁产生的原因">2.2、死锁产生的原因</h3>
+<p>竞争资源可能导致死锁了，但竞争资源并不等于死锁。</p>
+<p>系统资源不足是产生死锁的根本原因，而进程推进顺序不当是产生死锁的重要原因。</p>
+<h3 id="23-死锁产生的必要条件">2.3、死锁产生的必要条件</h3>
+<ul>
+<li>互斥条件</li>
+<li>不可剥夺</li>
+<li>请求与保持（部分分配条件）：每次申请部分资源，且在申请的同时保持已有资源</li>
+<li>环路等待：存在一种进程资源的循环等待链</li>
+</ul>
+<p>四个必要条件缺一不可！</p>
+<h2 id="3-处理死锁的基本方法">3、处理死锁的基本方法</h2>
+<ul>
+<li><strong>鸵鸟算法</strong>：就是不管死锁</li>
+<li><strong>预防死锁</strong>：设置某些限制条件去破坏产生死锁的 4 个必要条件中的一个或几个。</li>
+<li><strong>避免死锁</strong>：在资源动态分配的过程中，用某种方法防止系统进入不安全状态。</li>
+<li><strong>监测及解除死锁</strong></li>
+</ul>
+<p>死锁预防和死锁避免有什么不同？</p>
+<p>死锁预防是添加严格的限制条件破坏死锁放生的条件，对系统并发性有很大的副作用。</p>
+<p>死锁避免是通过算法计算，避免资源分配让系统处于不安全状态，对限制条件不严格。系统并发性更好。</p>
+<h2 id="4-死锁的预防">4、死锁的预防</h2>
+<ol>
+<li>
+<p>互斥条件</p>
+<p>这会受到资源本身固有属性的限制，不能改变。</p>
+</li>
+<li>
+<p>不可剥夺</p>
+<p>对于已经获得某些资源的进程，新的资源请求不能立即被满足，则必须释放所有已经获得的资源。</p>
+<p>但是这样重复申请会增加系统开销，降低系统吞吐量。</p>
+</li>
+<li>
+<p>请求保持</p>
+<p>采用预先静态分配方法，要求进程在运行之前一次性申请所有所需的资源，在资源未满足之前，不投入运行。</p>
+<p>这种方法必须实现直到该进程所需的全部资源！</p>
+</li>
+<li>
+<p>环路等待</p>
+<p>采用有序资源分配法，将系统中的所有资源都按类型赋予一个编号，要求每一个进程均严格按编号递增顺序请求资源，同类资源一次请求完。</p>
+<p>这种方法中各自资源的编号不易修改，限制了新设备的加入；也会增加程序编写的复杂性；不同作业队对资源使用的顺序不同，会造成资源浪费。</p>
+</li>
+</ol>
+<h2 id="5-死锁的避免">5、死锁的避免</h2>
+<h3 id="51-安全状态与不安全状态">5.1、安全状态与不安全状态</h3>
+<p>若在某一时刻，系统能按某种顺序来为每一个进程分配其所需的资源，使每个进程都可顺利完成，则称此时系统状态为<strong>安全状态</strong>，该序列为<strong>安全序列</strong>。若某一时刻不存在这样一个安全序列，则系统状态为<strong>不安全状态</strong>。</p>
+<p>在某一时刻可以存在多种安全序列！</p>
+<p>并非所有不安全状态就是死锁状态，但当系统进入不安全状态后，便可能进入死锁状态。</p>
+<p>对系统进行安全性检查是根据进程的最大资源需求而定的，而实际运行过程中进程可能不需要这么多的资源。</p>
+<h3 id="52-银行家算法">5.2 银行家算法</h3>
+<p>这个概念一般考选择题的计算问题，所以没什么概念性的东西，最好根据具体例题理解计算过程，很简单，就是一个加减法的问题。这里就不列出晦涩的描述语言了！</p>
+<h2 id="6-死锁的检测和解除">6、死锁的检测和解除</h2>
+<h3 id="61-死锁的检测">6.1 死锁的检测</h3>
+<h4 id="611-系统资源分配图">6.1.1、系统资源分配图</h4>
+<p>进程的死锁问题可以用有向图更准确而形象地描述，这种有向图被称为系统资源分配图（SRAG）。</p>
+<p>在 SRAG 中，用圆圈代表进程，用方框代表资源，从进程到资源的有向边是申请边，表示进程申请一个资源，从资源到进程的有向边是分配边，表示有一个资源分配了进程 。</p>
+<figure data-type="image" tabindex="14"><img src="https://picbed.kimyang.cn/202108240034150.jpg" alt="" loading="lazy"></figure>
+<h4 id="612-系统资源分配图的简化方法">6.1.2、系统资源分配图的简化方法</h4>
+<ul>
+<li>在 SRAG 中找出一个既不阻塞又非孤立的进程节点 P （从进程集合中找到一个存在链接的边，且资源申请数量小于系统已有空闲资源数量的进程），P 进程完成后释放所有资源，消去它所有的申请边和分配边</li>
+<li>P 释放资源之后，可以唤醒因等待这些资源而阻塞的进程，在执行前一步消去申请边和分配边</li>
+<li>若能消去所有的边，则不会产生死锁，若不能消去所有边，则该图称为不可完全简化图。</li>
+</ul>
+<p><strong>不同的简化顺序将得到相同的不可简化图</strong>！</p>
+<p>这方法看起来繁琐，但其内核与银行家算法是一样的，上面写的复杂，实际就是一个加加减减的过程。建议结合实际题目理解！</p>
+<h3 id="62-死锁检测算法">6.2、死锁检测算法</h3>
+<p>发现死锁的原理就是考察某一时刻系统状态是否安全，即是否存在一组可以实现的系统状态，能使所有进程都得到它们所申请的资源而运行结束。和银行家算法几乎一致！</p>
+<h3 id="63-死锁解除">6.3、死锁解除</h3>
+<ul>
+<li>剥夺资源</li>
+<li>撤销进程</li>
+<li>进程回退：让一个或多个进程回推到足够回避死锁的地步，进程回退时时自愿放弃自愿而不是被剥夺。要求系统保持进程历史信息，设置还原点。</li>
+</ul>
+<h2 id="7-死锁与饿死">7、死锁与饿死</h2>
+<p>当等待时间给进程推进和响应带来明显影响时，则称此时发生了<strong>进程饥饿</strong>，当饥饿到一定程度，进程所赋予的任务即使完成也不再具有实际意义的时候，该进程称为饿死。</p>
+<p>死锁、饥饿与饿死有什么不同？</p>
+<ul>
+<li>进程状态上：死锁进程处于等待状态（阻塞状态）；而饥饿进程处于就绪状态，但却可能被饿死。</li>
+<li>死锁进程等待的是永远不会被释放的资源，而饥饿进程等待的是会被释放但不会分配到自己的资源，表现为等待时间没有上限！</li>
+<li>死锁一定发生了循环等待，而饿死却不是了。所以资源分配图可以检测死锁，无法检测饿死</li>
+<li>死锁一定涉及多个进程，饥饿或饿死可能只有一个！</li>
+</ul>
+<h2 id="内存管理">内存管理</h2>
+<hr>
+<h2 id="title-内存管理基础">title: 内存管理基础</h2>
+<h2 id="1-内存管理概述">1、内存管理概述</h2>
+<h3 id="11-内存管理的功能">1.1、内存管理的功能</h3>
+<ul>
+<li>内存的分配与回收</li>
+<li>地址变换（逻辑地址<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>↔</mo></mrow><annotation encoding="application/x-tex">\leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">↔</span></span></span></span>物理地址）</li>
+<li>扩充内存</li>
+<li>存储保护</li>
+</ul>
+<h3 id="12-应用程序的编译-链接与装入">1.2、应用程序的编译、链接与装入</h3>
+<h4 id="121-程序的链接方式">1.2.1、程序的链接方式：</h4>
+<ul>
+<li>静态链接：直接将各个目标模块以及所需库链接为一个完整的可执行程序</li>
+<li>装入时链接：装入内存时边装入边链接</li>
+<li>运行时链接：运行过程中需要特定模块才进行装入链接</li>
+</ul>
+<h4 id="122-程序的装入方式">1.2.2、程序的装入方式</h4>
+<ul>
+<li>
+<p>绝对装入：编译阶段就确定好了物理地址</p>
+</li>
+<li>
+<p>可重定位装入（静态重定位）：</p>
+<p>地址变换在装入时一次完成，实现容易，无需增加硬件地址变化机构 。要求为程序分配连续的存储区，若空间不足就不能分配成功，程序执行期间不能移动，不能扩充内存空间，难以做到程序和数据共享。</p>
+</li>
+<li>
+<p>动态运行装入（动态重定位）：</p>
+<p>在程序执行过程中每当访问到相应指令或数据时，才进行对应指令或数据的地址转换。其实现需要依靠硬件地址变换机构。可以使用不连续的存储区，装入部分代码就可运行，执行期间可以动态申请内存，便于程序共享。</p>
+</li>
+</ul>
+<h3 id="13-逻辑地址和物理地址">1.3、逻辑地址和物理地址</h3>
+<p>逻辑地址是指由程序产生的与段（与页无关）相关的偏移地址部分</p>
+<p>物理地址是指出现在 CPU 外部地址总线上的寻址物理内存的地址信号，是逻辑地址变换后的最终结果地址。</p>
+<p>在重定位中通常会设置一个重定位寄存器（基址寄存器），用来存放进程分配的内存空间地址，其转化公式为：物理地址=基址寄存器+逻辑地址</p>
+<h3 id="14-内存保护">1.4、内存保护</h3>
+<p>为了防止一个作业有意或者无意地破坏操作系统或其他作业。常用内存保护方法有：</p>
+<ul>
+<li>
+<p><strong>界限寄存器方法</strong></p>
+<p>两种实现方式：</p>
+<ul>
+<li>
+<p><strong>上下界寄存器方法</strong></p>
+<p>采用上下界寄存器分别存放作业的结束地址和开始地址</p>
+</li>
+<li>
+<p><strong>基址和限长寄存器方法</strong></p>
+<p>采用基址和限长寄存器分别存放作业的起始地址以及作业的地址空间长度</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>存储保护键方法</strong></p>
+<p>给每个存储块分配一个单独的保护键，作用相当于一把“锁”，进入系统的每个作业也被赋予了一个保护键，它相当于一把“钥匙”，作业运行时，会检查两者是否匹配</p>
+</li>
+</ul>
+<h2 id="2-覆盖与交换">2、覆盖与交换</h2>
+<h3 id="21-覆盖技术">2.1、覆盖技术</h3>
+<p>把一个大的程序划分为一系列覆盖，每个覆盖是一个相对独立的程序单位。把程序执行时并不要求同时装入内存的覆盖组成一组，称为覆盖段。将这个覆盖段分配到同一个存储区域，这个存储区域被称为覆盖区，它与覆盖段一一对应。覆盖区的大小由与之对应的覆盖段中最大覆盖确定。</p>
+<p>覆盖技术打破了必须将一个进程的全部信息装入主存后才能运行的限制。但当同时执行程序的代码量超过主存时，程序仍然不能运行。</p>
+<h3 id="22-交换技术">2.2、交换技术</h3>
+<p>把暂时不用的某个程序及数据部分从内存移到外存中，以便腾出必要的内存空间；或把指定的程序或数据从外存读到相应的内存中，并将控制权转让给它，让其在系统上运行的一种内存扩充技术。处理器三级调度中的中级调度就是采用了交换技术。</p>
+<p>交换基础打破了一个程序一旦进入主存便一致运行到结束的限制。但运行的进程大小仍然受实际主存的限制。</p>
+<h2 id="3-连续分配管理方式">3、连续分配管理方式</h2>
+<p><strong>什么是内部碎片与外部碎片</strong>？</p>
+<ul>
+<li>内部碎片是指已经分配给作业但不能被利用的内存空间，</li>
+<li>外部碎片是指系统中还没有分配给作业，但由于碎片太小二无法分配给申请内存空间的新进程的存储块</li>
+</ul>
+<h3 id="31-单一连续分配">3.1、单一连续分配</h3>
+<p>将内存分为两个连续存储区域，其一固定分配给操作系统使用（低地址部分），另一留给用户作业使用。采用<strong>静态分配</strong>，适合单道程序，可采用覆盖技术。</p>
+<p>优点：管理简单，只需要很少的软件和硬件支持，便于用户了解和使用，不存在其他用户干扰的问题</p>
+<p>缺点：只能用于单用户，单任务的操作系统，内存中只装入一道作业运行，从而导致各类资源利用率都很低</p>
+<h3 id="32-固定分区分配">3.2、固定分区分配</h3>
+<p>将内存空间划分为若干个固定大小的分区，每个分区中可以装入一道程序，分区大小可以不等，但实现必须确定，在运行时不可改变，程序通常采用<strong>静态重定位</strong>方式装入内存。实现时，需要一张分区说明表，以记录用户分配的分区号，分区的大小，分区的起始地址以及状态。分区大小可相等，也可不等。</p>
+<p>优点：可用于<strong>多道程序系统</strong>的最简单的存储分配。</p>
+<p>缺点：不能实现多进程共享一个主存区，利用率低，会产生<strong>内部碎片</strong>。</p>
+<h3 id="33-动态分区分配">3.3、动态分区分配</h3>
+<p>不事先将主存划分成一块块的分区，而是在作业进入内存时，根据作业的大小动态地建立分区，并使分区的大小正好满足作业的需要。因此分区大小可变，分区数目也可变。</p>
+<h4 id="331-动态分配的数据结构">3.3.1、动态分配的数据结构</h4>
+<ul>
+<li><strong>空闲分区表</strong>：登记系统的中的空闲分区，每个空闲分区对应一个表项，每个表项包含分区号、起始地址、大小以及状态。</li>
+<li><strong>空闲分区链</strong>：用链头指针将内存中的空闲分区链接起来，构成空闲分区链。</li>
+</ul>
+<h4 id="332-动态分配的分配算法">3.3.2、动态分配的分配算法</h4>
+<ul>
+<li>
+<p><strong>首次适应算法（First Fit，FF）</strong></p>
+<p>把空闲分区按照<strong>地址递增</strong>的次序用链表串成一个队列，每次需要为一个进程分配内存时都从队首开始找，顺着链表直到找到足够大的空闲分区，然后按作业大小从该分区中划分一块内存空间分配，剩余的空闲分区仍然留在空闲分区表中。若从头到尾都不存在符合的分区，即分配失败</p>
+<ul>
+<li>优点：优先利用内存低地址部分的空闲分区，从而保留了高地址部分的大的空闲分区</li>
+<li>缺点：由于低地址部分不断被划分，导致出现<strong>外部碎片</strong>，而每次查找又是从低地址开始的，会增加查找空闲分区的开销。</li>
+</ul>
+</li>
+<li>
+<p><strong>下次适应算法（Next Fit，NF）</strong></p>
+<p>在首次适应算法的基础上把队列改成循环队列，并从上次找到的空闲分区的下一个分区开始查找空闲分区。故又称<strong>循环首次适应算法</strong></p>
+<ul>
+<li>优点：空闲分区分布更加均匀，减少了查找空闲分区的开销</li>
+<li>缺点：缺乏大的空闲分区</li>
+</ul>
+</li>
+<li>
+<p><strong>最佳适应算法（Best Fit，BF）</strong></p>
+<p>要求将空闲分区按<strong>容量递增</strong>排序，每次为作业分配内存空间时，总是将能满足空间大小的最小空闲分区分配给作业。</p>
+<ul>
+<li>优点：作业总能分配到最恰当的分区，并保留最大的分区。</li>
+<li>缺点：产生<strong>外部碎片</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>最差适应算法（Worst Fit，WF）</strong></p>
+<p>要求空闲分区按照<strong>容量递减</strong>的次序排列，每次为作业分配内存空间时，总是将满足要求且最大的内存空间分配给作业。</p>
+<ul>
+<li>优点：减少了<strong>外部碎片</strong></li>
+<li>缺点：缺乏大的空闲分区，容易导致大作业得不到满足</li>
+</ul>
+</li>
+</ul>
+<h4 id="333-动态分配的分区回收">3.3.3、动态分配的分区回收</h4>
+<p>根据回收分区的大小以及首地址，在空闲分区表（空闲分区链）中<strong>检查是否有相邻的空闲分区</strong>，若有则合并两者并修改相关分区状态信息。</p>
+<h4 id="334-动态分配的动态管理">3.3.4、动态分配的动态管理</h4>
+<p>对内存中许多小容量分区进行动态管理，使其能够装入小于其总容量但大于每个小分区的作业。实现动态管理的主要技术是分区重定位技术，目前有两种：</p>
+<ul>
+<li>
+<p>拼接技术：将存储器中所有已分配分区移到主存的一端，使所有碎片分区链接成一个大的分区。</p>
+<p>因为拼接的系统开销较大，所以应用拼接时机目前有两种方案：</p>
+<ul>
+<li>在某个分区回收时立即进行拼接，这样，内存中总是只有一个连续的空闲分区。但拼接频率过高，导致系统开销加大</li>
+<li>当找不到足够大的空闲分区且总容量可以满足作业要求时进行拼接。</li>
+</ul>
+</li>
+<li>
+<p>动态重定位分区分配技术：</p>
+<p>与<strong>动态分区分配算法</strong>基本相同：在<strong>分配算法</strong>中添加了拼接功能，通常在找不到足够大的空闲分区来满足作业要求，而系统中空闲分区容量总和大于作业要求时进行拼接。</p>
+</li>
+</ul>
+<h4 id="335-动态分区分配的优缺点">3.3.5、 动态分区分配的优缺点</h4>
+<ul>
+<li>优点：
+<ol>
+<li>实现了多道程序共用主存（共用是指多进程同时存在于主存中的不同位置）；</li>
+<li>管理方案相对简单，不需要更多开销；</li>
+<li>实现存储保护手段比较简单。</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>主存利用不够充分，存在<strong>外部碎片</strong></li>
+<li>无法实现多进程共享存储器信息（共享指多进程都在使用同一个主存段）</li>
+<li>无法实现主存扩充，进程地址空间受实际存储空间的限制</li>
+</ol>
+</li>
+</ul>
+<h2 id="4-非连续分配管理方式">4、非连续分配管理方式</h2>
+<p>非连续分配允许一个程序分散地装入到不相邻的内存分区中。因为需要额外空间存储分散区域的索引，所以<strong>非连续分配方式的存储密度低于连续分配方式</strong>。</p>
+<p>非连续分配管理方式根据<strong>分区大小是否固定</strong>分为<strong>分页存储管理方</strong>式和<strong>分段存储管理方式</strong>，其中分页存储管理方式根据<strong>运行作业时是否需要把作业的所有页全部装入内存才能运行</strong>而分为<strong>基本分页存储管理方式</strong>和<strong>请求分页存储管理方式</strong>。</p>
+<h3 id="41-基本分页存储管理方式">4.1、基本分页存储管理方式</h3>
+<h4 id="411-分页原理">4.1.1、分页原理</h4>
+<p>把用户作业的地址空间划分成若干个大小相等的区域，称为<strong>页（页面）</strong>；相应地把主存的存储空间也划分成<strong>与页面大小相等</strong>的区域，称为<strong>块（物理块）（页框）</strong>，在分配存储空间时，总是以<strong>块</strong>为单位来分配，可以将作业的任意一页放到主存的任意一块中。</p>
+<p>页面大小由机器地址结构决定，一般选择适中（通常为 2 的倍数），以方便地址变换，一般为 512~4kb。其逻辑地址包含两部分，前为页号P，后为页内位移W</p>
+<figure data-type="image" tabindex="15"><img src="https://picbed.kimyang.cn/202108231554217.png" alt="image-20210823155407282" loading="lazy"></figure>
+<p>假设逻辑地址是 A ，页面大小为 L 则页号 P=(int)(A/L)，W=A%L；（int）代表取整</p>
+<h4 id="412-页表">4.1.2、页表</h4>
+<p>为了将逻辑地址上连续的页号映射到物理内存中后成为离散分布的物理块，需要将每个页面与物理块一一对应，页表就记录了这种映射关系。页表中每个页表项都由<strong>页号</strong>和<strong>块号</strong>组成。页表通常存储在<strong>内存</strong>中。</p>
+<figure data-type="image" tabindex="16"><img src="https://picbed.kimyang.cn/202108231613328.png" alt="image-20210823161327253" loading="lazy"></figure>
+<h4 id="413-基本地址变换机构">4.1.3、基本地址变换机构</h4>
+<figure data-type="image" tabindex="17"><img src="https://picbed.kimyang.cn/202108231757855.jpg" alt="1-140F1004005H3" loading="lazy"></figure>
+<p>整个地址变换过程都是由<strong>硬件</strong>自动完成的。</p>
+<p><strong>页表寄存器（PTR）</strong>：用来存放<strong>页表在内存中的起始地址和页表长度</strong></p>
+<p>假设页面大小为 L；页表长度为 M，逻辑地址为 A，物理地址为E，则从逻辑地址 A 转换为物理地址的步骤为：</p>
+<ul>
+<li>计算页号 P=（int）A/L；页内位移 W= A%L</li>
+<li>比较页号 P 和页表长度 M，若 P&gt;M，则产生越界中断，否则继续</li>
+<li>计算 F+ P*页表项长度，用得的值，从内存中取出物理块号 b</li>
+<li>用物理块号 b 和物理块大小的乘积，与页内地址 W 组成物理地址 E</li>
+</ul>
+<p>由上述过程可知，页表全部存放在内存中时，存取一条数据或指令至少需要访问<strong>两次</strong>内存。</p>
+<h4 id="414-具有快表的地址变换机构">4.1.4、具有快表的地址变换机构</h4>
+<p>为了提高地址变换的速度，可以在地址变换机构中增加一个具有并行查找功能的高度缓冲存储器（联想存储器/快表），将部分页表项放在快表中。</p>
+<figure data-type="image" tabindex="18"><img src="https://picbed.kimyang.cn/202108231758618.jpg" alt="1-140F1004005H3" loading="lazy"></figure>
+<p>增加块表之后的地址变换过程：</p>
+<ul>
+<li>根据逻辑地址计算页号 P 和页内位移 W</li>
+<li>先将页号与块表中的所有页号对比，若有匹配的页号，则直接读出对应块号，与页内位移拼接得到物理地址；若没有匹配的页号，则还需访问内存中的页表，流程和前文一致。</li>
+</ul>
+<p>如果直接从块表读出了块号，就只需访问一次内存，如果没有就只能访问内存两次了。</p>
+<h4 id="415-两级页表和多级页表">4.1.5、两级页表和多级页表</h4>
+<ol>
+<li>
+<p><strong>页表大小=页号数*页表项大小</strong>，其中页号数由页号位数决定</p>
+</li>
+<li>
+<p>如果页表大小过大，需要占据的连续内存空间就越大，由此产生了<strong>两级页表</strong>。</p>
+</li>
+<li>
+<p>可以不断通过增加页表的级数来缩小页表的大小，由此产生<strong>多级页表</strong>，但是会导致多次访问内存，增加地址变换的时间开销。</p>
+<figure data-type="image" tabindex="19"><img src="https://picbed.kimyang.cn/202108231840981.jpg" alt="1-140F1005205M0" loading="lazy"></figure>
+</li>
+</ol>
+<h4 id="416-页的共享和保护">4.1.6、页的共享和保护</h4>
+<p>分页存储管理中，实现共享的方式是<strong>使用户地址空间中的页指向相同的物理块</strong>。</p>
+<p>分页存储管理提供两种保护方式：</p>
+<ol>
+<li>地址越界保护：比较地址变换机构中的页表长度和所要访问的逻辑地址中的页号</li>
+<li>访问控制保护：通过页表中的访问控制信息对内存信息提供保护</li>
+</ol>
+<h4 id="417-基本分页存储管理方式的优缺点">4.1.7、基本分页存储管理方式的优缺点</h4>
+<ul>
+<li>优点：
+<ol>
+<li>内存利用率高</li>
+<li>实现了离散分配</li>
+<li>便于存储访问控制</li>
+<li>无外部碎片</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>需要硬件支持（尤其是快表）</li>
+<li>内存访问效率下降</li>
+<li>共享困难</li>
+</ol>
+</li>
+</ul>
+<h3 id="42-基本分段存储管理方式">4.2、基本分段存储管理方式</h3>
+<h3 id="421-分段存储原理">4.2.1、分段存储原理</h3>
+<p>分段存储管理中，作业的地址空间有若干个逻辑分段组成，每个分段是一组逻辑意义上<strong>相对完整的信息集合</strong>，每个分段都有自己的名字，每个分段都从 0 开始编址，并采用一段连续的地址空间。因此，整个作业的<strong>地址空间是二维的</strong>。分段存储管理中以<strong>段</strong>为基本单位分配内存，<strong>每段分配一个连续内存，但是各段之间不要求连续。</strong></p>
+<figure data-type="image" tabindex="20"><img src="https://picbed.kimyang.cn/202108231840536.png" alt="1-140F1005Z3T5" loading="lazy"></figure>
+<p><strong>为什么分页存储管理系统的作业地址空间是一维的，而分段存储管理系统是二维的？</strong></p>
+<ol>
+<li>注意段号和页号的来历不同，页号是系统自动生成的，本身地址是线性连续的，当访问特定地址时只需要提供<strong>逻辑地址</strong>即可，系统会自动将地址划分为页号和页内地址。而段号是程序员自己定义的，每段的段长都不同，因此想要找到某个数据或指令需要<strong>指定段号和位移</strong>两个变量。</li>
+<li>在分页存储管理中，低位页内地址和低位块内地址是完全对应的。照抄即可，仅需进行页号和块号的转换；而分段存储管理的每一段长都不同，所以段内地址的开始地址就是不确定的，需要先确定高位段号的起始地址。</li>
+</ol>
+<h4 id="422-段表及地址变换过程">4.2.2、段表及地址变换过程</h4>
+<p>系统为每个进程建立一个段表，每个表项包含段号，段长和该段内存起始地址等信息。</p>
+<figure data-type="image" tabindex="21"><img src="https://picbed.kimyang.cn/202108231853766.png" alt="1-140F10101563W" loading="lazy"></figure>
+<figure data-type="image" tabindex="22"><img src="https://picbed.kimyang.cn/202108231855897.png" alt="image-20210823185548803" loading="lazy"></figure>
+<p>段表寄存器：存放段表起始地址和段表长度。</p>
+<h4 id="423-段的共享和保护">4.2.3、段的共享和保护</h4>
+<p>在分段存储管理中，分段的共享是通过使多个作业的段表相应表项都指向被共享段的同一个物理副本来实现。</p>
+<p>与分页相似，分段管理的保护主要有两种：地址越界保护和访问控制保护。</p>
+<h4 id="424-基本分段存储管理方式的优缺点">4.2.4、基本分段存储管理方式的优缺点</h4>
+<ul>
+<li>优点
+<ol>
+<li>便于程序模块化处理和处理交换的数据结构</li>
+<li>便于动态链接和共享</li>
+<li>无内部碎片</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>需要硬件支持</li>
+<li>为满足分段的动态增长和减少外部碎片，要采用拼接技术</li>
+<li>分段最大尺寸受到主存可用空间的限制</li>
+<li>有外部碎片</li>
+</ol>
+</li>
+</ul>
+<h4 id="425-分段和分页区别">4.2.5、 分段和分页区别</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分页</th>
+<th style="text-align:center">分段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">信息的物理单位</td>
+<td style="text-align:center">信息的逻辑单位</td>
+</tr>
+<tr>
+<td style="text-align:center">系统管理的需要，为了提供内存利用率</td>
+<td style="text-align:center">满足用户的需要</td>
+</tr>
+<tr>
+<td style="text-align:center">页面大小固定且由系统决定</td>
+<td style="text-align:center">段的长度不定，由用户编写的程序决定</td>
+</tr>
+<tr>
+<td style="text-align:center">作业地址空间时一维的</td>
+<td style="text-align:center">作业地址空间时二维的</td>
+</tr>
+<tr>
+<td style="text-align:center">有内存碎片，无外部碎片</td>
+<td style="text-align:center">无内部碎片，有外部碎片</td>
+</tr>
+</tbody>
+</table>
+<h2 id="43-基本段页式存储管理方式">4.3、基本段页式存储管理方式</h2>
+<p>分页系统能有效提供内存利用率并能解决碎片问题，而分段系统能反映程序的逻辑结构并有利于段的共享。将二者结合就形成了段页式存储管理方式。</p>
+<p>在段页式存储管理中，作业的地址空间首先被分成了若干个逻辑分段，每段都有自己段号，然后再将每一段分成若干个大小固定的页。将主存空间分成若干个与页面大小相同的物理块，分配时以物理块为基本单位。</p>
+<p>逻辑地址结构：</p>
+<figure data-type="image" tabindex="23"><img src="https://picbed.kimyang.cn/202108232005389.png" alt="" loading="lazy"></figure>
+<p>系统为每个进程建立一张段表，而每个分段都有一张页表。段表表项包括段号、页表始址和页表长度，页表表项包括页号和块号。其地址转换过程如下：</p>
+<figure data-type="image" tabindex="24"><img src="https://picbed.kimyang.cn/202108232010269.jpeg" alt="" loading="lazy"></figure>
+<p>从上述过程可以看出段页式存储管理的地址变化需要访问内存三次。所以同样可以用块表来减少对内存的访问次数</p>
+<p>段页式结合了段式和页式的优点，解决了段式的外部碎片问题，但是增加了页式内部碎片问题。</p>
+<hr>
+<h2 id="title-虚拟内存管理">title: 虚拟内存管理</h2>
+<h2 id="1-虚拟内存的基本概念">1、虚拟内存的基本概念</h2>
+<h3 id="11-虚拟内存引入的原因">1.1、虚拟内存引入的原因</h3>
+<p>连续分配方式和非连续分配方式都是分析如何将多个程序装入内存并行，它们的共同特点都是一次性（作业全部装入内存后才能执行）和驻留性（作业常驻内存直到运行结束）。为了实现让作业部分装入就可以运行，引入了虚拟内存管理技术。</p>
+<h3 id="12-局部性原理">1.2、局部性原理</h3>
+<p>大多数程序执行时，在一个较短的时间内仅使用程序的代码的一部分。相应的，程序所访问的存储空间也局限在某个区域。</p>
+<ul>
+<li><strong>时间局部性</strong>：一条指令的一次执行和下次执行，一个数据的一次访问和下次访问，都集中在一个较短的时间内。</li>
+<li><strong>空间局部性</strong>：当前指令和邻近的几条指令，当前数据和邻近的数据，都集中在一个较小的区域内。</li>
+</ul>
+<h3 id="13-虚拟内存的定义及特征">1.3、虚拟内存的定义及特征</h3>
+<p>基于局部性原理，在程序装入时，一方面可以将程序的一部分放入内存，而将其余部分放在外存，然后启动程序（<strong>部分装入</strong>）。在程序执行过程中，当所访问的信息不再内存中时，再由操作系统将所需的部分调入内存（<strong>请求调入</strong>）。另一方面，操作系统将内存中暂时不使用的进程置换到外存上，从而腾出空间存放将要调入内存的信息（<strong>置换功能</strong>）。从效果上看计算机系统好像为用户提供了一个存储容量比实际内存大得多的存储器，这种从<strong>逻辑上</strong>扩充内存容量的存储器系统被称为<strong>虚拟存储器</strong>，其具有如下特征：</p>
+<ul>
+<li><strong>离散性</strong>：程序在内存中离散存储（分页分段也有离散性）</li>
+<li><strong>多次性</strong>：一个作业可以多次调入内存</li>
+<li><strong>对换性</strong>：作业运行过程中可以换入，换出</li>
+<li><strong>虚拟性</strong>：从逻辑上扩充内存容量</li>
+</ul>
+<h3 id="14-实现虚拟内存的软硬件支持">1.4、实现虚拟内存的软硬件支持</h3>
+<ul>
+<li>要有相当数量的<strong>外存</strong>，足以存放多个用户的程序</li>
+<li>要有一定容量的<strong>内存</strong>，在处理器上运行程序必须亚欧一部分信息存放在内存中</li>
+<li><strong>中断机构</strong>，当用户访问的部分不再内存中时中断程序运行</li>
+<li><strong>地址变换机构</strong>，以动态实现虚地址到实地址的地址变换</li>
+<li><strong>相关数据结构</strong>，段表或页表</li>
+</ul>
+<h2 id="2-请求分页存储管理方式">2、请求分页存储管理方式</h2>
+<h3 id="21-请求分页原理">2.1、请求分页原理</h3>
+<p>请求分页存储管理方法在<strong>作业地址空间的分页、存储空间的分块</strong>等概念上和<strong>基本分页存储管理方法</strong>完全一样，只是增加了<strong>请求调页、页面置换功能</strong>。先将程序部分载入内存执行，当需要其他页面时再使用<strong>请求调页</strong>将其调入内存。同时还可以通过<strong>置换功能</strong>将暂时不用的页面置换到外存上，以腾出内存空间。</p>
+<p>请求分页=基本分页+ 请求调页+页面置换</p>
+<h3 id="22-页表结构">2.2、页表结构</h3>
+<figure data-type="image" tabindex="25"><img src="https://picbed.kimyang.cn/202108260018688.png" alt="image-20210826001832592" loading="lazy"></figure>
+<p>页表项中各字段的作用如下：</p>
+<ul>
+<li><strong>页号和物理块号</strong>：和基本分页存储中一样，用于定义虚拟地址和物理地址之后的关</li>
+<li><strong>状态位</strong>（存在位）：标志页面是否在主存中</li>
+<li><strong>访问字段</strong>：记录页面在最近一段时间内被访问的次数，或最近已有多久未被访问。</li>
+<li><strong>修改位</strong>：表示页面调入内存后是否被修改过。内存中的页面在外存中都有副本，因此，若修改过，页面置换出内存时会一并修改外存上的副本。</li>
+<li><strong>外存地址</strong>：指出页面在外存上的存放地址，供页面调入时使用</li>
+</ul>
+<h3 id="23-缺页中断与地址变换">2.3、缺页中断与地址变换</h3>
+<figure data-type="image" tabindex="26"><img src="https://picbed.kimyang.cn/202108260045741.png" alt="" loading="lazy"></figure>
+<p>在<strong>请求分页存储管理系统</strong>中，若所访问的页面在内存中，其地址变换过程与<strong>分页存储管理</strong>相同，若访问的页面不再内存中，则应先将该页面调入内存，再按照与基本分页存储管理相同的方式进行地址变换。</p>
+<p>缺页中断与一般中断的区别：</p>
+<ul>
+<li>在指令执行期间产生和处理缺页中断。一般中断是在指令执行完毕后检查是否有中断请求到达。</li>
+<li>一条指令可以产生多个缺页中断。</li>
+</ul>
+<h3 id="24-请求分页管理方式的优缺点">2.4、请求分页管理方式的优缺点</h3>
+<ul>
+<li>优点：
+<ol>
+<li>可以离散存储程序，降低了碎片数量。</li>
+<li>提供虚拟存储器，提高了主存利用率，有利于多道程序运行，方便用户。</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>必须有硬件支持</li>
+<li>某些情况下会产生抖动现象</li>
+<li>程序最后一页仍然存在未被利用的部分空间</li>
+</ol>
+</li>
+</ul>
+<h2 id="3-页面置换算法">3、页面置换算法</h2>
+<ul>
+<li>区分页面置换和连续分配中的交换区：页面置换的单位是页面，交换区的单位是整个进程</li>
+<li>当发生缺页中断后，系统不一定执行页面置换算法，只有中断发生且内存中没有空闲块时才需要页面置换算法。</li>
+</ul>
+<h3 id="31-最佳置换算法opt">3.1、最佳置换算法(OPT)</h3>
+<p>在预知一个进程的页面引用的情况下，每次都淘汰以后不再使用的或者以后最迟再被使用的页面。</p>
+<p>虽然最佳置换算法是最优解，其缺页率最低，但是由于实际往往无法实现预知以后会引用到的所有页面的信息而<strong>无法实现。</strong></p>
+<h3 id="32-先进先出算法fifo">3.2、先进先出算法（FIFO）</h3>
+<p>每次总是淘汰最先进入内存的页面，也就是淘汰在内存驻留时间最长的页面。</p>
+<p>实现简单，一个队列即可。不过其可能会产生 <strong>Belady 异常</strong>（缺页次数随着分配的物理块号的增加而增加），这是由于其忽略了，最早调入的页面往往就是使用最频繁的页面。所以其实际效果不好</p>
+<h3 id="33-最近最少使用算法lru">3.3、最近最少使用算法（LRU）</h3>
+<p>选择最近最长时间没有被使用的页面予以淘汰。</p>
+<p>其思想是用以前的页面引用情况来预测将来会出现的页面引用情况。可以用寄存器和栈实现，性能较好，是最接近最佳置换算法的。</p>
+<h3 id="34-时钟置换算法clock">3.4、时钟置换算法（CLOCK）</h3>
+<p>给每个页面设置一个<strong>访问位</strong>，用来标识该页最近有没有被访问过，CLOCK 维护一个内存中所有页面的<strong>循环链表</strong>（<strong>长度固定</strong>），当程序需要访问链表中存在时，该页面的访问位置为 1；否则，若程序要访问的页面没有在链表中，那就需要淘汰一个内存中的页面，于是一个指针从上次被淘汰页面的下一个位置开始顺序的去<strong>遍历</strong>这个循环链表，当这个指针指向的页面访问位为 1 时，就把该访问位清零，指正再向下移动，当指针指向的页面的访问位为 0 时，就选择淘汰掉这一页面，若遍历一遍链表仍没找到可以淘汰的页面就<strong>继续遍历</strong>下去。</p>
+<p>也被称为最近未使用算法（NRU），是 LRU 和 FIFO 的折中，相比 LRU 少了很多硬件支持，实现更简单，但相比 FIFO 算法所需的硬件更多。</p>
+<p>比较难理解的话，请结合具体的题目。</p>
+<h3 id="35-改进型时钟算法clock">3.5 改进型时钟算法（CLOCK）</h3>
+<ul>
+<li>从当前位置，第一次遍历<strong>循环链表</strong>且不做任何修改，淘汰第一个（访问位=0，修改位=0）的页面用于替换。</li>
+<li>若第一次遍历没找到，开始第二次遍历，寻址（访问位=0，修改位=1）的页面用于替换，在此过程中将每一个非替换页面的访问位置为 0</li>
+<li>若第二次遍历没找到，开始第三次遍历，此时所有页面的访问位均为 0，重新执行前面第一二次遍历的步骤，一定能找到替换页面</li>
+</ul>
+<p>在时钟置换算法的基础上，改进型时钟算法考虑了<strong>页面载入内存后是否被修改过的问题</strong>，增加了<strong>修改位</strong>。可减少磁盘 I/O 次数，但是会在增加遍历次数</p>
+<h3 id="36-最不常用置换算法lfu">3.6、最不常用置换算法（LFU）</h3>
+<p>为每一页设置一个访问计数器，每当页面访问时，该页计数器加 1，发生缺页中断时，选择到当前时间为止访问次数最少（计数器值最小）的页面淘汰并将所有计数器清零。</p>
+<h3 id="37-页面缓冲算法pba">3.7、页面缓冲算法（PBA）</h3>
+<p>PBA 算法用 FIFO 算法选择被置换页，但被选中的页面不是立即换出，而是归入两个链表之一。如果页面未被修改，就将其归入<strong>空闲页面链表</strong>末尾，否则将其归入<strong>已修改页面链表</strong>的末尾。这些空闲页面和已修改页面会在内存中<strong>驻留一段时间</strong>，如果再次被访问，只需将其移出返回给进程。需要调入新页时，将新的页面插入到空闲页面链表的第一个页面中，然后将其移出，当已修改页达到一定数目后，再将其一起写入磁盘，然后将其归入空闲页面链表。</p>
+<p>PBA 是对 FIFO 的发展，通过建立置换页面的缓冲找回刚被置换的页面，从而减少系统 I/O 的消耗。</p>
+<h2 id="4-工作集与页面分配策略">4、工作集与页面分配策略</h2>
+<h3 id="41-工作集理论">4.1、工作集理论</h3>
+<p>基于局部性原理，为解决<strong>抖动现象</strong>，引入工作集概念，<strong>工作集是最近 n 次内存访问的页面的集合</strong>，n 为工作集窗口，也就是工作集的大小。</p>
+<p>经常使用的页面会在工作集中，若一个页面不再使用，则它会被从工作集中移出，当一个进程寻址一个不在工作集内的页面时，会产生一个缺页中断，在处理缺页中断时，更新工作集并在需要时从磁盘中读入此页面。</p>
+<p>工作集模型原理：</p>
+<p>让操作系统监视各个进程的工作集，</p>
+<ul>
+<li>若有空闲的物理块，则可再调一个进程到内存以增加多道的程度，</li>
+<li>若工作集的大小总和超过了所有可用的物理块的数量，则操作系统选择一个内存中的进程对换到磁盘中，以<strong>减少内存中的进程数量来防止抖动的发生。</strong></li>
+</ul>
+<p>正确选择工作集窗口大小，对存储器的有效利用率和系统吞吐率的提供都至关重要。</p>
+<h3 id="42-页面分配策略">4.2、页面分配策略</h3>
+<p>在请求分页存储管理中，可以采用两种页面分配策略：即<strong>固定分配和可变分配</strong>。在页面置换时，也可采用两种策略：<strong>全局置换和局部置换</strong>，组合一下:</p>
+<ul>
+<li>
+<p><strong>固定分配局部置换</strong></p>
+<p>为每个进程分配一定数目的物理块（<strong>固定分配</strong>）。</p>
+<p>优点：进程之间不会争夺物理块，</p>
+<p>缺点：可能导致有些进程因为物理块太少而频繁地缺页中断，而有些进程由于分配的物理块太多产生浪费。</p>
+<p>采用算法决定每个进程分配多少物理块，常见算法有<strong>平均分配算法</strong>，<strong>按比例分配算法</strong>以及<strong>考虑优先权的分配算法。</strong></p>
+</li>
+<li>
+<p><strong>可变分配全局置换</strong></p>
+<p>操作系统维护一个空闲物理块队列，每次有进程发生缺页时都从空闲物理块上取下一个分配给它。如果系统也没有空闲物理块了，则系统可能调出任何进程中的其中一页。</p>
+</li>
+<li>
+<p><strong>可变分配局部置换</strong></p>
+<p>为每个进程分配一定量的物理块后，每次发生缺页中断且内存中没有空闲物理块时，只让进程换出自己的某个内存页面，</p>
+<ul>
+<li>但当某个进程频繁发生缺页中断时，系统会为它分配额外的物理块，直到缺页率降低到合适程度为止。</li>
+<li>当某进程缺页率特别低时，适当减少分配给它的物理块数量。</li>
+</ul>
+<p>可变分配局部置换策略可以在获得比较高的内存空间利用率的同时，保证每个进程有较低的缺页率</p>
+</li>
+</ul>
+<h3 id="43-页面调入策略">4.3、页面调入策略</h3>
+<ul>
+<li>
+<p>请求调页策略</p>
+<p>一个页面只有在被用到时才被调入内存中。</p>
+<p>这种方式在进程刚启动时会频繁地出现缺页中断，其实现简单，但容易产生<strong>抖动现象</strong></p>
+</li>
+<li>
+<p>预调页策略</p>
+<p>将预计不久后会被用到的页面一并调入到内存，尽管暂时它们没有被用到。这是一种基于局部性原理的预测，通常用于程序的首次调入。</p>
+</li>
+</ul>
+<h3 id="44-从何处调入页面">4.4、从何处调入页面</h3>
+<p>请求分页系统中的外存分为两部分：用于存放文件的文件区和用于存放对换页面的对换区。由于对换区采用连续分配方式，而文件区采用离散分配方式，因此对换区的磁盘 I/O 速度比文件区高。</p>
+<p>当发生缺页请求时，调页情况分三种：</p>
+<ul>
+<li><strong>系统拥有足够的对换区空间</strong>：可以全部从对换区调入所需页面，以提高调页速度。这要求进程运行前，与该进程有关的文件就需要从文件区复制到对换区。</li>
+<li><strong>系统缺少足够的对换区空间</strong>：凡是不会修改的文件，都直接从文件区调入，置换这些页面时也不必换出，下次调入依旧从文件区调；对于可能被修改的文件，就需要复制到对换区进行置换。</li>
+<li><strong>UNIX 方式</strong>：与进程有关的文件都放在文件区，未运行过的进程的所有页面都直接从文件区调入，对于运行过但又被换出的页面，全部放在对换区，下次调入时从对换区调入。</li>
+</ul>
+<h2 id="5-抖动显现和缺页率">5、抖动显现和缺页率</h2>
+<h3 id="51-belady-现象">5.1、Belady 现象</h3>
+<p><strong>FIFO 算法</strong>的缺页次数会随着所分配的物理块号的增加而增加。</p>
+<p>原因时其忽略了最早调入的页面往往就是使用最频繁的页面，其置换特征与进程访问时的动态特征相矛盾，即被置换的页面并不是进程不会访问的。</p>
+<h3 id="52-抖动现象">5.2、抖动现象</h3>
+<p>刚淘汰的页面，过不久又要访问，并且调入不久后又调出，如此反复，使得系统浪费大量时间在页面的调入调出上，影响正常有效的工作。</p>
+<p>原因是在请求分页系统中的每个进程都只能分配到所需全部内存空间的一部分。</p>
+<h3 id="53-缺页率">5.3、缺页率</h3>
+<p>假定一个作业共有 n 页，系统分配给该作业 m 页的空间，如果该作业在运行过程中共需要访问 A 次页面，其中所访问页面不在内存需调入的次数为 F，则缺页率定义为 f=F/A，命中率为 1-f。</p>
+<h2 id="6-请求分段存储方式">6、请求分段存储方式</h2>
+<p>和请求分页存储管理方式几乎一样，只是操作的基本单位<strong>由页变为了段</strong>。具体过程不再详述，几乎不会考。扩充后的段表项如下：</p>
+<figure data-type="image" tabindex="27"><img src="https://picbed.kimyang.cn/202108260325203.png" alt="image-20210826032502155" loading="lazy"></figure>
+<hr>
+<h2 id="title-内存管理方法对比及相关计算">title: 内存管理方法对比及相关计算</h2>
+<h2 id="1-内存管理方式之间的对比">1、内存管理方式之间的对比</h2>
+<h3 id="11-离散分配方式的对比">1.1、离散分配方式的对比</h3>
+<figure data-type="image" tabindex="28"><img src="https://picbed.kimyang.cn/202108260331133.png" alt="" loading="lazy"></figure>
+<h3 id="12-内存管理方式之间的对比">1.2、内存管理方式之间的对比</h3>
+<figure data-type="image" tabindex="29"><img src="https://picbed.kimyang.cn/202108260332771.png" alt="" loading="lazy"></figure>
+<h2 id="2-内存管理计算中地址的处理逻辑地址转物理地址">2、内存管理计算中地址的处理（逻辑地址转物理地址）</h2>
+<p>十六进制、八进制与二进制的后缀分别为：H、O、B。</p>
+<p>在<strong>请求分页系统</strong>中，逻辑地址转化为物理地址，处理过程如下：</p>
+<ul>
+<li>将其他进制转化为二进制，方便处理</li>
+<li>求出页号，页号为逻辑地址与页面大小的商，二进制下为地址高位。</li>
+<li>求出页内位移，页内位移为逻辑地址和页面大小的余数，二进制下为地址低位。</li>
+<li>根据题意产生也变通过查找页表得到对应页的内存块号或页框号</li>
+<li>若给出的是<strong>内存块号</strong>，则用<strong>内存块号乘以块大小，加上基址，再加上页内位移得到物理地址。</strong></li>
+<li>若给出的是<strong>页框号</strong>，则用<strong>页框号与页内位移进行拼接</strong>（页框号依然是高位，页内位移是低位），得到物理地址。</li>
+<li>将二进制表示的物理地址根据题目要求转为十六进制或者十进制。</li>
+</ul>
+<h2 id="3-基本分页管理方式中有效访问时间的计算">3、基本分页管理方式中有效访问时间的计算</h2>
+<p>有效访问时间（EAT）是指给定逻辑地址找到内存中对应物理地址单元中的数据所用的总时间。</p>
+<ol>
+<li>
+<p>没有快表：</p>
+<p>假设访问存一次所用时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>，有效访问时间分为：</p>
+<ul>
+<li>查找页表项，需要访存一次。</li>
+<li>通过对应页表项中的物理地址访问对应的内存单元，需要访存一次。</li>
+</ul>
+<p>因此 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>A</mi><mi>T</mi><mo>=</mo><mn>2</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">EAT=2t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">t</span></span></span></span></p>
+</li>
+<li>
+<p>存在快表：</p>
+<p>假设访问快表的时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>，访存一次的时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>，快表命中率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>，则有效访问时间分为：</p>
+<ul>
+<li>查找页表项的平均时间：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>×</mo><mi>b</mi><mo>+</mo><mo>(</mo><mi>t</mi><mo>+</mo><mi>a</mi><mo>)</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">a\times b+(t+a)(1-b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>,
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 代表快表命中时查找表项的时间，其发生的概率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>t</mi><mo>+</mo><mi>a</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(t+a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span></span></span></span> 代表快表未命中时查找表项的时间，其发生的概率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(1-b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+<li>通过页表项中的物理地址访问对应的内存单元，需要访存一次。</li>
+</ul>
+<p>因此，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>A</mi><mi>T</mi><mo>=</mo><mi>a</mi><mo>×</mo><mi>b</mi><mo>+</mo><mo>(</mo><mi>t</mi><mo>+</mo><mi>a</mi><mo>)</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo>)</mo><mo>+</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">EAT=a\times b+(t+a)(1-b)+t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span><br>
+由于访问快表的时间很快，有时<strong>题目会说明快表访问时间忽略不计或者不给出访问快表所需时间</strong>，这时认为 a=0。</p>
+</li>
+</ol>
+<h2 id="4-请求分页管理方式中有效访问时间的计算">4、请求分页管理方式中有效访问时间的计算</h2>
+<p>与基本分页管理方式相比，请求分页管理方式多了<strong>缺页中断</strong>的情况。</p>
+<p>根据访问页面所在位置，有如下 3 种情况：</p>
+<ul>
+<li>访问的页在主存，且访问页在快表中，则：
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>A</mi><mi>T</mi><mo>=</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">根</mi><mi mathvariant="normal">据</mi><mi mathvariant="normal">物</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">地</mi><mi mathvariant="normal">址</mi><mi mathvariant="normal">访</mi><mi mathvariant="normal">存</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">EAT=查找快表时间+根据物理地址访存时间=a+t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">访</span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></li>
+</ul>
+</li>
+<li>访问的页在主存，但不再快表中，则：
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>A</mi><mi>T</mi><mo>=</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">页</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">修</mi><mi mathvariant="normal">改</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mi mathvariant="normal">（</mi><mi mathvariant="normal">题</mi><mi mathvariant="normal">目</mi><mi mathvariant="normal">未</mi><mi mathvariant="normal">给</mi><mi mathvariant="normal">可</mi><mi mathvariant="normal">忽</mi><mi mathvariant="normal">略</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">通</mi><mi mathvariant="normal">常</mi><mi mathvariant="normal">与</mi><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">致</mi><mi mathvariant="normal">）</mi><mo>+</mo><mi mathvariant="normal">根</mi><mi mathvariant="normal">据</mi><mi mathvariant="normal">物</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">地</mi><mi mathvariant="normal">址</mi><mi mathvariant="normal">访</mi><mi mathvariant="normal">存</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>+</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>=</mo><mn>2</mn><mo>(</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">EAT=查找快表时间+查找页表时间+修改快表时间（题目未给可忽略，通常与查找快表一致）+根据物理地址访存时间=a+t+a+t=2(a+t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">修</span><span class="mord cjk_fallback">改</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">题</span><span class="mord cjk_fallback">目</span><span class="mord cjk_fallback">未</span><span class="mord cjk_fallback">给</span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">忽</span><span class="mord cjk_fallback">略</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">通</span><span class="mord cjk_fallback">常</span><span class="mord cjk_fallback">与</span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">致</span><span class="mord cjk_fallback">）</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">访</span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69841em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+<li>访问的页不再主存中（也不可能在快表），发生缺页中断，假设缺页中断处理时间为 T（包括了将该页调入主存、更新页表和快表的时间），则
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>A</mi><mi>T</mi><mo>=</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">页</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">处</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">缺</mi><mi mathvariant="normal">页</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">根</mi><mi mathvariant="normal">据</mi><mi mathvariant="normal">物</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">地</mi><mi mathvariant="normal">址</mi><mi mathvariant="normal">访</mi><mi mathvariant="normal">存</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>+</mo><mi>T</mi><mo>+</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>=</mo><mi>T</mi><mo>+</mo><mn>2</mn><mo>(</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">EAT=查找快表时间+查找页表时间+处理缺页时间+查找快表时间+根据物理地址访存时间=a+t+T+a+t=T+2(a+t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">处</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">缺</span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">访</span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69841em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<p>加入缺页率(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>)和命中快表率(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>)，将以上三种情况组合，则：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>A</mi><mi>T</mi><mo>=</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi>d</mi><mo>×</mo><mi mathvariant="normal">根</mi><mi mathvariant="normal">据</mi><mi mathvariant="normal">物</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">地</mi><mi mathvariant="normal">址</mi><mi mathvariant="normal">访</mi><mi mathvariant="normal">存</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>d</mi><mo>)</mo><mo>×</mo><mo>[</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">页</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi>f</mi><mo>×</mo><mo>(</mo><mi mathvariant="normal">处</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">缺</mi><mi mathvariant="normal">页</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">查</mi><mi mathvariant="normal">找</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">根</mi><mi mathvariant="normal">据</mi><mi mathvariant="normal">物</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">地</mi><mi mathvariant="normal">址</mi><mi mathvariant="normal">访</mi><mi mathvariant="normal">存</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>)</mo><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>f</mi><mo>)</mo><mo>×</mo><mo>(</mo><mi mathvariant="normal">修</mi><mi mathvariant="normal">改</mi><mi mathvariant="normal">快</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>+</mo><mi mathvariant="normal">根</mi><mi mathvariant="normal">据</mi><mi mathvariant="normal">物</mi><mi mathvariant="normal">理</mi><mi mathvariant="normal">地</mi><mi mathvariant="normal">址</mi><mi mathvariant="normal">访</mi><mi mathvariant="normal">存</mi><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mo>)</mo><mo>]</mo><mo>=</mo><mi>a</mi><mo>+</mo><mi>d</mi><mo>×</mo><mi>t</mi><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>d</mi><mo>)</mo><mo>×</mo><mo>[</mo><mi>t</mi><mo>+</mo><mi>f</mi><mo>(</mo><mi>T</mi><mo>+</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>)</mo><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>f</mi><mo>)</mo><mo>×</mo><mo>(</mo><mi>a</mi><mo>+</mo><mi>t</mi><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">EAT=查找快表时间+d\times 根据物理地址访存时间+(1-d)\times [查找页表时间+f\times(处理缺页时间+查找快表时间+根据物理地址访存时间)+(1-f)\times(修改快表时间+根据物理地址访存时间)]=a+d\times t+(1-d)\times[t+f(T+a+t)+(1-f)\times(a+t)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">访</span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord cjk_fallback">处</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">缺</span><span class="mord cjk_fallback">页</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">访</span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord cjk_fallback">修</span><span class="mord cjk_fallback">改</span><span class="mord cjk_fallback">快</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">根</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">物</span><span class="mord cjk_fallback">理</span><span class="mord cjk_fallback">地</span><span class="mord cjk_fallback">址</span><span class="mord cjk_fallback">访</span><span class="mord cjk_fallback">存</span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mclose">)</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69841em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></p>
+<p>注意：</p>
+<ul>
+<li>
+<p>若题目没说有快表或者说忽略访问和修改快表时间，可以得出上述公式中的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>;</p>
+</li>
+<li>
+<p>若题目没说被置换的页面是否被修改，则缺页中断处理时间统一为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span></p>
+</li>
+<li>
+<p>若题目详细说了被置换的页面分为修改和未修改两种不同情况，假设修改的概率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，修改的处理时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">T_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>;未修改的处理时间为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">T_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,则处理缺页时间为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mo>=</mo><mi>n</mi><mo>×</mo><msub><mi>T</mi><mn>1</mn></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>n</mi><mo>)</mo><mo>×</mo><msub><mi>T</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">T=n\times T_1+(1-n)\times T_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+</li>
+</ul>
+<h2 id="文件管理">文件管理</h2>
+<h2 id="设备管理">设备管理</h2>
+<h2 id="补充">补充</h2>
 
             </div>
           </article>
@@ -112,7 +1497,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://bingery111.github.io/images/avatar.png?v=1644545497884" class="no-responsive avatar">
+    <img src="https://bingery111.github.io/images/avatar.png?v=1644572646101" class="no-responsive avatar">
     <div class="text-muted">个人笔记</div>
     <div class="social-container">
       
