@@ -1,227 +1,202 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" >
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    个人笔记
-</title>
-<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644847016084">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<title>个人笔记</title>
+<meta name="description" content="个人笔记">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644847654866">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://bingery111.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://bingery111.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://bingery111.github.io">
-                <img class="avatar" src="https://bingery111.github.io/images/avatar.png?v=1644847016084" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    个人笔记
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+
+  </head>
+  <body>
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://bingery111.github.io">个人笔记</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
     </div>
+  </div>
+</nav>
+
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          
+  <article class="article">
+    <h2 class="article-title">
+      <a href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">markdown学习笔记</a>
+    </h2>
+    <p class="article-meta">
+      2022-02-10
+      
+    </p>
+    <p class="text-lead">
+      
+    </p>
+    <div class="row">
+      <a href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/" class="readmore-link">
+        <button>
+          Read More
+        </button>
+      </a>
+    </div>
+  </article>
+
+
+        </div>
+        
+        <div class="row flex-edges">
+  
+    <a href="https://bingery111.github.io/page/2/" class="paper-btn">
+      上一页
+    </a>
+  
+  
+    <a href="https://bingery111.github.io/page/4/" class="paper-btn">
+      下一页
+    </a>
+  
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
+      </div>
+      
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://bingery111.github.io/images/avatar.png?v=1644847654866" class="no-responsive avatar">
+    <div class="text-muted">个人笔记</div>
+    <div class="social-container">
+      
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">
-                        markdown学习笔记
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2022-02-10</time>
-                    
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            一、标题：
-1、markdown标题用=和-表示一级和二级标题
-2、
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-
-二、段落格式：
-Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。
-字体：
-*斜体文本*
-_斜体文本_
-**粗体文本**
-__粗体文本__
-***粗斜体文本***
-___粗斜体文本___
-
-三、分隔线
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：
-***
-* * *
-*****
-- - -
-----------
-
-四、删除线
-如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：
-RUNOOB.COM
-GOOGLE.COM
-~~BAIDU.COM~~
-
-下划线
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
-    <div class="pagination-container">
+      
         
-            <a href="https://bingery111.github.io/page/2/" class="page-btn btn">上一页</a>
-            
-                
-                    <a href="https://bingery111.github.io/page/4/" class="page-btn btn">下一页</a>
-                    
+      
+        
+      
+        
+      
+        
+      
     </div>
-    
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://bingery111.github.io/images/avatar.png?v=1644847016084)">
-        </div>
-        <h1 class="id_card-title">
-            个人笔记
-        </h1>
-        <h2 class="id_card-description">
-            个人笔记
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
-            
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
     </div>
-    
-
-                        <!-- 公告栏 -->
-                        
-
-                </div>
-            </div>
-
-
-
-            <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://bingery111.github.io/atom.xml" target="_blank">RSS</a>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linux-chang-yong-ming-ling/">Linux常用命令</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/zhi-mian-shi-bu-zhao-ren/">只面试不招人</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">markdown学习笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">git学习笔记</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://bingery111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
 </script>
 
-    </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
 
+
+
+  </body>
 </html>
