@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    个人笔记
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://bingery111.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="/assets/media/css/style.min.css" />
+        <script src="/assets/media/script/tocbot.min.js"></script>
+        <script src="/assets/media/script/script.min.js"></script>
+        <script src="/assets/media/script/icon.min.js"></script>
+        
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://bingery111.github.io">
+                    个人笔记
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1644840563442" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://bingery111.github.io">
+                            个人笔记
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1644840563442" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Linux常用命令
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            个人笔记
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2022-02-14</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">19.5
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">4716</a></span>
+                                        
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <!-- GFM-TOC -->
+<ul>
+<li><a href="#%E4%B8%80%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86">一.文件管理</a>
+<ul>
+<li><a href="#1%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BEfind">1.文件查找：find</a></li>
+<li><a href="#2%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9Dcp">2.文件拷贝：cp</a></li>
+<li><a href="#3%E6%89%93%E5%8C%85%E8%A7%A3%E5%8C%85tar">3.打包解包：tar</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86">二.文本处理</a>
+<ul>
+<li><a href="#1%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6nl">1.(显示行号)查看文件：nl</a></li>
+<li><a href="#2%E6%96%87%E6%9C%AC%E6%9F%A5%E6%89%BEgrep">2.文本查找：grep</a></li>
+<li><a href="#3%E6%8E%92%E5%BA%8Fsort">3.排序：sort</a></li>
+<li><a href="#4%E8%BD%AC%E6%8D%A2tr">4.转换：tr</a></li>
+<li><a href="#5%E5%88%87%E5%88%86%E6%96%87%E6%9C%ACcut">5.切分文本：cut</a></li>
+<li><a href="#6%E6%8B%BC%E6%8E%A5%E6%96%87%E6%9C%ACpaste">6.拼接文本：paste</a></li>
+<li><a href="#7%E7%BB%9F%E8%AE%A1wc">7.统计：wc</a></li>
+<li><a href="#8%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86sed">8.数据处理：sed</a></li>
+<li><a href="#9%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86awk">9.数据处理：awk</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">三.性能分析</a>
+<ul>
+<li><a href="#1%E8%BF%9B%E7%A8%8B%E6%9F%A5%E8%AF%A2ps">1.进程查询：ps</a></li>
+<li><a href="#2%E8%BF%9B%E7%A8%8B%E7%9B%91%E6%8E%A7top">2.进程监控：top</a></li>
+<li><a href="#3%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%9F%A5%E8%AF%A2lsof">3.打开文件查询：lsof</a></li>
+<li><a href="#4%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E9%87%8Ffree">4.内存使用量：free</a></li>
+<li><a href="#5shell%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6ulimit">5.shell进程的资源限制：ulimit</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7">四.网络工具</a>
+<ul>
+<li><a href="#1%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AEifconfig">1.网卡配置：ifconfig</a></li>
+<li><a href="#2%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5netstat">2.查看当前网络连接：netstat</a></li>
+<li><a href="#3%E6%9F%A5%E7%9C%8B%E8%B7%AF%E7%94%B1%E8%A1%A8route">3.查看路由表：route</a></li>
+<li><a href="#4%E6%A3%80%E6%9F%A5%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7ping">4.检查网络连通性：ping</a></li>
+<li><a href="#5%E8%BD%AC%E5%8F%91%E8%B7%AF%E5%BE%84traceroute">5.转发路径：traceroute</a></li>
+<li><a href="#6%E7%BD%91%E7%BB%9Cdebug%E5%88%86%E6%9E%90nc">6.网络Debug分析：nc</a></li>
+<li><a href="#7%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%93%E5%8C%85tcpdump">7.命令行抓包：tcpdump</a></li>
+<li><a href="#8%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E5%B7%A5%E5%85%B7dig">8.域名解析工具：dig</a></li>
+<li><a href="#9%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82curl">9.网络请求：curl</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E5%BC%80%E5%8F%91%E5%8F%8A%E8%B0%83%E8%AF%95">五.开发及调试</a>
+<ul>
+<li><a href="#1%E7%BC%96%E8%BE%91%E5%99%A8vim">1.编辑器：vim</a></li>
+<li><a href="#2%E7%BC%96%E8%AF%91%E5%99%A8gcc%E5%92%8Cg++">2.编译器：gcc和g++</a></li>
+<li><a href="#3%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7gdb">3.调试工具：gdb</a></li>
+<li><a href="#4%E6%9F%A5%E7%9C%8B%E4%BE%9D%E8%B5%96%E5%BA%93ldd">4.查看依赖库：ldd</a></li>
+<li><a href="#5%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90objdump">5.二进制文件分析：objdump</a></li>
+<li><a href="#6elf%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E5%88%86%E6%9E%90readelf">6.ELF文件格式分析：readelf</a></li>
+<li><a href="#7%E8%B7%9F%E8%B8%AA%E8%BF%9B%E7%A8%8B%E4%B8%AD%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8strace">7.跟踪进程中系统调用：strace</a></li>
+<li><a href="#8%E8%B7%9F%E8%B8%AA%E8%BF%9B%E7%A8%8B%E6%A0%88pstack">8.跟踪进程栈：pstack</a></li>
+<li><a href="#9%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84pmap">9.进程内存映射：pmap</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD%E5%85%B6%E4%BB%96">六.其他</a>
+<ul>
+<li><a href="#1%E7%BB%88%E6%AD%A2%E8%BF%9B%E7%A8%8Bkill">1.终止进程：kill</a></li>
+<li><a href="#2%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90chmod">2.修改文件权限：chmod</a></li>
+<li><a href="#3%E5%88%9B%E5%BB%BA%E9%93%BE%E6%8E%A5ln">3.创建链接：ln</a></li>
+<li><a href="#4%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E5%B0%BEtail">4.显示文件尾：tail</a></li>
+<li><a href="#5%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6git">5.版本控制：git</a></li>
+<li><a href="#6%E8%AE%BE%E7%BD%AE%E5%88%AB%E5%90%8Dalias">6.设置别名：alias</a></li>
+</ul>
+</li>
+</ul>
+<!-- GFM-TOC -->
+<br>
+<h1 id="一文件管理">一.文件管理</h1>
+<h2 id="1文件查找find">1.文件查找：find</h2>
+<h4 id="使用方法">使用方法</h4>
+<pre><code class="language-bash">find [查找目录] [查找条件]
+
+查找目录：
+    .：在当前目录及子目录下查找（默认）
+    A：在目录A及A的子目录下查找
+查找条件：
+    -name：根据文件名查找
+    -regex：使用正则表达式匹配
+    -type：按类型查找（f:文件，d:目录，l:链接...）
+    -atime：按访问时间查找（n:n天前的一天内，+n:n天前(不含n天本身)，-n:n天内(不含n天)）
+    -mtime：按修改时间查找（n:n天前的一天内，+n:n天前(不含n天本身)，-n:n天内(不含n天)）
+    -size：按大小查找（单位k，+nk:&quot;比nk更大&quot;，-nk:&quot;比nk更小&quot;）
+    -perm：按权限查找（644：权限等于644的文件）
+    -user/-nouser：用户名等于/用户名不等于
+    -group/-nogroup：组名等于/组名不等于
+</code></pre>
+<h4 id="示例">示例</h4>
+<pre><code class="language-bash">#1.在当前目录及子目录下查找后缀为cpp的文件
+find . -name *.cpp
+
+#2.使用正则表达式查找
+find -regex &quot;.*.cpp$&quot;
+</code></pre>
+<h2 id="2文件拷贝cp">2.文件拷贝：cp</h2>
+<h4 id="使用方法-2">使用方法</h4>
+<pre><code class="language-bash">cp [选项] 源路径 目的路径
+
+选项：
+    -a：将所有属性一起复制（包括拥有者、时间等信息）
+    -i：目标文件存在时，进行询问
+    -r：递归复制
+</code></pre>
+<h2 id="3打包解包tar">3.打包解包：tar</h2>
+<h4 id="使用方法-3">使用方法</h4>
+<pre><code class="language-bash">tar [-j|-z] [cv] [-f 压缩包名] 目录
+tar [-j|-z] [xv] [-f 解压包名] [-C 解压路径]
+
+选项：
+    -c/-x：打包/解包
+    -j/-z：bzip2格式/gzip格式
+    -v：显示过程
+</code></pre>
+<h1 id="二文本处理">二.文本处理</h1>
+<h2 id="1显示行号查看文件nl">1.(显示行号)查看文件：nl</h2>
+<p>行号计算不包括空行</p>
+<h2 id="2文本查找grep">2.文本查找：grep</h2>
+<h4 id="使用方法-4">使用方法</h4>
+<pre><code class="language-bash">grep [选项] 模式串 文件
+输出 | grep [选项] 模式串
+
+选项
+    -e：使用多个模式串
+    -i：忽略大小写
+    -n：打印行号
+    -c：统计次数（一行算一次）
+</code></pre>
+<h4 id="示例-2">示例</h4>
+<pre><code class="language-bash">#1.在test.c中搜索包含字符串”printf“或”count“的行
+grep -e &quot;printf&quot; -e &quot;count&quot; test.c
+</code></pre>
+<h2 id="3排序sort">3.排序：sort</h2>
+<h4 id="使用方法-5">使用方法</h4>
+<pre><code class="language-bash">sort [选项] 文件
+输出 | sort [选项]
+
+选项
+    -d：按字典序排序（默认）
+    -n：按数字排序
+    -k：&quot;-k n&quot;表示按各行第n列进行排序
+    -r：反序
+</code></pre>
+<h2 id="4转换tr">4.转换：tr</h2>
+<h4 id="使用方法-6">使用方法</h4>
+<pre><code class="language-bash">#set1、set2为字符集，可以是单个字符，也可以是字符串
+输出 | tr [选项] set1 set2
+
+选项：
+    -d：删除字符
+    -s：字符压缩
+</code></pre>
+<h4 id="示例-3">示例</h4>
+<pre><code class="language-bash">#1.删除字符':'
+cat /etc/passwd | tr -d ':'
+
+#2.将小写字母替换成大写字母
+last | tr '[a-z]' 'A-Z'
+
+#3.将'a'、'b'、'c'替换成'z'
+cat test | tr “abc” 'z'
+
+#4.将连续的'a'压缩成'b'（单个或连续出现的多个‘a’会压缩成一个‘b’）
+cat test | tr -s 'a' 'b'
+</code></pre>
+<h2 id="5切分文本cut">5.切分文本：cut</h2>
+<h4 id="使用方法-7">使用方法</h4>
+<pre><code class="language-bash">cut [选项] 文件
+输出 | cut [选项]
+
+选项：
+    -d：分隔符（-d ':' 以’:‘为分隔符）
+    -f：选择域（-f 1,2 输出分隔后第1列和第2列）
+    -c：字符范围（-c n-m 输出第n到m个字符。如果没有m，输出到末尾）
+</code></pre>
+<h4 id="示例-4">示例</h4>
+<pre><code class="language-bash">#1.按’:‘分隔$PATH，输出第3个和第5个
+echo $PATH | cut -d ':' -f 3,5
+
+#2.输出export运行结果每行的第12-20个字符
+export | cut -c 12-20
+</code></pre>
+<h2 id="6拼接文本paste">6.拼接文本：paste</h2>
+<h4 id="使用方法-8">使用方法</h4>
+<pre><code class="language-bash">paste [选项] file1 file2
+
+选项：
+    -d：指定拼接时使用的分隔符（默认使用tab作为分隔符）
+</code></pre>
+<h2 id="7统计wc">7.统计：wc</h2>
+<h4 id="使用方法-9">使用方法</h4>
+<pre><code class="language-bash">wc [选项] 文件
+输出 | wc [选项]
+
+选项：
+    -c：统计字符数
+    -w：统计单词数
+    -l：统计行数
+</code></pre>
+<h2 id="8数据处理sed">8.数据处理：sed</h2>
+<blockquote>
+<p>sed常用于一整行的处理。如果有一个100万行的文件，要在第100行加某些文字，此时由于文件太大，不适合用vim处理。因此使用sed是个很好的选择</p>
+</blockquote>
+<h4 id="使用方法-10">使用方法</h4>
+<pre><code class="language-bash">sed [选项] '[动作]' 文件
+输入 | sed [选项] '[动作]'
+
+选项：
+    -n：安静模式，只输出sed处理过的行（否则未处理行也会输出）
+    -i：结果直接作用到文件（没指定时不会修改文件）
+    -e：在命令行模式上输入动作
+    -f：从文件中读取动作
+
+动作：[n1[,n2]] function
+function:
+    a/i：在后插入/在前插入
+    d：删除
+    p：打印
+    s：替换
+</code></pre>
+<h4 id="示例-5">示例</h4>
+<pre><code class="language-bash">#1.插入
+nl /etc/passwd | sed '2a drink tea' #在第2行后插入一行：&quot;drink tea&quot;
+nl /etc/passwd | sed '2a aaa \
+&gt; bbb' #在第2行后插入两行：&quot;aaa&quot;和&quot;bbb&quot;
+
+#2.删除
+nl /etc/passwd | sed '2,5d' #删除2~5行
+sed '/^$/d' ip #将ip文件中的空行删除
+
+#3.打印2~5行（安静模式，不使用安静模式2~5行会打印2次）
+nl /etc/passwd | sed -n '2,5p'
+
+#4.替换
+nl /etc/passwd | sed '2s/daemon/root/g' #将第二行的daemon替换成root
+ifconfig | grep 'inet addr' | sed 's/^.*addr://g' #将所有开头的“inet addr:”删除
+</code></pre>
+<h2 id="9数据处理awk">9.数据处理：awk</h2>
+<blockquote>
+<p>相比于sed常用于一整行的处理，awk则比较倾向于将一行分成数个“字段”来处理。因此，相当适合小型的数据处理</p>
+</blockquote>
+<p><strong>awk处理步骤</strong>：</p>
+<ol>
+<li>读入第一行，并将第一行的数据填入$0,$1,$2等变量当中</li>
+<li>依据条件类型的限制，判断是否需要进行后面的动作</li>
+<li>做完所有的动作与条件类型</li>
+<li>若还有后续的“行”的数据，则重复1~3步，直到所有的数据都读完为止</li>
+</ol>
+<h4 id="使用方法-11">使用方法</h4>
+<pre><code class="language-bash">awk '条件类型1{动作1} 条件类型2{动作2} ...' filename
+输出 | awk '条件类型1{动作1} 条件类型2{动作2} ...'
+
+变量：
+    $0：整行
+    $1：按分隔符分隔后的第1列
+    $2：按分隔符分隔后的第2列
+    $k：按分隔符分隔后的第k列
+    NF：每一行拥有的字段数
+    NR：目前所处理的行数
+    FS：目前的分隔字符（默认是空格或tab）
+条件判断：&gt;、&lt;、&gt;=、&lt;=、==、!=
+命令分隔：使用';'或Enter
+</code></pre>
+<h4 id="示例-6">示例</h4>
+<pre><code class="language-bash">#1.打印last -n 5结果中每行经过分隔符(默认情况下为空格或tab)分隔后的第1列和第3列
+last -n 5 | awk '{print $1 &quot;\t&quot; $3}'
+
+#2.以':'作为分隔符，打印第3列小于10的所有行的第1列和第3列
+cat /etc/passwd | awk '{FS=&quot;:&quot;} $3&lt;10{print $1 &quot;\t&quot; $3}'      #（第一行不会处理）
+cat /etc/passwd | awk 'BEGIN{FS=&quot;:&quot;} $3&lt;10{print $1 &quot;\t&quot; $3}' #（第一行会处理）
+
+#3.假设test文件由3列数字组成，以空格分隔。该命令会计算每行的和然后打印
+awk '{total=$1+$2+$3;printf &quot;%10d %10d %10d %10.2f\n&quot;,$1,$2,$3,total}' test
+</code></pre>
+<p>注意上面的示例2，awk首先是读取一行，分隔后的数据填入$0,$1,$2等变量中才开始进行条件判断和执行动作。因此第一条命令在按空格或tab分隔后才将分隔符换成':'，所以第一行显示结果不对</p>
+<h1 id="三性能分析">三.性能分析</h1>
+<h2 id="1进程查询ps">1.进程查询：ps</h2>
+<p>man ps手册非常庞大，不是很好查阅，因此主要记住几个命令</p>
+<h4 id="示例-7">示例</h4>
+<pre><code class="language-bash">#1.列出仅与自身环境有关的进程，最上层的父进程是允许该ps命令的bash而没有扩展到init进程中去
+ps -l
+
+#2.列出系统所有进程的信息
+ps aux
+ps -ef    #aux会截断COMMAND列，-ef不会。aux是BSD风格，-ef是System V风格
+ps axjf   #以&quot;进程树&quot;的方式显示所有进程
+ps -lA    #输出格式同ps -l
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="../pic/linux-ps-1.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>F</strong>：进程标志，说明进程的权限
+<ul>
+<li>4：root权限</li>
+<li>1：仅能fork而不能exec</li>
+<li>0：既非4也非1</li>
+</ul>
+</li>
+<li><strong>S</strong>：进程的状态
+<ul>
+<li>R(running)：正在运行</li>
+<li>S(Sleep)：可被唤醒的睡眠</li>
+<li>D：不可被唤醒的睡眠（通常可能在等待I/O）</li>
+<li>T：停止，可能是在后台暂停</li>
+<li>Z(Zombie)：僵尸进程</li>
+</ul>
+</li>
+<li><strong>C</strong>：CPU使用率</li>
+<li><strong>PRI/NI</strong>：Priority/Nice的缩写，CPU优先级(越小越高)</li>
+<li><strong>ADDR/SZ/WCHAN</strong>：内存相关，ADDR指出进程在内存的哪个部分，running进程一般显示'-'。SZ为进程使用的内存。WCHAN表示进程当前是否运行中'-'，当进程睡眠时，指出进程等待的事件</li>
+<li><strong>TTY</strong>：进程运行的终端机</li>
+<li><strong>TIME</strong>：进程用掉的CPU时间</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="../pic/linux-ps-2.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>USER</strong>：进程所属用户</li>
+<li><strong>%CPU/%MEM</strong>：进程消耗的CPU百分比和内存百分比</li>
+<li><strong>VSZ</strong>：进程用掉的虚拟内存(KB)</li>
+<li><strong>RSS</strong>：进程占用的固定内存(KB)</li>
+<li><strong>TTY</strong>：进程运行的终端机，与终端机无关则显示'?'。tty1~tty6是本机的登陆者程序，pts/0等表示由网络连接进主机的进程</li>
+<li><strong>STAT</strong>：进程目前的状态，与<code>ps -l</code>结果中的<strong>S</strong>等同</li>
+<li><strong>START</strong>：进程启动的时间</li>
+<li><strong>TIME</strong>：进程实际使用的CPU运行时间</li>
+</ul>
+<h2 id="2进程监控top">2.进程监控：top</h2>
+<h4 id="使用方法-12">使用方法</h4>
+<pre><code class="language-bash">top [选项]
+
+选项：
+    -d：跟秒数指定更新间隔
+    -n：与-b搭配，指定需要进行几次top输出，重定向时常用
+    -p：指定PID，监控特定进程
+</code></pre>
+<p><strong>top模式下的命令</strong>：</p>
+<ul>
+<li><strong>?</strong>：显示可用的命令</li>
+<li><strong>P</strong>：以CPU使用情况排序</li>
+<li><strong>M</strong>：以内存使用情况排序</li>
+<li><strong>N</strong>：以PID排序</li>
+<li><strong>q</strong>：退出</li>
+<li><strong>1</strong>：多核情况下切换CPU</li>
+</ul>
+<p><strong>%Cpu(s)后面的“wa”表示I/O wait，过高说明长时间等待I/O，I/O存在瓶颈</strong></p>
+<h2 id="3打开文件查询lsof">3.打开文件查询：lsof</h2>
+<h4 id="使用方法-13">使用方法</h4>
+<pre><code class="language-bash">lsof [选项]
+
+选项：
+    -i：-i:端口号查看端口被占用的情况
+    -u：后跟用户名查看具体用户打开的文件
+    -p：后跟PID查看指定进程打开的文件
+    +d：后跟目录查看指定目录下被进程打开的文件，&quot;+D&quot;递归
+</code></pre>
+<h2 id="4内存使用量free">4.内存使用量：free</h2>
+<h4 id="使用方法-14">使用方法</h4>
+<pre><code class="language-bash">free [选项]
+
+选项：
+    -b|-k|-m|-g：单位
+    -t：列出物理内存与swap的汇总情况    
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="../pic/linux-free-1.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>buffers</strong>：主要缓存dentry和inode等元数据</li>
+<li><strong>cached</strong>：主要缓存文件内容，即page cache</li>
+<li><strong>- buffers/cache</strong>：实际使用的内存。used-buffers-cached</li>
+<li><strong>+ buffers/cache</strong>：可用内存。free+buffers+cached（在内存紧张时，buffers和cached可以回收）</li>
+</ul>
+<p><a href="https://fixatom.com/linux-free-cmd-buffers-and-cached/">详细结果说明</a></p>
+<h2 id="5shell进程的资源限制ulimit">5.shell进程的资源限制：ulimit</h2>
+<h4 id="使用方法-15">使用方法</h4>
+<pre><code class="language-bash">ulimit [选项]       #查看
+ulimit [选项] 新值  #修改
+
+选项：
+    -a：列出shell进程的所有资源限制情况（-a命令会列出查看某一资源限制的选项参数）
+    ...
+</code></pre>
+<p>使用<code>ulimit</code>修改资源限制只会对当前终端环境有效，如果想永久生效，可以修改文件<code>/etc/security/limits.conf</code>，该文件的内容如下；</p>
+<pre><code class="language-bash"># /etc/security/limits.conf
+#
+#Each line describes a limit for a user in the form:
+#
+#&lt;domain&gt;        &lt;type&gt;  &lt;item&gt;  &lt;value&gt;
+#
+#Where:
+#&lt;domain&gt; can be:
+#        - a user name
+#        - a group name, with @group syntax
+#        - the wildcard *, for default entry
+#        - the wildcard %, can be also used with %group syntax,
+#                 for maxlogin limit
+#        - NOTE: group and wildcard limits are not applied to root.
+#          To apply a limit to the root user, &lt;domain&gt; must be
+#          the literal username root.
+#
+#&lt;type&gt; can have the two values:
+#        - &quot;soft&quot; for enforcing the soft limits
+#        - &quot;hard&quot; for enforcing hard limits
+#
+#&lt;item&gt; can be one of the following:
+#        - core - limits the core file size (KB)
+#        - data - max data size (KB)
+#        - fsize - maximum filesize (KB)
+#        - memlock - max locked-in-memory address space (KB)
+#        - nofile - max number of open files
+#        - rss - max resident set size (KB)
+#        - stack - max stack size (KB)
+#        - cpu - max CPU time (MIN)
+#        - nproc - max number of processes
+#        - as - address space limit (KB)
+#        - maxlogins - max number of logins for this user
+#        - maxsyslogins - max number of logins on the system
+#        - priority - the priority to run user process with
+#        - locks - max number of file locks the user can hold
+#        - sigpending - max number of pending signals
+#        - msgqueue - max memory used by POSIX message queues (bytes)
+#        - nice - max nice priority allowed to raise to values: [-20, 19]
+#        - rtprio - max realtime priority
+#        - chroot - change root to directory (Debian-specific)
+#
+#&lt;domain&gt;      &lt;type&gt;  &lt;item&gt;         &lt;value&gt;
+#
+
+#*               soft    core            0
+#root            hard    core            100000
+#*               hard    rss             10000
+#@student        hard    nproc           20
+#@faculty        soft    nproc           20
+#@faculty        hard    nproc           50
+#ftp             hard    nproc           0
+#ftp             -       chroot          /ftp
+#@student        -       maxlogins       4
+
+# End of file
+</code></pre>
+<h4 id="示例-8">示例</h4>
+<pre><code class="language-bash">root@068ca8da6d06:/# ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 7863
+max locked memory       (kbytes, -l) 82000
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1048576
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+</code></pre>
+<h1 id="四网络工具">四.网络工具</h1>
+<h2 id="1网卡配置ifconfig">1.网卡配置：ifconfig</h2>
+<h2 id="2查看当前网络连接netstat">2.查看当前网络连接：netstat</h2>
+<pre><code class="language-bash">netstat [选项]
+
+选项：
+    -a：将所有的连接、监听、Socket数据都列出来（如，默认情况下，不会列出监听状态的连接）
+    -t：列出tcp连接
+    -u：列出udp连接
+    -n：将连接的进程服务名称以端口号显示（如下图中Local Address会换成10.0.2.15:22）
+    -l：列出处于监听状态的连接
+    -p：添加一列，显示网络服务进程的PID（需要root权限）
+    -i：显示网络接口列表，可以配合ifconfig一起分析
+    -s：打印网络统计数据，包括某个协议下的收发包数量
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="../pic/linux-netstat-1.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Active Internet connections（w/o servers）：网络相关的连接</strong>
+<ul>
+<li><strong>Recv-Q</strong>：接收队列(已接收还未递交给应用)</li>
+<li><strong>Send-Q</strong>：发送队列(接收方未确认的数据)</li>
+<li><strong>Local Address</strong>：本地IP(主机):端口(服务名)</li>
+<li><strong>Foreign Address</strong>：远端IP:端口</li>
+<li>
+<blockquote>
+<p>Recv-Q和Send-Q通常应该为0，如果长时间不为0可能存在问题</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong>Active UNIX domain sockets（w/o servers）：本地相关的套接字</strong>
+<ul>
+<li><strong>RefCnt</strong>：连接到此socket的进程数</li>
+<li><strong>Flags</strong>：连接标识</li>
+<li><strong>Type</strong>：socket访问的类型</li>
+<li><strong>Path</strong>：连接到此socket的相关程序的路径</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://linux.cn/article-2434-1.html">netstat的10个基本用法</a></p>
+<h2 id="3查看路由表route">3.查看路由表：route</h2>
+<h2 id="4检查网络连通性ping">4.检查网络连通性：ping</h2>
+<h2 id="5转发路径traceroute">5.转发路径：traceroute</h2>
+<h2 id="6网络debug分析nc">6.网络Debug分析：nc</h2>
+<h2 id="7命令行抓包tcpdump">7.命令行抓包：tcpdump</h2>
+<h4 id="使用方法-16">使用方法</h4>
+<pre><code class="language-bash">sudo tcpdump [选项] ...
+
+选项：
+    -D/-i：查看/指定网卡
+</code></pre>
+<h4 id="示例-9">示例</h4>
+<pre><code class="language-bash">#抓取本地9877号端口的TCP数据包
+sudo tcpdump -i lo tcp port 9877
+</code></pre>
+<p>下图为tcp回射服务器，客户端分别键入&quot;hello&quot;和“world”时，使用tcpdump抓取到的数据包</p>
+<div align="center"> <img src="../pic/linux-tcpdump-1.png"/> </div>
+<h2 id="8域名解析工具dig">8.域名解析工具：dig</h2>
+<h2 id="9网络请求curl">9.网络请求：curl</h2>
+<h1 id="五开发及调试">五.开发及调试</h1>
+<h2 id="1编辑器vim">1.编辑器：vim</h2>
+<h2 id="2编译器gcc和g">2.编译器：gcc和g++</h2>
+<p><a href="https://www.cnblogs.com/CarpenterLee/p/5994681.html">C程序的编译过程</a></p>
+<h4 id="使用方法-17">使用方法</h4>
+<pre><code class="language-bash">gcc/g++ [选项] 源文件
+
+选项：
+    -E：让编译器在预处理之后停止，不进行后续编译过程，得到.i文件
+    -S：让编译器在编译之后停止 ，不进行后续过程，得到.s文件
+    -c：生成机器码即二进制.o文件
+    -o：指定目标文件名
+    -g：在编译的时候生成调试信息
+    -Wall：生成所有警告信息
+    -I 目录：指定头文件的查找目录
+    生成动态链接库：
+        1. gcc/g++ -c -fPIC 源文件 -o 目标文件名
+        2. gcc -shared 目标文件名 -o 动态链接库名.so
+    生成静态链接库：
+        1. gcc/g++ -c 源文件 -o 目标文件名
+        2. ar -crv 静态链接库名.a 目标文件名
+    -l库名 -L 目录：引入链接库，-L指定查找该库的目录。如-lm表示引入libm.so
+</code></pre>
+<h2 id="3调试工具gdb">3.调试工具：gdb</h2>
+<h4 id="使用方法-18">使用方法</h4>
+<pre><code class="language-bash">#第一步：得到可执行文件
+gcc/g++ -o 可执行文件 -g 源文件
+
+#第二步：启动gdb
+gdb #启动gdb
+
+#第三步：执行gdb命令进行调试
+(gdb) gdb命令
+
+gdb命令：
+    file 可执行文件：导入需要调试的文件
+    r：运行程序
+    q：退出gdb
+    b：设置断点
+        b 行号
+        b 函数名称
+        b *函数名
+        b *代码地址
+        b 编号
+    c：继续执行，直到下一断点或程序结束
+    s：执行一行代码，如果此行代码有函数调用则进入函数
+    n：执行一行代码，如果此行代码有函数调用，不进入函数，直接执行函数
+    i(info) 子命令：查看某些信息（只输入info或i可以查看有哪些子命令）
+        info thread：查看进程的所有线程，会显示每个线程的序号（1~n）
+    thread 线程序号：切换到相应的线程（线程序号可以由info thread得到）
+    f(frame) 函数栈帧号：切换到相应的函数栈帧（函数栈帧号可以由where等命令得到）
+    list：查看源码
+        list 行号：查看指定行号附近的源码
+        list 函数：查看指定函数附近的源码
+        list 文件:行号：查看指定文件中指定行附近的代码
+    where：查看当前位置
+    p(print) /格式 表达式
+        格式：
+            x：按十六进制格式显示变量
+            d：按十进制格式显示变量
+            u：按十六进制格式显示无符号整形
+            o：按八进制格式显示变量
+            t：按二进制格式显示变量
+            a：按十六进制格式显示变量
+            c：按字符格式显示变量
+            f：按浮点数格式显示变量
+        表达式中可用的操作符：
+            @：一个和数组有关的操作符，左边是起始地址，右边是长度（p *arr@3）
+            ::：指定一个在文件或是函数中的变量（p 'f2.c'::x）
+            {&lt;type&gt;}&lt;addr&gt;：一个指向内存&lt;addr&gt;的类型为type的一个对象
+    x(examine) &lt;n/f/u&gt; &lt;addr&gt;：查看内存
+        n：正整数，表示需要显示的内存单元个数
+        f：显示的格式（格式字母同上面的print）
+        u：每个单元的字节数
+            b：1字节
+            h：2字节
+            w：4字节（默认）
+            g：8字节
+</code></pre>
+<h2 id="4查看依赖库ldd">4.查看依赖库：ldd</h2>
+<h2 id="5二进制文件分析objdump">5.二进制文件分析：objdump</h2>
+<h2 id="6elf文件格式分析readelf">6.ELF文件格式分析：readelf</h2>
+<h2 id="7跟踪进程中系统调用strace">7.跟踪进程中系统调用：strace</h2>
+<h2 id="8跟踪进程栈pstack">8.跟踪进程栈：pstack</h2>
+<h2 id="9进程内存映射pmap">9.进程内存映射：pmap</h2>
+<h1 id="六其他">六.其他</h1>
+<h2 id="1终止进程kill">1.终止进程：kill</h2>
+<h2 id="2修改文件权限chmod">2.修改文件权限：chmod</h2>
+<ul>
+<li>w权限不具有删除文件的能力</li>
+<li>目录的x权限表示能否进入目录</li>
+</ul>
+<h4 id="使用方法-19">使用方法</h4>
+<pre><code class="language-bash">chmod [选项] [u|g|o|a][+|-][r|w|x] 文件或目录
+chmod [选项] 权限的数字表示 文件或目录
+
+选项：
+    -R：递归式的修改
+</code></pre>
+<h2 id="3创建链接ln">3.创建链接：ln</h2>
+<h2 id="4显示文件尾tail">4.显示文件尾：tail</h2>
+<h2 id="5版本控制git">5.版本控制：git</h2>
+<h2 id="6设置别名alias">6.设置别名：alias</h2>
+
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bingery111.github.io/post/linux-chang-yong-ming-ling/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://bingery111.github.io/post/linux-chang-yong-ming-ling/&sharesource=qzone&title=Linux常用命令&pics=https://bingery111.github.io/images/avatar.png?v=1644840563442&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://bingery111.github.io/post/linux-chang-yong-ming-ling/&sharesource=weibo&title=Linux常用命令 + " - " + &pic="https://bingery111.github.io/images/avatar.png?v=1644840563442 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://bingery111.github.io/post/zhi-mian-shi-bu-zhao-ren/">
+                                                                                                    只面试不招人
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+                            
+                                    <div style="width:300px;margin:0 auto; padding:0px 0;">
+                                        <a target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                                            <img src="https://yanxuan.nosdn.127.net/b610ced5ac6a0e25cf6edf5606c69775.png" style="float:left;">
+                                            <p id="icpinfo" style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;"></p>
+                                        </a>
+                                    </div>
+                                    
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        个人笔记 &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    var icp = document.getElementById('icpinfo');
+                    icp.innerText = "";
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1644840563442);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
