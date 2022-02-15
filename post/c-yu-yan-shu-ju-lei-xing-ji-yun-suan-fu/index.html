@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>（C语言）数据类型及运算符 | 个人笔记</title>
+<meta name="description" content="个人笔记">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644955791610">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://bingery111.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://bingery111.github.io">个人笔记</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>（C语言）数据类型及运算符</h1>
+            <p class="article-meta">
+              2022-02-15
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li><a href="#%E4%B8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">一、数据类型</a>
+<ul>
+<li><a href="#11-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%86%E5%88%AB%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E5%BC%8F">1.1 计算机识别数据的方式</a></li>
+<li><a href="#12-%E5%AD%98%E5%82%A8%E9%95%BF%E5%BA%A6">1.2 存储长度</a></li>
+<li><a href="#13-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">1.3 数据类型</a></li>
+<li><a href="#14-c-%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B64%E4%BD%8D">1.4 C 语言中的数据类型(64位)</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E8%BF%90%E7%AE%97%E7%AC%A6">二、运算符</a>
+<ul>
+<li><a href="#21-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6">2.1 算术运算符</a>
+<ul>
+<li><a href="#211-%E6%95%B0%E5%AD%A6%E5%A4%84%E7%90%86%E7%B1%BB%E5%87%BD%E6%95%B0">2.1.1 数学处理类函数</a></li>
+</ul>
+</li>
+<li><a href="#22-%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6">2.2 关系运算符</a></li>
+<li><a href="#23-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">2.3 逻辑运算符</a></li>
+<li><a href="#24-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">2.4 赋值运算符</a>
+<ul>
+<li><a href="#241-%E7%AE%80%E5%8D%95%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">2.4.1 简单赋值运算符</a></li>
+<li><a href="#242-%E5%A4%8D%E5%90%88%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">2.4.2 复合赋值运算符</a></li>
+<li><a href="#243-%E8%87%AA%E5%A2%9E%E8%87%AA%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6">2.4.3 自增、自减运算符</a></li>
+</ul>
+</li>
+<li><a href="#25-%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6">2.5 三目运算符</a></li>
+<li><a href="#26-%E9%80%97%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6">2.6 逗号运算符</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E8%A1%A5%E5%85%85%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98">三、补充四个问题</a>
+<ul>
+<li><a href="#31-%E5%85%B3%E4%BA%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E9%97%AE%E9%A2%98">3.1 关于运算符优先级的问题</a></li>
+<li><a href="#32-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">3.2 数据类型转换</a>
+<ul>
+<li><a href="#321-%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">3.2.1 自动类型转换</a></li>
+<li><a href="#322-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">3.2.2 强制类型转换</a></li>
+</ul>
+</li>
+<li><a href="#33-%E7%9F%AD%E8%B7%AF%E8%BF%90%E7%AE%97">3.3 短路运算</a></li>
+<li><a href="#34-%E5%85%B3%E4%BA%8E%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0">3.4 关于输入/输出函数</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E8%AF%B4%E6%98%8E">四、说明</a></li>
+</ul>
+<h2 id="一-数据类型">一、数据类型</h2>
+<p>数据类型：计算机对数据的识别方式和存储长度。</p>
+<h3 id="11-计算机识别数据的方式">1.1 计算机识别数据的方式</h3>
+<p>计算机只能识别 0 和 1 ，对于 1001 0110 其解释方式有很多，不同的数据类型其解释就不一样。</p>
+<p>1001 0110：我可以理解为：无符号数，整型、补码、浮点数、ASCII 码、指针(字节编号)，等，怎么确定到底是哪一个？取决于数据类型。</p>
+<h3 id="12-存储长度">1.2 存储长度</h3>
+<p>计算机总是以 2 的整数次幂个字节来存储数据，因此常见的长度为：1B、2B、4B、8B。</p>
+<h3 id="13-数据类型">1.3 数据类型</h3>
+<p>数据类型有 2 个关键要素，<strong>识别方式和长度。</strong></p>
+<p><strong>上面的两个要素，必须都明确的指出，如果有一个不确定，则不能形成有效的数据类型。</strong></p>
+<h3 id="14-c-语言中的数据类型64位">1.4 C 语言中的数据类型(64位)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标识符</th>
+<th style="text-align:left">长度</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">识别方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">1B</td>
+<td style="text-align:left">字符型</td>
+<td style="text-align:left">ASCII码</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:left">2B</td>
+<td style="text-align:left">短整型</td>
+<td style="text-align:left">补码</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:left">4B</td>
+<td style="text-align:left">整型</td>
+<td style="text-align:left">补码</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:left">8B</td>
+<td style="text-align:left">长整型</td>
+<td style="text-align:left">浮点</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">4B</td>
+<td style="text-align:left">单精度</td>
+<td style="text-align:left">浮点</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">8B</td>
+<td style="text-align:left">双精度</td>
+<td style="text-align:left">浮点</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">8B</td>
+<td style="text-align:left">地址/指针</td>
+<td style="text-align:left">字节编号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二-运算符">二、运算符</h2>
+<h3 id="21-算术运算符">2.1 算术运算符</h3>
+<p>优先级由高到低：()、+/-(正/负号)、*、/、%、+、-；</p>
+<ul>
+<li>/ 除法：整型除以整型，结果是整型（截取整数部分）；</li>
+<li>%取余数：只能是整型量参与运算：char、short、int、long；</li>
+</ul>
+<h4 id="211-数学处理类函数">2.1.1 数学处理类函数</h4>
+<ul>
+<li>abs(x) ==&gt; |x|(适用于整型数值)</li>
+<li>fabs(x) ==&gt; |x|(适用于浮点值)</li>
+<li>sqrt(x) ==&gt; 求 x 的算法平方根</li>
+<li>pow(x,y) ==&gt; x 的 y 次方</li>
+<li>exp(x) ==&gt; e 的 x 次方</li>
+<li>log(x) ==&gt; ln(x)</li>
+<li>log10(x) ==&gt; lg(x)</li>
+<li>sin(x) ==&gt; sin(x)</li>
+<li>cos(x) ==&gt; cos(x)</li>
+</ul>
+<h3 id="22-关系运算符">2.2 关系运算符</h3>
+<p>常见：&gt;、&lt;、&gt;=、&lt;=、!=、==</p>
+<p>关系运算符的优先级低于算术运算符。</p>
+<p>关系运算符的运算结果：<strong>只有 1(真) 和 0(假)</strong></p>
+<pre><code class="language-c">printf(&quot;%d\n&quot;, (2 &gt; 1) * 5);
+</code></pre>
+<p>其实这样运算的：优先级() &gt; <em>，所以先进行 2 &gt; 1的运算，其结果为真，也就是 1，1</em>5=5，其最终的输出就为：5。</p>
+<p>写一个 x 大于 2 小于 10 的数学表达式，10 &gt; x &gt; 2，C语言认为这个写法是错误的，我们是在写程序，不是在写数学表达式，一定的记住：数学表达式跟程序还是有很大的差异的，正确写法：2 &lt; x &amp;&amp; x &lt; 10。</p>
+<h3 id="23-逻辑运算符">2.3 逻辑运算符</h3>
+<p>常见：!、&amp;&amp;、||</p>
+<p>!(单目运算符：只有一个操作对象)，高于双目运算符的优先级。</p>
+<p>对于逻辑运算符，C 语言会将两侧的当做表达式看待，其最终的结果是：0 为假，非 0 为真，是一个逻辑的判断。</p>
+<h3 id="24-赋值运算符">2.4 赋值运算符</h3>
+<p>除了赋值运算符外，其他任何运算都不能改变变量的值；不能对常量或者表达式进行赋值运算。</p>
+<p><strong>赋值的本质：覆盖，覆盖空间中的原值。</strong></p>
+<h4 id="241-简单赋值运算符">2.4.1 简单赋值运算符</h4>
+<p>=：仅仅比 , 运算符优先级高，变量 = 表达式；</p>
+<h4 id="242-复合赋值运算符">2.4.2 复合赋值运算符</h4>
+<p>+=、-=、*=、/=、%=，仅仅比 , 运算符优先级高；</p>
+<pre><code class="language-c">n *= 4+6; &lt;==&gt; n = n * (4 + 6);
+</code></pre>
+<p>引入的意义：可以对 C 中变量名称过长得到解决。</p>
+<h4 id="243-自增-自减运算符">2.4.3 自增、自减运算符</h4>
+<ul>
+<li>++、--：运算符的本质是赋值运算符；</li>
+<li>均为单目运算符，优先级高于所有的双目，且优先级低于 !(逻辑非)；</li>
+<li>++i：先对变量 i 增 1，在参加其后所有运算；</li>
+<li>i++：先用原值参加后续运算，本条语句执行完毕，在自增 1；</li>
+</ul>
+<h3 id="25-三目运算符">2.5 三目运算符</h3>
+<ul>
+<li>?: 其优先级仅仅高于赋值运算符；</li>
+<li>语法：条表 ?  表1  :  表2，看前面表达式的结果，为真执行表 1，为假执行表 2；</li>
+<li>得到 a 和 b 中的最大值：a &gt; b ? a : b;</li>
+</ul>
+<h3 id="26-逗号运算符">2.6 逗号运算符</h3>
+<p>逗号运算符的优先级是最低的，逗号是用来分隔多个表达式的，其运算结果是：最后一个表达式的运算结果。</p>
+<h2 id="三-补充四个问题">三、补充四个问题</h2>
+<h3 id="31-关于运算符优先级的问题">3.1 关于运算符优先级的问题</h3>
+<ul>
+<li>一次只比较两个相邻运算符；</li>
+<li>一次只处理相邻两个运算符中的一个；</li>
+<li>当前运算符是否运算，取决于与相邻运算符的优先级比较结果：当前运算符 “低于” 其后的运算符，则不运算，否则，就运算；</li>
+</ul>
+<h3 id="32-数据类型转换">3.2 数据类型转换</h3>
+<h4 id="321-自动类型转换">3.2.1 自动类型转换</h4>
+<p>在参加运算的两个运算数的数据类型不一样，C 语言会对其进行自动的类型转换工作，其原则如下：</p>
+<ul>
+<li><strong>由短类型向长类型进行靠拢，由简单类型向复杂类型靠拢；</strong></li>
+<li>char--&gt;short--&gt;int--&gt;float--&gt;double；</li>
+</ul>
+<h4 id="322-强制类型转换">3.2.2 强制类型转换</h4>
+<p>语法：（数据类型名称）表达式；</p>
+<pre><code class="language-c">source = (double) 1 / 5 //其结果就是double类型
+</code></pre>
+<p>强制类型转换：<strong>仅仅是对这个变量的值进行转换，是绝对不可能改变变量的数据类型，且也是运算符，是单目运算符中优先级最低的。</strong></p>
+<h3 id="33-短路运算">3.3 短路运算</h3>
+<p>逻辑运算中的0、1铁律：</p>
+<ul>
+<li>0  &amp;&amp;  A  ==&gt;  0、1  &amp;&amp;  A  ==&gt;  A</li>
+<li>0  ||  A  ==&gt;  A、1  ||  A  ==&gt;  1</li>
+</ul>
+<p>短路运算是仅仅发生在逻辑运算表达式中。</p>
+<p>在 &amp;&amp; 运算符的左侧表达式的值为 0，或在 || 的左侧为非 0 ，此时整个逻辑表达式的结果已经确定，<strong>C 语言会发生短路运算，即对于右侧表达式不予运算。</strong></p>
+<h3 id="34-关于输入输出函数">3.4 关于输入/输出函数</h3>
+<ul>
+<li>输入、输出是通过 C 语言调用 printf() scanf() 函数实现的；</li>
+<li>格式符是决定数值以怎样的方式展现出来；</li>
+<li>在scanf()函数的&quot; &quot;中，<strong>除了写格式符之外，不要写任何其它东西，</strong>&quot;%d%s%c&quot;写成这样就好了；</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://bingery111.github.io/post/c-yu-yan-jie-gou-ti-gong-tong-ti-dong-tai-cun-chu-fen-pei/">
+                <h3 class="post-title">
+                  （C语言）结构体、共同体、动态存储分配
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://bingery111.github.io/images/avatar.png?v=1644955791610" class="no-responsive avatar">
+    <div class="text-muted">个人笔记</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-zhi-zhen/">（C语言）指针</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-shu-zu/">（C语言）数组</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-shu-ju-lei-xing-ji-yun-suan-fu/">（C语言）数据类型及运算符</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-jie-gou-ti-gong-tong-ti-dong-tai-cun-chu-fen-pei/">（C语言）结构体、共同体、动态存储分配</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-jie-gou-hua-cheng-xu-she-ji/">（C语言）结构化程序设计</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-han-shu/">（C语言）函数</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-chang-liang-he-bian-liang/">（C语言）常量和变量</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/yan-jiu-fang-ddos-gong-ji/">（研究）防DDoS攻击</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linuxri-zhi-ji-hua-ren-wu-zhu-ji-ming-xi-tong-shi-jian/">（Linux）日志、计划任务、主机名、系统时间</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linuxyong-hu-huan-jing/">（Linux）用户环境</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://bingery111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

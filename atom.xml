@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io</id>
     <title>个人笔记</title>
-    <updated>2022-02-15T04:45:26.663Z</updated>
+    <updated>2022-02-15T20:19:08.108Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://bingery111.github.io/images/avatar.png</logo>
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[（C语言）指针]]></title>
+        <id>https://bingery111.github.io/post/c-yu-yan-zhi-zhen/</id>
+        <link href="https://bingery111.github.io/post/c-yu-yan-zhi-zhen/">
+        </link>
+        <updated>2022-02-15T09:39:22.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（C语言）数组]]></title>
+        <id>https://bingery111.github.io/post/c-yu-yan-shu-zu/</id>
+        <link href="https://bingery111.github.io/post/c-yu-yan-shu-zu/">
+        </link>
+        <updated>2022-02-15T09:38:39.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（C语言）数据类型及运算符]]></title>
+        <id>https://bingery111.github.io/post/c-yu-yan-shu-ju-lei-xing-ji-yun-suan-fu/</id>
+        <link href="https://bingery111.github.io/post/c-yu-yan-shu-ju-lei-xing-ji-yun-suan-fu/">
+        </link>
+        <updated>2022-02-15T09:38:21.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（C语言）结构体、共同体、动态存储分配]]></title>
+        <id>https://bingery111.github.io/post/c-yu-yan-jie-gou-ti-gong-tong-ti-dong-tai-cun-chu-fen-pei/</id>
+        <link href="https://bingery111.github.io/post/c-yu-yan-jie-gou-ti-gong-tong-ti-dong-tai-cun-chu-fen-pei/">
+        </link>
+        <updated>2022-02-15T09:37:32.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[（C语言）结构化程序设计]]></title>
         <id>https://bingery111.github.io/post/c-yu-yan-jie-gou-hua-cheng-xu-she-ji/</id>
@@ -51,33 +79,5 @@
         <link href="https://bingery111.github.io/post/linuxyong-hu-huan-jing/">
         </link>
         <updated>2022-02-15T04:38:45.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（Linux）守护进程和远程登陆服务器]]></title>
-        <id>https://bingery111.github.io/post/linuxshou-hu-jin-cheng-he-yuan-cheng-deng-lu-fu-wu-qi/</id>
-        <link href="https://bingery111.github.io/post/linuxshou-hu-jin-cheng-he-yuan-cheng-deng-lu-fu-wu-qi/">
-        </link>
-        <updated>2022-02-15T04:38:10.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（Linux）文件和用户组]]></title>
-        <id>https://bingery111.github.io/post/linuxwen-jian-he-yong-hu-zu/</id>
-        <link href="https://bingery111.github.io/post/linuxwen-jian-he-yong-hu-zu/">
-        </link>
-        <updated>2022-02-15T04:37:20.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（Linux）网络配置]]></title>
-        <id>https://bingery111.github.io/post/linux-wang-luo-pei-zhi/</id>
-        <link href="https://bingery111.github.io/post/linux-wang-luo-pei-zhi/">
-        </link>
-        <updated>2022-02-15T04:36:55.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（Linux）进程]]></title>
-        <id>https://bingery111.github.io/post/linux-jin-cheng/</id>
-        <link href="https://bingery111.github.io/post/linux-jin-cheng/">
-        </link>
-        <updated>2022-02-15T04:36:28.000Z</updated>
     </entry>
 </feed>
