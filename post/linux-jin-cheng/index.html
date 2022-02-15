@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>markdown学习笔记 | 个人笔记</title>
+<title>（Linux）进程 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,48 +81,74 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>markdown学习笔记</h1>
+            <h1>（Linux）进程</h1>
             <p class="article-meta">
-              2022-02-10
+              2022-02-15
               
             </p>
             
             <div class="post-content">
-              <p><strong>一、标题：</strong><br>
-1、markdown标题用=和-表示一级和二级标题<br>
-2、</p>
-<pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-</code></pre>
-<p><strong>二、段落格式：</strong><br>
-Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>
-字体：</p>
-<pre><code>*斜体文本*
-_斜体文本_
-**粗体文本**
-__粗体文本__
-***粗斜体文本***
-___粗斜体文本___
-</code></pre>
-<p><strong>三、分隔线</strong><br>
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<pre><code>***
-* * *
-*****
-- - -
-----------
-</code></pre>
-<p><strong>四、删除线</strong><br>
-如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
-<pre><code>RUNOOB.COM
-GOOGLE.COM
-~~BAIDU.COM~~
-</code></pre>
-<p>下划线</p>
+              <ul>
+<li><a href="#%E4%B8%80%E8%BF%9B%E7%A8%8B">一、进程</a></li>
+<li><a href="#%E4%BA%8Clinux%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81">二、Linux进程状态</a></li>
+<li><a href="#%E4%B8%89%E8%BF%9B%E7%A8%8B%E5%91%BD%E4%BB%A4">三、进程命令</a></li>
+<li><a href="#%E5%9B%9B%E7%9B%91%E6%8E%A7%E8%BF%9B%E7%A8%8B%E6%B4%BB%E5%8A%A8">四、监控进程活动</a></li>
+<li><a href="#%E4%BA%94%E8%AF%B4%E6%98%8E">五、说明</a></li>
+</ul>
+<p>对于 Linux 系统而言，掌握进程知识，才有可能学好网络编程，解决实际问题。</p>
+<h2 id="一-进程">一、进程</h2>
+<p>一个可执行的程序在被执行之后的实例。</p>
+<p>每个进程都有一个唯一的 ID--PID，也有一个父进程 ID--PPID，所有进程都是第一个进程的后代，在 Red Hat7 中为 systemd。</p>
+<p>进程的生命周期有：就绪态，执行状态，等待，消亡状态。</p>
+<h2 id="二-linux进程状态">二、Linux进程状态</h2>
+<p>用 man 7 signal 查看。</p>
+<ul>
+<li>R ：可运行状态</li>
+<li>S : 可中断睡眠状态(当某个时间或信号满足条件时，该进程会被唤醒)</li>
+<li>D ：不可中断睡眠状态(其唤醒的资源完全无法预料)</li>
+<li>K ：可通过信号强行停止</li>
+<li>Z：僵尸进程</li>
+<li>X：进程成功退出</li>
+<li>T：进程被停止</li>
+</ul>
+<p>列出进程的命令：ps aux, ps -ef  (-e 列出所有进程，-f 列出进程的详细信息)</p>
+<h2 id="三-进程命令">三、进程命令</h2>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUuaYQd7fxQrIBMNuftcvsEVxeJbESO3XwJfjWvHxQ56ibI7rVmYaFa3NA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(调出火狐浏览器)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUuBjPialbMuOlmtJg6beBHiaqrryGh0ssyJKYL0x0oibANWeLbkVQHiazOeA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(火狐浏览器放置后台运行)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUub0B4uhL9ibvtPL1WfA11nOtkXZ4CuX846qaGMbEaiaNwxCuXCvF47Qvg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(查看后台进程)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUu7tSJoDWPahRjgbIDibUu91A4zyFwWgvLCag5YmNK6cOzGXLOWTPapIA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(后台进程转为前台进程)</p>
+<ul>
+<li><strong>Ctrl + z 将进程放到后台并暂停</strong></li>
+<li><strong>Ctrl + c 将进程强制结束</strong></li>
+<li><strong>bg %jobid 将前台进程转到后台</strong></li>
+</ul>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUukAAyWtcBpvqib7LvBMDm438tuib3QPcg2nEiccyjLOQ8K0ujbqszLlUGg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(列出所支持的信号)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUuuXbJF4bCKtwDmMzsWWibWDoV3GQ0cvyggzPcicJvUUfKkuxKKN1aQjLQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(杀死进程)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUuVZamDVtic25eHvuv3Ek0JsPmuWbOD7Iov7Ulo7KlOFVQR21iakF2ePOg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(列出进程目录树)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUu68CEAzicq0ddwyO6hvo3vjS2MibocKQlW8cb2Kk8xoLS5VVmUSsNaAJg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(杀死sleep的所有进程)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUu9Xiaib3a80amVusJofUlhcz3nZTyic5ibNYqjfl4gPyicPAytzqbywd0IuA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(pkill的使用)</p>
+<ul>
+<li><strong>格式：kill signal PID 只能杀死一个进程</strong></li>
+<li><strong>格式：killall 进程名字</strong></li>
+<li><strong>killall -signal 进程名字</strong></li>
+<li><strong>killall -signal -u username 进程名字</strong></li>
+<li><strong>pkill 类似 killall，但命令可以模糊匹配。</strong></li>
+</ul>
+<h2 id="四-监控进程活动">四、监控进程活动</h2>
+<p><strong>系统负载的计算和意义：进程以及子进程和线程产生的计算指令都会让CPU执行，这些进程组成“运行队列”，等待CPU执行，这个队列就是系统负载。</strong></p>
+<p>每个CPU拥有独立的请求队列。可看/proc/cpuinfo。</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbukM2xCss1iazdBjVpD0JJUuy69KKfJpufOUIVqltOSYP6icxvgegHoBicMvVpXCnsibHDafCBe9vkzcA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(查看cpu信息)</p>
+<p>top 命令实时监控进程状态。</p>
 
             </div>
           </article>
@@ -133,9 +159,9 @@ GOOGLE.COM
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
+              <a href="https://bingery111.github.io/post/linux-targrep-ming-ling/">
                 <h3 class="post-title">
-                  git学习笔记
+                  （Linux）tar/grep命令
                 </h3>
               </a>
             </div>

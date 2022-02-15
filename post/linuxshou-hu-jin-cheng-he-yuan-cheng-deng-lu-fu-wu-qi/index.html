@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>markdown学习笔记 | 个人笔记</title>
+<title>（Linux）守护进程和远程登陆服务器 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,48 +81,132 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>markdown学习笔记</h1>
+            <h1>（Linux）守护进程和远程登陆服务器</h1>
             <p class="article-meta">
-              2022-02-10
+              2022-02-15
               
             </p>
             
             <div class="post-content">
-              <p><strong>一、标题：</strong><br>
-1、markdown标题用=和-表示一级和二级标题<br>
-2、</p>
-<pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-</code></pre>
-<p><strong>二、段落格式：</strong><br>
-Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>
-字体：</p>
-<pre><code>*斜体文本*
-_斜体文本_
-**粗体文本**
-__粗体文本__
-***粗斜体文本***
-___粗斜体文本___
-</code></pre>
-<p><strong>三、分隔线</strong><br>
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<pre><code>***
-* * *
-*****
-- - -
-----------
-</code></pre>
-<p><strong>四、删除线</strong><br>
-如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
-<pre><code>RUNOOB.COM
-GOOGLE.COM
-~~BAIDU.COM~~
-</code></pre>
-<p>下划线</p>
+              <ul>
+<li><a href="#%E4%B8%80systemd">一、systemd</a></li>
+<li><a href="#%E4%BA%8C%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4">二、常见命令</a></li>
+<li><a href="#%E4%B8%89%E9%85%8D%E7%BD%AE%E5%92%8C%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8">三、配置和远程登录服务器</a></li>
+<li><a href="#%E5%9B%9Bscp-rsync">四、scp rsync</a></li>
+<li><a href="#%E4%BA%94%E8%AF%B4%E6%98%8E">五、说明</a></li>
+</ul>
+<h2 id="一-systemd">一、systemd</h2>
+<p>在Red Hat7版本中，系统启动和服务器进程由systemd进行管理；systemctl命令用于管理各种类型的systemd对象，它们称为单元。</p>
+<p>systemctl -t help 显示可用单元类型列表。一些常见的单元类型：</p>
+<ol>
+<li>服务单元具有.service扩展名</li>
+<li>套接字单元具有.socket扩展名</li>
+<li>路径单元具有.path扩展名</li>
+</ol>
+<h2 id="二-常见命令">二、常见命令</h2>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbtibue6vNKYstPLGSnVLvf5T7ZTeQ06gDa5Ug7RR6EewfDRUMNOfq9qyTRDicubIFOqay63icibIgAzpg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(查看服务的状态)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbtibue6vNKYstPLGSnVLvf5T17pIibZ0frelsUNysic6EZcqwPqcUMew1PWw2UT7dGK0vPMdiataZb6cw/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(查看是否开机启动)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbtibue6vNKYstPLGSnVLvf5TVZsIkhs2iaQhkxiatKnfuFCzrhO2KAwcOCf6iaeEpnqmulzA63k0ujicRQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(列出服务的启动顺序)</p>
+<p>常见的systemctl控制命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">systemctl stop UNIT</td>
+<td style="text-align:left">停止一项服务</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl start UNIT</td>
+<td style="text-align:left">启动一项服务</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl restart UNIT</td>
+<td style="text-align:left">重启服务</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl reload unit</td>
+<td style="text-align:left">重新加载服务的配置文件</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl mask UNIT</td>
+<td style="text-align:left">禁用服务</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl unmask UNIT</td>
+<td style="text-align:left">服务变为可用</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl enable UNIT</td>
+<td style="text-align:left">开机自动启动</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl disable UNIT</td>
+<td style="text-align:left">禁止服务开机自启</td>
+</tr>
+<tr>
+<td style="text-align:left">systemctl list-dependencies UNIT</td>
+<td style="text-align:left">列出指定单元的依赖关系</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三-配置和远程登录服务器">三、配置和远程登录服务器</h2>
+<ol>
+<li><strong>w -f 显示当前登录到计算机的用户列表。</strong></li>
+<li><strong>基于秘钥的登录：ssh 用户名@IP，ssh-keygen   ：生成私钥对，私钥文件：~/.ssh/idrsa  公钥文件：~/.ssh/idrsa。</strong></li>
+<li><strong>ssh-copy-id -i ~/.ssh/id_rsa.pub 用户名@IP  :将公钥复制到远程服务器上，公钥信息将保存到远程服务器上相应用户的 ~/.ssh/authorized_keys文件中。</strong></li>
+</ol>
+<p>通过以上三步，下次ssh 用户名@IP 就可以不用输入密码，进行基于密钥的登录。</p>
+<p>自定义SSH服务配置：SSHD的配置文件：/etc/ssh/sshd_config。</p>
+<p>可以设置只允许root用户登录ssh，也可以设置只允许root基于秘钥登录等……，但是设置完后必须重启：systemctl restart sshd。</p>
+<h2 id="四-scp-rsync">四、scp rsync</h2>
+<p><strong>scp 命令 ：本地文件拷贝到远程/远程文件传输本地；</strong></p>
+<p>scp 本地文件所在路径 用户名@IP：要存放的路径；</p>
+<p>scp 用户名@IP：文件路径 本机要存放的文件路径；</p>
+<p>注意：整个目录拷贝的话：-r 递归拷贝。</p>
+<p>了解：sftp 使用ssh加密文件传输，安全 sftp 用户@IP。</p>
+<p>rsync远程同步文件：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-r</td>
+<td style="text-align:left">同步整个目录</td>
+</tr>
+<tr>
+<td style="text-align:left">-l</td>
+<td style="text-align:left">同步符号链接</td>
+</tr>
+<tr>
+<td style="text-align:left">-p</td>
+<td style="text-align:left">保留文件权限</td>
+</tr>
+<tr>
+<td style="text-align:left">-t</td>
+<td style="text-align:left">保留文件时间戳信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-g</td>
+<td style="text-align:left">保留文件组所有权</td>
+</tr>
+<tr>
+<td style="text-align:left">-o</td>
+<td style="text-align:left">保留文件所有者</td>
+</tr>
+</tbody>
+</table>
 
             </div>
           </article>
@@ -133,9 +217,9 @@ GOOGLE.COM
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
+              <a href="https://bingery111.github.io/post/linuxwen-jian-he-yong-hu-zu/">
                 <h3 class="post-title">
-                  git学习笔记
+                  （Linux）文件和用户组
                 </h3>
               </a>
             </div>

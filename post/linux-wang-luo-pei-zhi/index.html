@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>markdown学习笔记 | 个人笔记</title>
+<title>（Linux）网络配置 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,48 +81,98 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>markdown学习笔记</h1>
+            <h1>（Linux）网络配置</h1>
             <p class="article-meta">
-              2022-02-10
+              2022-02-15
               
             </p>
             
             <div class="post-content">
-              <p><strong>一、标题：</strong><br>
-1、markdown标题用=和-表示一级和二级标题<br>
-2、</p>
-<pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-</code></pre>
-<p><strong>二、段落格式：</strong><br>
-Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>
-字体：</p>
-<pre><code>*斜体文本*
-_斜体文本_
-**粗体文本**
-__粗体文本__
-***粗斜体文本***
-___粗斜体文本___
-</code></pre>
-<p><strong>三、分隔线</strong><br>
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<pre><code>***
-* * *
-*****
-- - -
-----------
-</code></pre>
-<p><strong>四、删除线</strong><br>
-如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
-<pre><code>RUNOOB.COM
-GOOGLE.COM
-~~BAIDU.COM~~
-</code></pre>
-<p>下划线</p>
+              <ul>
+<li><a href="#%E4%B8%80ip">一、ip</a></li>
+<li><a href="#%E4%BA%8Cnmcli">二、nmcli</a></li>
+<li><a href="#%E4%B8%89nmcli%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%BF%9E%E6%8E%A5">三、nmcli创建新的连接</a></li>
+<li><a href="#%E5%9B%9B%E8%AF%B4%E6%98%8E">四、说明</a></li>
+</ul>
+<p>Linux 网络简单配置是 Linux 基础之一。</p>
+<p>TCP/IP四层模型、IPV4地址、IPV4路由、网络接口名称；</p>
+<p><strong>Red Hat7之前的系统以eth0, eth1等名字来命名网卡，在rhel7系统中开始使用新的命名规范：基于固件、设备结构、设备类型。</strong></p>
+<h2 id="一-ip">一、ip</h2>
+<ul>
+<li>ip 命令可用于显示设备和地址信息</li>
+<li>ip命令也可用于显示关于网络性能的统计信息</li>
+<li>ip route 显示路由信息</li>
+</ul>
+<h2 id="二-nmcli">二、nmcli</h2>
+<p>使用nmcli配置网络，一些常见的命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">连接的名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">UUID</td>
+<td style="text-align:left">连接的UUID</td>
+</tr>
+<tr>
+<td style="text-align:left">TYPE</td>
+<td style="text-align:left">连接的类型</td>
+</tr>
+<tr>
+<td style="text-align:left">DEVIDE</td>
+<td style="text-align:left">连接绑定的设备</td>
+</tr>
+</tbody>
+</table>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdA1FR7XQ6iaOQO6MERnG1Fby30nSppIBOBhxqYehTSuBF9bicEIk3LABw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(仅显示活动的连接)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdDL57f7FsKxtcQLuXmVA6Qfia9GanOGgYHbmribfwiag9wy5icKG7ZNv3bg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(某特定连接)</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdS5ibR553iaGn7os2NoF1jiaC7PyVHsSzicicHibIof5sCqB7srgZCVjNOqcA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(特定连接的详细信息)</p>
+<h2 id="三-nmcli创建新的连接">三、nmcli创建新的连接</h2>
+<p>使用nmcli创建新的连接，连接其实就是给一个物理网卡创建一个配置信息。</p>
+<p>定义一个名字为default的连接，该连接会通过DHCP自动获取IP地址等信息。</p>
+<p>命令：nmcli con add con-name &quot;default&quot; type ethernet ifname eth0</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdQViaHWAHD9ibk0QtyG5eVX3b1dmf8iaSAbblo8DpTpIY42DFo2vsGMkKA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdibiavK244I2O61IJicCd4ib9FqhEgwL2GUKJKrUL4TU947uwibxlTc16UFA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8Qdv0k6jibsbvib6rQMljKgSz9OdknAicc2ichlKEWW2WZib9mC2RV8CNzklSg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdnOcxjONmNtJpVBn9L6YzVVfZZkBSH55nOEpYF6ByOmic3yy9A9MicNMQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p><strong>通过nmcli修改网络接口，可以通过nmcli con mod 参数修改现有的连接。</strong></p>
+<p>关闭static的自动连接功能：nmcli con mod &quot;static&quot; connection.autoconnect no</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvcm6SGotmhLI7NG9e3h8QdhBhhXNkw5O815ed196JicHRK6hWIJSRicoIg1ZibicSUrUwtbPic41yOPuw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(关闭static的自动连接功能)</p>
+<p>其他命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">nmcli con del &quot;&quot;</td>
+<td style="text-align:left">删除一个连接</td>
+</tr>
+<tr>
+<td style="text-align:left">nmcli net off</td>
+<td style="text-align:left">关闭所有接口的连接</td>
+</tr>
+<tr>
+<td style="text-align:left">nmcli dev dis</td>
+<td style="text-align:left">关闭某个接口，并临时禁用自动连接</td>
+</tr>
+<tr>
+<td style="text-align:left">nmcli con down &quot;&quot;</td>
+<td style="text-align:left">断开某个连接</td>
+</tr>
+</tbody>
+</table>
+<p>图形界面配置网络：nm-connection-editor</p>
 
             </div>
           </article>
@@ -133,9 +183,9 @@ GOOGLE.COM
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
+              <a href="https://bingery111.github.io/post/linux-jin-cheng/">
                 <h3 class="post-title">
-                  git学习笔记
+                  （Linux）进程
                 </h3>
               </a>
             </div>

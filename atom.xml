@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io</id>
     <title>个人笔记</title>
-    <updated>2022-02-15T04:25:12.994Z</updated>
+    <updated>2022-02-15T04:41:24.291Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -11,7 +11,63 @@
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
     <entry>
-        <title type="html"><![CDATA[Linux软硬链接及重定向]]></title>
+        <title type="html"><![CDATA[（研究）防DDoS攻击]]></title>
+        <id>https://bingery111.github.io/post/yan-jiu-fang-ddos-gong-ji/</id>
+        <link href="https://bingery111.github.io/post/yan-jiu-fang-ddos-gong-ji/">
+        </link>
+        <updated>2022-02-15T04:39:48.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）日志、计划任务、主机名、系统时间]]></title>
+        <id>https://bingery111.github.io/post/linuxri-zhi-ji-hua-ren-wu-zhu-ji-ming-xi-tong-shi-jian/</id>
+        <link href="https://bingery111.github.io/post/linuxri-zhi-ji-hua-ren-wu-zhu-ji-ming-xi-tong-shi-jian/">
+        </link>
+        <updated>2022-02-15T04:39:15.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）用户环境]]></title>
+        <id>https://bingery111.github.io/post/linuxyong-hu-huan-jing/</id>
+        <link href="https://bingery111.github.io/post/linuxyong-hu-huan-jing/">
+        </link>
+        <updated>2022-02-15T04:38:45.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）守护进程和远程登陆服务器]]></title>
+        <id>https://bingery111.github.io/post/linuxshou-hu-jin-cheng-he-yuan-cheng-deng-lu-fu-wu-qi/</id>
+        <link href="https://bingery111.github.io/post/linuxshou-hu-jin-cheng-he-yuan-cheng-deng-lu-fu-wu-qi/">
+        </link>
+        <updated>2022-02-15T04:38:10.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）文件和用户组]]></title>
+        <id>https://bingery111.github.io/post/linuxwen-jian-he-yong-hu-zu/</id>
+        <link href="https://bingery111.github.io/post/linuxwen-jian-he-yong-hu-zu/">
+        </link>
+        <updated>2022-02-15T04:37:20.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）网络配置]]></title>
+        <id>https://bingery111.github.io/post/linux-wang-luo-pei-zhi/</id>
+        <link href="https://bingery111.github.io/post/linux-wang-luo-pei-zhi/">
+        </link>
+        <updated>2022-02-15T04:36:55.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）进程]]></title>
+        <id>https://bingery111.github.io/post/linux-jin-cheng/</id>
+        <link href="https://bingery111.github.io/post/linux-jin-cheng/">
+        </link>
+        <updated>2022-02-15T04:36:28.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）tar/grep命令]]></title>
+        <id>https://bingery111.github.io/post/linux-targrep-ming-ling/</id>
+        <link href="https://bingery111.github.io/post/linux-targrep-ming-ling/">
+        </link>
+        <updated>2022-02-15T04:36:02.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[（Linux）软硬链接及重定向]]></title>
         <id>https://bingery111.github.io/post/linux-ruan-ying-lian-jie-ji-chong-ding-xiang/</id>
         <link href="https://bingery111.github.io/post/linux-ruan-ying-lian-jie-ji-chong-ding-xiang/">
         </link>
@@ -23,54 +79,5 @@
         <link href="https://bingery111.github.io/post/lesslesssuan-fa-dao-lun-greatergreater-yan-du/">
         </link>
         <updated>2022-02-14T18:53:51.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[个人博客学习与实践]]></title>
-        <id>https://bingery111.github.io/post/ge-ren-bo-ke-xue-xi-yu-shi-jian/</id>
-        <link href="https://bingery111.github.io/post/ge-ren-bo-ke-xue-xi-yu-shi-jian/">
-        </link>
-        <updated>2022-02-14T15:43:46.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[cloudflare学习]]></title>
-        <id>https://bingery111.github.io/post/cloudflare-xue-xi/</id>
-        <link href="https://bingery111.github.io/post/cloudflare-xue-xi/">
-        </link>
-        <updated>2022-02-14T15:40:19.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[阿里云技术学习]]></title>
-        <id>https://bingery111.github.io/post/a-li-yun-ji-zhu-xue-xi/</id>
-        <link href="https://bingery111.github.io/post/a-li-yun-ji-zhu-xue-xi/">
-        </link>
-        <updated>2022-02-14T15:40:10.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linux常用命令]]></title>
-        <id>https://bingery111.github.io/post/linux-chang-yong-ming-ling/</id>
-        <link href="https://bingery111.github.io/post/linux-chang-yong-ming-ling/">
-        </link>
-        <updated>2022-02-14T12:08:48.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（经验积累）只面试不招人]]></title>
-        <id>https://bingery111.github.io/post/zhi-mian-shi-bu-zhao-ren/</id>
-        <link href="https://bingery111.github.io/post/zhi-mian-shi-bu-zhao-ren/">
-        </link>
-        <updated>2022-02-14T11:28:45.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[markdown学习笔记]]></title>
-        <id>https://bingery111.github.io/post/markdown-xue-xi-bi-ji/</id>
-        <link href="https://bingery111.github.io/post/markdown-xue-xi-bi-ji/">
-        </link>
-        <updated>2022-02-09T19:31:01.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[git学习笔记]]></title>
-        <id>https://bingery111.github.io/post/git-xue-xi-bi-ji/</id>
-        <link href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
-        </link>
-        <updated>2022-02-09T19:00:28.000Z</updated>
     </entry>
 </feed>

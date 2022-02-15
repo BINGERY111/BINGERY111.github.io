@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>markdown学习笔记 | 个人笔记</title>
+<title>（Linux）tar/grep命令 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,48 +81,156 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>markdown学习笔记</h1>
+            <h1>（Linux）tar/grep命令</h1>
             <p class="article-meta">
-              2022-02-10
+              2022-02-15
               
             </p>
             
             <div class="post-content">
-              <p><strong>一、标题：</strong><br>
-1、markdown标题用=和-表示一级和二级标题<br>
-2、</p>
-<pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-</code></pre>
-<p><strong>二、段落格式：</strong><br>
-Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>
-字体：</p>
-<pre><code>*斜体文本*
-_斜体文本_
-**粗体文本**
-__粗体文本__
-***粗斜体文本***
-___粗斜体文本___
-</code></pre>
-<p><strong>三、分隔线</strong><br>
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<pre><code>***
-* * *
-*****
-- - -
-----------
-</code></pre>
-<p><strong>四、删除线</strong><br>
-如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
-<pre><code>RUNOOB.COM
-GOOGLE.COM
-~~BAIDU.COM~~
-</code></pre>
-<p>下划线</p>
+              <ul>
+<li><a href="#%E4%B8%80tar%E5%91%BD%E4%BB%A4">一、tar命令</a></li>
+<li><a href="#%E4%BA%8Cgrep%E5%91%BD%E4%BB%A4">二、grep命令</a></li>
+<li><a href="#%E4%B8%89%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">三、正则表达式</a></li>
+<li><a href="#%E5%9B%9B%E8%AF%B4%E6%98%8E">四、说明</a></li>
+</ul>
+<h2 id="一-tar命令">一、tar命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-c</th>
+<th style="text-align:left">打包，创建压缩包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-x</td>
+<td style="text-align:left">对打包的文件解包</td>
+</tr>
+<tr>
+<td style="text-align:left">-t</td>
+<td style="text-align:left">查看压缩包的详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-v</td>
+<td style="text-align:left">打包或解包过程的详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-f</td>
+<td style="text-align:left">对应打包名称</td>
+</tr>
+<tr>
+<td style="text-align:left">-z</td>
+<td style="text-align:left">使用gzip压缩归档文件（.tar.gz）</td>
+</tr>
+<tr>
+<td style="text-align:left">-j</td>
+<td style="text-align:left">使用bzip2压缩归档文件（.tar.bz2）</td>
+</tr>
+<tr>
+<td style="text-align:left">-C</td>
+<td style="text-align:left">解包/打包路径omeiy</td>
+</tr>
+</tbody>
+</table>
+<p>没有解包/打包路径的话，就在当前目录。</p>
+<h2 id="二-grep命令">二、grep命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-i</th>
+<th style="text-align:left">忽略字符大小写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-v</td>
+<td style="text-align:left">显示没匹配到的行</td>
+</tr>
+<tr>
+<td style="text-align:left">-n</td>
+<td style="text-align:left">显示行号</td>
+</tr>
+<tr>
+<td style="text-align:left">-A num</td>
+<td style="text-align:left">显示到匹配之后的行数</td>
+</tr>
+<tr>
+<td style="text-align:left">-B num</td>
+<td style="text-align:left">显示到匹配之前的行数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三-正则表达式">三、正则表达式</h2>
+<p>Regular Expression，规则表达式，正则表达式用于进行字符串的匹配，传统的字符串匹配中，需要匹配的内容是固定的，显然这种匹配方式的应用场景是有限的。就需要通过一种手段描述匹配内容是一类字符串，而不是一个固定的字符串。</p>
+<p><strong>正则表达式处理字符串匹配的本质在于：用一个表达式描述一类字符串。代表一类字符串的技术已经拥有一个：通配符。例如：l*e，l??e等等。但是通配符的应用场景依然是非常有限的（例如：用通配符就无法表示只由数字组成的字符串）。</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元字符</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配任意单个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">匹配前一个字符(0-n)次</td>
+</tr>
+<tr>
+<td style="text-align:left">.*</td>
+<td style="text-align:left">匹配任意长度的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">匹配前一个字符0或1次，用\转义</td>
+</tr>
+<tr>
+<td style="text-align:left">{m, n}</td>
+<td style="text-align:left">匹配m到n次()用来转义</td>
+</tr>
+<tr>
+<td style="text-align:left">[]</td>
+<td style="text-align:left">匹配任意单个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">[^]</td>
+<td style="text-align:left">匹配指定范围外的任意单个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">定死行首  ^abc</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">定死行尾  abc$</td>
+</tr>
+<tr>
+<td style="text-align:left">^$</td>
+<td style="text-align:left">空白行</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;</td>
+<td style="text-align:left">词首   精确匹配</td>
+</tr>
+<tr>
+<td style="text-align:left">&gt;</td>
+<td style="text-align:left">词尾   精确匹配</td>
+</tr>
+<tr>
+<td style="text-align:left">^ $</td>
+<td style="text-align:left">一个空格</td>
+</tr>
+<tr>
+<td style="text-align:left">()</td>
+<td style="text-align:left">分组，当做整体看待</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：因为花括号，小括号，竖杠(|)，在 shell 中是非常特殊的字符，因此在 grep 命令中使用时要在其前增加 \ 进行转义！</strong></p>
 
             </div>
           </article>
@@ -133,9 +241,9 @@ GOOGLE.COM
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
+              <a href="https://bingery111.github.io/post/linux-ruan-ying-lian-jie-ji-chong-ding-xiang/">
                 <h3 class="post-title">
-                  git学习笔记
+                  （Linux）软硬链接及重定向
                 </h3>
               </a>
             </div>

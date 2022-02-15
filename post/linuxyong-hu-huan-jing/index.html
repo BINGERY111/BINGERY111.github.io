@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>markdown学习笔记 | 个人笔记</title>
+<title>（Linux）用户环境 | 个人笔记</title>
 <meta name="description" content="个人笔记">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,48 +81,70 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>markdown学习笔记</h1>
+            <h1>（Linux）用户环境</h1>
             <p class="article-meta">
-              2022-02-10
+              2022-02-15
               
             </p>
             
             <div class="post-content">
-              <p><strong>一、标题：</strong><br>
-1、markdown标题用=和-表示一级和二级标题<br>
-2、</p>
-<pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-</code></pre>
-<p><strong>二、段落格式：</strong><br>
-Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>
-字体：</p>
-<pre><code>*斜体文本*
-_斜体文本_
-**粗体文本**
-__粗体文本__
-***粗斜体文本***
-___粗斜体文本___
-</code></pre>
-<p><strong>三、分隔线</strong><br>
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<pre><code>***
-* * *
-*****
-- - -
-----------
-</code></pre>
-<p><strong>四、删除线</strong><br>
-如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
-<pre><code>RUNOOB.COM
-GOOGLE.COM
-~~BAIDU.COM~~
-</code></pre>
-<p>下划线</p>
+              <ul>
+<li><a href="#%E4%B8%80%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">一、核心思想</a>
+<ul>
+<li><a href="#1%E5%87%A0%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">1、几个核心概念</a></li>
+<li><a href="#2%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%96%87%E4%BB%B6">2、目录与文件</a></li>
+<li><a href="#3%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">3、常用命令</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E8%AF%B4%E6%98%8E">二、说明</a></li>
+</ul>
+<p><strong>书籍推荐：《鸟哥的Linux私房菜》</strong></p>
+<h2 id="一-核心思想">一、核心思想</h2>
+<h3 id="1-几个核心概念">1、几个核心概念</h3>
+<ol>
+<li>&quot;一切皆文件&quot;</li>
+<li>Linux下是不区分扩展名的，Linux下扩展名是给人看的，其扩展名随便给，无关紧要；但为了自己好区分，还是最好写清楚。</li>
+<li>Linux下是对大小写很敏感的，严格区分大小写。</li>
+</ol>
+<p>内核(Kernel)Shell、终端模拟器、X Window系统，以下就是交互的形式了</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvwQbcQjRgH7JfiahUSLQt7z9exe6gydBkFVPCpFU8qoz56O8dLq3SCtwGpH3xW9bnU8nTGibaemGWg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(linux内核交互)</p>
+<p>用户进程和内核通过shell进行交互，内核再跟硬件交互。</p>
+<h3 id="2-目录与文件">2、目录与文件</h3>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvwQbcQjRgH7JfiahUSLQt7ziaBfq1ltZUCdXYAAoEp494jZUEIHrmYiann2KK8zcKLPKjyvk1SLqYiaA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="50%" height="50%"></div>
+<p align=center>(命令行解释)</p>
+<ol>
+<li>目录也是文件，Linux 下面一切皆文件</li>
+<li>相对路径：从当前目录出发；绝对路径：总是从根(/)目录下出发。</li>
+<li>文件：是数据存放的载体。</li>
+</ol>
+<h3 id="3-常用命令">3、常用命令</h3>
+<p><strong>基本格式：命令名 [选项] [参数]</strong><br>
+<strong>帮助手册：指令 --help  man 指令  info 指令</strong></p>
+<ul>
+<li>ls：列出当前目录下的列表信息 、-l 长格式  ls -l = ll、-a 隐藏文件、-i inode编号</li>
+<li>cd：转换路径</li>
+<li>cp: 拷贝文件   -r: 递归拷贝(目录)  ./*:拷贝其下的文件，当前的目录不拷贝。</li>
+<li>mv: 移动或从命名</li>
+<li>touch: 创建文件或更新文件时间</li>
+<li>mkdir: 创建新目录</li>
+<li>rmdir: 删除空目录</li>
+<li>rm: 删除目录或文件 -r(递归目录) -f(强制删除)</li>
+<li>pwd: 查看当前完整路径</li>
+<li>cat、more、less: 查看文件的内容</li>
+<li>date: 显示当前时间</li>
+<li>cal: 显示月历</li>
+<li>df: 显示磁盘用量  -h  字节方式</li>
+<li>du: 计算目录下文件占磁盘的大小  -h  字节方式</li>
+<li>head: 显示文件开头部分内容   -n 数字</li>
+<li>tail: 显示文件结尾部分内容  -n  数字</li>
+<li>file: 检查文件类型</li>
+</ul>
+<p><strong>离开系统命令：</strong></p>
+<ul>
+<li>重启：reboot、shutdown -r now、init 6</li>
+<li>关机：halt、shutdown -h now、poweroff、init 0</li>
+</ul>
 
             </div>
           </article>
@@ -133,9 +155,9 @@ GOOGLE.COM
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/git-xue-xi-bi-ji/">
+              <a href="https://bingery111.github.io/post/linuxshou-hu-jin-cheng-he-yuan-cheng-deng-lu-fu-wu-qi/">
                 <h3 class="post-title">
-                  git学习笔记
+                  （Linux）守护进程和远程登陆服务器
                 </h3>
               </a>
             </div>
