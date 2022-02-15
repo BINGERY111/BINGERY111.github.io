@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>（C语言）结构化程序设计 | 个人笔记</title>
+<meta name="description" content="个人笔记">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1644900239412">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://bingery111.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://bingery111.github.io">个人笔记</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>（C语言）结构化程序设计</h1>
+            <p class="article-meta">
+              2022-02-15
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li><a href="#%E4%B8%80%E4%B8%89%E7%A7%8D%E7%BB%93%E6%9E%84">一、三种结构</a>
+<ul>
+<li><a href="#11-%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84">1.1 顺序结构</a></li>
+<li><a href="#12-%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84">1.2 选择结构</a></li>
+<li><a href="#13-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84">1.3 循环结构</a>
+<ul>
+<li><a href="#131-while-%E5%BE%AA%E7%8E%AF">1.3.1 while 循环</a></li>
+<li><a href="#132-dowhile">1.3.2 do...while</a></li>
+<li><a href="#133-for-%E5%BE%AA%E7%8E%AF">1.3.3 for 循环</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E4%B8%89%E6%AD%A5%E8%B5%B0%E6%88%98%E7%95%A5">二、三步走战略</a>
+<ul>
+<li><a href="#21-%E7%AC%AC%E4%B8%80%E6%AD%A5">2.1 第一步</a></li>
+<li><a href="#22-%E7%AC%AC%E4%BA%8C%E6%AD%A5">2.2 第二步</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5">三、编程实践</a>
+<ul>
+<li><a href="#31-%E4%B8%80%E4%B8%AA%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E5%85%B6%E8%B4%A8%E5%9B%A0%E5%AD%90%E4%B9%8B%E7%A7%AF%E7%9A%84%E5%BD%A2%E5%BC%8F">3.1 一个数分解为其质因子之积的形式</a></li>
+<li><a href="#32-%E7%94%A8-c-%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%8F%B1%E5%BD%A2%E5%9B%BE%E6%A1%88">3.2 用 C 语言代码实现菱形图案</a></li>
+<li><a href="#33-%E7%94%A8%E5%AE%9A%E7%A7%AF%E5%88%86%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89%E8%AE%A1%E7%AE%97-0-%E5%88%B0-180-%E5%BA%A6%E4%B9%8B%E9%97%B4sinx-%E4%B8%8E%E6%A8%AA%E8%BD%B4%E6%89%80%E5%9B%B4%E6%88%90%E7%9A%84%E9%9D%A2%E7%A7%AF">3.3 用定积分极限定义计算 0 到 180 度之间，sin(x) 与横轴所围成的面积</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B%E5%BC%BA%E8%B0%83%E5%87%A0%E7%82%B9">四、强调几点</a></li>
+<li><a href="#%E4%BA%94%E8%AF%B4%E6%98%8E">五、说明</a></li>
+</ul>
+<p>连着写了好几篇的非技术文章了，今天写写技术文章，两者穿插着写，<strong>三步走战略、五大能力体系、思维、打法</strong>，在每一篇文章中都会体现，重在思考、理解，C 语言真的值得每一个程序员去学学，重在编程思想与编程哲学。</p>
+<p>不是我技术文章更新较慢，而是一些能力、思维的提升比较重要，这种是大的战略方向，意识必须给到位，而且关于这方面还有许多要写的。</p>
+<h2 id="一-三种结构">一、三种结构</h2>
+<p><strong>用工程化思想，指导程序设计的过程。</strong></p>
+<ul>
+<li>很重要的一个思想：<strong>模块化；</strong></li>
+<li>模块化程序的特点：<strong>单入口、单出口；</strong></li>
+</ul>
+<p>模块与模块之间的三种关系（必须非常熟练的掌握、理解）：顺序结构、分支结构（选择结构）、循环结构，这三种结构基本上构成了模块的框架。</p>
+<h3 id="11-顺序结构">1.1 顺序结构</h3>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGDNsgB2owJbfiboxzFfyDZE8UgOYdBXCgVuzE26ho7b9cu4lBELr7dznQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(顺序结构)</p>
+<p>从上往下执行每一条代码，机器严格的按照指令走，没有选择、没有循环，是最简单的结构。</p>
+<h3 id="12-选择结构">1.2 选择结构</h3>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGDUB4qbRqsqEQKRacGg8TS4aRJ5Ild2w7y5d2HAXGnl2UjoWSBcbeQPA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(选择结构)</p>
+<pre><code class="language-c">if(条件表达式)
+    语句 1 
+else
+    语句 2
+
+if(条件表达式)
+    语句 1
+
+if ... else ...   或者 if ... 语句，也是必须掌握的，很简单的。
+</code></pre>
+<p><strong>注意：</strong></p>
+<ul>
+<li>if 后面的 ()，坚决不能丢；</li>
+<li>if 和 else，只控制其后的一条语句；若需要控制多条语句，则必须用 {} 将这些语句括起来，称为一条 “复合语句”。</li>
+</ul>
+<h3 id="13-循环结构">1.3 循环结构</h3>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGDlNmX13ichMSuELiamzWxibdsQIcye5ZKTX0E7Oe44enAWoQKHzoJqhVYQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(循环结构)</p>
+<h4 id="131-while-循环">1.3.1 while 循环</h4>
+<pre><code class="language-c">while(条件表达式){
+    循环体;
+    步长;
+}
+
+循环体最少执行 0 次，最多执行无数次。
+</code></pre>
+<h4 id="132-dowhile">1.3.2 do...while</h4>
+<pre><code class="language-c">do 
+    循环体;
+while(条表);  
+
+do ... while... 这个循环一般不使用。
+</code></pre>
+<h4 id="133-for-循环">1.3.3 for 循环</h4>
+<pre><code class="language-c">for(初值; 条表; 步长){
+    循环体;
+}
+</code></pre>
+<p>while、for 循环用的比较多，三要素：<strong>初值、条件、步长</strong>，必须明确。</p>
+<p>这三种结构，只要掌握了 C 的，对于其他语言都是类似的，<strong>一定要以技术的深度为主，熟练的掌握一门，编程思想到位了，其他都不是问题，再将技术进行横向的扩展，由易入难，由深入广的打法。</strong></p>
+<p>一个核心观点：我们写的程序，通过指令，转换为机器能识别的是 0 和 1，机器是严格的按照指令执行，最终实现我们预期的任务。</p>
+<h2 id="二-三步走战略">二、三步走战略</h2>
+<h3 id="21-第一步">2.1 第一步</h3>
+<p>当我们面对一个编程问题，不要急于动手去敲，三步走：<strong>输入 + 处理 + 输出；</strong></p>
+<p>输入是什么？中间怎么处理？最终的输出结果又是什么？</p>
+<p>想清楚了，再动手去实现，那就很简单了。</p>
+<h3 id="22-第二步">2.2 第二步</h3>
+<p>三步走：<strong>分而治之  + 变量跟踪 + 换位思考；</strong></p>
+<p><strong>分而治之</strong>：问题再大，也要学会需求拆解，细化，能否把问题拆的足够好，充分的反映了一个人编程经验以及技术能力。</p>
+<p><strong>变量跟踪</strong>：在编写程序到某一模块，必须把自己当成机器，去一步一步的追踪各个变量的值的变化过程，从而得出程序的功能！查找程序错误也是这样做的。</p>
+<p><strong>换位思考</strong>：在编程的过程中，需要不停的在 “开发者” 和 “程序的使用者(用户)”之间的角色转换，以决定程序的编写方式。</p>
+<p><strong>明确了三步走的打法，以及编程前的准备，再动手去敲，去思考，养成良好的编程习惯是受益终生的，这种思维不仅仅在编程、在其他领域都是受益的，因为能力的提升才是你的资本。</strong></p>
+<p><strong>要学的是怎么思考，怎么分析，怎么去实现，把这些能力提升起来。</strong></p>
+<h2 id="三-编程实践">三、编程实践</h2>
+<p><strong>说的再多，分析的再清楚，你不去一行一行、一个字母一个字母敲出来，是不起任何作用的</strong>，我当年初学编程的时候，是一个字母一个字母的敲，没用什么代码补全工具，这个很锻炼我的编码能力与代码的认知感觉。</p>
+<p><strong>动手追踪：对于要实现的相关程序，必须自己动手，通过手工实现一些例子；再手工实现的过程中，去寻找、概况、总结在这过程中的一般性规律，而程序就是对这个规律的精准描述。</strong></p>
+<p><strong>动手追踪的能力一定要培养起来，要勤快起来，不能偷懒的光看，脑子要多想，多动手画、敲。</strong></p>
+<p>下面通过代码实现三个 C 语言的例子，加深学习和理解。</p>
+<h3 id="31-一个数分解为其质因子之积的形式">3.1 一个数分解为其质因子之积的形式</h3>
+<p>手工的在纸上画一下，怎么分解，找出规律，用代码实现即可。</p>
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+
+void main(void)
+{
+    int num;
+    int i;
+    int n;
+
+    printf(&quot;请输入一个数：&quot;);
+    scanf(&quot;%d&quot;, &amp;num);
+    n = num;
+
+    printf(&quot;%d = &quot;, num);
+    for(i = 2; n &gt; 1;)
+      if(n%i == 0)
+      {
+        printf(&quot;%d&quot;, i);
+        if(n != i)
+          printf(&quot;*&quot;);
+        n /= i;
+      }
+      else
+        i++;
+
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<p>运行结果：</p>
+<ul>
+<li>gcc test.c -o test</li>
+<li>./test</li>
+</ul>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGDdnU5dyPk0AyujuFX7ic3kLdeKJ5SzmBc46x40uQ6zJwCx0aQfk8HuUg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(运行结果)</p>
+<h3 id="32-用-c-语言代码实现菱形图案">3.2 用 C 语言代码实现菱形图案</h3>
+<p>要观察这些星星的个数是怎么变化的，用笔在纸上画，找出规律。</p>
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+ 
+void main(void)
+{
+    int n, i, j;
+ 
+    printf(&quot;请输入行数（奇数）:&quot;); //因为是菱形，所以必须为奇数行
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for(i = 0; i &lt; n; i++)
+    {
+      for(j = 0; j &lt; abs(n/2 - i); j++)
+        printf(&quot; &quot;);
+      for(j = 0; j &lt; 2 * (n/2 - abs(n/2 -i)) + 1; j++)
+        printf(&quot;*&quot;);
+      printf(&quot;\n&quot;);
+    }
+
+    printf(&quot;\n&quot;); 
+}
+</code></pre>
+<p>运行结果：</p>
+<ul>
+<li>gcc test.c -o test</li>
+<li>./test</li>
+</ul>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGD1EZSozAibgseJLOzM6pfoxvCpc7T3HVLcEfIE4tagIbRtnRMVuTHwvw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(运行结果)</p>
+<h3 id="33-用定积分极限定义计算-0-到-180-度之间sinx-与横轴所围成的面积">3.3 用定积分极限定义计算 0 到 180 度之间，sin(x) 与横轴所围成的面积</h3>
+<p>分析：很多人咋一看，很难啊，没思路，实现不了，你先自己想想，看看能不能用代码实现这个问题。</p>
+<p>其实，这个特别简单，C 语言入门级别，会点高数求极限，知道这个公式就可以了，遇到问题，认真的分析分析，这些都是最简单、最基础的，下面的图很清晰的表示了。</p>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGDn6rBV1xO8etqEXMy0vZwWKMerdOjicakqs1eT5gpMLBrZAiamOhqBGhA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(sin图形)</p>
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+ 
+void main(void)
+{
+    double x, dx, s = 0;
+ 
+    printf(&quot;请输入Δx:&quot;);
+    scanf(&quot;%lf&quot;, &amp;dx);
+
+    for(x = 0; x &lt;= 3.1415926; x += dx) //这块的3.1415926可以使用宏定义define
+      s += sin(x) * dx;
+
+    printf(&quot;面积是：%lf\n&quot;, s);
+}
+</code></pre>
+<p>运行结果：</p>
+<ul>
+<li>gcc test.c -o test</li>
+<li>./test</li>
+</ul>
+<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtSCialDqcncib9nPFgPh6RsGDNvC2iaIU2N6FTzjUJu1ickekicUwgwVicmrukWoUDsGe7pJaYYSjZWcw9A/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
+<p align=center>(运行结果)</p>
+<p><strong>学过高数的应该都懂，dx越小，求的极限越接近于真实面积，而极限本身就是这些小面积的求和，大学阶段：高数、概率论、线性代数、离散数学极为重要，对于搞算法的我们来说，非线性拟合问题，拟合函数，低阶高阶特征组合，各参数梯度计算，各个参数求偏导、等都是必备的，没有扎实的数学功底，如何能成为一个优秀的程序员呢？</strong></p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://bingery111.github.io/post/c-yu-yan-han-shu/">
+                <h3 class="post-title">
+                  （C语言）函数
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://bingery111.github.io/images/avatar.png?v=1644900239412" class="no-responsive avatar">
+    <div class="text-muted">个人笔记</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-jie-gou-hua-cheng-xu-she-ji/">（C语言）结构化程序设计</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-han-shu/">（C语言）函数</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/c-yu-yan-chang-liang-he-bian-liang/">（C语言）常量和变量</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/yan-jiu-fang-ddos-gong-ji/">（研究）防DDoS攻击</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linuxri-zhi-ji-hua-ren-wu-zhu-ji-ming-xi-tong-shi-jian/">（Linux）日志、计划任务、主机名、系统时间</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linuxyong-hu-huan-jing/">（Linux）用户环境</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linuxshou-hu-jin-cheng-he-yuan-cheng-deng-lu-fu-wu-qi/">（Linux）守护进程和远程登陆服务器</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linuxwen-jian-he-yong-hu-zu/">（Linux）文件和用户组</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linux-wang-luo-pei-zhi/">（Linux）网络配置</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://bingery111.github.io/post/linux-jin-cheng/">（Linux）进程</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://bingery111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
