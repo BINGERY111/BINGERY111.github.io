@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io</id>
     <title>个人笔记</title>
-    <updated>2022-02-16T21:31:14.363Z</updated>
+    <updated>2022-02-16T22:09:52.241Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://bingery111.github.io/images/avatar.png</logo>
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[SQL注入]]></title>
+        <id>https://bingery111.github.io/post/sql-zhu-ru/</id>
+        <link href="https://bingery111.github.io/post/sql-zhu-ru/">
+        </link>
+        <updated>2022-02-16T22:09:42.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OSS对象云存储]]></title>
+        <id>https://bingery111.github.io/post/oss-dui-xiang-yun-cun-chu/</id>
+        <link href="https://bingery111.github.io/post/oss-dui-xiang-yun-cun-chu/">
+        </link>
+        <updated>2022-02-16T21:57:34.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[个人社区计划]]></title>
+        <id>https://bingery111.github.io/post/ge-ren-she-qu-ji-hua-2-ge-yue/</id>
+        <link href="https://bingery111.github.io/post/ge-ren-she-qu-ji-hua-2-ge-yue/">
+        </link>
+        <updated>2022-02-16T21:31:39.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ansible自动化运维]]></title>
         <id>https://bingery111.github.io/post/ansible-zi-dong-hua-yun-wei/</id>
@@ -58,26 +79,5 @@
         <link href="https://bingery111.github.io/post/c-yu-yan-shu-ju-lei-xing-ji-yun-suan-fu/">
         </link>
         <updated>2022-02-15T09:38:21.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（C语言）结构体、共同体、动态存储分配]]></title>
-        <id>https://bingery111.github.io/post/c-yu-yan-jie-gou-ti-gong-tong-ti-dong-tai-cun-chu-fen-pei/</id>
-        <link href="https://bingery111.github.io/post/c-yu-yan-jie-gou-ti-gong-tong-ti-dong-tai-cun-chu-fen-pei/">
-        </link>
-        <updated>2022-02-15T09:37:32.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（C语言）结构化程序设计]]></title>
-        <id>https://bingery111.github.io/post/c-yu-yan-jie-gou-hua-cheng-xu-she-ji/</id>
-        <link href="https://bingery111.github.io/post/c-yu-yan-jie-gou-hua-cheng-xu-she-ji/">
-        </link>
-        <updated>2022-02-15T04:43:20.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[（C语言）函数]]></title>
-        <id>https://bingery111.github.io/post/c-yu-yan-han-shu/</id>
-        <link href="https://bingery111.github.io/post/c-yu-yan-han-shu/">
-        </link>
-        <updated>2022-02-15T04:42:44.000Z</updated>
     </entry>
 </feed>
