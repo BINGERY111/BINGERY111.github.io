@@ -7,7 +7,7 @@
 <meta name="description" content="向上攀爬之路不是比站在顶峰更让人热血澎湃吗">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1645154029189">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1645154743020">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -108,6 +108,17 @@ Telnet是进行远程登录的标准协议，它是当今Internet上应用最广
 <p><strong>SSH</strong><br>
 Telnet协议在带来便利性的同时，也带来了许多安全问题，最突出的就是Telnet协议使用明文的方式传送所有的数据（包括账号和口令），数据在传输过程中很容易被入侵者窃听或篡改所以建议使用更安全的其它的服务<br>
 SSH是目前通常使用的远程管理协议，它是一个在应用程序中提供安全通信的协议，通过SS可以安全地访问服务器，因为SSH基于成熟的公钥加密体系，把所有传输的数据进行加密，保证数据在传输时不被恶意破坏、漏露和篡改。</p>
+<h3 id="生成ssh公钥">生成SSH公钥</h3>
+<p>默认情况下，用户的 SSH 密钥存储在其 ~/.ssh 目录下。 进入该目录并列出其中内容</p>
+<pre><code>ssh-keygen -o
+</code></pre>
+<p>注意：.ssh在服务器中默认存在，需要使用ls -a选项。<br>
+这条命令会产生两个隐藏文件：.ssh  .ssh.pub，打开.ssh.pub，里面既是ssh key，将其输入到github中即可git clone。</p>
+<h3 id="git配置">git配置</h3>
+<p>1、检查是否安装过git（不是用man）</p>
+<pre><code>git --version
+</code></pre>
+<p>若出现以上版本号，则代表已经安装了git，不需要再次安装了，否则就安装</p>
 <h3 id="xshell远程连接">xshell远程连接</h3>
 <p>1、在控制台设置密码<br>
 2、打开xshell，新建会话，输入ip地址，和端口（默认为22），之后输入用户名和密码<br>
@@ -137,7 +148,7 @@ SSH是目前通常使用的远程管理协议，它是一个在应用程序中�
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://bingery111.github.io/images/avatar.png?v=1645154029189" class="no-responsive avatar">
+    <img src="https://bingery111.github.io/images/avatar.png?v=1645154743020" class="no-responsive avatar">
     <div class="text-muted">向上攀爬之路不是比站在顶峰更让人热血澎湃吗</div>
     <div class="social-container">
       
