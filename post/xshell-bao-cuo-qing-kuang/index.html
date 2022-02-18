@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>（Linux）文件和用户组 | 个人笔记</title>
+<title>xshell报错情况 | 个人笔记</title>
 <meta name="description" content="向上攀爬之路不是比站在顶峰更让人热血澎湃吗">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,75 +81,21 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>（Linux）文件和用户组</h1>
+            <h1>xshell报错情况</h1>
             <p class="article-meta">
-              2022-02-15
+              2022-02-18
               
             </p>
             
             <div class="post-content">
-              <ul>
-<li><a href="#%E4%B8%80linux-%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6">一、Linux 系统文件</a></li>
-<li><a href="#%E4%BA%8C%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90">二、修改权限</a></li>
-<li><a href="#%E4%B8%89%E5%A2%9E%E5%8A%A0%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84">三、增加用户和用户组</a></li>
-<li><a href="#%E5%9B%9B%E8%A1%A5%E5%85%85%E5%87%A0%E4%B8%AA%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4">四、补充几个使用命令</a></li>
-<li><a href="#%E4%BA%94%E8%AF%B4%E6%98%8E">五、说明</a></li>
-</ul>
-<h2 id="一-linux-系统文件">一、Linux 系统文件</h2>
-<p>Linux 下文件的属性与内容是分开存放的，文件属性有 inode 编号，内容在block 块中</p>
-<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_png/cu0TUlMDjbvP1jvjicPEIaicEpQ27Jxa0KOUdQDyTxf816YRpobcQwGhQib5icJtr2M6NBOZhh4thOIDGQE3kmkaxw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1' width="80%" height="80%"></div>
-<p align=center>(Linux文件属性)</p>
-<p>10 个中的第一个字母表示文件类型：</p>
-<ul>
-<li>-：一般文件</li>
-<li>d: 目录文件</li>
-<li>b: 块设备文件</li>
-<li>c: 字符设备文件</li>
-<li>l: 链接文件</li>
-<li>p: 管道文件（临时文件）</li>
-</ul>
-<hr>
-<p><strong>Linux 多用户多任务，只有一个 root 管理者，具有无限权限！！！</strong></p>
-<p>r 读 4、w 写 2、x 执行 1，其后依次 3 个字母一组，分别表示: 文件所有者权限u，文件所属用户组权限g，其他用户文件 o。</p>
-<h2 id="二-修改权限">二、修改权限</h2>
-<ul>
-<li>chown：(修改所有者，也可修改组)</li>
-<li>chgrp：(修改组)</li>
-<li>chmod：(修改权限), 数字和字母两种修改方法，字母(u/g/o)+(r/w/x)，表示增加此权限，字母(u/g/o)-(r/w/x)，表示去掉此权限。</li>
-</ul>
-<h2 id="三-增加用户和用户组">三、增加用户和用户组</h2>
-<ul>
-<li>
-<p>useradd -g(修改默认组) -G(修改扩展组/附加组)</p>
-</li>
-<li>
-<p>userdel</p>
-</li>
-<li>
-<p>usergroup</p>
-</li>
-<li>
-<p>usermod</p>
-</li>
-<li>
-<p>passwd</p>
-</li>
-<li>
-<p>id 用户： 查看所属组，扩展组等。</p>
-</li>
-<li>
-<p>用户的信息在: /etc/passwd、/etc/group、etc/shadow下</p>
-</li>
-</ul>
-<h2 id="四-补充几个使用命令">四、补充几个使用命令</h2>
-<ul>
-<li>Ctrl + d：退出登录</li>
-<li>Ctrl + c：结束执行</li>
-<li>Tab：自动补齐</li>
-<li>Shift + ctrl + &quot;+&quot;：放大字体</li>
-<li>Ctrl + -：缩小字体</li>
-<li>man指令的退出：q</li>
-</ul>
+              <p>1、</p>
+<pre><code>WARNING! The remote SSH server rejected X11 forwarding request.
+</code></pre>
+<p>解决办法：（1）编辑文件：/etc/ssh/sshd_config，设置：</p>
+<pre><code>X11Forwarding yes
+</code></pre>
+<p>（2）配置Xshell 6连接属性，如下图，取消勾取即可<br>
+SSH-隧道-x11转移去掉勾选</p>
 
             </div>
           </article>
@@ -160,9 +106,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/linux-wang-luo-pei-zhi/">
+              <a href="https://bingery111.github.io/post/ji-yu-ecs-he-nas-da-jian-ge-ren-wang-pan/">
                 <h3 class="post-title">
-                  （Linux）网络配置
+                  基于ECS和NAS搭建个人网盘
                 </h3>
               </a>
             </div>
