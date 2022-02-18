@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io</id>
     <title>个人笔记</title>
-    <updated>2022-02-18T03:29:51.931Z</updated>
+    <updated>2022-02-18T03:53:33.901Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://bingery111.github.io/images/avatar.png</logo>
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[基于ECS和NAS搭建个人网盘]]></title>
+        <id>https://bingery111.github.io/post/ji-yu-ecs-he-nas-da-jian-ge-ren-wang-pan/</id>
+        <link href="https://bingery111.github.io/post/ji-yu-ecs-he-nas-da-jian-ge-ren-wang-pan/">
+        </link>
+        <updated>2022-02-18T03:34:24.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ECS配置]]></title>
         <id>https://bingery111.github.io/post/ecs-pei-zhi/</id>
@@ -72,12 +79,5 @@
         <link href="https://bingery111.github.io/post/hcna/">
         </link>
         <updated>2022-02-16T15:05:50.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[(目标)ACA/ACP/ACE认证]]></title>
-        <id>https://bingery111.github.io/post/acaacpace-ren-zheng/</id>
-        <link href="https://bingery111.github.io/post/acaacpace-ren-zheng/">
-        </link>
-        <updated>2022-02-16T15:05:32.000Z</updated>
     </entry>
 </feed>

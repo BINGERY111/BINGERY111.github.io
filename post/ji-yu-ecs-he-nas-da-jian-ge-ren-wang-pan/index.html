@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>阿里云技术学习 | 个人笔记</title>
+<title>基于ECS和NAS搭建个人网盘 | 个人笔记</title>
 <meta name="description" content="向上攀爬之路不是比站在顶峰更让人热血澎湃吗">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,14 +81,40 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>阿里云技术学习</h1>
+            <h1>基于ECS和NAS搭建个人网盘</h1>
             <p class="article-meta">
-              2022-02-14
+              2022-02-18
               
             </p>
             
             <div class="post-content">
-              <p>1</p>
+              <h3 id="目标">目标</h3>
+<p>1、NAS文件存储系统基本知识<br>
+2、 Apache + PHP语言环境的安装和部署<br>
+3 、挂载NAS文件存储系统<br>
+4、 Linux 系统基础命令</p>
+<h3 id="nas">NAS</h3>
+<p>文件存储NAS：提供标准的文件访问协议，用户无需对现有应用做任何修改，即可使用具备无限容量及性能扩展、单一命名空间、多共享、高可靠和高可用等特性的分布式文件系统。</p>
+<p><strong>优点：</strong><br>
+1、标准文件协议，既支持NFS也支持SMB<br>
+2、共享、无限扩容、高可靠<br>
+3、良好的性能指标，支持横向拓展</p>
+<h3 id="应用">应用</h3>
+<p>1、启动创建好的ECS<br>
+2、安装OwnCloud<br>
+OwnCloud是一款开源的云存储软件，基于PHP的自建网盘。基本上是私人使用，没有用户注册功能，但是有用户添加功能，你可以无限制地添加用户，OwnCloud支持多个平台（windows，MAC，Android，IOS，Linux）。<br>
+3、打开终端，添加软件</p>
+<pre><code>cd /etc/yum.repos.d/
+wget --no-check-certificate https://download.opensuse.org/repositories/isv:ownCloud:server:10/CentOS_7/isv:ownCloud:server:10.repo
+</code></pre>
+<p>4、进入root目录，安装OwnCloud-files</p>
+<pre><code>cd /root/
+yum -y install https://labfileapp.oss-cn-hangzhou.aliyuncs.com/owncloud-complete-files-10.5.0-3.1.noarch.rpm
+</code></pre>
+<p>5、查看安装是否成功</p>
+<pre><code>ll /var/www/html
+</code></pre>
+<h3 id="配置相应的shell脚本">配置相应的shell脚本</h3>
 
             </div>
           </article>
@@ -99,9 +125,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/linux-chang-yong-ming-ling/">
+              <a href="https://bingery111.github.io/post/ecs-pei-zhi/">
                 <h3 class="post-title">
-                  Linux常用命令
+                  ECS配置
                 </h3>
               </a>
             </div>
