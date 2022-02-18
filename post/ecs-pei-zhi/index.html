@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>阿里云技术学习 | 个人笔记</title>
+<title>ECS配置 | 个人笔记</title>
 <meta name="description" content="向上攀爬之路不是比站在顶峰更让人热血澎湃吗">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,14 +81,39 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>阿里云技术学习</h1>
+            <h1>ECS配置</h1>
             <p class="article-meta">
-              2022-02-14
+              2022-02-18
               
             </p>
             
             <div class="post-content">
-              <p>1</p>
+              <h3 id="1-通过终端远程访问主机">1、通过终端远程访问主机</h3>
+<p>使用安全远程访问协议 **SSH **来访问您的主机，在主机上开启了 SSHD 的远程服务<br>
+主机开放了相应的端口，通常情况端口号是 22。</p>
+<p>部分Linux系统中，SSHD服务会禁用 root 用户远程登录, 登录时可能报用户名或者密码错误。</p>
+<p>使用root进行远程登录, 需要通过其他方式(如vnc)连接到服务器，并修改配置文件:/etc/ssh/sshd_config,将<br>
+PermitRootLogin no<br>
+修改为<br>
+PermitRootLogin yes<br>
+重启 SSHD 服务<br>
+sudo service sshd restart<br>
+再尝试使用Workbench登录远程主机</p>
+<h3 id="vnctelnetssh区别">VNC/Telnet/SSH区别</h3>
+<p>VNC (Virtual Network Computing)是虚拟网络计算机的缩写，远程控制工具。Linux 中，VNC 包括以下四个命令：vncserver，vncviewer，vncpasswd，和 vncconnect。大多数情况下只需要两个命令：vncserver 和 vncviewer</p>
+<p><strong>VNC原理</strong><br>
+VNC系统由客户端，服务端和一个协议组成。VNC的服务端目的是分享其所运行机器的屏幕， 服务端被动的允许客户端控制它。 VNC客户端（或Viewer） 观察控制服务端，与服务端交互。 VNC 协议 Protocol (RFB)是一个简单的协议，传送服务端的原始图像到客户端（一个X,Y 位置上的正方形的点阵数据）， 客户端传送事件消息到服务端。</p>
+<p><strong>Telnet</strong><br>
+Telnet是进行远程登录的标准协议，它是当今Internet上应用最广泛的协议之一。它把用户正在使用的终端或计算机变成网络某一远程主机的仿真终端，使得用户可以方便地使用远程主机上的软、硬件资源。</p>
+<p><strong>SSH</strong><br>
+Telnet协议在带来便利性的同时，也带来了许多安全问题，最突出的就是Telnet协议使用明文的方式传送所有的数据（包括账号和口令），数据在传输过程中很容易被入侵者窃听或篡改所以建议使用更安全的其它的服务<br>
+SSH是目前通常使用的远程管理协议，它是一个在应用程序中提供安全通信的协议，通过SS可以安全地访问服务器，因为SSH基于成熟的公钥加密体系，把所有传输的数据进行加密，保证数据在传输时不被恶意破坏、漏露和篡改。</p>
+<h3 id="xshell远程连接">xshell远程连接</h3>
+<p>1、在控制台设置密码<br>
+2、打开xshell，新建会话，输入ip地址，和端口（默认为22），之后输入用户名和密码<br>
+<img src="https://bingery111.github.io/post-images/1645151419052.png" alt="" loading="lazy"><br>
+3、绑定域名，进入域名控制台，添加A类记录即可。<br>
+4、验证：打开cmd/terminal，ping网址，若是服务器网址即可，注：与网页托管无关</p>
 
             </div>
           </article>
@@ -99,9 +124,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://bingery111.github.io/post/linux-chang-yong-ming-ling/">
+              <a href="https://bingery111.github.io/post/mu-biao-shou-du-linux-xi-tong-dai-ma/">
                 <h3 class="post-title">
-                  Linux常用命令
+                  (目标)熟读linux系统代码
                 </h3>
               </a>
             </div>
