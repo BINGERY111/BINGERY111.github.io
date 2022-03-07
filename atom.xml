@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io</id>
     <title>个人笔记</title>
-    <updated>2022-03-06T04:41:52.692Z</updated>
+    <updated>2022-03-07T08:17:55.886Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://bingery111.github.io/images/avatar.png</logo>
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[FM33G0xx]]></title>
+        <id>https://bingery111.github.io/post/fm33g0xx/</id>
+        <link href="https://bingery111.github.io/post/fm33g0xx/">
+        </link>
+        <updated>2022-03-07T07:56:50.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[C++笔记]]></title>
         <id>https://bingery111.github.io/post/cbi-ji/</id>
@@ -72,12 +79,5 @@
         <link href="https://bingery111.github.io/post/jia-ru-kai-yuan-she-qu-cong-she-qu-zhong-cheng-chang/">
         </link>
         <updated>2022-02-16T22:26:22.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[(目标)SQL注入]]></title>
-        <id>https://bingery111.github.io/post/sql-zhu-ru/</id>
-        <link href="https://bingery111.github.io/post/sql-zhu-ru/">
-        </link>
-        <updated>2022-02-16T22:09:42.000Z</updated>
     </entry>
 </feed>

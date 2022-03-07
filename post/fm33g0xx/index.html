@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>FM33G0xx | 个人笔记</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://bingery111.github.io/favicon.ico?v=1646641073762">
+<link rel="stylesheet" href="https://bingery111.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="[TOC]
+
+一、产品综述
+1、性能指标
+极限参数：电源电压，管脚电压、工作温度、存储温度、静放电（ESD）、人体放电（HBM）、Latch-up（闩锁效应）
+
+静电放电:
+静电放电是造成所有电子元器件或集成电路系统造成过度电应力(EOS:..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://bingery111.github.io">
+        <img src="https://bingery111.github.io/images/avatar.png?v=1646641073762" class="site-logo">
+        <h1 class="site-title">个人笔记</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      向上攀爬之路不是比站在顶峰更让人热血澎湃吗
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://bingery111.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">FM33G0xx</h2>
+            <div class="post-date">2022-03-07</div>
+            
+            <div class="post-content" v-pre>
+              <p>[TOC]</p>
+<hr>
+<h3 id="一-产品综述">一、产品综述</h3>
+<h4 id="1-性能指标">1、性能指标</h4>
+<p>极限参数：电源电压，管脚电压、工作温度、存储温度、静放电（ESD）、人体放电（HBM）、Latch-up（闩锁效应）</p>
+<hr>
+<p><strong>静电放电:</strong><br>
+静电放电是造成所有电子元器件或集成电路系统造成过度电应力(EOS: Electrical Over Stress)破坏的主要元凶。因为静电通常瞬间电压非常高(&gt;几千伏)，所以这种损伤是毁灭性和永久性的，会造成电路直接烧毁。所以预防静电损伤是所有IC设计和制造的头号难题。<br>
+静电放电（ESD）抗扰度测试是重要的电磁兼容性（EMC）测试之一。</p>
+<hr>
+<p><strong>ESD的标准以及测试方法：</strong><br>
+根据静电的产生方式以及对电路的损伤模式不同通常分为<strong>四种测试</strong>方式： 人体放电模式(HBM: Human-Body Model)、机器放电模式(Machine Model)、元件充电模式(CDM: Charge-Device Model)、电场感应模式(FIM: Field-Induced Model)，但是业界通常使用前两种模式来测试(HBM, MM)。</p>
+<p><strong>1)  人体放电模式(HBM）</strong><br>
+当然就是人体摩擦产生了电荷突然碰到芯片释放的电荷导致芯片烧毁击穿，秋天和别人触碰经常触电就是这个原因。业界对HBM的ESD标准也有迹可循(MIL- STD-883C method 3015.7，等效人体电容为100pF，等效人体电阻为1.5Kohm)，或者国际电子工业标准(EIA/JESD22-A114-A)也有规定，看你要follow哪一份了。</p>
+<p>如果是MIL-STD-883C method 3015.7，它规定小于&lt;2kV的则为Class-1，在2kV<sub>4kV的为class-2，4kV</sub>16kV的为class-3。</p>
+<p><strong>2)  机器放电模式(MM)：</strong><br>
+当然就是机器(如robot)移动产生的静电触碰芯片时由pin脚释放，次标准为EIAJ-IC-121 method 20(或者标准EIA/JESD22-A115-A)，等效机器电阻为0 (因为金属)，电容依旧为100pF。由于机器是金属且电阻为0，所以放电时间很短，几乎是ms或者us之间。但是更重要的问题是，由于等效电阻为0，所以电流很大，所以即使是200V的MM放电也比2kV的HBM放电的危害大。而且机器本身由于有很多导线互相会产生耦合作用，所以电流会随时间变化而干扰变化。</p>
+<p><strong>3）组件充电模式 (Charged-Device Model, CDM)</strong></p>
+<p>此放电模式是指IC先<strong>因磨擦或其它因素而在IC内部累积了静电</strong>，但在静电累积的过程中IC并未被损伤。此带有静电的IC在处理过程中，当其pin去碰触到接地面时，IC内 部的静电便会经由pin自IC内部流出来，而造成了放电的现象。<br>
+　　此种模式的放电时间更短，仅约几毫微秒之内，而且放电现象更难以真实的被模拟。因为IC内部累积的静电会 因IC组件本身对地的等效电容而变，IC摆放的角度与位置 以及IC所用的包装型式都会造成不同的等效电容。由于具 有多项变化因素难定，因此，有关此模式放电的工业测试 标准仍在协议中，但已有此类测试机台在销售中。该组件 充电模式(CDM) ESD可能发生的原因及放电的情形显示于<br>
+　　图2.3-1(a)与图2.3-1(b)中。该组件充电模式静电放电的等效 电路图显示于图2.3-2(a)中。IC在名种角度摆放下的等效电 容值显示于图2.3-2(b)中，此电容值会导致不同的静电电量 累积于IC内部。</p>
+<hr>
+<p><strong>闩锁效应：</strong><br>
+Latch-up原理</p>
+<p>Latch up 最易产生在易受外部干扰的I/O电路处, 也偶尔发生在内部电路。</p>
+<p>Latch up 是指cmos晶片中, 在电源power VDD和地线GND(VSS)之间由于寄生的PNP和NPN双极性BJT相互影响而产生的一低阻抗通路, 它的存在会使VDD和GND之间产生大电流。</p>
+<p>Latch-up发生的条件：<br>
+(i)当两个BJT都导通，在VDD和GND之间产生低阻抗通路;<br>
+(ii) 两个晶体管反馈回路（feedback loop）增益的乘积大于1<br>
+<img src=":/9ab75daaf1cd430ca3cea48f007d2ed4" alt="ddeb9b2937bca9f07cf62afd75336dd7.png" loading="lazy"></p>
+<p><strong>Latch-up产生机制和抑制方法：</strong><br>
+<strong>Latch-up产生机制</strong>：<br>
+(i)输入或输出电压（I/O的信号）高于VDD电压，芯片产生大电流，导致latch-up;<br>
+(ii)ESD静电加压，可能会从保护电路中引入少量带电载流子到阱或衬底中，导致latch-up;</p>
+<hr>
+<p>source（拉电流）和sink（灌电流）详解<br>
+  名词解释 —— 灌：注入、填充，由外向内、由虚而实。渴了，来一大杯鲜榨橙汁，一饮而尽，饱了，这叫 “ 灌 ” 。<br>
+  灌电流（ sink current ）   ，对一个端口而言，如果电流方向是向其内部流动的则是 “ 灌电流 ” ，比如一个 IO 通过一个电阻和一个 LED 连接至 VCC ，当该IO输出为逻辑0时能不能点亮LED，去查该器件手册中sink current参数。<br>
+  名词解释——拉：流出、排空，由内向外，由实而虚。一大杯鲜橙汁喝了，过会儿，憋的慌，赶紧找卫生间，一阵“大雨”，舒坦了，这叫“拉”。</p>
+<hr>
+<p>  拉电流（sourcing current），对一个端口而言，如果电流方向是向其外部流动的则是“拉电流”，比如一个IO通过一个电阻和一个LED连至GND，当该IO输出为逻辑1时能不能点亮LED，去查该器件手册中sourcing current参数。</p>
+<p><strong>拉电流与灌电流</strong><br>
+概念<br>
+  拉电流和灌电流是衡量电路输出驱动能力（注意：拉、灌都是对输出端而言的，所以是驱动能力）的参数，这种说法一般用在数字电路中。<br>
+  这里首先要说明，芯片手册中的拉、灌电流是一个参数值，是芯片在实际电路中允许输出端拉、灌电流的上限值（允许最大值）。</p>
+<hr>
+<h4 id="2-电源">2、电源：</h4>
+<p>1、电源电压<br>
+2、内核电源电压</p>
+<hr>
+<h3 id="3-供电电流">3、供电电流</h3>
+<p>sleep模式：Sleep 模式；BOR、 RCHF、 SVD、 LCD 显示关闭，32K 晶振运行， RTC 走时， CPU、RAM、外设数据保持；</p>
+<p>sleep2模式：Sleep 模式；BOR、 RCHF、 SVD 关闭， LCD 使能片内电阻模式， 32K 晶振运行， RTC走时， CPU、 RAM、外设数据保持；</p>
+<p>深度sleep模式：深度 Sleep 模式电流、DeepSleep 模式；BOR、 RCHF、 SVD、 LCD 显示关闭，<br>
+32K 晶振运行， RTC 走时， CPU、RAM、外设数据保持；</p>
+<p>RTC Backup模式电流：RTCBKP模式； PDR使能，RTC运行RAM、CPU状态不保持，备份寄存器保持；</p>
+<p>LPRUN模式电流：LPRUN模式； BOR、RCHF、SVD、LCD关闭32K晶振运行，CPU以32KHz运行，从Flash取指</p>
+<p>正常模式VDD电流：正常工作模式， fmclk=16MHz（RCHF），从Flash中执行代码</p>
+<p>正常模式VDD电流：正常工作模式， fmclk-36MHz（RCHF从Flash中执行代码</p>
+<hr>
+<p><strong>欠压复位</strong><br>
+欠压复位（以下称为BOR）是单片机可靠性的一项重要功能，通常用于解决电源问题，下面将介绍欠压复位的另一个问题。<br>
+单片机的“电量不足”是电源电压不足或暂时降低，低于可靠运行所需的水平。许多单片机具有保护电路，该电路可检测电源电压何时低于此水平，并将设备置于复位状态，以确保在电源恢复时正确启动。此操作也称为“欠压复位”，英文缩写为“BOR”。</p>
+<p>类似的功能称为低电压检测（LVD），它更复杂，增加了对多个电压电平的检测，可以在触发复位之前产生中断。</p>
+<h4 id="2-引脚和封装">2、引脚和封装</h4>
+<h4 id="3-焊接安装">3、焊接安装</h4>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://bingery111.github.io/post/cbi-ji/">
+                  <h3 class="post-title">
+                    C++笔记
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
