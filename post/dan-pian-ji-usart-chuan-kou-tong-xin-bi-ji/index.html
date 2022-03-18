@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Linux系统编程笔记 | 个人笔记</title>
+<title>单片机笔记-基于STM32 | 个人笔记</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,22 +18,10 @@
 
 
 
-    <meta name="description" content="[TOC]
-
-1、IPv4流媒体广播项目分析
-S端
-
-多线程或多进程并发
-引入数据库或者使用
-解析文件系统存储
-流量控制
-网络套接字socket
-
-
-c端
-
-解码（avi、mp3）
-创建一个子进程（父进程用来接收数据，传递数据给子进程，子进..." />
+    <meta name="description" content="串口通信协议简介
+芯片被分为内核层和片上外设，通信协议基本划分为物理层和协议层，物理层规定通信系统中的机械、电子功能部分的特性，确保原始数据在物理媒体中的传输。
+协议层规定通信逻辑，统一收发双方的数据打包，确保原始数据在物理媒体中的传输。
+..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -105,78 +93,36 @@ c端
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Linux系统编程笔记</h2>
-            <div class="post-date">2022-03-02</div>
+            <h2 class="post-title">单片机笔记-基于STM32</h2>
+            <div class="post-date">2022-03-18</div>
             
             <div class="post-content" v-pre>
-              <p>[TOC]</p>
+              <h3 id="串口通信协议简介">串口通信协议简介</h3>
+<p>芯片被分为内核层和片上外设，通信协议基本划分为物理层和协议层，物理层规定通信系统中的机械、电子功能部分的特性，确保原始数据在物理媒体中的传输。<br>
+协议层规定通信逻辑，统一收发双方的数据打包，确保原始数据在物理媒体中的传输。</p>
 <hr>
-<h3 id="1-ipv4流媒体广播项目分析">1、IPv4流媒体广播项目分析</h3>
-<h4 id="s端">S端</h4>
-<ul>
-<li>多线程或多进程并发</li>
-<li>引入数据库或者使用</li>
-<li>解析文件系统存储</li>
-<li>流量控制</li>
-<li>网络套接字socket<br>
-<br></li>
-</ul>
-<h4 id="c端">c端</h4>
-<ul>
-<li>解码（avi、mp3）</li>
-<li>创建一个子进程（父进程用来接收数据，传递数据给子进程，子进程用来播放数据）</li>
-<li>进程间通信（多进程的实现以及多进程的关系）</li>
-<li>大量的I/O操作</li>
-<li>守护进程（系统日志的实现）</li>
-<li>典型I/O操作<br>
-<br></li>
-</ul>
-<h4 id="参考书目">参考书目</h4>
-<ul>
-<li>UNIX环境高级编程</li>
-<li>UNIX网络编程</li>
-<li>TCP/IP详解（卷一）</li>
-<li>深入理解计算机系统</li>
-</ul>
-<hr>
-<br>
-<h3 id="2-学习方法介绍">2、学习方法介绍</h3>
-<ul>
-<li>I/O（3,5章）</li>
-<li>文件系统（4,6,7章）</li>
-<li>并发(多进程，多线程、信号)</li>
-<li>IPC（Inter-Process Communication，进程间通信）<br>
-第8章进程基础（涉及到多进程）<br>
-13章守护进程<br>
-15、16章</li>
-<li>注意事项：<br>
- 1、弃用root用户<br>
- 2、重构<br>
- 3、课堂重点：项目，课堂代码，面试题，实验性题目</li>
-</ul>
-<hr>
-<h3 id="标准io介绍">标准IO介绍</h3>
-<br>
-<hr>
-<h3 id="fopen函数">fopen函数</h3>
-<br>
-<hr>
-<h3 id="fclose函数和文件权限问题">fclose函数和文件权限问题</h3>
-<br>
-<hr>
-<h3 id="fgetc和fputc">fgetc和fputc</h3>
-<br>
-<hr>
-<h3 id="fread和fwrite">fread和fwrite</h3>
+<h4 id="物理层">物理层</h4>
+<h3 id="协议层">协议层</h3>
+<h3 id="stm32的usart简介">STM32的USART简介</h3>
+<h3 id="usart功能框图剖析">USART功能框图剖析</h3>
+<h3 id="usart初始化结构体详解">USART初始化结构体详解</h3>
+<h3 id="usart1接发通信实验">USART1接发通信实验</h3>
+<h3 id="硬件设计">硬件设计</h3>
+<h3 id="软件设计">软件设计</h3>
+<h3 id="下载验证">下载验证</h3>
+<h3 id="使用usart1指令控制rgb彩灯实验">使用USART1指令控制RGB彩灯实验</h3>
+<h4 id="硬件设计-2">硬件设计</h4>
+<h4 id="软件设计-2">软件设计</h4>
+<h4 id="下载验证-2">下载验证</h4>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://bingery111.github.io/post/c/">
+                <a href="https://bingery111.github.io/post/chao-di-gong-hao-stm32l0x3-gao-ji-arm/">
                   <h3 class="post-title">
-                    C++
+                    超低功耗 STM32L0x3 高级 ARM
                   </h3>
                 </a>
               </div>
