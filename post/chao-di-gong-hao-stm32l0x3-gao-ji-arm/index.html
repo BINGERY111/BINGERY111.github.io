@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>(目标)SQL注入 | 个人笔记</title>
+<title>超低功耗 STM32L0x3 高级 ARM | 个人笔记</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,8 +18,12 @@
 
 
 
-    <meta name="description" content="1
-" />
+    <meta name="description" content="寄存器缩写词
+rw（读/写）：软件可以读写这些位
+只读 (r) ：软件只能读取这些位。
+只写 (w) ：软件只能写入该位。读取该位时将返回复位值。
+读取/清零(rc_w1)：软件可以读取该位，也可以通过写入 1 将该位清零。
+读取/清零(r..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -91,20 +95,54 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">(目标)SQL注入</h2>
-            <div class="post-date">2022-02-17</div>
+            <h2 class="post-title">超低功耗 STM32L0x3 高级 ARM</h2>
+            <div class="post-date">2022-03-08</div>
             
             <div class="post-content" v-pre>
-              <p>1</p>
+              <h4 id="寄存器缩写词">寄存器缩写词</h4>
+<p>rw（读/写）：软件可以读写这些位<br>
+只读 (r) ：软件只能读取这些位。<br>
+只写 (w) ：软件只能写入该位。读取该位时将返回复位值。<br>
+读取/清零(rc_w1)：软件可以读取该位，也可以通过写入 1 将该位清零。<br>
+读取/清零(rc_w0)：软件可以读取该位，也可以通过写入 0 将该位清零。<br>
+读取/读取清零(rc_r)：软件可以读取该位。读取该位时，将自动清零。<br>
+读取/置位 (rs) ：软件可以读取该位，也可将其置 1。<br>
+保留 (Res.) ：保留位，必须保持复位值。</p>
+<h4 id="相关词汇">相关词汇</h4>
+<p>扇区： 代码区域中的 32 页写保护数据块<br>
+页： 32 个字表示代码和系统存储区， 1 个字表示数据、出厂选项和用户选项区<br>
+字： 32 位数据。<br>
+半字： 16 位数据。<br>
+字节： 8 位数据。<br>
+IAP（在应用中编程） ： IAP 是指可以在用户程序运行期间对微控制器的 Flash 进行重新<br>
+编程。<br>
+ICP（在线编程） ： ICP 是指可以在器件安装于用户应用电路板上时使用 JTAG 协议、<br>
+SWD 协议或自举程序对微控制器的 Flash 进行编程。<br>
+选项字节：存储于 Flash 中的产品配置位。<br>
+OBL：选项字节加载器。<br>
+AHB：高级高性能总线。<br>
+NVM： 非易失性存储器。<br>
+ECC：误码校正。<br>
+DMA：直接存储器访问。<br>
+MIF： NVM 接口。<br>
+PCROP：专有代码读保护。</p>
+<h4 id="系统架构">系统架构</h4>
+<p>两个主器件：<br>
+– Cortex®-M0+内核（AHB-lite 总线）<br>
+– GP-DMA，通用微控制器</p>
+<p>三个从器件：<br>
+– 内部 SRAM<br>
+– 内部非易失性存储器<br>
+– AHB到APB，连接所有APB外设</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://bingery111.github.io/post/oss-dui-xiang-yun-cun-chu/">
+                <a href="https://bingery111.github.io/post/sx1276777879/">
                   <h3 class="post-title">
-                    (目标)OSS对象云存储
+                    SX1276/77/78/79
                   </h3>
                 </a>
               </div>

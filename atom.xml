@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bingery111.github.io</id>
     <title>个人笔记</title>
-    <updated>2022-03-07T08:27:08.106Z</updated>
+    <updated>2022-03-18T13:31:52.534Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bingery111.github.io"/>
     <link rel="self" href="https://bingery111.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://bingery111.github.io/images/avatar.png</logo>
     <icon>https://bingery111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 个人笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[超低功耗 STM32L0x3 高级 ARM]]></title>
+        <id>https://bingery111.github.io/post/chao-di-gong-hao-stm32l0x3-gao-ji-arm/</id>
+        <link href="https://bingery111.github.io/post/chao-di-gong-hao-stm32l0x3-gao-ji-arm/">
+        </link>
+        <updated>2022-03-08T12:57:30.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SX1276/77/78/79]]></title>
+        <id>https://bingery111.github.io/post/sx1276777879/</id>
+        <link href="https://bingery111.github.io/post/sx1276777879/">
+        </link>
+        <updated>2022-03-07T08:27:12.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[FM33G0xx]]></title>
         <id>https://bingery111.github.io/post/fm33g0xx/</id>
@@ -65,19 +79,5 @@
         <link href="https://bingery111.github.io/post/ecs-pei-zhi/">
         </link>
         <updated>2022-02-18T02:11:38.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[(目标)熟读linux系统代码]]></title>
-        <id>https://bingery111.github.io/post/mu-biao-shou-du-linux-xi-tong-dai-ma/</id>
-        <link href="https://bingery111.github.io/post/mu-biao-shou-du-linux-xi-tong-dai-ma/">
-        </link>
-        <updated>2022-02-16T22:26:55.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[加入开源社区，从社区中成长]]></title>
-        <id>https://bingery111.github.io/post/jia-ru-kai-yuan-she-qu-cong-she-qu-zhong-cheng-chang/</id>
-        <link href="https://bingery111.github.io/post/jia-ru-kai-yuan-she-qu-cong-she-qu-zhong-cheng-chang/">
-        </link>
-        <updated>2022-02-16T22:26:22.000Z</updated>
     </entry>
 </feed>
