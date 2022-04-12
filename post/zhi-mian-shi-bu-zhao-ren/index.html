@@ -9,7 +9,7 @@
 <meta name="description" content="向上攀爬之路不是比站在顶峰更让人热血澎湃吗">
 <meta name="theme-color" content="#000">
 <title>（经验积累）只面试不招人 | 个人笔记</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1649723524097">
+<link rel="shortcut icon" href="/favicon.ico?v=1649724164134">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -214,7 +214,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">13</span>
+        <span class="site-item-stat-count">14</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1130,6 +1130,373 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://bingery111.github.io/post/fu-dan-wei-fm33g048-xue-xi-bi-ji-1-aes/"" data-c="
+          &lt;p&gt;##复旦微FM33G048学习笔记1-AES&lt;/p&gt;
+&lt;!TOC&gt;
+&lt;p&gt;###一、AES（用于数据加密）&lt;br&gt;
+AES五种加密模式（CBC、ECB、CTR、OCF、CFB）&lt;br&gt;
+分组密码有五种工作体制：&lt;br&gt;
+1.电码本模式（Electronic Codebook Book (ECB)）；&lt;br&gt;
+2.密码分组链接模式（Cipher Block Chaining (CBC)）；&lt;br&gt;
+3.计算器模式（Counter (CTR)）；&lt;br&gt;
+4.密码反馈模式（Cipher FeedBack (CFB)）；&lt;br&gt;
+5.输出反馈模式（Output FeedBack (OFB)）。&lt;br&gt;
+1.电码本模式（Electronic Codebook Book (ECB)&lt;br&gt;
+这种模式是将整个明文分成若干段相同的小段，然后对每一小段进行加密。&lt;br&gt;
+2.密码分组链接模式（Cipher Block Chaining (CBC)）&lt;br&gt;
+这种模式是先将明文切分成若干小段，然后每一小段与初始块或者上一段的密文段进行异或运算后，再与密钥进行加密。&lt;br&gt;
+3.计算器模式（Counter (CTR)）&lt;br&gt;
+计算器模式不常见，在CTR模式中， 有一个自增的算子，这个算子用密钥加密之后的输出和明文异或的结果得到密文，相当于一次一密。这种加密方式简单快速，安全可靠，而且可以并行加密，但是在计算器不能维持很长的情况下，密钥只能使用一次。&lt;br&gt;
+4.密码反馈模式（Cipher FeedBack (CFB)）&lt;br&gt;
+5.输出反馈模式（Output FeedBack (OFB)）&lt;/p&gt;
+&lt;p&gt;###二、复旦微&lt;/p&gt;
+&lt;h4 id=&#34;aes硬件描述单元&#34;&gt;AES硬件描述单元：&lt;/h4&gt;
+&lt;p&gt;1、ECB、CBC、CTR、GCM&lt;br&gt;
+2、支持DMA自动数据传输，直接存储器存储，释放CPU性能&lt;/p&gt;
+&lt;h4 id=&#34;工作模式的配置四种工作模式&#34;&gt;工作模式的配置：四种工作模式&lt;/h4&gt;
+&lt;p&gt;1）寄存器密钥加密&lt;br&gt;
+2）密钥扩展&lt;br&gt;
+3）寄存器解密密钥解密&lt;br&gt;
+4）寄存器密钥扩展和解密&lt;/p&gt;
+&lt;h4 id=&#34;工作流程寄存器&#34;&gt;工作流程(寄存器)&lt;/h4&gt;
+&lt;p&gt;1）工作模式&lt;br&gt;
+AES使能，然后配置寄存器AESCR.MODE，用于确定工作模式。CBC、CTR、GCM还需要配置AESIVRx寄存器。&lt;br&gt;
+2）使能&lt;br&gt;
+模式1、3、4，AES模块等待软件往AESDIN寄存器写入输入数据。&lt;br&gt;
+3）标志位&lt;br&gt;
+标志AESIF.CCF置1，产生一个中断信号。&lt;br&gt;
+4）DMA模式&lt;br&gt;
+AESCR.DMAOUTEN=I和AESCR.DMAINEN=1。AES配合DMA连续处理数据。&lt;/p&gt;
+&lt;h3 id=&#34;数据流处理&#34;&gt;数据流处理&lt;/h3&gt;
+&lt;p&gt;1)ECB：每个模块单独加密&lt;br&gt;
+2)CBC：&lt;br&gt;
+每个block的明文数据与前一block的加密结果异或后作为加密的数据输入。&lt;br&gt;
+加密时异或操作在加密前而解密时异或操作在加密后。&lt;br&gt;
+3)暂停模式&lt;br&gt;
+更高优先级的数据需要处理。CPU参与的模式下可用， DMA模式下不可用。数据在一个block的结果被读完后暂停。&lt;br&gt;
+4)CTR模式&lt;br&gt;
+一个32bit的计数器和一个随机数被用作加解密模块的输入。结果与明文数据进行异或。&lt;/p&gt;
+&lt;p&gt;数据类型&lt;br&gt;
+AES一次读写32bit数据，每32bit可以根据AESCR.DATATYPE[1:0]寄存器的设置按照不同的方式交换数据的顺序。&lt;/p&gt;
+&lt;h3 id=&#34;工作流程&#34;&gt;工作流程&lt;/h3&gt;
+&lt;h4 id=&#34;模式1&#34;&gt;模式1：&lt;/h4&gt;
+&lt;p&gt;1、AESEN=0， 复位AES模块&lt;br&gt;
+2、设置模式寄存器AESCR.MODE[1:0]=00，&lt;br&gt;
+3、设置流数据处理模式寄存器AESCR.CHMOD[1:0]&lt;br&gt;
+4、写AESKEYx寄存器，&lt;br&gt;
+5、CTR和CBC模式下写AESIVRx寄存器&lt;br&gt;
+6、写AESEN=1，使能AES&lt;br&gt;
+7、写AESDIN寄存器4次&lt;br&gt;
+8、等待AESIF.CCF标志置起&lt;br&gt;
+9、从AESDOUT分4次读出加密结果&lt;br&gt;
+10、对于同一个key，重复步骤5,6,7对接下来的128bit block进行加密&lt;/p&gt;
+&lt;h4 id=&#34;模式2&#34;&gt;模式2：&lt;/h4&gt;
+&lt;p&gt;1、AESEN=0，复位AES模块&lt;br&gt;
+2、设置模式寄存器AESCR.MODE[1:0]=01,流数据处理模式寄存器随意&lt;br&gt;
+3、写AESKEYx寄存器&lt;br&gt;
+4、写AESCE=1,使能AES&lt;br&gt;
+5、等待AESIF.CCF标志位置起&lt;br&gt;
+6、清除AESIF.CCF标志，扩展完的key自动写会AESKEYx寄存器。需要可以读取AESKEYx寄存器结果。想要重新扩展密钥，重复3,4,5,6。&lt;/p&gt;
+&lt;h4 id=&#34;模式3解密&#34;&gt;模式3：解密&lt;/h4&gt;
+&lt;p&gt;1、AESCN=0，复位AES模块&lt;br&gt;
+2、设置模式寄存器AESCR.MODE[1:0]=10，设置流数据处理模式寄存器AESCR.CHMOD[1:0]&lt;br&gt;
+3、写AESKEYx寄存器，CTR和CBC模式下写AESIVRx寄存器&lt;br&gt;
+4、写AESEN=1，使能AES&lt;br&gt;
+5、写AESDIN寄存器4次&lt;br&gt;
+6、等待AESIF.CCF标志置起&lt;br&gt;
+7、从AESDOUT分4次读出解密结果&lt;br&gt;
+8、对于同一个key，重复步骤5,6,7对接下来的128bit block进行解密&lt;/p&gt;
+&lt;h4 id=&#34;模式4密钥扩展解密&#34;&gt;模式4：密钥扩展+解密&lt;/h4&gt;
+&lt;p&gt;1、AESEN=0， 复位AES模块&lt;br&gt;
+2、设置模式寄存器AESCR.MODE[1:0]=11，设置流数据处理模式寄存器AESCR.CHMOD[1:0]。该模式在CTR模式下被禁止使用。如果设置AESCR.MODE[1:0]=11， AESCR.CHMOD[1:0]=10，将强制进入CTR解密模式。&lt;br&gt;
+3、写AESKEYx寄存器， CBC模式下写AESIVRx寄存器。&lt;br&gt;
+4、写AESEN =1，使能AES&lt;br&gt;
+5、写AESDIN寄存器4次&lt;br&gt;
+6、等待AESIF.CCF标志置起&lt;br&gt;
+7、从AESDOUT分4次读出解密结果&lt;br&gt;
+8、对于同一个key，重复步骤5,6,7对接下来的128bit block进行解密&lt;br&gt;
+注意：该模式下AESKEYx寄存器内存储的一直是加密密钥，扩展密钥每次都会在内部被重新计算而不会被存储到AESKEYx寄存器中。&lt;/p&gt;
+&lt;p&gt;工作流程&lt;br&gt;
+输入的请求通道：当AESCR.DMAIEN为1时，每当AES在需要输入数据写入AESDIN寄存器的时候发起一个DMA的请求。&lt;br&gt;
+输出的请求通道：当AESCR.DMAOEN为1时，每当AES在需要从AESDOUT寄存器输出数据的时候发起一个DMA的请求。&lt;/p&gt;
+&lt;p&gt;寄存器&lt;br&gt;
+AESCR：AES控制寄存器&lt;br&gt;
+AESIF：AES中断寄存器&lt;br&gt;
+AESDIN：AES数据输入寄存器&lt;br&gt;
+AESDOUT：AES数据输出寄存器&lt;br&gt;
+AESKEY0-7：AES密钥寄存器0-7&lt;br&gt;
+AESIVR0-3：AES初始向量寄存器&lt;br&gt;
+寄存器操作看数据手册&lt;/p&gt;
+&lt;h3 id=&#34;库函数分析&#34;&gt;库函数分析&lt;/h3&gt;
+&lt;h4 id=&#34;aes结构体&#34;&gt;AES结构体：&lt;/h4&gt;
+&lt;p&gt;typedef struct&lt;br&gt;
+{&lt;br&gt;
+uint32_t    KEYLEN;        //AES加密密钥长度，AESEN=1时不可修改&lt;br&gt;
+uint32_t    CHMOD;        //AES数据流处理模式，AESEN=1时不可修改&lt;br&gt;
+uint32_t    MODE;         //AES工作模式，AESEN=1时不可修改&lt;br&gt;
+uint32_t    DATATYP;       //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节&lt;br&gt;
+FunState    DMAOEN;        //DMA数据自动读出使能&lt;br&gt;
+FunState    DMAIEN;        //DMA数据自动写入使能&lt;br&gt;
+FunState    ERRIE;        //错误标志（RDERR和WRERR）中断使能&lt;br&gt;
+FunState    CCFIE;        //CCF标志中断使能&lt;br&gt;
+FunState    AESEN;        //AES使能&lt;br&gt;
+}AES_InitTypeDef;&lt;/p&gt;
+&lt;h4 id=&#34;库函数&#34;&gt;库函数：&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;1、配置AES加密密钥长度(仅AESEN=0时有效)
+void AES_AESCR_KEYLEN_Set(uint32_t SetValue)  
+2、获取AES加密密钥长度配置(仅AESEN=0时有效)
+uint32_t AES_AESCR_KEYLEN_Get(void)
+3、配置DMA自动读数据使能(工作模式1,3,4有效)
+void AES_AESCR_DMAOEN_Setable(FunState NewState)
+4、获取DMA自动读数据使能配置(工作模式1,3,4有效)
+FunState AES_AESCR_DMAOEN_Getable(void)
+5、配置DMA自动写数据使能(工作模式1,3,4有效)
+void AES_AESCR_DMAIEN_Setable(FunState NewState)
+6、获取DMA自动写数据使能配置(工作模式1,3,4有效)
+FunState AES_AESCR_DMAIEN_Getable(void)
+7、配置错误标志（RDERR和WRERR）中断使能
+void AES_AESCR_ERRIE_Setable(FunState NewState)
+8、获取错误标志（RDERR和WRERR）中断使能配置
+FunState AES_AESCR_ERRIE_Getable(void)
+9、配置CCF标志中断使能
+void AES_AESCR_CCFIE_Setable(FunState NewState)
+10、获取CCF标志中断使能配置
+FunState AES_AESCR_CCFIE_Getable(void)
+11、清除错误标志
+void AES_AESCR_ERRC_Clr(void)
+12、清除CCF标志
+void AES_AESCR_CCFC_Clr(void)
+
+13、配置AES数据流处理模式(AESEN=0时有效)
+void AES_AESCR_CHMOD_Set(uint32_t SetValue)
+14、获取AES数据流处理模式
+uint32_t AES_AESCR_CHMOD_Get(void)
+15、配置AES工作模式(AESEN=0时有效)
+void AES_AESCR_MODE_Set(uint32_t SetValue)
+16、获取AES工作模式
+uint32_t AES_AESCR_MODE_Get(void)
+17、配置AES数据类型(AESEN=0时有效)
+void AES_AESCR_DATATYP_Set(uint32_t SetValue)
+18、获取AES数据类型配置
+uint32_t AES_AESCR_DATATYP_Get(void)
+19、配置AES功能使能(清除AESEN位都能够复位AES模块)
+void AES_AESCR_AESEN_Setable(FunState NewState)
+20、获取AES功能使能配置
+FunState AES_AESCR_AESEN_Getable(void)
+21、获取AES写错误标志
+FlagStatus AES_AESIF_WRERR_Chk(void)
+22、获取AES读错误标志
+FlagStatus AES_AESIF_RDERR_Chk(void)
+23、获取AES计算完成标志
+FlagStatus AES_AESIF_CCF_Chk(void)
+24、配置AES数据输入寄存器，当AES需要输入加解密数据时，应该往该寄存器连续写4次 
+void AES_AESDIN_Write(uint32_t SetValue)
+25、获取AES数据输入寄存器内容
+uint32_t AES_AESDIN_Read(void)
+26、配置AES数据输出寄存器
+void AES_AESDOUT_Write(uint32_t SetValue)
+27、获取AES数据输出寄存器(当AES计算完成后，可以分四次读出加解密的结果)
+uint32_t AES_AESDOUT_Read(void)
+28、配置AES为缺省值
+void AES_Deinit(void)
+29、加解密密钥输入(key0存放密钥最低32bit)
+void AES_AESKEY_WriteEx(uint8_t *KeyIn, uint8_t Len)
+30、加解密密钥输出，第一个字存放密钥最低32bit
+void AES_AESKEY_ReadEx(uint8_t *KeyOut, uint8_t Len)
+31、初始向量输入
+void AES_AESIVR_WriteEx(uint8_t *IVRIn)
+32、初始向量读取
+void AES_AESIVR_ReadEx(uint8_t *IVROut)
+33、加解密数据输入，16字节（128bit）分组数据输入
+void AES_AESDIN_GroupWrite_128BIT(uint8_t *DataIn)
+
+34、加解密数据输出，16字节（128bit）分组数据输出
+void AES_AESDOUT_GroupRead_128BIT(uint8_t *DataOut)
+35、uint8_t AES_GroupWriteAndRead_128BIT(uint8_t *DataIn, uint8_t *DataOut)
+36、AES模块初始化函数
+void AES_Init(AES_InitTypeDef* para)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;###代码流程一（CTR加密）：&lt;br&gt;
+1、结构体&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AES_InitTypeDef init_para;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2、模块时钟&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;RCC_PERCLK_SetableEx(AESCLK, ENABLE);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;3、重置AES模块&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4、结构体赋值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;init_para.KEYLEN =       
+init_para.CHMOD =         
+init_para.MODE =        
+init_para.DATATYP = 
+init_para.DMAOEN =                 
+init_para.DMAIEN =                       
+init_para.ERRIE =                       
+init_para.CCFIE =                      
+init_para.AESEN =  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;5、AES初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AES_Init(&amp;amp;init_para);
+AES_AESIVR_WriteEx(AESIvr);			CTR模式需要写AESIvr寄存器
+AES_AESCR_AESEN_Setable(ENABLE); 	启动AES
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;6、加密&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PaddingPKCS7_16(DataToEncrypt, 10);
+AES_GroupWriteAndRead_128BIT(DataToEncrypt, DataOut1);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;7、重置AES模块&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AES_AESCR_AESEN_Setable(DISABLE);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码流程二（CTR加密）：&lt;br&gt;
+1、重置AES模块&lt;br&gt;
+2、结构体赋值&lt;br&gt;
+3、AES初始化&lt;br&gt;
+4、设置密钥&lt;br&gt;
+AES_AESKEY_WriteEx(AESKey, 16);&lt;br&gt;
+5、写AESIvr&lt;br&gt;
+6、启动AES&lt;br&gt;
+7、解密数据&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AES_GroupWriteAndRead_128BIT(DataOut1, DataOut2);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;8、重置AES模块&lt;br&gt;
+AES_AESCR_AESEN_Setable(DISABLE);&lt;/p&gt;
+&lt;p&gt;代码流程三（ECB加密、解密）&lt;br&gt;
+基本和CTR一样，唯一改变的是结构体中的MODE选型改为AES_AESCR_MODE_ENCRYPT&lt;/p&gt;
+&lt;p&gt;完整函数代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AES_CTR.c
+void Test_AES_CTR(void)
+{
+    uint08 DataToEncrypt[16] = &amp;quot;1234567890&amp;quot;;
+    uint08 AESKey[16] = &amp;quot;0000000000000001&amp;quot;;
+    uint08 AESIvr[16] = &amp;quot;0000000000000002&amp;quot;;
+    uint08 DataOut1[16];
+    uint08 DataOut2[16];
+
+    AES_InitTypeDef init_para;
+
+    //打开模块时钟
+    RCC_PERCLK_SetableEx(AESCLK, ENABLE);
+
+    //加密测试
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+    init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;      // AES加密密钥长度，AESEN=1时不可修改
+    init_para.CHMOD = AES_AESCR_CHMOD_CTR;           // AES数据流处理模式，AESEN=1时不可修改
+    init_para.MODE = AES_AESCR_MODE_ENCRYPT;         // AES工作模式，AESEN=1时不可修改
+    init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX; //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节
+    init_para.DMAOEN = DISABLE;                      // DMA数据自动读出使能
+    init_para.DMAIEN = DISABLE;                      // DMA数据自动写入使能
+    init_para.ERRIE = DISABLE;                       //错误标志（RDERR和WRERR）中断使能
+    init_para.CCFIE = DISABLE;                       // CCF标志中断使能
+    init_para.AESEN = DISABLE;                       // AES使能
+
+    AES_Init(&amp;amp;init_para); //配置AES
+
+    AES_AESKEY_WriteEx(AESKey, 16);  //设置密钥
+    AES_AESIVR_WriteEx(AESIvr);      // CTR和CBC模式下写AES_IVRx寄存器
+    AES_AESCR_AESEN_Setable(ENABLE); //启动AES
+
+    //加密数据
+    PaddingPKCS7_16(DataToEncrypt, 10);
+    AES_GroupWriteAndRead_128BIT(DataToEncrypt, DataOut1);
+
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+    //解密测试
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+    init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;      // AES加密密钥长度，AESEN=1时不可修改
+    init_para.CHMOD = AES_AESCR_CHMOD_CTR;           // AES数据流处理模式，AESEN=1时不可修改
+    init_para.MODE = AES_AESCR_MODE_ENCRYPT;         // AES工作模式，AESEN=1时不可修改//CTR模式的解密就是再做一次加密
+    init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX; //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节
+    init_para.DMAOEN = DISABLE;                      // DMA数据自动读出使能
+    init_para.DMAIEN = DISABLE;                      // DMA数据自动写入使能
+    init_para.ERRIE = DISABLE;                       //错误标志（RDERR和WRERR）中断使能
+    init_para.CCFIE = DISABLE;                       // CCF标志中断使能
+    init_para.AESEN = DISABLE;                       // AES使能
+
+    AES_Init(&amp;amp;init_para);            //配置AES
+    AES_AESKEY_WriteEx(AESKey, 16);  //设置密钥
+    AES_AESIVR_WriteEx(AESIvr);      // CTR和CBC模式下写AES_IVRx寄存器
+    AES_AESCR_AESEN_Setable(ENABLE); //启动AES
+
+    //解密数据
+    AES_GroupWriteAndRead_128BIT(DataOut1, DataOut2);
+
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;AES_ECB.c&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void Test_AES_ECB(void)
+{
+    uint08 DataToEncrypt[16] = &amp;quot;1234567890&amp;quot;;
+    //uint08 AESKey[16] = &amp;quot;1234567890123456&amp;quot;;
+    uint08 AESKey[16] = &amp;quot;0000000000000001&amp;quot;;
+    uint08 AESIvr[16] = &amp;quot;0000000000000002&amp;quot;;
+    uint08 DataOut1[16];
+    uint08 DataOut2[16];
+    
+    AES_InitTypeDef init_para;
+    
+    //打开模块时钟
+    RCC_PERCLK_SetableEx(AESCLK, ENABLE);
+    
+    //加密测试
+    AES_AESCR_AESEN_Setable(DISABLE);//重置AES模块
+    
+    init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;             //AES加密密钥长度，AESEN=1时不可修改
+    init_para.CHMOD = AES_AESCR_CHMOD_ECB;                  //AES数据流处理模式，AESEN=1时不可修改
+    init_para.MODE = AES_AESCR_MODE_ENCRYPT;                //AES工作模式，AESEN=1时不可修改
+    init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX;        //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节    
+    init_para.DMAOEN = DISABLE;     //DMA数据自动读出使能
+    init_para.DMAIEN = DISABLE;     //DMA数据自动写入使能
+    init_para.ERRIE = DISABLE;      //错误标志（RDERR和WRERR）中断使能
+    init_para.CCFIE = DISABLE;      //CCF标志中断使能
+    init_para.AESEN = DISABLE;      //AES使能 
+    
+    AES_Init(&amp;amp;init_para);           //配置AES
+    AES_AESKEY_WriteEx(AESKey,16);  //设置密钥
+    AES_AESIVR_WriteEx(AESIvr);     //CTR和CBC模式下写AES_IVRx寄存器
+    AES_AESCR_AESEN_Setable(ENABLE);//启动AES
+    
+    //加密数据
+    PaddingPKCS7_16(DataToEncrypt,10);
+    AES_GroupWriteAndRead_128BIT(DataToEncrypt, DataOut1);
+    
+    AES_AESCR_AESEN_Setable(DISABLE);//重置AES模块
+//////////////////////////////////////////////////////
+    
+    //解密测试
+AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;      // AES加密密钥长度，AESEN=1时不可修改
+init_para.CHMOD = AES_AESCR_CHMOD_ECB;           // AES数据流处理模式，AESEN=1时不可修改
+init_para.MODE = AES_AESCR_MODE_KEYEXPDECRYPT;   // AES工作模式，AESEN=1时不可修改//解密时需要先扩展密钥，或者直接使用“密钥扩展+解密”模式
+init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX; //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节
+init_para.DMAOEN = DISABLE;                      // DMA数据自动读出使能
+init_para.DMAIEN = DISABLE;                      // DMA数据自动写入使能
+init_para.ERRIE = DISABLE;                       //错误标志（RDERR和WRERR）中断使能
+init_para.CCFIE = DISABLE;                       // CCF标志中断使能
+init_para.AESEN = DISABLE;                       // AES使能
+
+AES_Init(&amp;amp;init_para);            //配置AES
+AES_AESKEY_WriteEx(AESKey, 16);  //设置密钥
+AES_AESIVR_WriteEx(AESIvr);      // CTR和CBC模式下写AES_IVRx寄存器
+AES_AESCR_AESEN_Setable(ENABLE); //启动AES
+
+//解密数据
+AES_GroupWriteAndRead_128BIT(DataOut1, DataOut2);
+
+AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+">复旦微FM33G048学习笔记1-AES</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://bingery111.github.io/post/kao-yan-ying-yu-li-ju/"" data-c="

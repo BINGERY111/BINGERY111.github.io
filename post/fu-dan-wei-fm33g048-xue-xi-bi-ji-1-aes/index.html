@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="向上攀爬之路不是比站在顶峰更让人热血澎湃吗">
 <meta name="theme-color" content="#000">
-<title>（C语言）指针 | 个人笔记</title>
+<title>复旦微FM33G048学习笔记1-AES | 个人笔记</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1649724164134">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,7 +41,7 @@
 
 
 
-  <meta name="description" content="（C语言）指针" />
+  <meta name="description" content="复旦微FM33G048学习笔记1-AES" />
   <meta name="keywords" content="" />
 </head>
 
@@ -241,44 +241,30 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E4%B8%80-%E7%90%86%E8%A7%A3%E6%95%B0%E7%BB%84">一、理解数组</a>
+<li>
 <ul>
-<li><a href="#11-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%95%B0%E7%BB%84">1.1 为什么要有数组？</a></li>
-<li><a href="#12-%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89">1.2 数组定义</a></li>
-<li><a href="#13-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8">1.3 数组元素的使用</a></li>
+<li>
+<ul>
+<li><a href="#aes%E7%A1%AC%E4%BB%B6%E6%8F%8F%E8%BF%B0%E5%8D%95%E5%85%83">AES硬件描述单元：</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E5%9B%9B%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F">工作模式的配置：四种工作模式</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%AF%84%E5%AD%98%E5%99%A8">工作流程(寄存器)</a></li>
 </ul>
 </li>
-<li><a href="#%E4%BA%8C-%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83">二、内存分布</a></li>
-<li><a href="#%E4%B8%89-%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C">三、常见操作</a>
+<li><a href="#%E6%95%B0%E6%8D%AE%E6%B5%81%E5%A4%84%E7%90%86">数据流处理</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">工作流程</a>
 <ul>
-<li><a href="#31-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E9%81%8D%E5%8E%86">3.1 数组元素的遍历</a></li>
-<li><a href="#32-%E6%95%B0%E7%BB%84%E8%B5%8B%E5%88%9D%E5%80%BC">3.2 数组赋初值</a></li>
+<li><a href="#%E6%A8%A1%E5%BC%8F1">模式1：</a></li>
+<li><a href="#%E6%A8%A1%E5%BC%8F2">模式2：</a></li>
+<li><a href="#%E6%A8%A1%E5%BC%8F3%E8%A7%A3%E5%AF%86">模式3：解密</a></li>
+<li><a href="#%E6%A8%A1%E5%BC%8F4%E5%AF%86%E9%92%A5%E6%89%A9%E5%B1%95%E8%A7%A3%E5%AF%86">模式4：密钥扩展+解密</a></li>
 </ul>
 </li>
-<li><a href="#%E5%9B%9B-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84">四、二维数组</a>
+<li><a href="#%E5%BA%93%E5%87%BD%E6%95%B0%E5%88%86%E6%9E%90">库函数分析</a>
 <ul>
-<li><a href="#41-%E6%9C%AC%E8%B4%A8">4.1 本质</a></li>
-<li><a href="#42-%E5%86%85%E5%AD%98%E6%98%A0%E5%83%8F%E5%9B%BE">4.2 内存映像图</a></li>
-<li><a href="#43-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E8%B5%8B%E5%88%9D%E5%80%BC">4.3 二维数组赋初值</a></li>
-<li><a href="#44-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86">4.4 二维数组的遍历</a></li>
+<li><a href="#aes%E7%BB%93%E6%9E%84%E4%BD%93">AES结构体：</a></li>
+<li><a href="#%E5%BA%93%E5%87%BD%E6%95%B0">库函数：</a></li>
 </ul>
 </li>
-<li><a href="#%E4%BA%94-%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2">五、字符数组与字符串</a>
-<ul>
-<li><a href="#51-%E5%AD%97%E7%AC%A6%E4%B8%B2">5.1 字符串</a></li>
-<li><a href="#52-%E8%BF%90%E7%AE%97%E7%AC%A6sizeof">5.2 运算符：sizeof()</a>
-<ul>
-<li><a href="#521-sizeof%E7%9A%84%E7%94%A8%E6%B3%95">5.2.1 sizeof()的用法</a>
-<ul>
-<li><a href="#5211-sizeof%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%90%8D%E7%A7%B0">5.2.1.1 sizeof(数据类型名称)</a></li>
-<li><a href="#5212-sizeof%E5%8F%98%E9%87%8F%E5%90%8D%E7%A7%B0%E6%88%96%E6%95%B0%E7%BB%84%E5%90%8D%E7%A7%B0">5.2.1.2 sizeof(变量名称或数组名称)</a></li>
-<li><a href="#5213-sizeof%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F">5.2.1.3 sizeof(字符串常量)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#53-strlen%E5%87%BD%E6%95%B0">5.3 strlen()函数</a></li>
-<li><a href="#54-%E6%80%BB%E7%BB%93">5.4 总结</a></li>
 </ul>
 </li>
 </ul>
@@ -548,21 +534,21 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://bingery111.github.io/post/c-yu-yan-zhi-zhen/"> （C语言）指针 </a>
+    <a class="post-title-link" href="https://bingery111.github.io/post/fu-dan-wei-fm33g048-xue-xi-bi-ji-1-aes/"> 复旦微FM33G048学习笔记1-AES </a>
   </h1>
   <div class="post-meta">
     
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2022-02-15 17:39:22">2022-02-15</span>
+      <span class="publish-time" data-t="2022-04-12 08:36:21">2022-04-12</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
       <span
-        >8<span class="language" data-lan="minute"
+        >14<span class="language" data-lan="minute"
           >分钟</span
         ></span
       >
@@ -571,7 +557,7 @@
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
       <span
-        >1966<span class="pc-show language" data-lan="words"
+        >3245<span class="pc-show language" data-lan="words"
           >字数</span
         ></span
       >
@@ -581,195 +567,368 @@
 </section>
 
             <div class="post-body next-md-body" id="post_body">
-              <ul>
-<li><a href="#%E4%B8%80%E7%90%86%E8%A7%A3%E6%95%B0%E7%BB%84">一、理解数组</a>
-<ul>
-<li><a href="#11-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%95%B0%E7%BB%84">1.1 为什么要有数组？</a></li>
-<li><a href="#12-%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89">1.2 数组定义</a></li>
-<li><a href="#13-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8">1.3 数组元素的使用</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83">二、内存分布</a></li>
-<li><a href="#%E4%B8%89%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C">三、常见操作</a>
-<ul>
-<li><a href="#31-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E9%81%8D%E5%8E%86">3.1 数组元素的遍历</a></li>
-<li><a href="#32-%E6%95%B0%E7%BB%84%E8%B5%8B%E5%88%9D%E5%80%BC">3.2 数组赋初值</a></li>
-</ul>
-</li>
-<li><a href="#%E5%9B%9B%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84">四、二维数组</a>
-<ul>
-<li><a href="#41-%E6%9C%AC%E8%B4%A8">4.1 本质</a></li>
-<li><a href="#42-%E5%86%85%E5%AD%98%E6%98%A0%E5%83%8F%E5%9B%BE">4.2 内存映像图</a></li>
-<li><a href="#43-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E8%B5%8B%E5%88%9D%E5%80%BC">4.3 二维数组赋初值</a></li>
-<li><a href="#44-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86">4.4 二维数组的遍历</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%94%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2">五、字符数组与字符串</a>
-<ul>
-<li><a href="#51-%E5%AD%97%E7%AC%A6%E4%B8%B2">5.1 字符串</a></li>
-<li><a href="#52-%E8%BF%90%E7%AE%97%E7%AC%A6sizeof">5.2 运算符：sizeof()</a>
-<ul>
-<li><a href="#521-sizeof%E7%9A%84%E7%94%A8%E6%B3%95">5.2.1 sizeof()的用法</a>
-<ul>
-<li><a href="#5211-sizeof%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%90%8D%E7%A7%B0">5.2.1.1 sizeof(数据类型名称)</a></li>
-<li><a href="#5212-sizeof%E5%8F%98%E9%87%8F%E5%90%8D%E7%A7%B0%E6%88%96%E6%95%B0%E7%BB%84%E5%90%8D%E7%A7%B0">5.2.1.2 sizeof(变量名称或数组名称)</a></li>
-<li><a href="#5213-sizeof%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F">5.2.1.3 sizeof(字符串常量)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#53-strlen%E5%87%BD%E6%95%B0">5.3 strlen()函数</a></li>
-<li><a href="#54-%E6%80%BB%E7%BB%93">5.4 总结</a></li>
-</ul>
-</li>
-<li><a href="#%E5%85%AD%E8%AF%B4%E6%98%8E">六、说明</a></li>
-</ul>
-<p>三步走战略的打法，五大能力培养体系的构建。</p>
-<p>数组、指针、函数，并列 C 语言三大重点，尤其 C 指针，堪称 C 之灵魂，从 C 数组开始，勤思苦练，必须多敲、搞清楚底层原理，系统设计，从宏观、哲学上理解 C 之精髓。</p>
-<p><strong>强烈建议：b 站郝斌 C 视频结合着看。</strong></p>
-<h2 id="一-理解数组">一、理解数组</h2>
-<h3 id="11-为什么要有数组">1.1 为什么要有数组？</h3>
-<p>数组：多个内存变量元素，共同使用一个变量名称，并用下标加以区分。</p>
-<p>数组与变量一样，必需先定义，再使用。</p>
-<pre><code class="language-c">int a[10]; //定义了一个名称为 a 的，拥有 10 个 int 类型元素的数组；
-</code></pre>
-<p><strong>定义数组时，[] 里的内容不能是浮点数据，也不能是变量或者含有变量的表达式。</strong></p>
-<pre><code class="language-c">int a[1+2*2], b['a']; //这种定义是正确的；
-</code></pre>
-<h3 id="12-数组定义">1.2 数组定义</h3>
-<p>int ar[10];</p>
-<p><strong>这只能表示存在一个拥有 10 个 int 类型的元素的数组 ar，在这条定义语句之外的其他地方，ar 不表示数组的任何一个元素，也不表示数组的所有元素，它仅仅是数组名称而已。</strong></p>
-<h3 id="13-数组元素的使用">1.3 数组元素的使用</h3>
-<p>数组元素的定义、与使用，是完全不一样的。</p>
-<pre><code class="language-c">设有如下数组：int a[10];
+              <p>##复旦微FM33G048学习笔记1-AES</p>
+<!TOC>
+<p>###一、AES（用于数据加密）<br>
+AES五种加密模式（CBC、ECB、CTR、OCF、CFB）<br>
+分组密码有五种工作体制：<br>
+1.电码本模式（Electronic Codebook Book (ECB)）；<br>
+2.密码分组链接模式（Cipher Block Chaining (CBC)）；<br>
+3.计算器模式（Counter (CTR)）；<br>
+4.密码反馈模式（Cipher FeedBack (CFB)）；<br>
+5.输出反馈模式（Output FeedBack (OFB)）。<br>
+1.电码本模式（Electronic Codebook Book (ECB)<br>
+这种模式是将整个明文分成若干段相同的小段，然后对每一小段进行加密。<br>
+2.密码分组链接模式（Cipher Block Chaining (CBC)）<br>
+这种模式是先将明文切分成若干小段，然后每一小段与初始块或者上一段的密文段进行异或运算后，再与密钥进行加密。<br>
+3.计算器模式（Counter (CTR)）<br>
+计算器模式不常见，在CTR模式中， 有一个自增的算子，这个算子用密钥加密之后的输出和明文异或的结果得到密文，相当于一次一密。这种加密方式简单快速，安全可靠，而且可以并行加密，但是在计算器不能维持很长的情况下，密钥只能使用一次。<br>
+4.密码反馈模式（Cipher FeedBack (CFB)）<br>
+5.输出反馈模式（Output FeedBack (OFB)）</p>
+<p>###二、复旦微</p>
+<h4 id="aes硬件描述单元">AES硬件描述单元：</h4>
+<p>1、ECB、CBC、CTR、GCM<br>
+2、支持DMA自动数据传输，直接存储器存储，释放CPU性能</p>
+<h4 id="工作模式的配置四种工作模式">工作模式的配置：四种工作模式</h4>
+<p>1）寄存器密钥加密<br>
+2）密钥扩展<br>
+3）寄存器解密密钥解密<br>
+4）寄存器密钥扩展和解密</p>
+<h4 id="工作流程寄存器">工作流程(寄存器)</h4>
+<p>1）工作模式<br>
+AES使能，然后配置寄存器AESCR.MODE，用于确定工作模式。CBC、CTR、GCM还需要配置AESIVRx寄存器。<br>
+2）使能<br>
+模式1、3、4，AES模块等待软件往AESDIN寄存器写入输入数据。<br>
+3）标志位<br>
+标志AESIF.CCF置1，产生一个中断信号。<br>
+4）DMA模式<br>
+AESCR.DMAOUTEN=I和AESCR.DMAINEN=1。AES配合DMA连续处理数据。</p>
+<h3 id="数据流处理">数据流处理</h3>
+<p>1)ECB：每个模块单独加密<br>
+2)CBC：<br>
+每个block的明文数据与前一block的加密结果异或后作为加密的数据输入。<br>
+加密时异或操作在加密前而解密时异或操作在加密后。<br>
+3)暂停模式<br>
+更高优先级的数据需要处理。CPU参与的模式下可用， DMA模式下不可用。数据在一个block的结果被读完后暂停。<br>
+4)CTR模式<br>
+一个32bit的计数器和一个随机数被用作加解密模块的输入。结果与明文数据进行异或。</p>
+<p>数据类型<br>
+AES一次读写32bit数据，每32bit可以根据AESCR.DATATYPE[1:0]寄存器的设置按照不同的方式交换数据的顺序。</p>
+<h3 id="工作流程">工作流程</h3>
+<h4 id="模式1">模式1：</h4>
+<p>1、AESEN=0， 复位AES模块<br>
+2、设置模式寄存器AESCR.MODE[1:0]=00，<br>
+3、设置流数据处理模式寄存器AESCR.CHMOD[1:0]<br>
+4、写AESKEYx寄存器，<br>
+5、CTR和CBC模式下写AESIVRx寄存器<br>
+6、写AESEN=1，使能AES<br>
+7、写AESDIN寄存器4次<br>
+8、等待AESIF.CCF标志置起<br>
+9、从AESDOUT分4次读出加密结果<br>
+10、对于同一个key，重复步骤5,6,7对接下来的128bit block进行加密</p>
+<h4 id="模式2">模式2：</h4>
+<p>1、AESEN=0，复位AES模块<br>
+2、设置模式寄存器AESCR.MODE[1:0]=01,流数据处理模式寄存器随意<br>
+3、写AESKEYx寄存器<br>
+4、写AESCE=1,使能AES<br>
+5、等待AESIF.CCF标志位置起<br>
+6、清除AESIF.CCF标志，扩展完的key自动写会AESKEYx寄存器。需要可以读取AESKEYx寄存器结果。想要重新扩展密钥，重复3,4,5,6。</p>
+<h4 id="模式3解密">模式3：解密</h4>
+<p>1、AESCN=0，复位AES模块<br>
+2、设置模式寄存器AESCR.MODE[1:0]=10，设置流数据处理模式寄存器AESCR.CHMOD[1:0]<br>
+3、写AESKEYx寄存器，CTR和CBC模式下写AESIVRx寄存器<br>
+4、写AESEN=1，使能AES<br>
+5、写AESDIN寄存器4次<br>
+6、等待AESIF.CCF标志置起<br>
+7、从AESDOUT分4次读出解密结果<br>
+8、对于同一个key，重复步骤5,6,7对接下来的128bit block进行解密</p>
+<h4 id="模式4密钥扩展解密">模式4：密钥扩展+解密</h4>
+<p>1、AESEN=0， 复位AES模块<br>
+2、设置模式寄存器AESCR.MODE[1:0]=11，设置流数据处理模式寄存器AESCR.CHMOD[1:0]。该模式在CTR模式下被禁止使用。如果设置AESCR.MODE[1:0]=11， AESCR.CHMOD[1:0]=10，将强制进入CTR解密模式。<br>
+3、写AESKEYx寄存器， CBC模式下写AESIVRx寄存器。<br>
+4、写AESEN =1，使能AES<br>
+5、写AESDIN寄存器4次<br>
+6、等待AESIF.CCF标志置起<br>
+7、从AESDOUT分4次读出解密结果<br>
+8、对于同一个key，重复步骤5,6,7对接下来的128bit block进行解密<br>
+注意：该模式下AESKEYx寄存器内存储的一直是加密密钥，扩展密钥每次都会在内部被重新计算而不会被存储到AESKEYx寄存器中。</p>
+<p>工作流程<br>
+输入的请求通道：当AESCR.DMAIEN为1时，每当AES在需要输入数据写入AESDIN寄存器的时候发起一个DMA的请求。<br>
+输出的请求通道：当AESCR.DMAOEN为1时，每当AES在需要从AESDOUT寄存器输出数据的时候发起一个DMA的请求。</p>
+<p>寄存器<br>
+AESCR：AES控制寄存器<br>
+AESIF：AES中断寄存器<br>
+AESDIN：AES数据输入寄存器<br>
+AESDOUT：AES数据输出寄存器<br>
+AESKEY0-7：AES密钥寄存器0-7<br>
+AESIVR0-3：AES初始向量寄存器<br>
+寄存器操作看数据手册</p>
+<h3 id="库函数分析">库函数分析</h3>
+<h4 id="aes结构体">AES结构体：</h4>
+<p>typedef struct<br>
+{<br>
+uint32_t    KEYLEN;        //AES加密密钥长度，AESEN=1时不可修改<br>
+uint32_t    CHMOD;        //AES数据流处理模式，AESEN=1时不可修改<br>
+uint32_t    MODE;         //AES工作模式，AESEN=1时不可修改<br>
+uint32_t    DATATYP;       //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节<br>
+FunState    DMAOEN;        //DMA数据自动读出使能<br>
+FunState    DMAIEN;        //DMA数据自动写入使能<br>
+FunState    ERRIE;        //错误标志（RDERR和WRERR）中断使能<br>
+FunState    CCFIE;        //CCF标志中断使能<br>
+FunState    AESEN;        //AES使能<br>
+}AES_InitTypeDef;</p>
+<h4 id="库函数">库函数：</h4>
+<pre><code>1、配置AES加密密钥长度(仅AESEN=0时有效)
+void AES_AESCR_KEYLEN_Set(uint32_t SetValue)  
+2、获取AES加密密钥长度配置(仅AESEN=0时有效)
+uint32_t AES_AESCR_KEYLEN_Get(void)
+3、配置DMA自动读数据使能(工作模式1,3,4有效)
+void AES_AESCR_DMAOEN_Setable(FunState NewState)
+4、获取DMA自动读数据使能配置(工作模式1,3,4有效)
+FunState AES_AESCR_DMAOEN_Getable(void)
+5、配置DMA自动写数据使能(工作模式1,3,4有效)
+void AES_AESCR_DMAIEN_Setable(FunState NewState)
+6、获取DMA自动写数据使能配置(工作模式1,3,4有效)
+FunState AES_AESCR_DMAIEN_Getable(void)
+7、配置错误标志（RDERR和WRERR）中断使能
+void AES_AESCR_ERRIE_Setable(FunState NewState)
+8、获取错误标志（RDERR和WRERR）中断使能配置
+FunState AES_AESCR_ERRIE_Getable(void)
+9、配置CCF标志中断使能
+void AES_AESCR_CCFIE_Setable(FunState NewState)
+10、获取CCF标志中断使能配置
+FunState AES_AESCR_CCFIE_Getable(void)
+11、清除错误标志
+void AES_AESCR_ERRC_Clr(void)
+12、清除CCF标志
+void AES_AESCR_CCFC_Clr(void)
 
-a 数组的 10 个元素分别是：a[0]，a[1],  a[2]......a[9]
-</code></pre>
-<p>数组元素下标范围取值范围在[0, n)之间，其中 n 为数组元素个数，这个数组将在内存中占用 40B 的连续存储空间。</p>
-<h2 id="二-内存分布">二、内存分布</h2>
-<p><strong>数组在内存中的存储方式</strong></p>
-<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtQ8QIPf25Hcygz3eCYWcjuyASEUSQh4JdDYZPKtm92AaxBQLQLNXrWZPWGcuxXLhut1dpPV2tG6qw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
-<p align=center>(一维数组存储方式)</p>
-<pre><code class="language-c">int array[5];
+13、配置AES数据流处理模式(AESEN=0时有效)
+void AES_AESCR_CHMOD_Set(uint32_t SetValue)
+14、获取AES数据流处理模式
+uint32_t AES_AESCR_CHMOD_Get(void)
+15、配置AES工作模式(AESEN=0时有效)
+void AES_AESCR_MODE_Set(uint32_t SetValue)
+16、获取AES工作模式
+uint32_t AES_AESCR_MODE_Get(void)
+17、配置AES数据类型(AESEN=0时有效)
+void AES_AESCR_DATATYP_Set(uint32_t SetValue)
+18、获取AES数据类型配置
+uint32_t AES_AESCR_DATATYP_Get(void)
+19、配置AES功能使能(清除AESEN位都能够复位AES模块)
+void AES_AESCR_AESEN_Setable(FunState NewState)
+20、获取AES功能使能配置
+FunState AES_AESCR_AESEN_Getable(void)
+21、获取AES写错误标志
+FlagStatus AES_AESIF_WRERR_Chk(void)
+22、获取AES读错误标志
+FlagStatus AES_AESIF_RDERR_Chk(void)
+23、获取AES计算完成标志
+FlagStatus AES_AESIF_CCF_Chk(void)
+24、配置AES数据输入寄存器，当AES需要输入加解密数据时，应该往该寄存器连续写4次 
+void AES_AESDIN_Write(uint32_t SetValue)
+25、获取AES数据输入寄存器内容
+uint32_t AES_AESDIN_Read(void)
+26、配置AES数据输出寄存器
+void AES_AESDOUT_Write(uint32_t SetValue)
+27、获取AES数据输出寄存器(当AES计算完成后，可以分四次读出加解密的结果)
+uint32_t AES_AESDOUT_Read(void)
+28、配置AES为缺省值
+void AES_Deinit(void)
+29、加解密密钥输入(key0存放密钥最低32bit)
+void AES_AESKEY_WriteEx(uint8_t *KeyIn, uint8_t Len)
+30、加解密密钥输出，第一个字存放密钥最低32bit
+void AES_AESKEY_ReadEx(uint8_t *KeyOut, uint8_t Len)
+31、初始向量输入
+void AES_AESIVR_WriteEx(uint8_t *IVRIn)
+32、初始向量读取
+void AES_AESIVR_ReadEx(uint8_t *IVROut)
+33、加解密数据输入，16字节（128bit）分组数据输入
+void AES_AESDIN_GroupWrite_128BIT(uint8_t *DataIn)
 
-array 数组应该有 5 个元素：array[0]、array[1]、array[2]、array[3]、array[4];
-
-此时，我们的考虑，array[0]、array[4] 的前面 array[-1]、后面 array[5] 是否还有内存空间，还能访问到吗？
+34、加解密数据输出，16字节（128bit）分组数据输出
+void AES_AESDOUT_GroupRead_128BIT(uint8_t *DataOut)
+35、uint8_t AES_GroupWriteAndRead_128BIT(uint8_t *DataIn, uint8_t *DataOut)
+36、AES模块初始化函数
+void AES_Init(AES_InitTypeDef* para)
 </code></pre>
-<p><strong>逻辑上不存在，物理上存在！！！</strong></p>
-<p><strong>数组的定义仅仅约束的是人的思想，根本无法约束计算机的行为，关于数组下标越界，只是一个传说！</strong></p>
-<p><strong>C 语言编译软件是不能发现“下标越界”的错误的！这意味着：“下标越界”这种错误完全需要靠程序员非常高的编程素养来避免！</strong></p>
-<h2 id="三-常见操作">三、常见操作</h2>
-<h3 id="31-数组元素的遍历">3.1 数组元素的遍历</h3>
-<p>对于数组中的元素，进行不重复、无遗漏的一次性访问。</p>
-<p>下面几种错误的输出方式：</p>
-<p>int a[10]; 元素有：a[0]......a[9]，打算输出 a 数组中的所有值。</p>
-<pre><code class="language-c">printf(&quot;%d\n&quot;, int a[10]);  //错误
-printf(&quot;%d\n&quot;, a[10]);  //这条语句被 C 语言认为，输出的是数组 a 的，下标为 10 的，第 11 个元素的值
+<p>###代码流程一（CTR加密）：<br>
+1、结构体</p>
+<pre><code>AES_InitTypeDef init_para;
 </code></pre>
-<p>对于已经定义了一个拥有 n 个元素的数组 ar；对于这个数组所有元素进行遍历的程序框架是：</p>
-<pre><code class="language-c">for(i = 0; i &lt; n; i++)
+<p>2、模块时钟</p>
+<pre><code>RCC_PERCLK_SetableEx(AESCLK, ENABLE);
+</code></pre>
+<p>3、重置AES模块</p>
+<pre><code>AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+</code></pre>
+<p>4、结构体赋值</p>
+<pre><code>init_para.KEYLEN =       
+init_para.CHMOD =         
+init_para.MODE =        
+init_para.DATATYP = 
+init_para.DMAOEN =                 
+init_para.DMAIEN =                       
+init_para.ERRIE =                       
+init_para.CCFIE =                      
+init_para.AESEN =  
+</code></pre>
+<p>5、AES初始化</p>
+<pre><code>AES_Init(&amp;init_para);
+AES_AESIVR_WriteEx(AESIvr);			CTR模式需要写AESIvr寄存器
+AES_AESCR_AESEN_Setable(ENABLE); 	启动AES
+</code></pre>
+<p>6、加密</p>
+<pre><code>PaddingPKCS7_16(DataToEncrypt, 10);
+AES_GroupWriteAndRead_128BIT(DataToEncrypt, DataOut1);
+</code></pre>
+<p>7、重置AES模块</p>
+<pre><code>AES_AESCR_AESEN_Setable(DISABLE);
+</code></pre>
+<p>代码流程二（CTR加密）：<br>
+1、重置AES模块<br>
+2、结构体赋值<br>
+3、AES初始化<br>
+4、设置密钥<br>
+AES_AESKEY_WriteEx(AESKey, 16);<br>
+5、写AESIvr<br>
+6、启动AES<br>
+7、解密数据</p>
+<pre><code>AES_GroupWriteAndRead_128BIT(DataOut1, DataOut2);
+</code></pre>
+<p>8、重置AES模块<br>
+AES_AESCR_AESEN_Setable(DISABLE);</p>
+<p>代码流程三（ECB加密、解密）<br>
+基本和CTR一样，唯一改变的是结构体中的MODE选型改为AES_AESCR_MODE_ENCRYPT</p>
+<p>完整函数代码</p>
+<pre><code>AES_CTR.c
+void Test_AES_CTR(void)
 {
-    ...ar[i]...
+    uint08 DataToEncrypt[16] = &quot;1234567890&quot;;
+    uint08 AESKey[16] = &quot;0000000000000001&quot;;
+    uint08 AESIvr[16] = &quot;0000000000000002&quot;;
+    uint08 DataOut1[16];
+    uint08 DataOut2[16];
+
+    AES_InitTypeDef init_para;
+
+    //打开模块时钟
+    RCC_PERCLK_SetableEx(AESCLK, ENABLE);
+
+    //加密测试
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+    init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;      // AES加密密钥长度，AESEN=1时不可修改
+    init_para.CHMOD = AES_AESCR_CHMOD_CTR;           // AES数据流处理模式，AESEN=1时不可修改
+    init_para.MODE = AES_AESCR_MODE_ENCRYPT;         // AES工作模式，AESEN=1时不可修改
+    init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX; //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节
+    init_para.DMAOEN = DISABLE;                      // DMA数据自动读出使能
+    init_para.DMAIEN = DISABLE;                      // DMA数据自动写入使能
+    init_para.ERRIE = DISABLE;                       //错误标志（RDERR和WRERR）中断使能
+    init_para.CCFIE = DISABLE;                       // CCF标志中断使能
+    init_para.AESEN = DISABLE;                       // AES使能
+
+    AES_Init(&amp;init_para); //配置AES
+
+    AES_AESKEY_WriteEx(AESKey, 16);  //设置密钥
+    AES_AESIVR_WriteEx(AESIvr);      // CTR和CBC模式下写AES_IVRx寄存器
+    AES_AESCR_AESEN_Setable(ENABLE); //启动AES
+
+    //加密数据
+    PaddingPKCS7_16(DataToEncrypt, 10);
+    AES_GroupWriteAndRead_128BIT(DataToEncrypt, DataOut1);
+
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+    //解密测试
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+
+    init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;      // AES加密密钥长度，AESEN=1时不可修改
+    init_para.CHMOD = AES_AESCR_CHMOD_CTR;           // AES数据流处理模式，AESEN=1时不可修改
+    init_para.MODE = AES_AESCR_MODE_ENCRYPT;         // AES工作模式，AESEN=1时不可修改//CTR模式的解密就是再做一次加密
+    init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX; //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节
+    init_para.DMAOEN = DISABLE;                      // DMA数据自动读出使能
+    init_para.DMAIEN = DISABLE;                      // DMA数据自动写入使能
+    init_para.ERRIE = DISABLE;                       //错误标志（RDERR和WRERR）中断使能
+    init_para.CCFIE = DISABLE;                       // CCF标志中断使能
+    init_para.AESEN = DISABLE;                       // AES使能
+
+    AES_Init(&amp;init_para);            //配置AES
+    AES_AESKEY_WriteEx(AESKey, 16);  //设置密钥
+    AES_AESIVR_WriteEx(AESIvr);      // CTR和CBC模式下写AES_IVRx寄存器
+    AES_AESCR_AESEN_Setable(ENABLE); //启动AES
+
+    //解密数据
+    AES_GroupWriteAndRead_128BIT(DataOut1, DataOut2);
+
+    AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
 }
 </code></pre>
-<ul>
-<li>总是从下标为 0 的元素开始遍历；</li>
-<li>下标总是连续变化，这意味着，对数据的遍历是连续的，不跳跃，不重复；</li>
-</ul>
-<p>数据存储在数组中需要满足的 3 个条件：</p>
-<ol>
-<li>从下标为 0 的第一个元素（首元素）开始存放；</li>
-<li>连续存放；</li>
-<li>上述两个特点必须保持动态满足（意思是：无论删除还是插入数据，在删除或插入数据后，依然要满足上述两个基本条件）；</li>
-</ol>
-<p><strong>对于数组的编程，主要考虑的是下标，或者可以说：玩数组就是玩下标。</strong></p>
-<h3 id="32-数组赋初值">3.2 数组赋初值</h3>
-<p>数组赋初值操作仅能发生在数组定义语句未结束时。</p>
-<pre><code class="language-c">int a[5] = {1, 2, 3, 4, 5};
-int a[5] = {1, 2, 3, 4, 5, 6}; //语法错误
-int a[5] = {1, 2, 3}; //不完全赋初值：初值个数少于所申请的数组元素个数，则从下标为 0 的元素开始，前面连续若干个元素被赋初值，其余元素的值被 C 语言统一赋值为 0(不是垃圾数据)
-int a[100] = {1};
-int a[5] = {}; //语法错误
-int a[]; //语法错误，不能形成有效的数据类型（长度不定）
-int a[] = {1, 2, 3, 4, 5, 6, 7}; //定义数组，不明确声明数组元素个数，但赋初值；则，数组元素个数取决于初值个数
-</code></pre>
-<h2 id="四-二维数组">四、二维数组</h2>
-<h3 id="41-本质">4.1 本质</h3>
-<pre><code class="language-c">int a[3][4]; //3行4列；
-</code></pre>
-<p><strong>计算机内存根本就没有二维及多维数组，因为内存是一维，线性管理的。</strong></p>
-<h3 id="42-内存映像图">4.2 内存映像图</h3>
-<div align=center><img src='https://mmbiz.qpic.cn/mmbiz_jpg/iaumSdLKJXtQ8QIPf25Hcygz3eCYWcjuyVuwWHcQYXYc4OEt3YCk4uiaBYN2vhtLibiaVQ3UaskYYX52YeIo2ib1x2Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'></div>
-<p align=center>(二维数组存储方式)</p>
-<h3 id="43-二维数组赋初值">4.3 二维数组赋初值</h3>
-<pre><code class="language-c">int a[3][4] = {
-    {1, 2, 3, 4},
-    {5, 6, 7, 8},
-    {9, 10, 11, 12},
-};  //二维数组是集合的集合；
+<p>AES_ECB.c</p>
+<pre><code>void Test_AES_ECB(void)
+{
+    uint08 DataToEncrypt[16] = &quot;1234567890&quot;;
+    //uint08 AESKey[16] = &quot;1234567890123456&quot;;
+    uint08 AESKey[16] = &quot;0000000000000001&quot;;
+    uint08 AESIvr[16] = &quot;0000000000000002&quot;;
+    uint08 DataOut1[16];
+    uint08 DataOut2[16];
+    
+    AES_InitTypeDef init_para;
+    
+    //打开模块时钟
+    RCC_PERCLK_SetableEx(AESCLK, ENABLE);
+    
+    //加密测试
+    AES_AESCR_AESEN_Setable(DISABLE);//重置AES模块
+    
+    init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;             //AES加密密钥长度，AESEN=1时不可修改
+    init_para.CHMOD = AES_AESCR_CHMOD_ECB;                  //AES数据流处理模式，AESEN=1时不可修改
+    init_para.MODE = AES_AESCR_MODE_ENCRYPT;                //AES工作模式，AESEN=1时不可修改
+    init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX;        //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节    
+    init_para.DMAOEN = DISABLE;     //DMA数据自动读出使能
+    init_para.DMAIEN = DISABLE;     //DMA数据自动写入使能
+    init_para.ERRIE = DISABLE;      //错误标志（RDERR和WRERR）中断使能
+    init_para.CCFIE = DISABLE;      //CCF标志中断使能
+    init_para.AESEN = DISABLE;      //AES使能 
+    
+    AES_Init(&amp;init_para);           //配置AES
+    AES_AESKEY_WriteEx(AESKey,16);  //设置密钥
+    AES_AESIVR_WriteEx(AESIvr);     //CTR和CBC模式下写AES_IVRx寄存器
+    AES_AESCR_AESEN_Setable(ENABLE);//启动AES
+    
+    //加密数据
+    PaddingPKCS7_16(DataToEncrypt,10);
+    AES_GroupWriteAndRead_128BIT(DataToEncrypt, DataOut1);
+    
+    AES_AESCR_AESEN_Setable(DISABLE);//重置AES模块
+//////////////////////////////////////////////////////
+    
+    //解密测试
+AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
 
-int a[3][4] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}; //二维数组的本质还是一维的了；
-</code></pre>
-<pre><code class="language-c">int a[3][4] = {{1}, {2}, {3}, {4}}; //语法错误，初始化数据个数过多；
-int a[3][4] = {{}, {1}}; //语法错误；
+init_para.KEYLEN = AES_AESCR_KEYLEN_128BIT;      // AES加密密钥长度，AESEN=1时不可修改
+init_para.CHMOD = AES_AESCR_CHMOD_ECB;           // AES数据流处理模式，AESEN=1时不可修改
+init_para.MODE = AES_AESCR_MODE_KEYEXPDECRYPT;   // AES工作模式，AESEN=1时不可修改//解密时需要先扩展密钥，或者直接使用“密钥扩展+解密”模式
+init_para.DATATYP = AES_AESCR_DATATYP_32BITNOEX; //选择数据类型，AESEN=1时不可修改。具体交换规则可参考AES数据类型章节
+init_para.DMAOEN = DISABLE;                      // DMA数据自动读出使能
+init_para.DMAIEN = DISABLE;                      // DMA数据自动写入使能
+init_para.ERRIE = DISABLE;                       //错误标志（RDERR和WRERR）中断使能
+init_para.CCFIE = DISABLE;                       // CCF标志中断使能
+init_para.AESEN = DISABLE;                       // AES使能
 
-int a[][4] = {...};
-int a[][4][5] = {...};  //这种缺省的数组初始化是正确的；
-</code></pre>
-<h3 id="44-二维数组的遍历">4.4 二维数组的遍历</h3>
-<pre><code class="language-c">for(i = 0; i &lt; row; i++){
-    for(j = 0; j &lt; col; j++){
-            ...a[i][j]...
-    }
+AES_Init(&amp;init_para);            //配置AES
+AES_AESKEY_WriteEx(AESKey, 16);  //设置密钥
+AES_AESIVR_WriteEx(AESIvr);      // CTR和CBC模式下写AES_IVRx寄存器
+AES_AESCR_AESEN_Setable(ENABLE); //启动AES
+
+//解密数据
+AES_GroupWriteAndRead_128BIT(DataOut1, DataOut2);
+
+AES_AESCR_AESEN_Setable(DISABLE); //重置AES模块
+}
 }
 </code></pre>
-<h2 id="五-字符数组与字符串">五、字符数组与字符串</h2>
-<h3 id="51-字符串">5.1 字符串</h3>
-<p>以 0 结束的字符数组,<strong>这里的 0，就是数字 0，不是字符零 '0'，其ASCII 码值为 48。</strong></p>
-<pre><code class="language-c">&quot;abcdef&quot;
-012345
-printf(&quot;%c\n&quot;, &quot;abcdef&quot;[3]);
-</code></pre>
-<pre><code class="language-c">char s[5] = {'A', 'B', 'C', 'D', 'E'}; //字符数组
-char s[5] = {'A', 'B', 'C', 'D', '0'}; //字符数组
-char s[5] = {'A', 'B', 'C', 'D', 0}; //字符串
-char s[5] = &quot;ABCD&quot;; //字符串
-char s[5] = {'A', 'B', 'C', 'D'}; //字符串
-</code></pre>
-<p><strong>字符串常量（&quot;&quot;，所括起来的内容）的最后，一定存在着一个看不见的 0 结束标志！</strong></p>
-<pre><code class="language-c">char s[6] = &quot;abcdef&quot;;  //语法错误，最后有一个 0 结束标志；
-</code></pre>
-<h3 id="52-运算符sizeof">5.2 运算符：sizeof()</h3>
-<p>它是一个运算符，而非函数！！！，是一个单目运算符，其运算优先级在单目运算符中最低。</p>
-<h4 id="521-sizeof的用法">5.2.1 sizeof()的用法</h4>
-<h5 id="5211-sizeof数据类型名称">5.2.1.1 sizeof(数据类型名称)</h5>
-<p>sizeof(int)、sizeof(float)、sizeof(char)，其计算结果：<strong>相关数据类型所占用的内存空间的字节数。</strong></p>
-<h5 id="5212-sizeof变量名称或数组名称">5.2.1.2 sizeof(变量名称或数组名称)</h5>
-<pre><code class="language-c">char a;
-double b;
-short c[100];
-
-sizeof(a) ==&gt; 1B
-sizeof(b) ==&gt; 8B
-sizeof(c) ==&gt; 200B
-</code></pre>
-<h5 id="5213-sizeof字符串常量">5.2.1.3 sizeof(字符串常量)</h5>
-<pre><code class="language-c">sizeof(&quot;abcde&quot;) ==&gt; 6B;
-</code></pre>
-<p>其运算结果：<strong>该字符串常量在内存中所占用的字节数（该数值是字符串长度+1，这个 1B 就是 0 结束标志！）</strong></p>
-<h3 id="53-strlen函数">5.3 strlen()函数</h3>
-<p><strong>是用来计算字符串长度。</strong></p>
-<p>若要调用 strlen() 函数，则必须在程序的最开始加上：#include&lt;string.h&gt;。</p>
-<pre><code class="language-c">printf(&quot;%d\n&quot;, strlen(&quot;abcdefg&quot;));  //结果为7
-</code></pre>
-<p>对于字符串的处理：<strong>遇 0 则止（调用字符串函数）</strong></p>
-<h3 id="54-总结">5.4 总结</h3>
-<ul>
-<li>sizeof() 是计算所占用的空间字节大小；</li>
-<li>strlen() 是计算字符串数组的长度，遇 0 则止；</li>
-</ul>
-<p>本篇文章仅仅是数组入门，对于数组的本质掌握是非常的关键，尤其在跟指针的结合，理解，打好基础，进阶提升。</p>
 
             </div>
             
@@ -786,7 +945,7 @@ sizeof(c) ==&gt; 200B
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://bingery111.github.io/post/c-yu-yan-zhi-zhen/" title="（C语言）指针">https://bingery111.github.io/post/c-yu-yan-zhi-zhen/</a>
+      <a href="https://bingery111.github.io/post/fu-dan-wei-fm33g048-xue-xi-bi-ji-1-aes/" title="复旦微FM33G048学习笔记1-AES">https://bingery111.github.io/post/fu-dan-wei-fm33g048-xue-xi-bi-ji-1-aes/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -799,15 +958,11 @@ sizeof(c) ==&gt; 200B
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="xshell报错情况" href="https://bingery111.github.io/post/xshell-bao-cuo-qing-kuang/">xshell报错情况</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="xshell报错情况" href="https://bingery111.github.io/post/xshell-bao-cuo-qing-kuang/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Linux常用命令" href="https://bingery111.github.io/post/linux-chang-yong-ming-ling/">Linux常用命令</a>
-        <a class="nav-mobile-next" title="Linux常用命令" href="https://bingery111.github.io/post/linux-chang-yong-ming-ling/">下一篇</a>
+        <a class="nav-pc-next" title="考研英语例句" href="https://bingery111.github.io/post/kao-yan-ying-yu-li-ju/">考研英语例句</a>
+        <a class="nav-mobile-next" title="考研英语例句" href="https://bingery111.github.io/post/kao-yan-ying-yu-li-ju/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
